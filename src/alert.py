@@ -75,12 +75,32 @@ def _build_tldr(model: dict) -> dict:
         return {}
 
     new_buys = [r["ticker"] or r["issuer"] for r in model.get("new_buys", []) if r.get("ticker") or r.get("issuer")]
-    exits = [r["ticker"] or r["issuer"] for r in model.get("exits", []) if r.get("ticker") or r.get("issuer")]
+
+    # Deduplicate exits by name (same company can appear twice if its CUSIP
+    # changed across quarters), then sort largest-exited position first.
+    # Exclude issuers that still have an active common-stock position — this
+    # happens when a CUSIP changed (e.g. corporate action) across quarters.
+    _active_names = {
+        (r.get("ticker") or r.get("issuer") or "").strip()
+        for r in model.get("common_stock", [])
+    }
+    _exit_by_name: dict[str, int] = {}
+    for r in model.get("exits", []):
+        name = (r.get("ticker") or r.get("issuer") or "").strip()
+        if not name or name in _active_names:
+            continue
+        peak = max(r.get("shares_by_quarter") or [0])
+        _exit_by_name[name] = max(_exit_by_name.get(name, 0), peak)
+    exits_sorted = sorted(_exit_by_name, key=lambda n: _exit_by_name[n], reverse=True)
+
+    # Fix: parentheses required — without them `or r.get("issuer")` makes every
+    # position with an issuer pass the filter regardless of status.
     strong_adds = [
         r["ticker"] or r["issuer"]
         for r in model.get("common_stock", [])
-        if r.get("status") in ("strong_add", "new_add") and r.get("ticker") or r.get("issuer")
-        and r.get("status") not in ("new_buy",)  # new_buys already covered
+        if r.get("status") in ("strong_add", "new_add")
+        and (r.get("ticker") or r.get("issuer"))
+        and r.get("status") not in ("new_buy",)
     ]
     puts = [
         r["ticker"] or r["underlying"]
@@ -90,10 +110,10 @@ def _build_tldr(model: dict) -> dict:
 
     return {
         "quarter": model.get("summary", {}).get("latest_quarter", ""),
-        "new_buys": new_buys[:8],
-        "strong_adds": strong_adds[:6],
-        "exits": exits[:6],
-        "puts_shorts": puts[:6],
+        "new_buys": new_buys[:10],
+        "strong_adds": strong_adds[:10],
+        "exits": exits_sorted[:10],
+        "puts_shorts": puts[:10],
         "total_value": model.get("summary", {}).get("common_stock_long_exposure_usd"),
         "top_positions": model.get("common_stock", [])[:5],
     }
