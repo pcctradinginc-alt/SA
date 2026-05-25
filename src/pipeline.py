@@ -7,7 +7,8 @@ Subcommands (see ``python -m src.pipeline --help``):
   discover           Run news/primary-source discovery; emit statement events.
   analyze            Rebuild the position model and regenerate README.md.
   digest             Render the email and send it (or save a preview).
-  run                Full pipeline (fetch -> discover -> verify -> analyze -> digest).
+  alert              Check for new high-signal events; send alert email if any.
+  run                Full pipeline (fetch -> discover -> verify -> analyze -> digest -> alert).
 """
 from __future__ import annotations
 
@@ -17,9 +18,11 @@ import glob
 from .config import load_config, Config
 from .utils import get_logger, read_json, utc_now_iso, write_json
 from .sources import sec, entity_resolution, discovery
+from .sources import rss_news
 from .parsers import parse_13f, parse_public_statement
 from .analysis import positions, cusip_map
 from . import events
+from . import alert as alert_mod
 from .render import render_readme, render_email
 from . import notify
 
@@ -73,7 +76,12 @@ def step_fetch(cfg: Config) -> None:
 
 
 def step_discover(cfg: Config) -> None:
-    items = discovery.from_google_alerts(cfg) + discovery.from_blog(cfg) + discovery.from_x(cfg)
+    items = (
+        discovery.from_google_alerts(cfg)
+        + discovery.from_blog(cfg)
+        + discovery.from_x(cfg)
+        + rss_news.from_all_curated(cfg)  # free curated sources: Google News, HN, Reddit
+    )
     n = 0
     for item in items:
         stmt = parse_public_statement.extract_statement(item)
@@ -114,6 +122,16 @@ def step_digest(cfg: Config, model: dict, signal: dict | None = None) -> None:
     notify.send_email(cfg, subject, html)
 
 
+def step_alert(cfg: Config) -> int:
+    """Send an immediate alert if new high-signal events exist. Returns event count."""
+    found = alert_mod.check_and_alert(cfg)
+    if found:
+        log.info("Alert step: %d new event(s) triggered an alert.", found)
+    else:
+        log.info("Alert step: nothing new to alert on.")
+    return found
+
+
 def step_run(cfg: Config) -> None:
     step_fetch(cfg)
     step_discover(cfg)
@@ -122,6 +140,7 @@ def step_run(cfg: Config) -> None:
     open_stmts = [e for e in events.load_events(cfg) if e.get("verification_status") == events.OPEN]
     signal = open_stmts[-1] if open_stmts else None
     step_digest(cfg, model, signal)
+    step_alert(cfg)
 
 
 # ── CLI ─────────────────────────────────────────────────────────────────────--
@@ -129,7 +148,7 @@ def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(description="Situational Awareness Tracker")
     parser.add_argument("--config", default=None, help="Path to config.yaml")
     sub = parser.add_subparsers(dest="command", required=True)
-    for name in ("resolve-entities", "fetch", "discover", "analyze", "digest", "run"):
+    for name in ("resolve-entities", "fetch", "discover", "analyze", "digest", "alert", "run"):
         sub.add_parser(name)
     args = parser.parse_args(argv)
     cfg = load_config(args.config)
@@ -143,7 +162,10 @@ def main(argv: list[str] | None = None) -> None:
     elif args.command == "analyze":
         step_analyze(cfg)
     elif args.command == "digest":
-        step_digest(cfg, step_analyze(cfg))
+        model = step_analyze(cfg)
+        step_digest(cfg, model)
+    elif args.command == "alert":
+        step_alert(cfg)
     elif args.command == "run":
         step_run(cfg)
 
