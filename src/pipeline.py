@@ -82,9 +82,18 @@ def step_discover(cfg: Config) -> None:
         + discovery.from_x(cfg)
         + rss_news.from_all_curated(cfg)  # free curated sources: Google News, HN, Reddit
     )
+    use_llm = cfg.llm_validate_statements
+    extractor = (
+        lambda item: parse_public_statement.extract_statement_with_llm(item, model=cfg.llm_model)
+        if use_llm
+        else parse_public_statement.extract_statement
+    )
+    if use_llm:
+        log.info("LLM validation enabled (model=%s).", cfg.llm_model)
+
     n = 0
     for item in items:
-        stmt = parse_public_statement.extract_statement(item)
+        stmt = extractor(item)
         if not stmt:
             continue
         src_class = events.PRIMARY_SOURCE if item.source_kind in {"blog", "x"} else events.MEDIA_REPORTED
