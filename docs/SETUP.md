@@ -1,3 +1,4 @@
+[SETUP.md](https://github.com/user-attachments/files/28212749/SETUP.md)
 # Setup & operation guide
 
 This is the permanent setup reference. The repository's `README.md` is a
@@ -90,8 +91,9 @@ Set these locally (`export VAR=...`) or as GitHub **repository secrets** (§7).
 | `BLOG_FEEDS` | Comma-separated primary-source RSS URLs | optional |
 | `X_BEARER_TOKEN` | X/Twitter API token (free tier can't read timelines) | optional |
 
-The digest always writes a preview to `examples/last_email.html`, so you can
-verify the design before enabling real sending.
+The digest always writes a preview to `examples/last_email.html`, and the
+alert writes to `examples/last_alert.html`, so you can verify both designs
+before enabling real sending.
 
 ---
 
@@ -109,29 +111,72 @@ layout so it survives Gmail/Outlook/Apple Mail. Preview: open
 
 ---
 
-## 7. Scheduling on GitHub Actions
+## 7. Alert emails
 
-Three workflows are included (`.github/workflows/`):
+Enable the alert system to receive an **immediate email** the moment a new
+signal is detected, instead of waiting for the next scheduled digest.
+
+**What triggers an alert:**
+- A new SEC filing (13F, 13D/G) arrives — confidence 1.0, always triggered.
+- A news / blog mention matches an investment, sell, announce, or highlight
+  keyword — only if the item clears `alert.min_confidence` (default 0.5).
+
+**Signal categories detected:**
+| Category | Example matched phrases |
+| --- | --- |
+| `invest` | "invested in", "backed", "series A", "building a position" |
+| `sell` | "sold stake", "exited", "trimmed position", "divested" |
+| `announce` | "new fund", "raising capital", "first close", "press release" |
+| `highlight` | "bullish on", "high conviction", "key player", "compelling opportunity" |
+
+**To activate:**
+1. In `config.yaml`, set `alert.enabled: true`.
+2. Ensure the SMTP secrets are configured (same as the digest — §5).
+3. Optionally tune `alert.min_confidence` (lower = more alerts, higher = fewer).
+
+**Free curated news sources** (no API keys required, active by default):
+- **Google News RSS** — four targeted search queries for "Leopold Aschenbrenner"
+- **HackerNews RSS** via hnrss.org
+- **Reddit RSS** — r/MachineLearning, r/investing, r/agi
+
+These are supplemented by any optional `GOOGLE_ALERT_FEEDS` / `BLOG_FEEDS`
+you set in §5.
+
+Preview the alert design (without sending) by running:
+```bash
+python -m src.pipeline discover
+python -m src.pipeline alert    # writes examples/last_alert.html
+```
+
+---
+
+## 8. Scheduling on GitHub Actions
+
+Four workflows are included (`.github/workflows/`):
 
 | Workflow | Cadence | Command |
 | --- | --- | --- |
+| `alert` | **every hour** at :12 | discover → alert |
 | `news-and-digest` | ~09:17 & 17:17 Europe/Berlin | discover → analyze → digest |
 | `filings` | once daily | fetch → analyze |
 | `entity-and-adv` | weekly (Mon) | resolve-entities |
 
 Notes:
+- The `alert` workflow runs every hour and sends an email only when new
+  signals are found. State is committed back (`data/state/alert_state.json`)
+  to prevent duplicate sends across runs.
 - GitHub cron is **UTC** and not minute-exact. The news workflow fires at four
   UTC times and a **Berlin-local guard step** lets it proceed only at 09:00 or
   17:00 local, so DST (CET↔CEST) never double-runs it.
 - Scheduled workflows are **auto-disabled after 60 days** of no repo activity.
-  The auto-commit step keeps the repo active; if you pause, re-enable them in
+  The auto-commit steps keep the repo active; if you pause, re-enable them in
   the **Actions** tab.
 - Set secrets under **Settings → Secrets and variables → Actions**.
 - Workflows commit updated data back to the repo (`contents: write`).
 
 ---
 
-## 8. How to upload this folder to GitHub via the browser
+## 9. How to upload this folder to GitHub via the browser
 
 You don't need git installed.
 
