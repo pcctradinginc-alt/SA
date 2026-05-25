@@ -15,6 +15,9 @@ are applied automatically.
 """
 from __future__ import annotations
 
+import json
+import urllib.parse
+
 from ..config import Config
 from ..sources.discovery import DiscoveryItem, _parse_rss
 from ..utils import HttpClient, get_logger
@@ -151,10 +154,63 @@ def from_edgar_rss(cfg: Config) -> list[DiscoveryItem]:
     return out
 
 
+def from_edgar_form_d(cfg: Config) -> list[DiscoveryItem]:
+    """Search EDGAR full-text for Form D filings mentioning Situational Awareness LP.
+
+    Form D is filed by the COMPANY raising private capital. When SA LP invests
+    in a pre-IPO company (e.g. CoreWeave), that company files Form D and may
+    list SA LP as a related person / investor. This surfaces those filings.
+
+    Uses EDGAR EFTS (Electronic Full-Text Search) — no API key required.
+    """
+    client = HttpClient(cfg.sec_user_agent, cfg.sec_request_delay)
+    out: list[DiscoveryItem] = []
+    seen_accessions: set[str] = set()
+
+    queries = ['"Situational Awareness LP"', '"Situational Awareness Fund"']
+    for q in queries:
+        url = (
+            "https://efts.sec.gov/LATEST/search-index"
+            f"?q={urllib.parse.quote(q)}&forms=D&dateRange=custom&startdt=2024-01-01"
+        )
+        try:
+            text = client.get_text(url, timeout=20)
+            data = json.loads(text)
+            hits = data.get("hits", {}).get("hits", [])
+            for h in hits:
+                src = h.get("_source", {})
+                accno = src.get("accession_no", "")
+                if not accno or accno in seen_accessions:
+                    continue
+                seen_accessions.add(accno)
+                entity = src.get("entity_name", "Unknown Company")
+                file_date = src.get("file_date", "")
+                edgar_url = (
+                    "https://www.sec.gov/cgi-bin/browse-edgar"
+                    f"?action=getcompany&filenum=&State=0&SIC=&dateb=&owner=include"
+                    f"&count=1&search_text=&accession={urllib.parse.quote(accno)}"
+                )
+                out.append(DiscoveryItem(
+                    title=f"Form D: {entity} — SA LP mentioned",
+                    excerpt=(
+                        f"Private placement: {entity} filed Form D on {file_date}. "
+                        f"Situational Awareness LP appears as investor/related person."
+                    ),
+                    url=edgar_url,
+                    source_kind="edgar_rss",
+                ))
+        except Exception as exc:  # noqa: BLE001
+            log.warning("EDGAR Form D search failed for %r: %s", q, exc)
+
+    log.info("EDGAR Form D: %d filing(s) mentioning SA LP.", len(out))
+    return out
+
+
 def from_all_curated(cfg: Config) -> list[DiscoveryItem]:
     """Fetch all curated free sources. Called from step_discover in pipeline."""
     items: list[DiscoveryItem] = []
     items.extend(from_edgar_rss(cfg))
+    items.extend(from_edgar_form_d(cfg))
     items.extend(from_nitter_x(cfg))
     items.extend(from_google_news(cfg))
     items.extend(from_hackernews(cfg))

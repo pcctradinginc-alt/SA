@@ -221,6 +221,7 @@ def build(cfg: Config, parsed_quarters: list[dict],
     latest = parsed_quarters[-1]
     quarter_labels = [p["quarter"] for p in parsed_quarters]
     report_date = latest["report_date"]
+    prev_report_date = parsed_quarters[-2]["report_date"] if len(parsed_quarters) >= 2 else None
 
     # ── common stock ─────────────────────────────────────────────────────────
     common = _collect(parsed_quarters, {COMMON_STOCK})
@@ -234,9 +235,18 @@ def build(cfg: Config, parsed_quarters: list[dict],
         info = cusip_map.resolve(s.cusip, s.issuer, overrides)
         weight = s.values[-1] / total_common_value
         shares_latest = s.shares[-1]
+        shares_prev = s.shares[-2] if len(s.shares) > 1 else 0
+        value_prev = s.values[-2] if len(s.values) > 1 else 0
 
-        q_end_price = current = None
-        price_move = est_value = est_move = None
+        # Dollar delta = net new shares × implied price this quarter.
+        # Using value_diff would mix price appreciation with actual buying —
+        # a flat position in a stock up 100% would look like a massive add.
+        implied_price = s.values[-1] / shares_latest if shares_latest > 0 else 0
+        shares_added = shares_latest - shares_prev
+        qoq_dollar_delta = round(shares_added * implied_price)
+
+        q_end_price = prev_q_end_price = current = None
+        price_move = intra_q_return = est_value = est_move = None
         if cfg.prices_enabled and info["yfinance_symbol"]:
             q_end_price = prices.quarter_end_price(info["yfinance_symbol"], report_date)
             current = prices.current_price(info["yfinance_symbol"])
@@ -244,8 +254,12 @@ def build(cfg: Config, parsed_quarters: list[dict],
                 price_move = round((current - q_end_price) / q_end_price, 4)
                 est_value = round(shares_latest * current)
                 est_move = round(shares_latest * (current - q_end_price))
+            # Backtest: price return within the reported quarter (prev Q-end → this Q-end)
+            if prev_report_date and value_prev > 0:
+                prev_q_end_price = prices.quarter_end_price(info["yfinance_symbol"], prev_report_date)
+                if prev_q_end_price and q_end_price:
+                    intra_q_return = round((q_end_price - prev_q_end_price) / prev_q_end_price, 4)
 
-        value_prev = s.values[-2] if len(s.values) > 1 else 0
         status = _status(s.shares, weight, cfg)
         row = {
             "cusip": s.cusip,
@@ -258,13 +272,15 @@ def build(cfg: Config, parsed_quarters: list[dict],
             "shares_latest": shares_latest,
             "value_latest_usd": s.values[-1],
             "value_prev_quarter_usd": value_prev,
-            "qoq_dollar_delta": s.values[-1] - value_prev,
-            "qoq_dollar_delta_m": round((s.values[-1] - value_prev) / 1_000_000, 1),
+            "qoq_dollar_delta": qoq_dollar_delta,
+            "qoq_dollar_delta_m": round(qoq_dollar_delta / 1_000_000, 1),
             "portfolio_weight_common_stock": round(weight, 4),
-            "qoq_share_change_pct": _qoq(s.shares[-2] if len(s.shares) > 1 else 0, shares_latest),
+            "qoq_share_change_pct": _qoq(shares_prev, shares_latest),
             "three_quarter_trend": _trend(s.shares),
             "has_13dg": s.cusip in cusips_with_13dg,
             "price_at_quarter_end": q_end_price,
+            "price_at_prev_quarter_end": prev_q_end_price,
+            "intra_quarter_return_pct": intra_q_return,
             "current_price": current,
             "price_change_since_quarter_end_pct": price_move,
             "estimated_current_value": est_value,
@@ -285,6 +301,33 @@ def build(cfg: Config, parsed_quarters: list[dict],
 
     common_rows.sort(key=lambda r: r["value_latest_usd"], reverse=True)
     top_signals = _build_top_signals(common_rows)
+
+    # ── signal backtest ───────────────────────────────────────────────────────
+    # For each position that was an "add" in the PREVIOUS quarter (Q(n-1)→Q(n)),
+    # measure the intra-quarter price return (prev_Q_end → current_Q_end).
+    # This validates whether last quarter's signals actually worked.
+    signal_backtest: dict = {}
+    if prev_report_date:
+        import statistics as _stats
+        prev_adds = [
+            r for r in common_rows
+            if r.get("intra_quarter_return_pct") is not None
+            and len(r["shares_by_quarter"]) >= 2
+            and r["shares_by_quarter"][-1] > (r["shares_by_quarter"][-2] if len(r["shares_by_quarter"]) > 1 else 0)
+            and r["portfolio_weight_common_stock"] >= 0.005
+        ]
+        if prev_adds:
+            returns = [r["intra_quarter_return_pct"] for r in prev_adds]
+            signal_backtest = {
+                "tested_quarter": quarter_labels[-2] if len(quarter_labels) >= 2 else prev_report_date,
+                "result_quarter": quarter_labels[-1],
+                "signal_count": len(prev_adds),
+                "hit_rate": round(sum(1 for r in returns if r > 0) / len(returns), 2),
+                "median_return_pct": round(_stats.median(returns) * 100, 1),
+                "avg_return_pct": round(sum(returns) / len(returns) * 100, 1),
+                "best": max(prev_adds, key=lambda r: r["intra_quarter_return_pct"])["ticker"],
+                "worst": min(prev_adds, key=lambda r: r["intra_quarter_return_pct"])["ticker"],
+            }
 
     # ── options ──────────────────────────────────────────────────────────────
     options = _collect(parsed_quarters, {OPTION_PUT, OPTION_CALL})
@@ -359,6 +402,7 @@ def build(cfg: Config, parsed_quarters: list[dict],
         "exits": exits,
         "options": option_rows,
         "top_signals": top_signals,
+        "signal_backtest": signal_backtest,
     }
     write_json(cfg.paths.derived / "position_table.json", model)
     return model

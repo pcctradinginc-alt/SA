@@ -85,11 +85,15 @@ def step_fetch(cfg: Config) -> None:
             shares = dg.get("aggregate_shares", "")
             pct_str = f" ({pct}% of class)" if pct else ""
             shares_str = f", {int(float(shares.replace(',', ''))):,} shares" if shares else ""
-            summary = f"{f.form}: {issuer}{pct_str}{shares_str} — filed {f.filing_date}."
+            is_amendment = f.form.endswith("/A")
+            amend_str = " [AMENDMENT]" if is_amendment else " [INITIAL]"
+            summary = f"{f.form}: {issuer}{pct_str}{shares_str}{amend_str} — filed {f.filing_date}."
+            # Amendments signal ongoing ownership changes — give them a dedicated type
+            sig_type = "ownership_13dg_amendment" if is_amendment else "ownership_13dg"
             events.append_event(cfg, events.Event(
                 event_id=f"evt_{f.filing_date}_13dg_{f.accession}",
                 timestamp=utc_now_iso(), person=cfg.person, entity=cfg.primary_name,
-                entity_cik=f.cik, signal_type="ownership_13dg",
+                entity_cik=f.cik, signal_type=sig_type,
                 source_class=events.SEC_VERIFIED, verification_status=events.VERIFIED,
                 summary=summary,
                 ticker_guess=[dg["issuer_cusip"]] if dg.get("issuer_cusip") else [],
@@ -97,6 +101,7 @@ def step_fetch(cfg: Config) -> None:
                     "kind": "sec_filing", "accession": f.accession,
                     "issuer_name": issuer, "issuer_cusip": dg.get("issuer_cusip", ""),
                     "percent_of_class": pct, "aggregate_shares": shares,
+                    "is_amendment": is_amendment,
                 }],
             ))
     log.info("Fetch complete: %d new filings.", len(new_filings))
