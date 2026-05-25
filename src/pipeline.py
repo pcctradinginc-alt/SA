@@ -1,0 +1,152 @@
+"""Orchestrator + CLI for the Situational Awareness Tracker.
+
+Subcommands (see ``python -m src.pipeline --help``):
+
+  resolve-entities   Refresh data/reference/entity_map.json from EDGAR.
+  fetch              Discover + download + parse new SEC filings; emit events.
+  discover           Run news/primary-source discovery; emit statement events.
+  analyze            Rebuild the position model and regenerate README.md.
+  digest             Render the email and send it (or save a preview).
+  run                Full pipeline (fetch -> discover -> verify -> analyze -> digest).
+"""
+from __future__ import annotations
+
+import argparse
+import glob
+
+from .config import load_config, Config
+from .utils import get_logger, read_json, utc_now_iso, write_json
+from .sources import sec, entity_resolution, discovery
+from .parsers import parse_13f, parse_public_statement
+from .analysis import positions, cusip_map
+from . import events
+from .render import render_readme, render_email
+from . import notify
+
+log = get_logger("pipeline")
+
+
+# ── helpers ─────────────────────────────────────────────────────────────────--
+def load_recent_quarters(cfg: Config, n: int) -> list[dict]:
+    """Load the most recent n parsed 13F quarters, sorted oldest -> newest."""
+    files = glob.glob(str(cfg.paths.parsed / "13f" / "*.json"))
+    parsed = [read_json(f) for f in files]
+    parsed = [p for p in parsed if p and p.get("holdings") is not None]
+    parsed.sort(key=lambda p: p.get("report_date", ""))
+    return parsed[-n:]
+
+
+def latest_tickers(cfg: Config, model: dict) -> set[str]:
+    out: set[str] = set()
+    for r in model.get("common_stock", []) + model.get("options", []):
+        if r.get("ticker"):
+            out.add(r["ticker"])
+    return out
+
+
+# ── steps ───────────────────────────────────────────────────────────────────--
+def step_fetch(cfg: Config) -> None:
+    new_filings = sec.collect_new_filings(cfg)
+    for f in new_filings:
+        if f.form.startswith("13F"):
+            d = cfg.paths.raw / "sec" / f.cik / f.accession
+            parsed = parse_13f.parse_filing(cfg, d, f.cik, f.report_date, f.accession)
+            if parsed:
+                events.append_event(cfg, events.Event(
+                    event_id=f"evt_{f.report_date}_13f_{f.accession}",
+                    timestamp=utc_now_iso(), as_of=f.report_date, person=cfg.person,
+                    entity=cfg.primary_name, entity_cik=f.cik, signal_type="13f_position",
+                    source_class=events.SEC_VERIFIED, verification_status=events.VERIFIED,
+                    summary=f"{parsed['quarter']} 13F filed: {parsed['holding_count']} reported holdings.",
+                    sources=[{"kind": "sec_filing", "accession": f.accession}],
+                ))
+        elif f.form.startswith("SC 13"):
+            events.append_event(cfg, events.Event(
+                event_id=f"evt_{f.filing_date}_13dg_{f.accession}",
+                timestamp=utc_now_iso(), person=cfg.person, entity=cfg.primary_name,
+                entity_cik=f.cik, signal_type="ownership_13dg",
+                source_class=events.SEC_VERIFIED, verification_status=events.VERIFIED,
+                summary=f"{f.form} beneficial-ownership filing ({f.filing_date}).",
+                sources=[{"kind": "sec_filing", "accession": f.accession}],
+            ))
+    log.info("Fetch complete: %d new filings.", len(new_filings))
+
+
+def step_discover(cfg: Config) -> None:
+    items = discovery.from_google_alerts(cfg) + discovery.from_blog(cfg) + discovery.from_x(cfg)
+    n = 0
+    for item in items:
+        stmt = parse_public_statement.extract_statement(item)
+        if not stmt:
+            continue
+        src_class = events.PRIMARY_SOURCE if item.source_kind in {"blog", "x"} else events.MEDIA_REPORTED
+        events.append_event(cfg, events.Event(
+            event_id=f"evt_stmt_{stmt['content_hash'][7:23]}",
+            timestamp=utc_now_iso(), person=cfg.person, signal_type="public_statement",
+            source_class=src_class, verification_status=events.OPEN,
+            summary=stmt["title"][:200], confidence=stmt["confidence"],
+            ticker_guess=stmt["ticker_guess"], needs_human_review=stmt["needs_human_review"],
+            sources=[{"kind": item.source_kind, "url": stmt["url"], "hash": stmt["content_hash"]}],
+        ))
+        n += 1
+    log.info("Discovery complete: %d candidate statements.", n)
+
+
+def step_analyze(cfg: Config) -> dict:
+    quarters = load_recent_quarters(cfg, cfg.quarters)
+    model = positions.build(cfg, quarters)
+    if model.get("available"):
+        verified = events.verify_open_statements(cfg, latest_tickers(cfg, model))
+        if verified:
+            log.info("Verified %d previously open statements.", verified)
+        render_readme.render(cfg, model)
+    else:
+        log.warning("No parsed 13F data yet; run `fetch` first.")
+    return model
+
+
+def step_digest(cfg: Config, model: dict, signal: dict | None = None) -> None:
+    if not model.get("available"):
+        log.warning("No model available; skipping digest.")
+        return
+    html = render_email.render(cfg, model, signal)
+    subject = render_email.subject(cfg, model, signal)
+    notify.send_email(cfg, subject, html)
+
+
+def step_run(cfg: Config) -> None:
+    step_fetch(cfg)
+    step_discover(cfg)
+    model = step_analyze(cfg)
+    # The newest unverified statement (if any) becomes the email's headline signal.
+    open_stmts = [e for e in events.load_events(cfg) if e.get("verification_status") == events.OPEN]
+    signal = open_stmts[-1] if open_stmts else None
+    step_digest(cfg, model, signal)
+
+
+# ── CLI ─────────────────────────────────────────────────────────────────────--
+def main(argv: list[str] | None = None) -> None:
+    parser = argparse.ArgumentParser(description="Situational Awareness Tracker")
+    parser.add_argument("--config", default=None, help="Path to config.yaml")
+    sub = parser.add_subparsers(dest="command", required=True)
+    for name in ("resolve-entities", "fetch", "discover", "analyze", "digest", "run"):
+        sub.add_parser(name)
+    args = parser.parse_args(argv)
+    cfg = load_config(args.config)
+
+    if args.command == "resolve-entities":
+        entity_resolution.resolve(cfg)
+    elif args.command == "fetch":
+        step_fetch(cfg)
+    elif args.command == "discover":
+        step_discover(cfg)
+    elif args.command == "analyze":
+        step_analyze(cfg)
+    elif args.command == "digest":
+        step_digest(cfg, step_analyze(cfg))
+    elif args.command == "run":
+        step_run(cfg)
+
+
+if __name__ == "__main__":
+    main()

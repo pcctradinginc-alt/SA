@@ -1,0 +1,7 @@
+# Core (required)
+requests>=2.31
+PyYAML>=6.0
+Jinja2>=3.1
+
+# Prices (optional but recommended). If absent, price columns degrade to "—".
+yfinance>=0.2.40

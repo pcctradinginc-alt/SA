@@ -1,0 +1,3 @@
+cusip,issuer,ticker,yfinance_symbol,sector,source,confidence
+000000000,Example Issuer Inc,EXMPL,EXMPL,Example Sector,example,low
+111111111,Another Example Corp,ANOTH,ANOTH,Example Sector,example,low
