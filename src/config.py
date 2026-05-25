@@ -106,6 +106,14 @@ class Config:
     def email_enabled(self) -> bool:
         return bool(self.raw["email"]["enabled"])
 
+    @property
+    def llm_validate_statements(self) -> bool:
+        return bool(self.raw.get("llm", {}).get("validate_statements", False))
+
+    @property
+    def llm_model(self) -> str:
+        return str(self.raw.get("llm", {}).get("model", "claude-haiku-4-5-20251001"))
+
     # ── secrets (env only) ────────────────────────────────────────────────────
     @staticmethod
     def smtp_settings() -> dict[str, str | int | None]:
