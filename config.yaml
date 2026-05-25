@@ -38,7 +38,7 @@ email:
 alert:
   # Immediate alert email sent when any new high-confidence event is detected.
   # Uses the same SMTP_* env vars as the digest. Set enabled: true to activate.
-  enabled: false
+  enabled: true
   subject_prefix: "SA Alert"
   # Minimum event confidence (0–1) required to trigger an alert.
   # SEC-verified filings always have confidence 1.0.
