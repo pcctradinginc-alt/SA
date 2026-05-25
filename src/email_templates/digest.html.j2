@@ -1,0 +1,149 @@
+{# Apple-style digest email. Inline styles + table layout for client compatibility. #}
+{%- set C = {
+  'page': '#f5f5f7', 'card': '#ffffff', 'text': '#1d1d1f', 'sec': '#6e6e73',
+  'ter': '#86868b', 'line': '#d2d2d7', 'accent': '#0071e3',
+  'green_bg': '#e7f6ec', 'green_tx': '#1d7a3e',
+  'amber_bg': '#fdf3e0', 'amber_tx': '#9a6b00',
+  'red_bg': '#fdeaea', 'red_tx': '#b3261e',
+  'gray_bg': '#eeeef0', 'gray_tx': '#6e6e73',
+} -%}
+{%- set FONT = "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif" -%}
+{%- macro pill(text, kind) -%}
+{%- set bg = {'green': C.green_bg, 'amber': C.amber_bg, 'red': C.red_bg, 'gray': C.gray_bg}.get(kind, C.gray_bg) -%}
+{%- set tx = {'green': C.green_tx, 'amber': C.amber_tx, 'red': C.red_tx, 'gray': C.gray_tx}.get(kind, C.gray_tx) -%}
+<span style="display:inline-block; background:{{ bg }}; color:{{ tx }}; font-size:12px; font-weight:500; padding:3px 10px; border-radius:980px; white-space:nowrap;">{{ text }}</span>
+{%- endmacro -%}
+{%- set STATUS_KIND = {'strong_add':'green','new_add':'green','new_buy':'amber','hold':'amber','trim':'red','exit':'gray'} -%}
+<!-- preheader -->
+<div style="display:none; max-height:0; overflow:hidden; opacity:0;">{{ model.summary.latest_quarter }} · common stock {{ model.summary.common_stock_long_exposure_usd|usd }} · options {{ model.summary.options_notional_exposure_usd|usd }} (notional)</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{{ C.page }}; margin:0; padding:24px 0;">
+<tr><td align="center">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px; max-width:600px; background:{{ C.card }}; border-radius:18px; overflow:hidden; font-family:{{ FONT }}; color:{{ C.text }};">
+
+  <!-- header -->
+  <tr><td style="padding:28px 32px 8px 32px;">
+    <div style="font-size:13px; font-weight:500; letter-spacing:0.04em; text-transform:uppercase; color:{{ C.accent }};">{{ meta.subject_prefix }}</div>
+    <div style="font-size:24px; font-weight:600; letter-spacing:-0.02em; margin-top:6px;">Daily digest</div>
+    <div style="font-size:14px; color:{{ C.sec }}; margin-top:4px;">{{ meta.manager }} · latest filing {{ model.summary.latest_quarter }} (period ended {{ model.summary.report_date }})</div>
+    <div style="font-size:13px; color:{{ C.ter }}; margin-top:2px;">Updated {{ model.generated }} · prices via {{ model.price_source }}</div>
+  </td></tr>
+
+  {% if signal %}
+  <!-- new signal -->
+  <tr><td style="padding:16px 32px 0 32px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{{ C.page }}; border-radius:14px;">
+      <tr><td style="padding:16px 18px;">
+        <div style="margin-bottom:8px;">
+          {{ pill(signal.source_class, 'gray') }}
+          {% set vk = {'verified':'green','open':'amber','not_verifiable_via_13f':'gray'}.get(signal.verification_status,'gray') %}
+          {{ pill(signal.verification_status, vk) }}
+          {{ pill('confidence ' ~ '%.2f'|format(signal.confidence), 'amber' if signal.confidence < 1 else 'green') }}
+        </div>
+        <div style="font-size:15px; font-weight:500; line-height:1.4;">{{ signal.summary }}</div>
+        {% if signal.ticker_guess %}<div style="font-size:13px; color:{{ C.sec }}; margin-top:6px;">Ticker: {{ signal.ticker_guess|join(', ') }}</div>{% endif %}
+        {% if signal.sources %}<div style="font-size:12px; color:{{ C.ter }}; margin-top:6px;">Source: {{ signal.sources[0].url }}</div>{% endif %}
+        {% if signal.reason_not_verifiable %}<div style="font-size:12px; color:{{ C.ter }}; margin-top:4px;">{{ signal.reason_not_verifiable }}</div>{% endif %}
+      </td></tr>
+    </table>
+  </td></tr>
+  {% endif %}
+
+  <!-- always-included: latest 13F summary -->
+  <tr><td style="padding:24px 32px 0 32px;">
+    <div style="font-size:11px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:{{ C.ter }};">Latest 13F summary</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:12px;">
+      <tr>
+        <td width="50%" style="padding:4px 8px 4px 0;" valign="top">
+          <div style="background:{{ C.page }}; border-radius:12px; padding:14px 16px;">
+            <div style="font-size:12px; color:{{ C.sec }};">Common stock long exposure</div>
+            <div style="font-size:22px; font-weight:600; margin-top:2px;">{{ model.summary.common_stock_long_exposure_usd|usd }}</div>
+          </div>
+        </td>
+        <td width="50%" style="padding:4px 0 4px 8px;" valign="top">
+          <div style="background:{{ C.page }}; border-radius:12px; padding:14px 16px;">
+            <div style="font-size:12px; color:{{ C.sec }};">Options notional exposure</div>
+            <div style="font-size:22px; font-weight:600; margin-top:2px;">{{ model.summary.options_notional_exposure_usd|usd }}</div>
+            <div style="font-size:11px; color:{{ C.ter }}; margin-top:2px;">direction unknown</div>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px; font-size:13px; color:{{ C.sec }};">
+      <tr>
+        <td style="padding:3px 0;">Reported holdings</td><td align="right" style="color:{{ C.text }};">{{ model.summary.reported_holdings }}</td>
+        <td width="24"></td>
+        <td style="padding:3px 0;">New / Add / Trim / Exit</td><td align="right" style="color:{{ C.text }};">{{ model.summary.new_common_positions }} / {{ model.summary.increased_common_positions }} / {{ model.summary.reduced_common_positions }} / {{ model.summary.exited_common_positions }}</td>
+      </tr>
+      {% if model.summary.best_performer %}
+      <tr>
+        <td style="padding:3px 0;">Best post-quarter</td><td align="right" style="color:{{ C.green_tx }};">{{ model.summary.best_performer.ticker }} {{ model.summary.best_performer.move|pct }}</td>
+        <td></td>
+        <td style="padding:3px 0;">Worst post-quarter</td><td align="right" style="color:{{ C.red_tx }};">{{ model.summary.worst_performer.ticker }} {{ model.summary.worst_performer.move|pct }}</td>
+      </tr>
+      {% endif %}
+    </table>
+  </td></tr>
+
+  <!-- common stock longs -->
+  <tr><td style="padding:24px 32px 0 32px;">
+    <div style="font-size:11px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:{{ C.ter }};">Common stock longs · last {{ model.quarter_labels|length }} quarters</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px; border-collapse:collapse; font-size:13px;">
+      <tr style="color:{{ C.ter }};">
+        <td style="padding:6px 6px 6px 0; border-bottom:1px solid {{ C.line }};">Ticker</td>
+        {% for q in model.quarter_labels %}<td align="right" style="padding:6px; border-bottom:1px solid {{ C.line }};">{{ q }}</td>{% endfor %}
+        <td align="right" style="padding:6px; border-bottom:1px solid {{ C.line }};">QoQ</td>
+        <td align="right" style="padding:6px; border-bottom:1px solid {{ C.line }};">Wt</td>
+        <td align="right" style="padding:6px; border-bottom:1px solid {{ C.line }};">Px Δ</td>
+        <td align="right" style="padding:6px 0 6px 6px; border-bottom:1px solid {{ C.line }};">Status</td>
+      </tr>
+      {% for r in model.common_stock %}
+      <tr>
+        <td style="padding:8px 6px 8px 0; border-bottom:1px solid {{ C.page }}; font-weight:500;">{{ r.ticker or '?' }}</td>
+        {% for s in r.shares_by_quarter %}<td align="right" style="padding:8px 6px; border-bottom:1px solid {{ C.page }};">{{ s|shares }}</td>{% endfor %}
+        <td align="right" style="padding:8px 6px; border-bottom:1px solid {{ C.page }};">{{ r.qoq_share_change_pct|qoq }}</td>
+        <td align="right" style="padding:8px 6px; border-bottom:1px solid {{ C.page }};">{{ (r.portfolio_weight_common_stock*100)|round(1) }}%</td>
+        <td align="right" style="padding:8px 6px; border-bottom:1px solid {{ C.page }}; color:{% if r.price_change_since_quarter_end_pct and r.price_change_since_quarter_end_pct > 0 %}{{ C.green_tx }}{% elif r.price_change_since_quarter_end_pct and r.price_change_since_quarter_end_pct < 0 %}{{ C.red_tx }}{% else %}{{ C.sec }}{% endif %};">{{ r.price_change_since_quarter_end_pct|pct }}</td>
+        <td align="right" style="padding:8px 0 8px 6px; border-bottom:1px solid {{ C.page }};">{{ pill(r.status_label, STATUS_KIND.get(r.status,'gray')) }}</td>
+      </tr>
+      {% else %}
+      <tr><td colspan="8" style="padding:12px 0; color:{{ C.ter }};">No common-stock longs in the latest filing.</td></tr>
+      {% endfor %}
+    </table>
+  </td></tr>
+
+  {% if model.options %}
+  <!-- options -->
+  <tr><td style="padding:24px 32px 0 32px;">
+    <div style="font-size:11px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:{{ C.ter }};">Options · puts / calls — notional only</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px; border-collapse:collapse; font-size:13px;">
+      <tr style="color:{{ C.ter }};">
+        <td style="padding:6px 6px 6px 0; border-bottom:1px solid {{ C.line }};">Underlying</td>
+        <td style="padding:6px; border-bottom:1px solid {{ C.line }};">Type</td>
+        {% for q in model.quarter_labels %}<td align="right" style="padding:6px; border-bottom:1px solid {{ C.line }};">{{ q }}</td>{% endfor %}
+        <td align="right" style="padding:6px 0 6px 6px; border-bottom:1px solid {{ C.line }};">QoQ</td>
+      </tr>
+      {% for r in model.options[:12] %}
+      <tr>
+        <td style="padding:8px 6px 8px 0; border-bottom:1px solid {{ C.page }}; font-weight:500;">{{ r.ticker or r.underlying }}</td>
+        <td style="padding:8px 6px; border-bottom:1px solid {{ C.page }};">{{ r.instrument }}</td>
+        {% for v in r.notional_by_quarter %}<td align="right" style="padding:8px 6px; border-bottom:1px solid {{ C.page }};">{{ v|usd }}</td>{% endfor %}
+        <td align="right" style="padding:8px 0 8px 6px; border-bottom:1px solid {{ C.page }};">{{ r.qoq_notional_change_pct|qoq }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <div style="font-size:12px; color:{{ C.ter }}; margin-top:8px; line-height:1.5;">Reported notional of the underlying, not premium paid. Direction (long/short), strike and expiry are not disclosed in a 13F.</div>
+  </td></tr>
+  {% endif %}
+
+  <!-- methodology / disclaimer (fixed footer, always sent) -->
+  <tr><td style="padding:24px 32px 28px 32px;">
+    <div style="border-top:1px solid {{ C.line }}; padding-top:16px; font-size:12px; color:{{ C.ter }}; line-height:1.6;">
+      <strong style="color:{{ C.sec }}; font-weight:500;">Methodology.</strong>
+      Archive, not a trading signal. 13F data is delayed up to 45 days. Estimated values are mark-to-current on the last reported share count, not realised P&L. Short stock, private holdings and intra-quarter trades never appear in a 13F. Common-stock and option figures are shown separately and never summed.
+      <div style="margin-top:8px;">Not investment advice.</div>
+    </div>
+  </td></tr>
+
+</table>
+</td></tr>
+</table>

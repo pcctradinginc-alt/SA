@@ -1,0 +1,6 @@
+cusip,issuer,ticker,yfinance_symbol,sector,source,confidence
+093712107,Bloom Energy Corp,BE,BE,Power,manual,high
+21873S108,CoreWeave Inc,CRWV,CRWV,AI Compute,manual,high
+Q49887115,IREN Ltd,IREN,IREN,Crypto/Data Center,manual,high
+80004C101,Sandisk Corp,SNDK,SNDK,Memory,manual,high
+67066G104,Nvidia Corp,NVDA,NVDA,Semiconductors,manual,high

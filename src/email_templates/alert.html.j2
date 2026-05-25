@@ -1,0 +1,140 @@
+{# Compact alert email — sent immediately on new high-signal events. #}
+{%- set C = {
+  'page': '#f5f5f7', 'card': '#ffffff', 'text': '#1d1d1f', 'sec': '#6e6e73',
+  'ter': '#86868b', 'line': '#d2d2d7', 'accent': '#0071e3',
+  'green_bg': '#e7f6ec', 'green_tx': '#1d7a3e',
+  'amber_bg': '#fdf3e0', 'amber_tx': '#9a6b00',
+  'red_bg': '#fdeaea',   'red_tx': '#b3261e',
+  'gray_bg': '#eeeef0',  'gray_tx': '#6e6e73',
+  'blue_bg': '#e8f0fe',  'blue_tx': '#1a56db',
+} -%}
+{%- set FONT = "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif" -%}
+
+{%- macro pill(text, kind) -%}
+{%- set bg = {'green': C.green_bg, 'amber': C.amber_bg, 'red': C.red_bg, 'gray': C.gray_bg, 'blue': C.blue_bg}.get(kind, C.gray_bg) -%}
+{%- set tx = {'green': C.green_tx, 'amber': C.amber_tx, 'red': C.red_tx, 'gray': C.gray_tx, 'blue': C.blue_tx}.get(kind, C.gray_tx) -%}
+<span style="display:inline-block; background:{{ bg }}; color:{{ tx }}; font-size:11px; font-weight:600; padding:3px 9px; border-radius:980px; white-space:nowrap; letter-spacing:0.02em;">{{ text }}</span>
+{%- endmacro -%}
+
+{%- macro cat_pill(cat) -%}
+{%- set MAP = {'invest':'green','sell':'red','announce':'blue','highlight':'amber'} -%}
+{{ pill(cat|upper, MAP.get(cat,'gray')) }}
+{%- endmacro -%}
+
+{%- macro src_pill(sc) -%}
+{%- set MAP = {'SEC_VERIFIED':'green','PRIMARY_SOURCE':'blue','MEDIA_REPORTED':'amber','MARKET_INFERRED':'gray'} -%}
+{{ pill(sc, MAP.get(sc,'gray')) }}
+{%- endmacro -%}
+
+<!-- preheader -->
+<div style="display:none; max-height:0; overflow:hidden; opacity:0;">{{ events|length }} new signal(s) detected for {{ meta.person }} / {{ meta.manager }}</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{{ C.page }}; margin:0; padding:24px 0;">
+<tr><td align="center">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px; max-width:600px; background:{{ C.card }}; border-radius:18px; overflow:hidden; font-family:{{ FONT }}; color:{{ C.text }};">
+
+  <!-- header -->
+  <tr><td style="padding:24px 32px 12px 32px;">
+    <div style="font-size:13px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; color:{{ C.accent }};">{{ meta.subject_prefix }}</div>
+    <div style="font-size:22px; font-weight:600; letter-spacing:-0.02em; margin-top:5px;">
+      {{ events|length }} new signal{{ 's' if events|length != 1 else '' }} detected
+    </div>
+    <div style="font-size:13px; color:{{ C.sec }}; margin-top:3px;">{{ meta.person }} · {{ meta.manager }}</div>
+  </td></tr>
+
+  <!-- divider -->
+  <tr><td style="padding:0 32px;"><div style="height:1px; background:{{ C.line }};"></div></td></tr>
+
+  <!-- event cards -->
+  {% for evt in events %}
+  <tr><td style="padding:16px 32px {{ '0' if not loop.last else '0' }}px 32px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+           style="background:{{ C.page }}; border-radius:14px; overflow:hidden;">
+      <tr><td style="padding:16px 20px;">
+
+        <!-- pills row -->
+        <div style="margin-bottom:10px; line-height:2;">
+          {% set sig = evt.signal_type or '' %}
+          {% if sig == '13f_position' %}
+            {{ pill('13F FILING', 'green') }}
+          {% elif sig == 'ownership_13dg' %}
+            {{ pill('13D/G FILING', 'green') }}
+          {% elif sig == 'public_statement' %}
+            {{ cat_pill(evt.signal_category or 'highlight') }}
+          {% else %}
+            {{ pill(sig|upper|replace('_',' '), 'gray') }}
+          {% endif %}
+          {{ src_pill(evt.source_class) }}
+          {% set vs = evt.verification_status or '' %}
+          {% set vk = {'verified':'green','open':'amber','not_verifiable_via_13f':'gray'}.get(vs,'gray') %}
+          {{ pill(vs, vk) }}
+          {% set conf = evt.confidence or 0.0 %}
+          {{ pill('conf ' ~ '%.0f%%'|format(conf * 100), 'green' if conf >= 0.8 else 'amber') }}
+        </div>
+
+        <!-- summary -->
+        <div style="font-size:15px; font-weight:500; line-height:1.45; color:{{ C.text }};">
+          {{ evt.summary }}
+        </div>
+
+        <!-- ticker -->
+        {% if evt.ticker_guess %}
+        <div style="font-size:13px; color:{{ C.sec }}; margin-top:8px;">
+          Ticker: <strong>{{ evt.ticker_guess|join(', ') }}</strong>
+        </div>
+        {% endif %}
+
+        <!-- matched phrases (for public_statement) -->
+        {% if evt.matched_phrases %}
+        <div style="font-size:12px; color:{{ C.ter }}; margin-top:5px;">
+          Matched: {{ evt.matched_phrases[:4]|join(' · ') }}{% if evt.matched_phrases|length > 4 %} …{% endif %}
+        </div>
+        {% endif %}
+
+        <!-- source link -->
+        {% if evt.sources %}
+          {% set src = evt.sources[0] %}
+          {% if src.url %}
+          <div style="margin-top:10px;">
+            <a href="{{ src.url }}" style="font-size:12px; color:{{ C.accent }}; text-decoration:none;">
+              {{ src.url[:90] }}{% if src.url|length > 90 %}…{% endif %}
+            </a>
+          </div>
+          {% elif src.accession %}
+          <div style="margin-top:10px;">
+            <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK={{ evt.entity_cik }}&type={{ src.kind }}&dateb=&owner=include&count=10"
+               style="font-size:12px; color:{{ C.accent }}; text-decoration:none;">
+              SEC EDGAR · accession {{ src.accession }}
+            </a>
+          </div>
+          {% endif %}
+        {% endif %}
+
+        <!-- needs review warning -->
+        {% if evt.needs_human_review %}
+        <div style="margin-top:10px; padding:8px 12px; background:{{ C.amber_bg }}; border-radius:8px; font-size:12px; color:{{ C.amber_tx }};">
+          Needs human review — confidence below threshold.
+        </div>
+        {% endif %}
+
+      </td></tr>
+    </table>
+  </td></tr>
+  {% if not loop.last %}
+  <tr><td style="padding:12px 32px 0 32px;"></td></tr>
+  {% endif %}
+  {% endfor %}
+
+  <!-- footer -->
+  <tr><td style="padding:24px 32px 28px 32px;">
+    <div style="border-top:1px solid {{ C.line }}; padding-top:14px; font-size:12px; color:{{ C.ter }}; line-height:1.6;">
+      <strong style="color:{{ C.sec }}; font-weight:500;">SA Tracker alert.</strong>
+      Archive only — not investment advice. SEC filings are public domain.
+      Media signals are unverified until a filing confirms the ticker.
+      Open statements flip to verified automatically on the next 13F parse.
+    </div>
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
