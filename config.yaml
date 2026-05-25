@@ -14,7 +14,7 @@ entity:
 sec:
   # SEC requires a descriptive User-Agent with contact info, and rate-limits to
   # ~10 requests/second. Put a real contact address here before running.
-  user_agent: "situational-awareness-tracker (contact: your-email@example.com)"
+  user_agent: "situational-awareness-tracker (contact: info@pcctradinginc.com)"
   request_delay_seconds: 0.2          # ~5 req/s, comfortably under the limit
   filing_types: ["13F-HR", "13F-HR/A", "SC 13D", "SC 13D/A", "SC 13G", "SC 13G/A", "D", "D/A"]
 
@@ -30,7 +30,7 @@ prices:
   enabled: true
 
 email:
-  enabled: false                      # set true once SMTP_* env vars are configured
+  enabled: true                      # set true once SMTP_* env vars are configured
   subject_prefix: "SA Tracker"
   from_name: "SA Tracker"
   # Recipients live in the SMTP_TO env var (comma-separated) — never commit addresses.
