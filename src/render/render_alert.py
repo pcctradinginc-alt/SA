@@ -42,6 +42,7 @@ def render(cfg: Config, new_events: list[dict], model: dict | None = None, tldr:
         analysis_13f=(model or {}).get("llm_13f_analysis", ""),
         top_signals=(model or {}).get("top_signals", []),
         signal_backtest=(model or {}).get("signal_backtest"),
+        sector_breakdown=(model or {}).get("sector_breakdown", []),
         meta=meta,
     )
 

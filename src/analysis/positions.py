@@ -353,6 +353,26 @@ def build(cfg: Config, parsed_quarters: list[dict],
         })
     option_rows.sort(key=lambda r: r["notional_latest_usd"], reverse=True)
 
+    # ── sector breakdown ──────────────────────────────────────────────────────
+    _sec_map: dict[str, dict] = {}
+    for r in common_rows:
+        sec = r.get("sector") or "Other"
+        if sec not in _sec_map:
+            _sec_map[sec] = {"sector": sec, "value_usd": 0.0, "tickers": [], "adds": [], "trims": [], "exits": []}
+        _sec_map[sec]["value_usd"] += r["value_latest_usd"]
+        t = r["ticker"] or r["issuer"][:8]
+        _sec_map[sec]["tickers"].append(t)
+        if r["status"] in (STATUS_STRONG_ADD, STATUS_NEW_ADD, STATUS_NEW_BUY):
+            _sec_map[sec]["adds"].append(t)
+        elif r["status"] in (STATUS_TRIM,):
+            _sec_map[sec]["trims"].append(t)
+        elif r["status"] == STATUS_EXIT:
+            _sec_map[sec]["exits"].append(t)
+    for s in _sec_map.values():
+        s["portfolio_weight"] = round(s["value_usd"] / total_common_value, 4) if total_common_value else 0
+        s["value_usd"] = round(s["value_usd"])
+    sector_breakdown = sorted(_sec_map.values(), key=lambda s: s["value_usd"], reverse=True)
+
     # ── summary ────────────────────────────────────────────────────────────────
     increased = [r for r in common_rows if isinstance(r["qoq_share_change_pct"], float) and r["qoq_share_change_pct"] > cfg.hold_band]
     reduced = [r for r in common_rows if isinstance(r["qoq_share_change_pct"], float) and r["qoq_share_change_pct"] < -cfg.hold_band]
@@ -403,6 +423,7 @@ def build(cfg: Config, parsed_quarters: list[dict],
         "options": option_rows,
         "top_signals": top_signals,
         "signal_backtest": signal_backtest,
+        "sector_breakdown": sector_breakdown,
     }
     write_json(cfg.paths.derived / "position_table.json", model)
     return model
