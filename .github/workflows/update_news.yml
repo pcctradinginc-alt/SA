@@ -1,0 +1,68 @@
+name: news-and-digest
+
+# Discovery + digest, twice daily at ~09:17 and ~17:17 Europe/Berlin.
+# GitHub cron is UTC and not minute-exact, and Berlin shifts CET<->CEST, so we
+# trigger at all four candidate UTC times and gate with a Berlin-local guard so
+# the job only runs at the two intended local hours.
+on:
+  schedule:
+    - cron: "17 7 * * *"    # 09:17 CEST (summer)
+    - cron: "17 8 * * *"    # 09:17 CET  (winter)
+    - cron: "17 15 * * *"   # 17:17 CEST (summer)
+    - cron: "17 16 * * *"   # 17:17 CET  (winter)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Guard to Berlin 09:00 / 17:00
+        id: guard
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "go=true" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          H=$(TZ=Europe/Berlin date +%H)
+          echo "Berlin hour: $H"
+          if [ "$H" = "09" ] || [ "$H" = "17" ]; then echo "go=true" >> "$GITHUB_OUTPUT";
+          else echo "go=false" >> "$GITHUB_OUTPUT"; fi
+
+      - uses: actions/setup-python@v5
+        if: steps.guard.outputs.go == 'true'
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        if: steps.guard.outputs.go == 'true'
+        run: pip install -r requirements.txt
+
+      - name: Discover, analyze, digest
+        if: steps.guard.outputs.go == 'true'
+        env:
+          GOOGLE_ALERT_FEEDS: ${{ secrets.GOOGLE_ALERT_FEEDS }}
+          BLOG_FEEDS: ${{ secrets.BLOG_FEEDS }}
+          X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SMTP_TO: ${{ secrets.SMTP_TO }}
+        run: |
+          python -m src.pipeline discover
+          python -m src.pipeline analyze
+          python -m src.pipeline digest
+
+      - name: Commit updated data
+        if: steps.guard.outputs.go == 'true'
+        run: |
+          git config user.name "sa-tracker-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --quiet && git diff --staged --quiet || git commit -m "data: news+digest $(date -u +%FT%TZ)"
+          git push
