@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+*.tmp
+
+# Raw third-party media must never be committed (copyright + repo size).
+data/raw/media/*
+!data/raw/media/.gitkeep
+
+# Keep SEC raw filings (public domain) but ignore the noisy full-text dumps if large.
+# data/raw/sec/   # uncomment to exclude SEC raw entirely and keep only parsed/
