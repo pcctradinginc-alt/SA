@@ -25,6 +25,12 @@ analysis:
   hold_band_pct: 0.10                 # |QoQ| <= 10% counts as "Hold"
   trim_threshold_pct: -0.10           # QoQ < -10% counts as "Trim"
 
+llm:
+  # Semantic validation of news signals via Claude Haiku.
+  # Requires ANTHROPIC_API_KEY env var. Falls back to keyword-only if not set.
+  validate_statements: true
+  model: "claude-haiku-4-5-20251001"
+
 prices:
   source: "yfinance"                  # "yfinance" with automatic "stooq" fallback
   enabled: true
