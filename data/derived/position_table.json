@@ -20,22 +20,28 @@
     "reduced_common_positions": 2,
     "exited_common_positions": 15,
     "largest_add": {
-      "ticker": "",
-      "issuer": "INTEL CORP"
+      "ticker": "SNDK",
+      "issuer": "SANDISK CORP"
     },
     "largest_trim": {
-      "ticker": "",
+      "ticker": "SEI",
       "issuer": "SOLARIS ENERGY INFRAS INC"
     },
-    "best_performer": null,
-    "worst_performer": null
+    "best_performer": {
+      "ticker": "INTC",
+      "move": 1.4951
+    },
+    "worst_performer": {
+      "ticker": "PSIX",
+      "move": -0.4127
+    }
   },
   "common_stock": [
     {
       "cusip": "093712107",
-      "ticker": "",
+      "ticker": "BE",
       "issuer": "BLOOM ENERGY CORP",
-      "sector": "",
+      "sector": "Energy",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -47,24 +53,24 @@
       "portfolio_weight_common_stock": 0.2279,
       "qoq_share_change_pct": -0.3563523382541245,
       "three_quarter_trend": "mixed",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 132.45,
+      "current_price": 302.49,
+      "price_change_since_quarter_end_pct": 1.2838,
+      "estimated_current_value": 1961771066,
+      "estimated_value_change_since_quarter_end": 1102778776,
       "status": "trim",
       "status_icon": "🔴",
       "status_label": "Trim",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "80004C200",
-      "ticker": "",
+      "ticker": "SNDK",
       "issuer": "SANDISK CORP",
-      "sector": "",
+      "sector": "Technology",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         115000,
@@ -76,24 +82,24 @@
       "portfolio_weight_common_stock": 0.1879,
       "qoq_share_change_pct": 0.08150161259723013,
       "three_quarter_trend": "up_up_up",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 692.73,
+      "current_price": 1478.69,
+      "price_change_since_quarter_end_pct": 1.1346,
+      "estimated_current_value": 1685882564,
+      "estimated_value_change_since_quarter_end": 896087929,
       "status": "strong_add",
       "status_icon": "🟢",
       "status_label": "Strong Add",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "21873S108",
-      "ticker": "",
+      "ticker": "CRWV",
       "issuer": "COREWEAVE INC",
-      "sector": "",
+      "sector": "AI Infrastructure",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         4115456,
@@ -105,24 +111,24 @@
       "portfolio_weight_common_stock": 0.1442,
       "qoq_share_change_pct": 0.17693724613908413,
       "three_quarter_trend": "up_up_up",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 78.44,
+      "current_price": 105.49,
+      "price_change_since_quarter_end_pct": 0.3448,
+      "estimated_current_value": 757198675,
+      "estimated_value_change_since_quarter_end": 194162709,
       "status": "strong_add",
       "status_icon": "🟢",
       "status_label": "Strong Add",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "Q4982L109",
-      "ticker": "",
+      "ticker": "IREN",
       "issuer": "IREN LIMITED",
-      "sector": "",
+      "sector": "Bitcoin Mining",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         7220421,
@@ -134,24 +140,24 @@
       "portfolio_weight_common_stock": 0.104,
       "qoq_share_change_pct": 0.34459770170428067,
       "three_quarter_trend": "up_up_up",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 34.09,
+      "current_price": 56.83,
+      "price_change_since_quarter_end_pct": 0.6671,
+      "estimated_current_value": 664844793,
+      "estimated_value_change_since_quarter_end": 266031508,
       "status": "strong_add",
       "status_icon": "🟢",
       "status_label": "Strong Add",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "21874A106",
-      "ticker": "",
+      "ticker": "CORZ",
       "issuer": "CORE SCIENTIFIC INC NEW",
-      "sector": "",
+      "sector": "Bitcoin Mining",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         20180534,
@@ -163,24 +169,24 @@
       "portfolio_weight_common_stock": 0.1009,
       "qoq_share_change_pct": -0.09556125058152115,
       "three_quarter_trend": "mixed",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 15.3,
+      "current_price": 25.26,
+      "price_change_since_quarter_end_pct": 0.651,
+      "estimated_current_value": 656974028,
+      "estimated_value_change_since_quarter_end": 259044391,
       "status": "hold",
       "status_icon": "🟡",
       "status_label": "Hold",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "038169207",
-      "ticker": "",
+      "ticker": "APLD",
       "issuer": "APPLIED DIGITAL CORP",
-      "sector": "",
+      "sector": "AI Infrastructure",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         6064155,
@@ -192,24 +198,24 @@
       "portfolio_weight_common_stock": 0.083,
       "qoq_share_change_pct": 0.1886733115443432,
       "three_quarter_trend": "up_up_up",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 24.49,
+      "current_price": 45.87,
+      "price_change_since_quarter_end_pct": 0.873,
+      "estimated_current_value": 618255951,
+      "estimated_value_change_since_quarter_end": 288169004,
       "status": "strong_add",
       "status_icon": "🟢",
       "status_label": "Strong Add",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "767292105",
-      "ticker": "",
+      "ticker": "RIOT",
       "issuer": "RIOT PLATFORMS INC",
-      "sector": "",
+      "sector": "Bitcoin Mining",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         3592699,
@@ -221,24 +227,24 @@
       "portfolio_weight_common_stock": 0.0369,
       "qoq_share_change_pct": 0.8648989088314931,
       "three_quarter_trend": "up_up_up",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 12.55,
+      "current_price": 24.49,
+      "price_change_since_quarter_end_pct": 0.9514,
+      "estimated_current_value": 281687335,
+      "estimated_value_change_since_quarter_end": 137335516,
       "status": "strong_add",
       "status_icon": "🟢",
       "status_label": "Strong Add",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "18452B209",
-      "ticker": "",
+      "ticker": "CLSK",
       "issuer": "CLEANSPARK INC",
-      "sector": "",
+      "sector": "Bitcoin Mining",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -250,24 +256,24 @@
       "portfolio_weight_common_stock": 0.0271,
       "qoq_share_change_pct": 6.483625335284077,
       "three_quarter_trend": "new_add",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 8.62,
+      "current_price": 15.97,
+      "price_change_since_quarter_end_pct": 0.8527,
+      "estimated_current_value": 196049940,
+      "estimated_value_change_since_quarter_end": 90229622,
       "status": "new_add",
       "status_icon": "🟢",
       "status_label": "New + Add",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "83418M103",
-      "ticker": "",
+      "ticker": "SEI",
       "issuer": "SOLARIS ENERGY INFRAS INC",
-      "sector": "",
+      "sector": "Energy Infrastructure",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         1150300,
@@ -279,24 +285,24 @@
       "portfolio_weight_common_stock": 0.0162,
       "qoq_share_change_pct": -0.4076876506830967,
       "three_quarter_trend": "mixed",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 55.47,
+      "current_price": 74.27,
+      "price_change_since_quarter_end_pct": 0.3389,
+      "estimated_current_value": 82109273,
+      "estimated_value_change_since_quarter_end": 20784359,
       "status": "trim",
       "status_icon": "🔴",
       "status_label": "Trim",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "35834F104",
       "ticker": "",
       "issuer": "T1 ENERGY INC",
-      "sector": "",
+      "sector": "Energy Infrastructure",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -317,15 +323,15 @@
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
+        "cusip_ticker_mapping": "manual",
         "price_source": "unavailable"
       }
     },
     {
       "cusip": "09173B107",
-      "ticker": "",
+      "ticker": "BITF",
       "issuer": "BITFARMS LTD",
-      "sector": "",
+      "sector": "Bitcoin Mining",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -337,24 +343,24 @@
       "portfolio_weight_common_stock": 0.0101,
       "qoq_share_change_pct": 1.8817676994678922,
       "three_quarter_trend": "new_add",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 1.98,
+      "current_price": 4.81,
+      "price_change_since_quarter_end_pct": 1.4293,
+      "estimated_current_value": 95602790,
+      "estimated_value_change_since_quarter_end": 56248627,
       "status": "new_add",
       "status_icon": "🟢",
       "status_label": "New + Add",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "G11448100",
-      "ticker": "",
+      "ticker": "BTDR",
       "issuer": "BITDEER TECHNOLOGIES GROUP",
-      "sector": "",
+      "sector": "Bitcoin Mining",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         929600,
@@ -366,24 +372,24 @@
       "portfolio_weight_common_stock": 0.0077,
       "qoq_share_change_pct": 0.9236297539149888,
       "three_quarter_trend": "up_up_up",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 9.34,
+      "current_price": 14.65,
+      "price_change_since_quarter_end_pct": 0.5685,
+      "estimated_current_value": 50387942,
+      "estimated_value_change_since_quarter_end": 18263480,
       "status": "strong_add",
       "status_icon": "🟢",
       "status_label": "Strong Add",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "73933G202",
-      "ticker": "",
+      "ticker": "PSIX",
       "issuer": "POWER SOLUTIONS INTL INC",
-      "sector": "",
+      "sector": "Industrial",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -395,24 +401,24 @@
       "portfolio_weight_common_stock": 0.0068,
       "qoq_share_change_pct": 0.0,
       "three_quarter_trend": "mixed",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 66.18,
+      "current_price": 38.87,
+      "price_change_since_quarter_end_pct": -0.4127,
+      "estimated_current_value": 16803501,
+      "estimated_value_change_since_quarter_end": -11806113,
       "status": "hold",
       "status_icon": "🟡",
       "status_label": "Hold",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "G96115103",
       "ticker": "",
       "issuer": "WHITEFIBER INC",
-      "sector": "",
+      "sector": "Technology",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -433,15 +439,15 @@
       "status_icon": "🟡",
       "status_label": "Hold",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
+        "cusip_ticker_mapping": "manual",
         "price_source": "unavailable"
       }
     },
     {
       "cusip": "007903107",
-      "ticker": "",
+      "ticker": "AMD",
       "issuer": "ADVANCED MICRO DEVICES INC",
-      "sector": "",
+      "sector": "Semiconductors",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -453,24 +459,24 @@
       "portfolio_weight_common_stock": 0.0052,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 210.21,
+      "current_price": 467.51,
+      "price_change_since_quarter_end_pct": 1.224,
+      "estimated_current_value": 46348006,
+      "estimated_value_change_since_quarter_end": 25508207,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "05614L209",
-      "ticker": "",
+      "ticker": "BW",
       "issuer": "BABCOCK & WILCOX ENTERPRISES",
-      "sector": "",
+      "sector": "Energy/Industrial",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -482,24 +488,24 @@
       "portfolio_weight_common_stock": 0.0052,
       "qoq_share_change_pct": 0.0,
       "three_quarter_trend": "mixed",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 14.97,
+      "current_price": 19.04,
+      "price_change_since_quarter_end_pct": 0.2719,
+      "estimated_current_value": 25778256,
+      "estimated_value_change_since_quarter_end": 5510373,
       "status": "hold",
       "status_icon": "🟡",
       "status_label": "Hold",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "778920306",
       "ticker": "",
       "issuer": "SHARONAI HOLDINGS INC",
-      "sector": "",
+      "sector": "Technology",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -520,15 +526,15 @@
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
+        "cusip_ticker_mapping": "manual",
         "price_source": "unavailable"
       }
     },
     {
       "cusip": "74347M108",
-      "ticker": "",
+      "ticker": "PUMP",
       "issuer": "PROPETRO HLDG CORP",
-      "sector": "",
+      "sector": "Energy",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -540,24 +546,24 @@
       "portfolio_weight_common_stock": 0.0034,
       "qoq_share_change_pct": 0.0,
       "three_quarter_trend": "mixed",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 13.5,
+      "current_price": 16.95,
+      "price_change_since_quarter_end_pct": 0.2556,
+      "estimated_current_value": 15429585,
+      "estimated_value_change_since_quarter_end": 3140535,
       "status": "hold",
       "status_icon": "🟡",
       "status_label": "Hold",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "92189F676",
-      "ticker": "",
+      "ticker": "SMH",
       "issuer": "VANECK ETF TRUST",
-      "sector": "",
+      "sector": "ETF",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -569,24 +575,24 @@
       "portfolio_weight_common_stock": 0.0027,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 391.97,
+      "current_price": 576.32,
+      "price_change_since_quarter_end_pct": 0.4703,
+      "estimated_current_value": 15531824,
+      "estimated_value_change_since_quarter_end": 4968233,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "458140100",
-      "ticker": "",
+      "ticker": "INTC",
       "issuer": "INTEL CORP",
-      "sector": "",
+      "sector": "Semiconductors",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -598,24 +604,24 @@
       "portfolio_weight_common_stock": 0.0023,
       "qoq_share_change_pct": 202343.0,
       "three_quarter_trend": "new_add",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 48.03,
+      "current_price": 119.84,
+      "price_change_since_quarter_end_pct": 1.4951,
+      "estimated_current_value": 24248905,
+      "estimated_value_change_since_quarter_end": 14530323,
       "status": "new_add",
       "status_icon": "🟢",
       "status_label": "New + Add",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "874039100",
-      "ticker": "",
+      "ticker": "TSM",
       "issuer": "TAIWAN SEMICONDUCTOR MANUFAC",
-      "sector": "",
+      "sector": "Semiconductors",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -627,24 +633,24 @@
       "portfolio_weight_common_stock": 0.002,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 341.49,
+      "current_price": 404.52,
+      "price_change_since_quarter_end_pct": 0.1846,
+      "estimated_current_value": 9070552,
+      "estimated_value_change_since_quarter_end": 1413322,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "433921103",
-      "ticker": "",
+      "ticker": "HIVE",
       "issuer": "HIVE DIGITAL TECHNOLOGIES LT",
-      "sector": "",
+      "sector": "Bitcoin Mining",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -656,24 +662,24 @@
       "portfolio_weight_common_stock": 0.0017,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 1.89,
+      "current_price": 4.07,
+      "price_change_since_quarter_end_pct": 1.1534,
+      "estimated_current_value": 13803596,
+      "estimated_value_change_since_quarter_end": 7393572,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "N07059210",
-      "ticker": "",
+      "ticker": "ASML",
       "issuer": "ASML HLDG NV N Y REGISTRY",
-      "sector": "",
+      "sector": "Semiconductors",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -685,24 +691,24 @@
       "portfolio_weight_common_stock": 0.0016,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 1356.8,
+      "current_price": 1632.9,
+      "price_change_since_quarter_end_pct": 0.2035,
+      "estimated_current_value": 7565226,
+      "estimated_value_change_since_quarter_end": 1279171,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "595112103",
-      "ticker": "",
+      "ticker": "MU",
       "issuer": "MICRON TECHNOLOGY INC",
-      "sector": "",
+      "sector": "Semiconductors",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -714,24 +720,24 @@
       "portfolio_weight_common_stock": 0.0015,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 367.85,
+      "current_price": 751.0,
+      "price_change_since_quarter_end_pct": 1.0416,
+      "estimated_current_value": 13038862,
+      "estimated_value_change_since_quarter_end": 6652250,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "219350105",
-      "ticker": "",
+      "ticker": "GLW",
       "issuer": "CORNING INC",
-      "sector": "",
+      "sector": "Technology",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -743,24 +749,24 @@
       "portfolio_weight_common_stock": 0.0002,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 142.38,
+      "current_price": 194.05,
+      "price_change_since_quarter_end_pct": 0.3629,
+      "estimated_current_value": 1025166,
+      "estimated_value_change_since_quarter_end": 272973,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "67066G104",
-      "ticker": "",
+      "ticker": "NVDA",
       "issuer": "NVIDIA CORPORATION",
-      "sector": "",
+      "sector": "Semiconductors",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -772,26 +778,26 @@
       "portfolio_weight_common_stock": 0.0001,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 175.75,
+      "current_price": 215.33,
+      "price_change_since_quarter_end_pct": 0.2252,
+      "estimated_current_value": 614767,
+      "estimated_value_change_since_quarter_end": 113001,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     }
   ],
   "new_buys": [
     {
       "cusip": "N07059210",
-      "ticker": "",
+      "ticker": "ASML",
       "issuer": "ASML HLDG NV N Y REGISTRY",
-      "sector": "",
+      "sector": "Semiconductors",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -803,24 +809,24 @@
       "portfolio_weight_common_stock": 0.0016,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 1356.8,
+      "current_price": 1632.9,
+      "price_change_since_quarter_end_pct": 0.2035,
+      "estimated_current_value": 7565226,
+      "estimated_value_change_since_quarter_end": 1279171,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "007903107",
-      "ticker": "",
+      "ticker": "AMD",
       "issuer": "ADVANCED MICRO DEVICES INC",
-      "sector": "",
+      "sector": "Semiconductors",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -832,24 +838,24 @@
       "portfolio_weight_common_stock": 0.0052,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 210.21,
+      "current_price": 467.51,
+      "price_change_since_quarter_end_pct": 1.224,
+      "estimated_current_value": 46348006,
+      "estimated_value_change_since_quarter_end": 25508207,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "219350105",
-      "ticker": "",
+      "ticker": "GLW",
       "issuer": "CORNING INC",
-      "sector": "",
+      "sector": "Technology",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -861,24 +867,24 @@
       "portfolio_weight_common_stock": 0.0002,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 142.38,
+      "current_price": 194.05,
+      "price_change_since_quarter_end_pct": 0.3629,
+      "estimated_current_value": 1025166,
+      "estimated_value_change_since_quarter_end": 272973,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "433921103",
-      "ticker": "",
+      "ticker": "HIVE",
       "issuer": "HIVE DIGITAL TECHNOLOGIES LT",
-      "sector": "",
+      "sector": "Bitcoin Mining",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -890,24 +896,24 @@
       "portfolio_weight_common_stock": 0.0017,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 1.89,
+      "current_price": 4.07,
+      "price_change_since_quarter_end_pct": 1.1534,
+      "estimated_current_value": 13803596,
+      "estimated_value_change_since_quarter_end": 7393572,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "595112103",
-      "ticker": "",
+      "ticker": "MU",
       "issuer": "MICRON TECHNOLOGY INC",
-      "sector": "",
+      "sector": "Semiconductors",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -919,24 +925,24 @@
       "portfolio_weight_common_stock": 0.0015,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 367.85,
+      "current_price": 751.0,
+      "price_change_since_quarter_end_pct": 1.0416,
+      "estimated_current_value": 13038862,
+      "estimated_value_change_since_quarter_end": 6652250,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "67066G104",
-      "ticker": "",
+      "ticker": "NVDA",
       "issuer": "NVIDIA CORPORATION",
-      "sector": "",
+      "sector": "Semiconductors",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -948,24 +954,24 @@
       "portfolio_weight_common_stock": 0.0001,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 175.75,
+      "current_price": 215.33,
+      "price_change_since_quarter_end_pct": 0.2252,
+      "estimated_current_value": 614767,
+      "estimated_value_change_since_quarter_end": 113001,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "778920306",
       "ticker": "",
       "issuer": "SHARONAI HOLDINGS INC",
-      "sector": "",
+      "sector": "Technology",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -986,7 +992,7 @@
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
+        "cusip_ticker_mapping": "manual",
         "price_source": "unavailable"
       }
     },
@@ -994,7 +1000,7 @@
       "cusip": "35834F104",
       "ticker": "",
       "issuer": "T1 ENERGY INC",
-      "sector": "",
+      "sector": "Energy Infrastructure",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -1015,15 +1021,15 @@
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
+        "cusip_ticker_mapping": "manual",
         "price_source": "unavailable"
       }
     },
     {
       "cusip": "874039100",
-      "ticker": "",
+      "ticker": "TSM",
       "issuer": "TAIWAN SEMICONDUCTOR MANUFAC",
-      "sector": "",
+      "sector": "Semiconductors",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -1035,24 +1041,24 @@
       "portfolio_weight_common_stock": 0.002,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 341.49,
+      "current_price": 404.52,
+      "price_change_since_quarter_end_pct": 0.1846,
+      "estimated_current_value": 9070552,
+      "estimated_value_change_since_quarter_end": 1413322,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "92189F676",
-      "ticker": "",
+      "ticker": "SMH",
       "issuer": "VANECK ETF TRUST",
-      "sector": "",
+      "sector": "ETF",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -1064,17 +1070,17 @@
       "portfolio_weight_common_stock": 0.0027,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 391.97,
+      "current_price": 576.32,
+      "price_change_since_quarter_end_pct": 0.4703,
+      "estimated_current_value": 15531824,
+      "estimated_value_change_since_quarter_end": 4968233,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     }
   ],
@@ -1139,9 +1145,9 @@
     },
     {
       "cusip": "19247G107",
-      "ticker": "",
+      "ticker": "COHR",
       "issuer": "COHERENT CORP",
-      "sector": "",
+      "sector": "Technology",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         154400,
@@ -1153,24 +1159,24 @@
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": -1.0,
       "three_quarter_trend": "mixed",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 247.8,
+      "current_price": 377.57,
+      "price_change_since_quarter_end_pct": 0.5237,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
       "status_icon": "⚫",
       "status_label": "Exit",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "26884L109",
-      "ticker": "",
+      "ticker": "EQT",
       "issuer": "EQT CORP",
-      "sector": "",
+      "sector": "Energy",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         1217386,
@@ -1182,17 +1188,17 @@
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": -1.0,
       "three_quarter_trend": "mixed",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 60.92,
+      "current_price": 57.92,
+      "price_change_since_quarter_end_pct": -0.0492,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
       "status_icon": "⚫",
       "status_label": "Exit",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
@@ -1226,9 +1232,9 @@
     },
     {
       "cusip": "44812J104",
-      "ticker": "",
+      "ticker": "HUT",
       "issuer": "HUT 8 CORP",
-      "sector": "",
+      "sector": "Bitcoin Mining",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         599000,
@@ -1240,17 +1246,17 @@
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": -1.0,
       "three_quarter_trend": "mixed",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 47.36,
+      "current_price": 105.9,
+      "price_change_since_quarter_end_pct": 1.2361,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
       "status_icon": "⚫",
       "status_label": "Exit",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
@@ -1313,9 +1319,9 @@
     },
     {
       "cusip": "M87915274",
-      "ticker": "",
+      "ticker": "TSEM",
       "issuer": "TOWER SEMICONDUCTOR LTD",
-      "sector": "",
+      "sector": "Semiconductors",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         470600,
@@ -1327,24 +1333,24 @@
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": -1.0,
       "three_quarter_trend": "mixed",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 187.07,
+      "current_price": 283.43,
+      "price_change_since_quarter_end_pct": 0.5151,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
       "status_icon": "⚫",
       "status_label": "Exit",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "92840M102",
-      "ticker": "",
+      "ticker": "VST",
       "issuer": "VISTRA CORP",
-      "sector": "",
+      "sector": "Energy",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         1287910,
@@ -1356,17 +1362,17 @@
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": 0.0,
       "three_quarter_trend": "mixed",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 153.96,
+      "current_price": 156.27,
+      "price_change_since_quarter_end_pct": 0.015,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
       "status_icon": "⚫",
       "status_label": "Exit",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
@@ -1400,9 +1406,9 @@
     },
     {
       "cusip": "17253J106",
-      "ticker": "",
+      "ticker": "CIFR",
       "issuer": "CIPHER MINING INC",
-      "sector": "",
+      "sector": "Bitcoin Mining",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -1414,24 +1420,24 @@
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": -1.0,
       "three_quarter_trend": "mixed",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 12.64,
+      "current_price": 21.97,
+      "price_change_since_quarter_end_pct": 0.7381,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
       "status_icon": "⚫",
       "status_label": "Exit",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "49427F108",
-      "ticker": "",
+      "ticker": "KRC",
       "issuer": "KILROY RLTY CORP",
-      "sector": "",
+      "sector": "Real Estate",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -1443,24 +1449,24 @@
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": -1.0,
       "three_quarter_trend": "mixed",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 28.08,
+      "current_price": 33.97,
+      "price_change_since_quarter_end_pct": 0.2098,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
       "status_icon": "⚫",
       "status_label": "Exit",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "53115L104",
-      "ticker": "",
+      "ticker": "LBRT",
       "issuer": "LIBERTY ENERGY INC",
-      "sector": "",
+      "sector": "Energy",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -1472,24 +1478,24 @@
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": -1.0,
       "three_quarter_trend": "mixed",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 27.92,
+      "current_price": 31.84,
+      "price_change_since_quarter_end_pct": 0.1404,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
       "status_icon": "⚫",
       "status_label": "Exit",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "55024U109",
-      "ticker": "",
+      "ticker": "LITE",
       "issuer": "LUMENTUM HLDGS INC",
-      "sector": "",
+      "sector": "Technology",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
@@ -1501,24 +1507,24 @@
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": -1.0,
       "three_quarter_trend": "mixed",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 764.65,
+      "current_price": 946.9,
+      "price_change_since_quarter_end_pct": 0.2383,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
       "status_icon": "⚫",
       "status_label": "Exit",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
       }
     }
   ],
   "options": [
     {
       "underlying": "VANECK ETF TRUST",
-      "ticker": "",
+      "ticker": "SMH",
       "instrument": "PUT",
       "notional_by_quarter": [
         0,
@@ -1527,12 +1533,12 @@
       ],
       "notional_latest_usd": 2042716860,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": null,
+      "underlying_price_move": 0.4703,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
       "underlying": "NVIDIA CORPORATION",
-      "ticker": "",
+      "ticker": "NVDA",
       "instrument": "PUT",
       "notional_by_quarter": [
         298528000,
@@ -1541,12 +1547,12 @@
       ],
       "notional_latest_usd": 1568257120,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": null,
+      "underlying_price_move": 0.2252,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
       "underlying": "ORACLE CORP",
-      "ticker": "",
+      "ticker": "ORCL",
       "instrument": "PUT",
       "notional_by_quarter": [
         0,
@@ -1555,12 +1561,12 @@
       ],
       "notional_latest_usd": 1072873230,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": null,
+      "underlying_price_move": 0.3273,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
       "underlying": "BROADCOM INC",
-      "ticker": "",
+      "ticker": "AVGO",
       "instrument": "PUT",
       "notional_by_quarter": [
         75879300,
@@ -1569,12 +1575,12 @@
       ],
       "notional_latest_usd": 1006247961,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": null,
+      "underlying_price_move": 0.3211,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
       "underlying": "ADVANCED MICRO DEVICES INC",
-      "ticker": "",
+      "ticker": "AMD",
       "instrument": "PUT",
       "notional_by_quarter": [
         0,
@@ -1583,12 +1589,12 @@
       ],
       "notional_latest_usd": 969160863,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": null,
+      "underlying_price_move": 1.224,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
       "underlying": "MICRON TECHNOLOGY INC",
-      "ticker": "",
+      "ticker": "MU",
       "instrument": "PUT",
       "notional_by_quarter": [
         50196000,
@@ -1597,12 +1603,12 @@
       ],
       "notional_latest_usd": 583686168,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": null,
+      "underlying_price_move": 1.0416,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
       "underlying": "TAIWAN SEMICONDUCTOR MFG LTD",
-      "ticker": "",
+      "ticker": "TSM",
       "instrument": "PUT",
       "notional_by_quarter": [
         75408300,
@@ -1611,12 +1617,12 @@
       ],
       "notional_latest_usd": 535110030,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": null,
+      "underlying_price_move": 0.1846,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
       "underlying": "ASML HLDG NV N Y REGISTRY",
-      "ticker": "",
+      "ticker": "ASML",
       "instrument": "PUT",
       "notional_by_quarter": [
         0,
@@ -1625,12 +1631,12 @@
       ],
       "notional_latest_usd": 494122503,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": null,
+      "underlying_price_move": 0.2035,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
       "underlying": "MICRON TECHNOLOGY INC",
-      "ticker": "",
+      "ticker": "MU",
       "instrument": "CALL",
       "notional_by_quarter": [
         0,
@@ -1639,12 +1645,12 @@
       ],
       "notional_latest_usd": 422300000,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": null,
+      "underlying_price_move": 1.0416,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
       "underlying": "SANDISK CORP",
-      "ticker": "",
+      "ticker": "SNDK",
       "instrument": "CALL",
       "notional_by_quarter": [
         0,
@@ -1653,12 +1659,12 @@
       ],
       "notional_latest_usd": 388764546,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": null,
+      "underlying_price_move": 1.1346,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
       "underlying": "TAIWAN SEMICONDUCTOR MANUFAC",
-      "ticker": "",
+      "ticker": "TSM",
       "instrument": "CALL",
       "notional_by_quarter": [
         0,
@@ -1667,12 +1673,12 @@
       ],
       "notional_latest_usd": 354847500,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": null,
+      "underlying_price_move": 0.1846,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
       "underlying": "INTEL CORP",
-      "ticker": "",
+      "ticker": "INTC",
       "instrument": "PUT",
       "notional_by_quarter": [
         0,
@@ -1681,12 +1687,12 @@
       ],
       "notional_latest_usd": 159106302,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": null,
+      "underlying_price_move": 1.4951,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
       "underlying": "COREWEAVE INC",
-      "ticker": "",
+      "ticker": "CRWV",
       "instrument": "CALL",
       "notional_by_quarter": [
         316739325,
@@ -1695,12 +1701,12 @@
       ],
       "notional_latest_usd": 140569315,
       "qoq_notional_change_pct": -0.8184858819595039,
-      "underlying_price_move": null,
+      "underlying_price_move": 0.3448,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
       "underlying": "BLOOM ENERGY CORP",
-      "ticker": "",
+      "ticker": "BE",
       "instrument": "CALL",
       "notional_by_quarter": [
         0,
@@ -1709,12 +1715,12 @@
       ],
       "notional_latest_usd": 55347665,
       "qoq_notional_change_pct": 0.559327885832662,
-      "underlying_price_move": null,
+      "underlying_price_move": 1.2838,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
       "underlying": "CORNING INC",
-      "ticker": "",
+      "ticker": "GLW",
       "instrument": "PUT",
       "notional_by_quarter": [
         0,
@@ -1723,12 +1729,12 @@
       ],
       "notional_latest_usd": 21020962,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": null,
+      "underlying_price_move": 0.3629,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
       "underlying": "INFOSYS LTD",
-      "ticker": "",
+      "ticker": "INFY",
       "instrument": "PUT",
       "notional_by_quarter": [
         0,
@@ -1737,7 +1743,7 @@
       ],
       "notional_latest_usd": 6755000,
       "qoq_notional_change_pct": -0.24186307519640854,
-      "underlying_price_move": null,
+      "underlying_price_move": -0.0474,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -1756,7 +1762,7 @@
     },
     {
       "underlying": "COREWEAVE INC",
-      "ticker": "",
+      "ticker": "CRWV",
       "instrument": "PUT",
       "notional_by_quarter": [
         191590000,
@@ -1765,12 +1771,12 @@
       ],
       "notional_latest_usd": 0,
       "qoq_notional_change_pct": 0.0,
-      "underlying_price_move": null,
+      "underlying_price_move": 0.3448,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
       "underlying": "INTEL CORP",
-      "ticker": "",
+      "ticker": "INTC",
       "instrument": "CALL",
       "notional_by_quarter": [
         678964770,
@@ -1779,7 +1785,7 @@
       ],
       "notional_latest_usd": 0,
       "qoq_notional_change_pct": -1.0,
-      "underlying_price_move": null,
+      "underlying_price_move": 1.4951,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -1798,7 +1804,7 @@
     },
     {
       "underlying": "EQT CORP",
-      "ticker": "",
+      "ticker": "EQT",
       "instrument": "CALL",
       "notional_by_quarter": [
         0,
@@ -1807,7 +1813,7 @@
       ],
       "notional_latest_usd": 0,
       "qoq_notional_change_pct": -1.0,
-      "underlying_price_move": null,
+      "underlying_price_move": -0.0492,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     }
   ]

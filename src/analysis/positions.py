@@ -212,8 +212,17 @@ def build(cfg: Config, parsed_quarters: list[dict]) -> dict:
     priced = [r for r in common_rows if r["price_change_since_quarter_end_pct"] is not None]
     best = max(priced, key=lambda r: r["price_change_since_quarter_end_pct"], default=None)
     worst = min(priced, key=lambda r: r["price_change_since_quarter_end_pct"], default=None)
-    largest_add = max(common_rows, key=lambda r: (r["qoq_share_change_pct"] or 0) if isinstance(r["qoq_share_change_pct"], float) else 0, default=None)
-    largest_trim = min(common_rows, key=lambda r: (r["qoq_share_change_pct"] or 0) if isinstance(r["qoq_share_change_pct"], float) else 0, default=None)
+    # Use dollar value as ranking basis, not percentage — avoids micro-positions
+    # (e.g. 1→202k shares looks like +20M% but is only 0.2% of portfolio) dominating.
+    _meaningful = [r for r in common_rows if r["portfolio_weight_common_stock"] >= 0.005]
+    largest_add = max(
+        [r for r in _meaningful if isinstance(r.get("qoq_share_change_pct"), float) and r["qoq_share_change_pct"] > 0],
+        key=lambda r: r["value_latest_usd"], default=None,
+    )
+    largest_trim = min(
+        [r for r in _meaningful if isinstance(r.get("qoq_share_change_pct"), float) and r["qoq_share_change_pct"] < 0],
+        key=lambda r: r["qoq_share_change_pct"], default=None,
+    )
 
     summary = {
         "latest_quarter": latest["quarter"],
