@@ -20,22 +20,27 @@ import urllib.parse
 
 from ..config import Config
 from ..sources.discovery import DiscoveryItem, _parse_rss
-from ..utils import HttpClient, get_logger
+from ..utils import HttpClient, get_logger, read_json, write_json, utc_now_iso
 
 log = get_logger("sources.rss_news")
 
-# Nitter instances — tried in order, first successful response wins.
-# Instances go down frequently; update this list if needed.
-# RSS URL format: https://<instance>/<username>/rss
+# Nitter instances — tried in order; last successful instance is persisted to
+# data/derived/nitter_state.json and moved to front of list on the next run.
+# Update this list when instances go down (community list: github.com/zedeus/nitter/wiki/Instances)
 _X_HANDLE = "leopoldasch"
 _NITTER_INSTANCES = [
     "https://nitter.poast.org",
+    "https://nitter.net",
     "https://nitter.privacydev.net",
     "https://nitter.cz",
-    "https://nitter.net",
     "https://bird.trom.tf",
     "https://nitter.1d4.us",
+    "https://nitter.mint.lgbt",
+    "https://nitter.unixfox.eu",
+    "https://nitter.moomoo.me",
+    "https://lightbrd.com",
 ]
+_NITTER_STATE_KEY = "nitter_last_working"
 
 # Google News RSS — free, no API key, throttle-tolerant (30 s between calls is fine)
 _GOOGLE_NEWS_QUERIES = [
@@ -69,15 +74,27 @@ def _fetch_feed(client: HttpClient, url: str, source_kind: str) -> list[Discover
         return []
 
 
+def _nitter_state_path(cfg: Config):
+    return cfg.paths.derived / "nitter_state.json"
+
+
 def from_nitter_x(cfg: Config) -> list[DiscoveryItem]:
     """@leopoldasch timeline via public Nitter RSS — no API key required.
 
     Tries each Nitter instance in order and returns items from the first that
-    responds successfully. Source kind is "x" so it inherits the 0.75 base
-    confidence and gets LLM-validated like any other X source.
+    responds successfully. The last successful instance is persisted so it is
+    tried first on the next run, cutting latency when an instance is stable.
     """
+    # Load last known-good instance and promote it to front
+    state = read_json(str(_nitter_state_path(cfg))) or {}
+    last_working = state.get(_NITTER_STATE_KEY, "")
+    instances = list(_NITTER_INSTANCES)
+    if last_working and last_working in instances:
+        instances.remove(last_working)
+        instances.insert(0, last_working)
+
     client = HttpClient(cfg.sec_user_agent, cfg.sec_request_delay)
-    for instance in _NITTER_INSTANCES:
+    for instance in instances:
         url = f"{instance}/{_X_HANDLE}/rss"
         try:
             text = client.get_text(url, timeout=15)
@@ -87,6 +104,10 @@ def from_nitter_x(cfg: Config) -> list[DiscoveryItem]:
             items = _parse_rss(text, "x")
             if items:
                 log.info("Nitter (%s): %d tweet(s) from @%s.", instance, len(items), _X_HANDLE)
+                # Persist this instance so it's tried first next run
+                if instance != last_working:
+                    write_json(str(_nitter_state_path(cfg)),
+                               {_NITTER_STATE_KEY: instance, "updated": utc_now_iso()})
                 return items
             log.debug("Nitter %s: empty feed", instance)
         except Exception as exc:  # noqa: BLE001
