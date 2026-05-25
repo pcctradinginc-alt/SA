@@ -3,5 +3,8 @@ requests>=2.31
 PyYAML>=6.0
 Jinja2>=3.1
 
+# LLM validation (optional). If absent, falls back to keyword-only matching.
+anthropic>=0.100
+
 # Prices (optional but recommended). If absent, price columns degrade to "—".
 yfinance>=0.2.40
