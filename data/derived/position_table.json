@@ -1110,7 +1110,7 @@
       "status_icon": "⚫",
       "status_label": "Exit",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
+        "cusip_ticker_mapping": "openfigi_bond",
         "price_source": "unavailable"
       }
     },
@@ -1139,7 +1139,7 @@
       "status_icon": "⚫",
       "status_label": "Exit",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
+        "cusip_ticker_mapping": "openfigi_bond",
         "price_source": "unavailable"
       }
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "cusip": "36317J209",
-      "ticker": "",
+      "ticker": "GLXY",
       "issuer": "GALAXY DIGITAL INC.",
       "sector": "",
       "instrument_type": "COMMON_STOCK",
@@ -1217,17 +1217,17 @@
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": 0.0,
       "three_quarter_trend": "mixed",
-      "price_at_quarter_end": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "price_at_quarter_end": 17.37,
+      "current_price": 28.65,
+      "price_change_since_quarter_end_pct": 0.6494,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
       "status_icon": "⚫",
       "status_label": "Exit",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "openfigi",
+        "price_source": "yfinance"
       }
     },
     {
@@ -1284,7 +1284,7 @@
       "status_icon": "⚫",
       "status_label": "Exit",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
+        "cusip_ticker_mapping": "openfigi_bond",
         "price_source": "unavailable"
       }
     },
@@ -1313,7 +1313,7 @@
       "status_icon": "⚫",
       "status_label": "Exit",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
+        "cusip_ticker_mapping": "openfigi_no_match",
         "price_source": "unavailable"
       }
     },
@@ -1400,7 +1400,7 @@
       "status_icon": "⚫",
       "status_label": "Exit",
       "data_quality": {
-        "cusip_ticker_mapping": "unmapped",
+        "cusip_ticker_mapping": "openfigi_bond",
         "price_source": "unavailable"
       }
     },
@@ -1790,7 +1790,7 @@
     },
     {
       "underlying": "VANECK ETF TRUST",
-      "ticker": "",
+      "ticker": "GDX",
       "instrument": "PUT",
       "notional_by_quarter": [
         195816000,
@@ -1799,7 +1799,7 @@
       ],
       "notional_latest_usd": 0,
       "qoq_notional_change_pct": 0.0,
-      "underlying_price_move": null,
+      "underlying_price_move": -0.1145,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -1815,6 +1815,68 @@
       "qoq_notional_change_pct": -1.0,
       "underlying_price_move": -0.0492,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
+    }
+  ],
+  "top_signals": [
+    {
+      "ticker": "IREN",
+      "issuer": "IREN LIMITED",
+      "status_label": "Strong Add",
+      "portfolio_weight_common_stock": 0.104,
+      "value_latest_usd": 401036064,
+      "qoq_share_change_pct": 0.34459770170428067,
+      "three_quarter_trend": "up_up_up",
+      "price_change_since_quarter_end_pct": 0.6671,
+      "conviction_score": 7.4,
+      "recommendation": "Stark nachkaufen"
+    },
+    {
+      "ticker": "CRWV",
+      "issuer": "COREWEAVE INC",
+      "status_label": "Strong Add",
+      "portfolio_weight_common_stock": 0.1442,
+      "value_latest_usd": 556073385,
+      "qoq_share_change_pct": 0.17693724613908413,
+      "three_quarter_trend": "up_up_up",
+      "price_change_since_quarter_end_pct": 0.3448,
+      "conviction_score": 7.3,
+      "recommendation": "Stark nachkaufen"
+    },
+    {
+      "ticker": "RIOT",
+      "issuer": "RIOT PLATFORMS INC",
+      "status_label": "Strong Add",
+      "portfolio_weight_common_stock": 0.0369,
+      "value_latest_usd": 142166413,
+      "qoq_share_change_pct": 0.8648989088314931,
+      "three_quarter_trend": "up_up_up",
+      "price_change_since_quarter_end_pct": 0.9514,
+      "conviction_score": 6.6,
+      "recommendation": "Stark nachkaufen"
+    },
+    {
+      "ticker": "APLD",
+      "issuer": "APPLIED DIGITAL CORP",
+      "status_label": "Strong Add",
+      "portfolio_weight_common_stock": 0.083,
+      "value_latest_usd": 319978118,
+      "qoq_share_change_pct": 0.1886733115443432,
+      "three_quarter_trend": "up_up_up",
+      "price_change_since_quarter_end_pct": 0.873,
+      "conviction_score": 6.5,
+      "recommendation": "Stark nachkaufen"
+    },
+    {
+      "ticker": "CLSK",
+      "issuer": "CLEANSPARK INC",
+      "status_label": "New + Add",
+      "portfolio_weight_common_stock": 0.0271,
+      "value_latest_usd": 104469943,
+      "qoq_share_change_pct": 6.483625335284077,
+      "three_quarter_trend": "new_add",
+      "price_change_since_quarter_end_pct": 0.8527,
+      "conviction_score": 6.3,
+      "recommendation": "Aufbauen"
     }
   ]
 }

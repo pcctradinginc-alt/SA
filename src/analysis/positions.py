@@ -35,6 +35,89 @@ STATUS_LABEL = {
     STATUS_HOLD: "Hold", STATUS_TRIM: "Trim", STATUS_EXIT: "Exit",
 }
 
+_SIGNAL_STATUSES = {STATUS_STRONG_ADD, STATUS_NEW_ADD, STATUS_NEW_BUY}
+_SCORE_THRESHOLD = 5.0
+_TOP_SIGNALS_N = 5
+
+
+def _conviction_score(row: dict) -> float:
+    """Weighted 0–10 conviction score for copy-trading decisions.
+
+    Components (max):
+      Portfolio weight  3.0  — primary conviction indicator
+      QoQ share change  2.5  — momentum
+      3-quarter trend   2.0  — consistency
+      Absolute value    1.5  — avoids micro-positions dominating
+      Price opportunity 1.0  — penalise if >50% already moved since filing
+    """
+    w = row["portfolio_weight_common_stock"]
+    qoq = row.get("qoq_share_change_pct")
+    trend = row.get("three_quarter_trend", "")
+    val = row.get("value_latest_usd", 0)
+    pm = row.get("price_change_since_quarter_end_pct")
+
+    if w >= 0.15:       w_score = 3.0
+    elif w >= 0.08:     w_score = 2.4
+    elif w >= 0.03:     w_score = 1.8
+    elif w >= 0.01:     w_score = 1.2
+    else:               w_score = 0.6
+
+    if qoq is None:     q_score = 2.0   # new buy, no prior quarter
+    elif qoq >= 1.0:    q_score = 2.5
+    elif qoq >= 0.5:    q_score = 2.0
+    elif qoq >= 0.3:    q_score = 1.5
+    elif qoq >= 0.15:   q_score = 1.0
+    else:               q_score = 0.4
+
+    t_score = {"up_up_up": 2.0, "new_add": 1.8, "new": 1.4,
+               "mixed": 0.8, "flat": 0.4, "down_down": 0.0}.get(trend, 0.6)
+
+    if val >= 400_000_000:    v_score = 1.5
+    elif val >= 200_000_000:  v_score = 1.1
+    elif val >= 100_000_000:  v_score = 0.8
+    elif val >= 25_000_000:   v_score = 0.5
+    else:                     v_score = 0.2
+
+    if pm is None:      p_score = 0.8   # unknown, neutral
+    elif pm > 0.5:      p_score = 0.0   # ship has sailed (+50%+)
+    elif pm > 0.2:      p_score = 0.4   # partially sailed
+    else:               p_score = 1.0   # still opportunity (or dip)
+
+    return round(w_score + q_score + t_score + v_score + p_score, 1)
+
+
+def _build_top_signals(common_rows: list[dict]) -> list[dict]:
+    """Return the top copy-trade signals ranked by conviction score."""
+    signals = []
+    for r in common_rows:
+        if r.get("status") not in _SIGNAL_STATUSES:
+            continue
+        if r.get("value_latest_usd", 0) < 25_000_000:
+            continue
+        qoq = r.get("qoq_share_change_pct")
+        if qoq is not None and qoq < 0.10:
+            continue
+        score = _conviction_score(r)
+        if score < _SCORE_THRESHOLD:
+            continue
+        if score >= 8.0:      rec = "Sofort nachkaufen"
+        elif score >= 6.5:    rec = "Stark nachkaufen"
+        else:                 rec = "Aufbauen"
+        signals.append({
+            "ticker": r["ticker"],
+            "issuer": r["issuer"],
+            "status_label": r["status_label"],
+            "portfolio_weight_common_stock": r["portfolio_weight_common_stock"],
+            "value_latest_usd": r["value_latest_usd"],
+            "qoq_share_change_pct": qoq,
+            "three_quarter_trend": r["three_quarter_trend"],
+            "price_change_since_quarter_end_pct": r.get("price_change_since_quarter_end_pct"),
+            "conviction_score": score,
+            "recommendation": rec,
+        })
+    signals.sort(key=lambda x: x["conviction_score"], reverse=True)
+    return signals[:_TOP_SIGNALS_N]
+
 
 @dataclass
 class Series:
@@ -181,6 +264,7 @@ def build(cfg: Config, parsed_quarters: list[dict]) -> dict:
                 new_buys.append(row)
 
     common_rows.sort(key=lambda r: r["value_latest_usd"], reverse=True)
+    top_signals = _build_top_signals(common_rows)
 
     # ── options ──────────────────────────────────────────────────────────────
     options = _collect(parsed_quarters, {OPTION_PUT, OPTION_CALL})
@@ -254,6 +338,7 @@ def build(cfg: Config, parsed_quarters: list[dict]) -> dict:
         "new_buys": new_buys,
         "exits": exits,
         "options": option_rows,
+        "top_signals": top_signals,
     }
     write_json(cfg.paths.derived / "position_table.json", model)
     return model

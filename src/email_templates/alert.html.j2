@@ -159,6 +159,90 @@
     <div style="font-size:13px;color:{{ C.sec }};margin-top:2px;">Bis zu 45 Tage Verzögerung · Basis aller Portfolioangaben</div>
   </td></tr>
 
+  <!-- ── TOP NACHKAUF-SIGNALE (Conviction-Score) ── -->
+  {% if top_signals %}
+  <tr><td style="padding:12px 32px 0 32px;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:{{ C.ter }};margin-bottom:10px;">
+      Top Nachkauf-Signale · Conviction Score
+    </div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+           style="border:1px solid {{ C.line }};border-radius:14px;overflow:hidden;">
+      <tr><td style="padding:4px 0;">
+
+        {% for sig in top_signals %}
+        {%- set score = sig.conviction_score -%}
+        {%- set score_color = '#1d7a3e' if score >= 7.5 else ('#9a6b00' if score >= 6.0 else '#6e6e73') -%}
+        {%- set score_bg = C.green_bg if score >= 7.5 else (C.amber_bg if score >= 6.0 else C.gray_bg) -%}
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+               style="border-bottom:{% if not loop.last %}1px solid {{ C.line }}{% else %}none{% endif %};">
+          <tr><td style="padding:14px 18px;">
+
+            <!-- Row 1: rank · ticker · score pill -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+              <tr>
+                <td style="vertical-align:middle;">
+                  <span style="font-size:11px;color:{{ C.ter }};font-weight:600;">#{{ loop.index }}</span>
+                  <span style="font-size:16px;font-weight:800;margin-left:8px;color:{{ C.text }};">{{ sig.ticker or '?' }}</span>
+                  <span style="font-size:13px;color:{{ C.sec }};margin-left:6px;">{{ sig.issuer[:35] }}</span>
+                </td>
+                <td align="right" style="vertical-align:middle;white-space:nowrap;">
+                  <span style="display:inline-block;background:{{ score_bg }};color:{{ score_color }};font-size:12px;font-weight:700;padding:3px 10px;border-radius:980px;">
+                    {{ score }}/10
+                  </span>
+                </td>
+              </tr>
+            </table>
+
+            <!-- Row 2: pills + metrics -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:8px;">
+              <tr>
+                <td style="vertical-align:middle;">
+                  <!-- Status pill -->
+                  {%- set sk = {'Strong Add':'green','New + Add':'green','New Buy':'amber'}.get(sig.status_label,'gray') -%}
+                  {{ pill(sig.status_label, sk) }}
+                  <!-- Trend pill -->
+                  {%- if sig.three_quarter_trend == 'up_up_up' %}{{ pill('↑↑↑ 3Q', 'green') }}
+                  {%- elif sig.three_quarter_trend == 'new_add' %}{{ pill('Neu + Add', 'green') }}
+                  {%- elif sig.three_quarter_trend == 'new' %}{{ pill('Neu', 'amber') }}{%- endif %}
+                  <!-- QoQ -->
+                  <span style="font-size:12px;color:{{ C.sec }};margin-left:8px;">
+                    {%- if sig.qoq_share_change_pct is not none -%}
+                      <span style="color:{{ C.green_tx }};font-weight:600;">
+                        {{ '%+.0f%%'|format(sig.qoq_share_change_pct * 100) }} QoQ
+                      </span>
+                    {%- else -%}
+                      <span style="color:{{ C.green_tx }};font-weight:600;">Neue Position</span>
+                    {%- endif -%}
+                  </span>
+                </td>
+                <td align="right" style="vertical-align:middle;font-size:12px;color:{{ C.sec }};white-space:nowrap;">
+                  {{ (sig.portfolio_weight_common_stock * 100)|round(1) }}% Portfolio
+                  &nbsp;·&nbsp;
+                  {{ sig.value_latest_usd|usd }}
+                  {%- if sig.price_change_since_quarter_end_pct is not none %}
+                  &nbsp;·&nbsp;
+                  <span style="color:{% if sig.price_change_since_quarter_end_pct > 0 %}{{ C.green_tx }}{% elif sig.price_change_since_quarter_end_pct < 0 %}{{ C.red_tx }}{% else %}{{ C.ter }}{% endif %};">
+                    {{ '%+.0f%%'|format(sig.price_change_since_quarter_end_pct * 100) }} seit 13F
+                  </span>
+                  {%- endif %}
+                </td>
+              </tr>
+            </table>
+
+            <!-- Row 3: Recommendation -->
+            <div style="margin-top:8px;font-size:13px;font-weight:600;color:{{ score_color }};">
+              → {{ sig.recommendation }}
+            </div>
+
+          </td></tr>
+        </table>
+        {% endfor %}
+
+      </td></tr>
+    </table>
+  </td></tr>
+  {% endif %}
+
   <!-- Haiku 13F-Analyse -->
   {% if analysis_13f %}
   <tr><td style="padding:12px 32px 0 32px;">
