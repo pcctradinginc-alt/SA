@@ -109,9 +109,9 @@ def _build_top_signals(common_rows: list[dict]) -> list[dict]:
         score = _conviction_score(r)
         if score < _SCORE_THRESHOLD:
             continue
-        if score >= 8.0:      rec = "Sofort nachkaufen"
-        elif score >= 6.5:    rec = "Stark nachkaufen"
-        else:                 rec = "Aufbauen"
+        if score >= 8.0:      rec = "High Conviction"
+        elif score >= 6.5:    rec = "Watch / bei Schwäche"
+        else:                 rec = "Beobachten"
         signals.append({
             "ticker": r["ticker"],
             "issuer": r["issuer"],
@@ -254,10 +254,12 @@ def build(cfg: Config, parsed_quarters: list[dict],
             "sector": info["sector"],
             "instrument_type": COMMON_STOCK,
             "shares_by_quarter": s.shares,
+            "values_by_quarter": s.values,
             "shares_latest": shares_latest,
             "value_latest_usd": s.values[-1],
             "value_prev_quarter_usd": value_prev,
             "qoq_dollar_delta": s.values[-1] - value_prev,
+            "qoq_dollar_delta_m": round((s.values[-1] - value_prev) / 1_000_000, 1),
             "portfolio_weight_common_stock": round(weight, 4),
             "qoq_share_change_pct": _qoq(s.shares[-2] if len(s.shares) > 1 else 0, shares_latest),
             "three_quarter_trend": _trend(s.shares),

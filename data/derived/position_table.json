@@ -48,10 +48,16 @@
         10076022,
         6485408
       ],
+      "values_by_quarter": [
+        0,
+        875505552,
+        878707930
+      ],
       "shares_latest": 6485408,
       "value_latest_usd": 878707930,
       "value_prev_quarter_usd": 875505552,
       "qoq_dollar_delta": 3202378,
+      "qoq_dollar_delta_m": 3.2,
       "portfolio_weight_common_stock": 0.2279,
       "qoq_share_change_pct": -0.3563523382541245,
       "three_quarter_trend": "mixed",
@@ -80,10 +86,16 @@
         1054200,
         1140119
       ],
+      "values_by_quarter": [
+        12903000,
+        250245996,
+        724363205
+      ],
       "shares_latest": 1140119,
       "value_latest_usd": 724363205,
       "value_prev_quarter_usd": 250245996,
       "qoq_dollar_delta": 474117209,
+      "qoq_dollar_delta_m": 474.1,
       "portfolio_weight_common_stock": 0.1879,
       "qoq_share_change_pct": 0.08150161259723013,
       "three_quarter_trend": "up_up_up",
@@ -112,10 +124,16 @@
         6098812,
         7177919
       ],
+      "values_by_quarter": [
+        563200154,
+        436735927,
+        556073385
+      ],
       "shares_latest": 7177919,
       "value_latest_usd": 556073385,
       "value_prev_quarter_usd": 436735927,
       "qoq_dollar_delta": 119337458,
+      "qoq_dollar_delta_m": 119.3,
       "portfolio_weight_common_stock": 0.1442,
       "qoq_share_change_pct": 0.17693724613908413,
       "three_quarter_trend": "up_up_up",
@@ -144,10 +162,16 @@
         8700621,
         11698835
       ],
+      "values_by_quarter": [
+        338854358,
+        328622455,
+        401036064
+      ],
       "shares_latest": 11698835,
       "value_latest_usd": 401036064,
       "value_prev_quarter_usd": 328622455,
       "qoq_dollar_delta": 72413609,
+      "qoq_dollar_delta_m": 72.4,
       "portfolio_weight_common_stock": 0.104,
       "qoq_share_change_pct": 0.34459770170428067,
       "three_quarter_trend": "up_up_up",
@@ -176,10 +200,16 @@
         28756478,
         26008473
       ],
+      "values_by_quarter": [
+        362038780,
+        418694320,
+        389086756
+      ],
       "shares_latest": 26008473,
       "value_latest_usd": 389086756,
       "value_prev_quarter_usd": 418694320,
       "qoq_dollar_delta": -29607564,
+      "qoq_dollar_delta_m": -29.6,
       "portfolio_weight_common_stock": 0.1009,
       "qoq_share_change_pct": -0.09556125058152115,
       "three_quarter_trend": "mixed",
@@ -208,10 +238,16 @@
         11339060,
         13478438
       ],
+      "values_by_quarter": [
+        139111716,
+        278033751,
+        319978118
+      ],
       "shares_latest": 13478438,
       "value_latest_usd": 319978118,
       "value_prev_quarter_usd": 278033751,
       "qoq_dollar_delta": 41944367,
+      "qoq_dollar_delta_m": 41.9,
       "portfolio_weight_common_stock": 0.083,
       "qoq_share_change_pct": 0.1886733115443432,
       "three_quarter_trend": "up_up_up",
@@ -240,10 +276,16 @@
         6167700,
         11502137
       ],
+      "values_by_quarter": [
+        68369062,
+        78144759,
+        142166413
+      ],
       "shares_latest": 11502137,
       "value_latest_usd": 142166413,
       "value_prev_quarter_usd": 78144759,
       "qoq_dollar_delta": 64021654,
+      "qoq_dollar_delta_m": 64.0,
       "portfolio_weight_common_stock": 0.0369,
       "qoq_share_change_pct": 0.8648989088314931,
       "three_quarter_trend": "up_up_up",
@@ -272,10 +314,16 @@
         1640400,
         12276139
       ],
+      "values_by_quarter": [
+        0,
+        16600848,
+        104469943
+      ],
       "shares_latest": 12276139,
       "value_latest_usd": 104469943,
       "value_prev_quarter_usd": 16600848,
       "qoq_dollar_delta": 87869095,
+      "qoq_dollar_delta_m": 87.9,
       "portfolio_weight_common_stock": 0.0271,
       "qoq_share_change_pct": 6.483625335284077,
       "three_quarter_trend": "new_add",
@@ -304,10 +352,16 @@
         1866500,
         1105551
       ],
+      "values_by_quarter": [
+        45977491,
+        85803005,
+        62474687
+      ],
       "shares_latest": 1105551,
       "value_latest_usd": 62474687,
       "value_prev_quarter_usd": 85803005,
       "qoq_dollar_delta": -23328318,
+      "qoq_dollar_delta_m": -23.3,
       "portfolio_weight_common_stock": 0.0162,
       "qoq_share_change_pct": -0.4076876506830967,
       "three_quarter_trend": "mixed",
@@ -336,10 +390,16 @@
         0,
         10000000
       ],
+      "values_by_quarter": [
+        0,
+        0,
+        43900000
+      ],
       "shares_latest": 10000000,
       "value_latest_usd": 43900000,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 43900000,
+      "qoq_dollar_delta_m": 43.9,
       "portfolio_weight_common_stock": 0.0114,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
@@ -368,10 +428,16 @@
         6897100,
         19875840
       ],
+      "values_by_quarter": [
+        0,
+        16208185,
+        38757888
+      ],
       "shares_latest": 19875840,
       "value_latest_usd": 38757888,
       "value_prev_quarter_usd": 16208185,
       "qoq_dollar_delta": 22549703,
+      "qoq_dollar_delta_m": 22.5,
       "portfolio_weight_common_stock": 0.0101,
       "qoq_share_change_pct": 1.8817676994678922,
       "three_quarter_trend": "new_add",
@@ -400,10 +466,16 @@
         1788000,
         3439450
       ],
+      "values_by_quarter": [
+        15886864,
+        20043480,
+        29751243
+      ],
       "shares_latest": 3439450,
       "value_latest_usd": 29751243,
       "value_prev_quarter_usd": 20043480,
       "qoq_dollar_delta": 9707763,
+      "qoq_dollar_delta_m": 9.7,
       "portfolio_weight_common_stock": 0.0077,
       "qoq_share_change_pct": 0.9236297539149888,
       "three_quarter_trend": "up_up_up",
@@ -432,10 +504,16 @@
         432300,
         432300
       ],
+      "values_by_quarter": [
+        0,
+        24701622,
+        26318424
+      ],
       "shares_latest": 432300,
       "value_latest_usd": 26318424,
       "value_prev_quarter_usd": 24701622,
       "qoq_dollar_delta": 1616802,
+      "qoq_dollar_delta_m": 1.6,
       "portfolio_weight_common_stock": 0.0068,
       "qoq_share_change_pct": 0.0,
       "three_quarter_trend": "mixed",
@@ -464,10 +542,16 @@
         1757600,
         1757600
       ],
+      "values_by_quarter": [
+        0,
+        27770080,
+        20933016
+      ],
       "shares_latest": 1757600,
       "value_latest_usd": 20933016,
       "value_prev_quarter_usd": 27770080,
       "qoq_dollar_delta": -6837064,
+      "qoq_dollar_delta_m": -6.8,
       "portfolio_weight_common_stock": 0.0054,
       "qoq_share_change_pct": 0.0,
       "three_quarter_trend": "mixed",
@@ -496,10 +580,16 @@
         0,
         99138
       ],
+      "values_by_quarter": [
+        0,
+        0,
+        20167643
+      ],
       "shares_latest": 99138,
       "value_latest_usd": 20167643,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 20167643,
+      "qoq_dollar_delta_m": 20.2,
       "portfolio_weight_common_stock": 0.0052,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
@@ -528,10 +618,16 @@
         1353900,
         1353900
       ],
+      "values_by_quarter": [
+        0,
+        8583726,
+        19888791
+      ],
       "shares_latest": 1353900,
       "value_latest_usd": 19888791,
       "value_prev_quarter_usd": 8583726,
       "qoq_dollar_delta": 11305065,
+      "qoq_dollar_delta_m": 11.3,
       "portfolio_weight_common_stock": 0.0052,
       "qoq_share_change_pct": 0.0,
       "three_quarter_trend": "mixed",
@@ -560,10 +656,16 @@
         0,
         796108
       ],
+      "values_by_quarter": [
+        0,
+        0,
+        18095535
+      ],
       "shares_latest": 796108,
       "value_latest_usd": 18095535,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 18095535,
+      "qoq_dollar_delta_m": 18.1,
       "portfolio_weight_common_stock": 0.0047,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
@@ -592,10 +694,16 @@
         910300,
         910300
       ],
+      "values_by_quarter": [
+        0,
+        8656953,
+        13117423
+      ],
       "shares_latest": 910300,
       "value_latest_usd": 13117423,
       "value_prev_quarter_usd": 8656953,
       "qoq_dollar_delta": 4460470,
+      "qoq_dollar_delta_m": 4.5,
       "portfolio_weight_common_stock": 0.0034,
       "qoq_share_change_pct": 0.0,
       "three_quarter_trend": "mixed",
@@ -624,10 +732,16 @@
         0,
         26950
       ],
+      "values_by_quarter": [
+        0,
+        0,
+        10332630
+      ],
       "shares_latest": 26950,
       "value_latest_usd": 10332630,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 10332630,
+      "qoq_dollar_delta_m": 10.3,
       "portfolio_weight_common_stock": 0.0027,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
@@ -656,10 +770,16 @@
         1,
         202344
       ],
+      "values_by_quarter": [
+        0,
+        37,
+        8929441
+      ],
       "shares_latest": 202344,
       "value_latest_usd": 8929441,
       "value_prev_quarter_usd": 37,
       "qoq_dollar_delta": 8929404,
+      "qoq_dollar_delta_m": 8.9,
       "portfolio_weight_common_stock": 0.0023,
       "qoq_share_change_pct": 202343.0,
       "three_quarter_trend": "new_add",
@@ -688,10 +808,16 @@
         0,
         22423
       ],
+      "values_by_quarter": [
+        0,
+        0,
+        7577853
+      ],
       "shares_latest": 22423,
       "value_latest_usd": 7577853,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 7577853,
+      "qoq_dollar_delta_m": 7.6,
       "portfolio_weight_common_stock": 0.002,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
@@ -720,10 +846,16 @@
         0,
         3391547
       ],
+      "values_by_quarter": [
+        0,
+        0,
+        6443939
+      ],
       "shares_latest": 3391547,
       "value_latest_usd": 6443939,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 6443939,
+      "qoq_dollar_delta_m": 6.4,
       "portfolio_weight_common_stock": 0.0017,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
@@ -752,10 +884,16 @@
         0,
         4633
       ],
+      "values_by_quarter": [
+        0,
+        0,
+        6119405
+      ],
       "shares_latest": 4633,
       "value_latest_usd": 6119405,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 6119405,
+      "qoq_dollar_delta_m": 6.1,
       "portfolio_weight_common_stock": 0.0016,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
@@ -784,10 +922,16 @@
         0,
         17362
       ],
+      "values_by_quarter": [
+        0,
+        0,
+        5865578
+      ],
       "shares_latest": 17362,
       "value_latest_usd": 5865578,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 5865578,
+      "qoq_dollar_delta_m": 5.9,
       "portfolio_weight_common_stock": 0.0015,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
@@ -816,10 +960,16 @@
         0,
         5283
       ],
+      "values_by_quarter": [
+        0,
+        0,
+        718330
+      ],
       "shares_latest": 5283,
       "value_latest_usd": 718330,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 718330,
+      "qoq_dollar_delta_m": 0.7,
       "portfolio_weight_common_stock": 0.0002,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
@@ -848,10 +998,16 @@
         0,
         2855
       ],
+      "values_by_quarter": [
+        0,
+        0,
+        497912
+      ],
       "shares_latest": 2855,
       "value_latest_usd": 497912,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 497912,
+      "qoq_dollar_delta_m": 0.5,
       "portfolio_weight_common_stock": 0.0001,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
@@ -882,10 +1038,16 @@
         0,
         4633
       ],
+      "values_by_quarter": [
+        0,
+        0,
+        6119405
+      ],
       "shares_latest": 4633,
       "value_latest_usd": 6119405,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 6119405,
+      "qoq_dollar_delta_m": 6.1,
       "portfolio_weight_common_stock": 0.0016,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
@@ -914,10 +1076,16 @@
         0,
         99138
       ],
+      "values_by_quarter": [
+        0,
+        0,
+        20167643
+      ],
       "shares_latest": 99138,
       "value_latest_usd": 20167643,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 20167643,
+      "qoq_dollar_delta_m": 20.2,
       "portfolio_weight_common_stock": 0.0052,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
@@ -946,10 +1114,16 @@
         0,
         5283
       ],
+      "values_by_quarter": [
+        0,
+        0,
+        718330
+      ],
       "shares_latest": 5283,
       "value_latest_usd": 718330,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 718330,
+      "qoq_dollar_delta_m": 0.7,
       "portfolio_weight_common_stock": 0.0002,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
@@ -978,10 +1152,16 @@
         0,
         3391547
       ],
+      "values_by_quarter": [
+        0,
+        0,
+        6443939
+      ],
       "shares_latest": 3391547,
       "value_latest_usd": 6443939,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 6443939,
+      "qoq_dollar_delta_m": 6.4,
       "portfolio_weight_common_stock": 0.0017,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
@@ -1010,10 +1190,16 @@
         0,
         17362
       ],
+      "values_by_quarter": [
+        0,
+        0,
+        5865578
+      ],
       "shares_latest": 17362,
       "value_latest_usd": 5865578,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 5865578,
+      "qoq_dollar_delta_m": 5.9,
       "portfolio_weight_common_stock": 0.0015,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
@@ -1042,10 +1228,16 @@
         0,
         2855
       ],
+      "values_by_quarter": [
+        0,
+        0,
+        497912
+      ],
       "shares_latest": 2855,
       "value_latest_usd": 497912,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 497912,
+      "qoq_dollar_delta_m": 0.5,
       "portfolio_weight_common_stock": 0.0001,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
@@ -1074,10 +1266,16 @@
         0,
         796108
       ],
+      "values_by_quarter": [
+        0,
+        0,
+        18095535
+      ],
       "shares_latest": 796108,
       "value_latest_usd": 18095535,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 18095535,
+      "qoq_dollar_delta_m": 18.1,
       "portfolio_weight_common_stock": 0.0047,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
@@ -1106,10 +1304,16 @@
         0,
         10000000
       ],
+      "values_by_quarter": [
+        0,
+        0,
+        43900000
+      ],
       "shares_latest": 10000000,
       "value_latest_usd": 43900000,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 43900000,
+      "qoq_dollar_delta_m": 43.9,
       "portfolio_weight_common_stock": 0.0114,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
@@ -1138,10 +1342,16 @@
         0,
         22423
       ],
+      "values_by_quarter": [
+        0,
+        0,
+        7577853
+      ],
       "shares_latest": 22423,
       "value_latest_usd": 7577853,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 7577853,
+      "qoq_dollar_delta_m": 7.6,
       "portfolio_weight_common_stock": 0.002,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
@@ -1170,10 +1380,16 @@
         0,
         26950
       ],
+      "values_by_quarter": [
+        0,
+        0,
+        10332630
+      ],
       "shares_latest": 26950,
       "value_latest_usd": 10332630,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 10332630,
+      "qoq_dollar_delta_m": 10.3,
       "portfolio_weight_common_stock": 0.0027,
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
@@ -1204,10 +1420,16 @@
         0,
         0
       ],
+      "values_by_quarter": [
+        43890344,
+        0,
+        0
+      ],
       "shares_latest": 0,
       "value_latest_usd": 0,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 0,
+      "qoq_dollar_delta_m": 0.0,
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": 0.0,
       "three_quarter_trend": "mixed",
@@ -1236,10 +1458,16 @@
         0,
         0
       ],
+      "values_by_quarter": [
+        72272807,
+        0,
+        0
+      ],
       "shares_latest": 0,
       "value_latest_usd": 0,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 0,
+      "qoq_dollar_delta_m": 0.0,
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": 0.0,
       "three_quarter_trend": "mixed",
@@ -1268,10 +1496,16 @@
         480300,
         0
       ],
+      "values_by_quarter": [
+        16631968,
+        88648971,
+        0
+      ],
       "shares_latest": 0,
       "value_latest_usd": 0,
       "value_prev_quarter_usd": 88648971,
       "qoq_dollar_delta": -88648971,
+      "qoq_dollar_delta_m": -88.6,
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": -1.0,
       "three_quarter_trend": "mixed",
@@ -1300,10 +1534,16 @@
         2482225,
         0
       ],
+      "values_by_quarter": [
+        66262320,
+        133047260,
+        0
+      ],
       "shares_latest": 0,
       "value_latest_usd": 0,
       "value_prev_quarter_usd": 133047260,
       "qoq_dollar_delta": -133047260,
+      "qoq_dollar_delta_m": -133.0,
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": -1.0,
       "three_quarter_trend": "mixed",
@@ -1332,10 +1572,16 @@
         0,
         0
       ],
+      "values_by_quarter": [
+        92554875,
+        0,
+        0
+      ],
       "shares_latest": 0,
       "value_latest_usd": 0,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 0,
+      "qoq_dollar_delta_m": 0.0,
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": 0.0,
       "three_quarter_trend": "mixed",
@@ -1364,10 +1610,16 @@
         860200,
         0
       ],
+      "values_by_quarter": [
+        20851190,
+        39517588,
+        0
+      ],
       "shares_latest": 0,
       "value_latest_usd": 0,
       "value_prev_quarter_usd": 39517588,
       "qoq_dollar_delta": -39517588,
+      "qoq_dollar_delta_m": -39.5,
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": -1.0,
       "three_quarter_trend": "mixed",
@@ -1396,10 +1648,16 @@
         0,
         0
       ],
+      "values_by_quarter": [
+        67947696,
+        0,
+        0
+      ],
       "shares_latest": 0,
       "value_latest_usd": 0,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 0,
+      "qoq_dollar_delta_m": 0.0,
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": 0.0,
       "three_quarter_trend": "mixed",
@@ -1428,10 +1686,16 @@
         0,
         0
       ],
+      "values_by_quarter": [
+        11464726,
+        0,
+        0
+      ],
       "shares_latest": 0,
       "value_latest_usd": 0,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 0,
+      "qoq_dollar_delta_m": 0.0,
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": 0.0,
       "three_quarter_trend": "mixed",
@@ -1460,10 +1724,16 @@
         723004,
         0
       ],
+      "values_by_quarter": [
+        34024380,
+        84895130,
+        0
+      ],
       "shares_latest": 0,
       "value_latest_usd": 0,
       "value_prev_quarter_usd": 84895130,
       "qoq_dollar_delta": -84895130,
+      "qoq_dollar_delta_m": -84.9,
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": -1.0,
       "three_quarter_trend": "mixed",
@@ -1492,10 +1762,16 @@
         0,
         0
       ],
+      "values_by_quarter": [
+        252327327,
+        0,
+        0
+      ],
       "shares_latest": 0,
       "value_latest_usd": 0,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 0,
+      "qoq_dollar_delta_m": 0.0,
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": 0.0,
       "three_quarter_trend": "mixed",
@@ -1524,10 +1800,16 @@
         0,
         0
       ],
+      "values_by_quarter": [
+        18347689,
+        0,
+        0
+      ],
       "shares_latest": 0,
       "value_latest_usd": 0,
       "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 0,
+      "qoq_dollar_delta_m": 0.0,
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": 0.0,
       "three_quarter_trend": "mixed",
@@ -1556,10 +1838,16 @@
         10469093,
         0
       ],
+      "values_by_quarter": [
+        0,
+        154523813,
+        0
+      ],
       "shares_latest": 0,
       "value_latest_usd": 0,
       "value_prev_quarter_usd": 154523813,
       "qoq_dollar_delta": -154523813,
+      "qoq_dollar_delta_m": -154.5,
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": -1.0,
       "three_quarter_trend": "mixed",
@@ -1588,10 +1876,16 @@
         1327700,
         0
       ],
+      "values_by_quarter": [
+        0,
+        49616149,
+        0
+      ],
       "shares_latest": 0,
       "value_latest_usd": 0,
       "value_prev_quarter_usd": 49616149,
       "qoq_dollar_delta": -49616149,
+      "qoq_dollar_delta_m": -49.6,
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": -1.0,
       "three_quarter_trend": "mixed",
@@ -1620,10 +1914,16 @@
         567200,
         0
       ],
+      "values_by_quarter": [
+        0,
+        10470512,
+        0
+      ],
       "shares_latest": 0,
       "value_latest_usd": 0,
       "value_prev_quarter_usd": 10470512,
       "qoq_dollar_delta": -10470512,
+      "qoq_dollar_delta_m": -10.5,
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": -1.0,
       "three_quarter_trend": "mixed",
@@ -1652,10 +1952,16 @@
         1298400,
         0
       ],
+      "values_by_quarter": [
+        0,
+        478577256,
+        0
+      ],
       "shares_latest": 0,
       "value_latest_usd": 0,
       "value_prev_quarter_usd": 478577256,
       "qoq_dollar_delta": -478577256,
+      "qoq_dollar_delta_m": -478.6,
       "portfolio_weight_common_stock": 0.0,
       "qoq_share_change_pct": -1.0,
       "three_quarter_trend": "mixed",
@@ -1983,7 +2289,7 @@
       "three_quarter_trend": "up_up_up",
       "price_change_since_quarter_end_pct": 1.1346,
       "conviction_score": 8.5,
-      "recommendation": "Sofort nachkaufen"
+      "recommendation": "High Conviction"
     },
     {
       "ticker": "CRWV",
@@ -1997,7 +2303,7 @@
       "three_quarter_trend": "up_up_up",
       "price_change_since_quarter_end_pct": 0.3448,
       "conviction_score": 7.9,
-      "recommendation": "Stark nachkaufen"
+      "recommendation": "Watch / bei Schwäche"
     },
     {
       "ticker": "IREN",
@@ -2011,7 +2317,7 @@
       "three_quarter_trend": "up_up_up",
       "price_change_since_quarter_end_pct": 0.6671,
       "conviction_score": 7.0,
-      "recommendation": "Stark nachkaufen"
+      "recommendation": "Watch / bei Schwäche"
     },
     {
       "ticker": "APLD",
@@ -2025,7 +2331,7 @@
       "three_quarter_trend": "up_up_up",
       "price_change_since_quarter_end_pct": 0.873,
       "conviction_score": 6.1,
-      "recommendation": "Aufbauen"
+      "recommendation": "Beobachten"
     },
     {
       "ticker": "RIOT",
@@ -2039,7 +2345,7 @@
       "three_quarter_trend": "up_up_up",
       "price_change_since_quarter_end_pct": 0.9514,
       "conviction_score": 5.8,
-      "recommendation": "Aufbauen"
+      "recommendation": "Beobachten"
     }
   ]
 }
