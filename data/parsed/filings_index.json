@@ -47,7 +47,23 @@
       "filing_date": "2025-02-12",
       "report_date": "2024-12-31",
       "primary_document": "xslForm13F_X02/primary_doc.xml"
+    },
+    {
+      "cik": "0002045724",
+      "accession": "0000935836-25-000638",
+      "form": "SC 13D/A",
+      "filing_date": "2025-10-14",
+      "report_date": "",
+      "primary_document": "xslSCHEDULE_13D_X01/primary_doc.xml"
+    },
+    {
+      "cik": "0002045724",
+      "accession": "0000935836-25-000543",
+      "form": "SC 13D",
+      "filing_date": "2025-08-19",
+      "report_date": "",
+      "primary_document": "xslSCHEDULE_13D_X01/primary_doc.xml"
     }
   ],
-  "updated": "2026-05-25T07:55:27Z"
+  "updated": "2026-05-25T19:14:42Z"
 }

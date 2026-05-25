@@ -221,7 +221,7 @@
       "portfolio_weight_common_stock": 0.1009,
       "qoq_share_change_pct": -0.09556125058152115,
       "three_quarter_trend": "mixed",
-      "has_13dg": false,
+      "has_13dg": true,
       "price_at_quarter_end": 15.3,
       "price_at_prev_quarter_end": 14.56,
       "intra_quarter_return_pct": 0.0508,
@@ -399,7 +399,7 @@
     },
     {
       "cusip": "35834F104",
-      "ticker": "",
+      "ticker": "TE",
       "issuer": "T1 ENERGY INC",
       "sector": "Energy Infrastructure",
       "instrument_type": "COMMON_STOCK",
@@ -422,19 +422,19 @@
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
       "has_13dg": false,
-      "price_at_quarter_end": null,
+      "price_at_quarter_end": 4.39,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "current_price": 8.08,
+      "price_change_since_quarter_end_pct": 0.8405,
+      "estimated_current_value": 80800000,
+      "estimated_value_change_since_quarter_end": 36900000,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
-        "cusip_ticker_mapping": "manual",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "openfigi",
+        "price_source": "yfinance"
       }
     },
     {
@@ -593,7 +593,7 @@
       "status_icon": "🟡",
       "status_label": "Hold",
       "data_quality": {
-        "cusip_ticker_mapping": "manual",
+        "cusip_ticker_mapping": "openfigi_no_match",
         "price_source": "unavailable"
       }
     },
@@ -679,7 +679,7 @@
     },
     {
       "cusip": "778920306",
-      "ticker": "",
+      "ticker": "SHAZ",
       "issuer": "SHARONAI HOLDINGS INC",
       "sector": "Technology",
       "instrument_type": "COMMON_STOCK",
@@ -702,19 +702,19 @@
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
       "has_13dg": false,
-      "price_at_quarter_end": null,
+      "price_at_quarter_end": 22.73,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "current_price": 68.06,
+      "price_change_since_quarter_end_pct": 1.9943,
+      "estimated_current_value": 54183110,
+      "estimated_value_change_since_quarter_end": 36087576,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
-        "cusip_ticker_mapping": "manual",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "openfigi",
+        "price_source": "yfinance"
       }
     },
     {
@@ -1321,7 +1321,7 @@
     },
     {
       "cusip": "778920306",
-      "ticker": "",
+      "ticker": "SHAZ",
       "issuer": "SHARONAI HOLDINGS INC",
       "sector": "Technology",
       "instrument_type": "COMMON_STOCK",
@@ -1344,24 +1344,24 @@
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
       "has_13dg": false,
-      "price_at_quarter_end": null,
+      "price_at_quarter_end": 22.73,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "current_price": 68.06,
+      "price_change_since_quarter_end_pct": 1.9943,
+      "estimated_current_value": 54183110,
+      "estimated_value_change_since_quarter_end": 36087576,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
-        "cusip_ticker_mapping": "manual",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "openfigi",
+        "price_source": "yfinance"
       }
     },
     {
       "cusip": "35834F104",
-      "ticker": "",
+      "ticker": "TE",
       "issuer": "T1 ENERGY INC",
       "sector": "Energy Infrastructure",
       "instrument_type": "COMMON_STOCK",
@@ -1384,19 +1384,19 @@
       "qoq_share_change_pct": null,
       "three_quarter_trend": "new",
       "has_13dg": false,
-      "price_at_quarter_end": null,
+      "price_at_quarter_end": 4.39,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "current_price": 8.08,
+      "price_change_since_quarter_end_pct": 0.8405,
+      "estimated_current_value": 80800000,
+      "estimated_value_change_since_quarter_end": 36900000,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
-        "cusip_ticker_mapping": "manual",
-        "price_source": "unavailable"
+        "cusip_ticker_mapping": "openfigi",
+        "price_source": "yfinance"
       }
     },
     {

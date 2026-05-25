@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?><edgarSubmission xmlns="http://www.sec.gov/edgar/schedule13D" xmlns:com="http://www.sec.gov/edgar/common">
+  <headerData>
+    <submissionType>SCHEDULE 13D/A</submissionType>
+    <previousAccessionNumber>0000935836-25-000543</previousAccessionNumber>
+    <filerInfo>
+      <filer>
+        <filerCredentials>
+          <!-- Field: Pseudo-Tag; ID: Name; Data: Situational Awareness LP -->
+          <cik>0002045724</cik>
+          <ccc>XXXXXXXX</ccc>
+        </filerCredentials>
+      </filer>
+      <liveTestFlag>LIVE</liveTestFlag>
+
+
+
+    </filerInfo>
+  </headerData>
+  <formData>
+    <coverPageHeader>
+      <amendmentNo>1</amendmentNo>
+      <securitiesClassTitle>Common Stock</securitiesClassTitle>
+      <dateOfEvent>10/09/2025</dateOfEvent>
+      <previouslyFiledFlag>false</previouslyFiledFlag>
+      <issuerInfo>
+        <issuerCIK>0001839341</issuerCIK>
+        <issuerCUSIP>21874A106</issuerCUSIP>
+        <issuerName>Core Scientific, Inc.</issuerName>
+        <address>
+          <com:street1>838 WALKER ROAD</com:street1>
+          <com:street2>SUITE 21-2105</com:street2>
+          <com:city>DOVER</com:city>
+          <com:stateOrCountry>DE</com:stateOrCountry>
+          <com:zipCode>19904</com:zipCode>
+        </address>
+      </issuerInfo>
+      <authorizedPersons>
+        <notificationInfo>
+          <personName>Anthony J. Caldwell, Esq</personName>
+          <personPhoneNum>(415) 421-6500</personPhoneNum>
+          <personAddress>
+            <com:street1>425 Market Street, 11th Floor</com:street1>
+            <com:city>San Francisco</com:city>
+            <com:stateOrCountry>CA</com:stateOrCountry>
+            <com:zipCode>94105</com:zipCode>
+          </personAddress>
+        </notificationInfo>
+      </authorizedPersons>
+    </coverPageHeader>
+    <reportingPersons>
+      <reportingPersonInfo>
+        <reportingPersonCIK>0002045724</reportingPersonCIK>
+        <reportingPersonNoCIK>N</reportingPersonNoCIK>
+        <reportingPersonName>Situational Awareness LP</reportingPersonName>
+        <memberOfGroup>b</memberOfGroup>
+        <fundType>AF</fundType>
+        <legalProceedings>N</legalProceedings>
+        <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>28756478.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>28756478.00</sharedDispositivePower>
+        <aggregateAmountOwned>28756478.00</aggregateAmountOwned>
+        <isAggregateExcludeShares>N</isAggregateExcludeShares>
+        <percentOfClass>9.4</percentOfClass>
+        <typeOfReportingPerson>IA</typeOfReportingPerson>
+        <typeOfReportingPerson>PN</typeOfReportingPerson>
+        <commentContent>Percentage calculated based on 307,355,193 shares of Common Stock outstanding on September 19, 2025, as reported in the Proxy Statement filed by the Issuer on September 29, 2025.</commentContent>
+      </reportingPersonInfo>
+      <reportingPersonInfo>
+        <reportingPersonNoCIK>Y</reportingPersonNoCIK>
+        <reportingPersonName>SAF AI GP LP</reportingPersonName>
+        <memberOfGroup>b</memberOfGroup>
+        <fundType>AF</fundType>
+        <legalProceedings>N</legalProceedings>
+        <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>28756478.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>28756478.00</sharedDispositivePower>
+        <aggregateAmountOwned>28756478.00</aggregateAmountOwned>
+        <isAggregateExcludeShares>N</isAggregateExcludeShares>
+        <percentOfClass>9.4</percentOfClass>
+        <typeOfReportingPerson>PN</typeOfReportingPerson>
+        <commentContent>Percentage calculated based on 307,355,193 shares of Common Stock outstanding on September 19, 2025, as reported in the Proxy Statement filed by the Issuer on September 29, 2025.</commentContent>
+      </reportingPersonInfo>
+      <reportingPersonInfo>
+        <reportingPersonNoCIK>Y</reportingPersonNoCIK>
+        <reportingPersonName>Situational Awareness LLC</reportingPersonName>
+        <memberOfGroup>b</memberOfGroup>
+        <fundType>AF</fundType>
+        <legalProceedings>N</legalProceedings>
+        <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>28756478.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>28756478.00</sharedDispositivePower>
+        <aggregateAmountOwned>28756478.00</aggregateAmountOwned>
+        <isAggregateExcludeShares>N</isAggregateExcludeShares>
+        <percentOfClass>9.4</percentOfClass>
+        <typeOfReportingPerson>HC</typeOfReportingPerson>
+        <typeOfReportingPerson>OO</typeOfReportingPerson>
+        <commentContent>Percentage calculated based on 307,355,193 shares of Common Stock outstanding on September 19, 2025, as reported in the Proxy Statement filed by the Issuer on September 29, 2025.</commentContent>
+      </reportingPersonInfo>
+      <reportingPersonInfo>
+        <reportingPersonCIK>0002038540</reportingPersonCIK>
+        <reportingPersonNoCIK>N</reportingPersonNoCIK>
+        <reportingPersonName>Situational Awareness Partners LP</reportingPersonName>
+        <memberOfGroup>b</memberOfGroup>
+        <fundType>WC</fundType>
+        <legalProceedings>N</legalProceedings>
+        <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>28756478.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>28756478.00</sharedDispositivePower>
+        <aggregateAmountOwned>28756478.00</aggregateAmountOwned>
+        <isAggregateExcludeShares>N</isAggregateExcludeShares>
+        <percentOfClass>9.4</percentOfClass>
+        <typeOfReportingPerson>PN</typeOfReportingPerson>
+        <commentContent>Percentage calculated based on 307,355,193 shares of Common Stock outstanding on September 19, 2025, as reported in the Proxy Statement filed by the Issuer on September 29, 2025.</commentContent>
+      </reportingPersonInfo>
+      <reportingPersonInfo>
+        <reportingPersonNoCIK>Y</reportingPersonNoCIK>
+        <reportingPersonName>Leopold Aschenbrenner</reportingPersonName>
+        <memberOfGroup>b</memberOfGroup>
+        <fundType>AF</fundType>
+        <legalProceedings>N</legalProceedings>
+        <citizenshipOrOrganization>2M</citizenshipOrOrganization>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>28756478.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>28756478.00</sharedDispositivePower>
+        <aggregateAmountOwned>28756478.00</aggregateAmountOwned>
+        <isAggregateExcludeShares>N</isAggregateExcludeShares>
+        <percentOfClass>9.4</percentOfClass>
+        <typeOfReportingPerson>IN</typeOfReportingPerson>
+        <typeOfReportingPerson>HC</typeOfReportingPerson>
+        <commentContent>Percentage calculated based on 307,355,193 shares of Common Stock outstanding on September 19, 2025, as reported in the Proxy Statement filed by the Issuer on September 29, 2025.</commentContent>
+      </reportingPersonInfo>
+      <reportingPersonInfo>
+        <reportingPersonNoCIK>Y</reportingPersonNoCIK>
+        <reportingPersonName>Carl Shulman</reportingPersonName>
+        <memberOfGroup>b</memberOfGroup>
+        <fundType>AF</fundType>
+        <legalProceedings>N</legalProceedings>
+        <citizenshipOrOrganization>Z4</citizenshipOrOrganization>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>28756478.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>28756478.00</sharedDispositivePower>
+        <aggregateAmountOwned>28756478.00</aggregateAmountOwned>
+        <isAggregateExcludeShares>N</isAggregateExcludeShares>
+        <percentOfClass>9.4</percentOfClass>
+        <typeOfReportingPerson>IN</typeOfReportingPerson>
+        <typeOfReportingPerson>HC</typeOfReportingPerson>
+        <commentContent>Percentage calculated based on 307,355,193 shares of Common Stock outstanding on September 19, 2025, as reported in the Proxy Statement filed by the Issuer on September 29, 2025.</commentContent>
+      </reportingPersonInfo>
+    </reportingPersons>
+    <items1To7>
+      <item1>
+        <securityTitle>Common Stock</securityTitle>
+        <issuerName>Core Scientific, Inc.</issuerName>
+        <issuerPrincipalAddress>
+          <com:street1>838 WALKER ROAD</com:street1>
+          <com:street2>SUITE 21-2105</com:street2>
+          <com:city>DOVER</com:city>
+          <com:stateOrCountry>DE</com:stateOrCountry>
+          <com:zipCode>19904</com:zipCode>
+        </issuerPrincipalAddress>
+      </item1>
+      <item2>
+        <filingPersonName>The reporting persons are:
+
+Situational Awareness LP, a Delaware limited partnership ("Adviser")
+
+SAF AI GP LP, a Delaware limited partnership ("General Partner")
+
+Situational Awareness LLC, a Delaware limited liability company ("SA LLC")
+
+Situational Awareness Partners LP, a Delaware limited partnership ("Fund")
+
+Leopold Aschenbrenner
+
+Carl Shulman
+
+The reporting persons are filing this statement jointly, but not as  members of a group, and they expressly disclaim membership in a group.  In addition, the filing of this Schedule 13D on behalf of Fund should not be construed as an admission that it is, and it disclaims that it is, a beneficial owner, as defined in Rule 13d-3 under the Act, of any securities covered by this Schedule 13D.  Each reporting person also disclaims beneficial ownership of the securities reported herein except to the extent of that person's pecuniary interest therein.</filingPersonName>
+        <principalBusinessAddress>512 Second Street, Suite 400, San Francisco, CA 94107</principalBusinessAddress>
+        <principalJob>Adviser is an investment adviser to the Fund.  General Partner is the general partner of the Fund. SA LLC is the general partner of Adviser.  Mr. Aschenbrenner is the managing partner and control person of Adviser and General Partner and the manager of SA LLC.  Mr. Shulman is the co-portfolio manager of the Fund.</principalJob>
+        <hasBeenConvicted>During the last five years, none of the reporting persons has been convicted in a criminal proceeding (excluding traffic violations or similar misdemeanors).</hasBeenConvicted>
+        <convictionDescription>During the last five years, none of the reporting persons was a party to a civil proceeding of a judicial or administrative body of competent jurisdiction and as a result of such proceeding was or is subject to a judgment, decree or final order enjoining future violations of, or prohibiting or mandating activities subject to, federal or state securities laws or finding any violation with respect to such laws.</convictionDescription>
+        <citizenship>For citizenship of the reporting persons, see Item 6 of each reporting person's cover page.</citizenship>
+      </item2>
+      <item3>
+        <fundsSource>The Fund used its working capital to purchase the Issuer's Common Stock.  The amount of funds used in purchasing the Issuer's Common Stock was $362,121,757.59.</fundsSource>
+      </item3>
+      <item4>
+        <transactionPurpose>The reporting persons acquired the Common Stock for investment purposes based on their belief that the Common Stock, when purchased, was undervalued and represented an attractive investment opportunity.  The reporting persons will routinely monitor the Issuer regarding a wide variety of factors that affect their investment considerations, including, current and anticipated future trading prices of the Common Stock and other securities, the Issuer's operations, assets, prospects, financial position, and business development, Issuer's management, Issuer-related competitive and strategic matters, general economic, financial market and industry conditions, and other investment considerations. Depending on their evaluation of various factors, the reporting persons may take such actions regarding their holdings of the Issuer's securities as they deem appropriate in light of circumstances existing from time to time. Such actions may include purchasing additional Common Stock in the open market, through privately negotiated transactions with third parties or otherwise, and selling at any time, in the open market, through privately negotiated transactions with third parties or otherwise, all or part of the Common Stock that they now own or hereafter acquire. The reporting persons also may from time to time enter into or unwind hedging or other derivative transactions with respect to the Common Stock or pledge their interests in the Common Stock to obtain liquidity. In addition, from time to time the reporting persons and their representatives and advisers may communicate with other stockholders, industry participants and other interested parties about the Issuer.
+
+The reporting persons have no present plan or proposal that relates to or would result in any of the actions specified in clauses (a) through (j) of Item 4 of Schedule 13D.  However, the reporting persons may recommend action to the Issuer's management, board of directors and stockholders. Any such actions could involve one or more of the events referred to in clauses (a) through (j) of Item 4 of Schedule 13D, including, potentially, one or more mergers, consolidations, sales or acquisitions of assets, changes in control, issuances, purchases, dispositions or pledges of securities or other changes in capitalization.</transactionPurpose>
+      </item4>
+      <item5>
+        <percentageOfClassSecurities>Aggregate number of shares beneficially owned by the reporting persons:
+
+Adviser:  28,756,478
+
+General Partner:  28,756,478
+
+SA LLC:  28,756,478
+
+Fund:  28,756,478
+
+Aschenbrenner:  28,756,478
+
+Shulman:  28,756,478
+
+Aggregate percentage of the class of Common Stock beneficially owned by the reporting persons:
+
+Adviser:  9.4%
+
+General Partner:  9.4%
+
+SA LLC:  9.4%
+
+Fund:  9.4%
+
+Aschenbrenner:  9.4%
+
+Shulman:  9.4%</percentageOfClassSecurities>
+        <numberOfShares>Number of shares as to which the each reporting person has:
+
+(i) Sole power to vote or to direct the vote:
+
+Adviser:  0
+
+General Partner:  0
+
+SA LLC:  0
+
+Fund:  0
+
+Aschenbrenner:  0
+
+Shulman:  0
+
+(ii) Shared power to vote or to direct the vote:
+
+Adviser:  28,756,478
+
+General Partner:  28,756,478
+
+SA LLC:  28,756,478
+
+Fund:  28,756,478
+
+Aschenbrenner:  28,756,478
+
+Shulman:  28,756,478
+
+(iii) Sole power to dispose or to direct the disposition of:
+
+Adviser:  0
+
+General Partner:  0
+
+SA LLC:  0
+
+Fund:  0
+
+Aschenbrenner:  0
+
+Shulman:  0
+
+(iv) Shared power to dispose or to direct the disposition of:?
+
+Adviser:  28,756,478
+
+General Partner:  28,756,478
+
+SA LLC:  28,756,478
+
+Fund:  28,756,478
+
+Aschenbrenner:  28,756,478
+
+Shulman:  28,756,478</numberOfShares>
+        <transactionDesc>The reporting persons engaged in the transactions set forth on Exhibit 99.2 in the Issuer's Common Stock since the date on which the reporting persons filed their prior Schedule 13D.</transactionDesc>
+        <listOfShareholders>Not applicable.</listOfShareholders>
+        <date5PercentOwnership>Not applicable.</date5PercentOwnership>
+      </item5>
+      <item6>
+        <contractDescription>Adviser is the investment adviser to its clients pursuant to investment management agreements or limited partnership agreements providing to Adviser the authority, among other things, to invest the funds of such clients in Stock, to vote and dispose of Stock and to file this statement on behalf of such clients. Pursuant to such limited partnership agreements, General Partner is entitled to allocations based on assets under management and realized and unrealized gains.  Pursuant to such investment management agreements, Adviser is entitled to fees based on assets under management and realized and unrealized gains.</contractDescription>
+      </item6>
+      <item7>
+        <filedExhibits>Exhibit 99.1 - Agreement Regarding Joint Filing of Statement on Schedule 13D or 13G.
+
+Exhibit 99.2 - Transactions in the Past 60 Days.</filedExhibits>
+      </item7>
+    </items1To7>
+    <signatureInfo>
+      <signaturePerson>
+        <signatureReportingPerson>Situational Awareness LP</signatureReportingPerson>
+        <signatureDetails>
+          <signature>/s/ Leopold Aschenbrenner</signature>
+          <title>Managing Partner</title>
+          <date>10/14/2025</date>
+        </signatureDetails>
+      </signaturePerson>
+      <signaturePerson>
+        <signatureReportingPerson>SAF AI GP LP</signatureReportingPerson>
+        <signatureDetails>
+          <signature>/s/ Leopold Aschenbrenner</signature>
+          <title>Managing Partner</title>
+          <date>10/14/2025</date>
+        </signatureDetails>
+      </signaturePerson>
+      <signaturePerson>
+        <signatureReportingPerson>Situational Awareness LLC</signatureReportingPerson>
+        <signatureDetails>
+          <signature>/s/ Leopold Aschenbrenner</signature>
+          <title>Manager</title>
+          <date>10/14/2025</date>
+        </signatureDetails>
+      </signaturePerson>
+      <signaturePerson>
+        <signatureReportingPerson>Situational Awareness Partners LP</signatureReportingPerson>
+        <signatureDetails>
+          <signature>/s/ Leopold Aschenbrenner</signature>
+          <title>Managing Partner of SAF AI GP LP, general partner of Situational Awareness Partners LP</title>
+          <date>10/14/2025</date>
+        </signatureDetails>
+      </signaturePerson>
+      <signaturePerson>
+        <signatureReportingPerson>Leopold Aschenbrenner</signatureReportingPerson>
+        <signatureDetails>
+          <signature>/s/ Leopold Aschenbrenner</signature>
+          <title>Reporting person</title>
+          <date>10/14/2025</date>
+        </signatureDetails>
+      </signaturePerson>
+      <signaturePerson>
+        <signatureReportingPerson>Carl Shulman</signatureReportingPerson>
+        <signatureDetails>
+          <signature>/s/ Carl Shulman</signature>
+          <title>Reporting person</title>
+          <date>10/14/2025</date>
+        </signatureDetails>
+      </signaturePerson>
+    </signatureInfo>
+  </formData>
+
+</edgarSubmission>

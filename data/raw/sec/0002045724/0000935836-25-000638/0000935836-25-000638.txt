@@ -1,0 +1,701 @@
+<SEC-DOCUMENT>0000935836-25-000638.txt : 20251014
+<SEC-HEADER>0000935836-25-000638.hdr.sgml : 20251014
+<ACCEPTANCE-DATETIME>20251014175054
+ACCESSION NUMBER:		0000935836-25-000638
+CONFORMED SUBMISSION TYPE:	SCHEDULE 13D/A
+PUBLIC DOCUMENT COUNT:		3
+FILED AS OF DATE:		20251014
+DATE AS OF CHANGE:		20251014
+
+SUBJECT COMPANY:	
+
+	COMPANY DATA:	
+		COMPANY CONFORMED NAME:			Core Scientific, Inc./tx
+		CENTRAL INDEX KEY:			0001839341
+		STANDARD INDUSTRIAL CLASSIFICATION:	FINANCE SERVICES [6199]
+		ORGANIZATION NAME:           	09 Crypto Assets
+		EIN:				000000000
+		STATE OF INCORPORATION:			DE
+		FISCAL YEAR END:			1231
+
+	FILING VALUES:
+		FORM TYPE:		SCHEDULE 13D/A
+		SEC ACT:		1934 Act
+		SEC FILE NUMBER:	005-92274
+		FILM NUMBER:		251392867
+
+	BUSINESS ADDRESS:	
+		STREET 1:		838 WALKER ROAD
+		STREET 2:		SUITE 21-2105
+		CITY:			DOVER
+		STATE:			DE
+		ZIP:			19904
+		BUSINESS PHONE:		(425) 998-5300
+
+	MAIL ADDRESS:	
+		STREET 1:		838 WALKER ROAD
+		STREET 2:		SUITE 21-2105
+		CITY:			DOVER
+		STATE:			DE
+		ZIP:			19904
+
+	FORMER COMPANY:	
+		FORMER CONFORMED NAME:	Power & Digital Infrastructure Acquisition Corp.
+		DATE OF NAME CHANGE:	20210106
+
+FILED BY:		
+
+	COMPANY DATA:	
+		COMPANY CONFORMED NAME:			Situational Awareness LP
+		CENTRAL INDEX KEY:			0002045724
+		ORGANIZATION NAME:           	
+		EIN:				992901544
+		STATE OF INCORPORATION:			DE
+		FISCAL YEAR END:			1231
+
+	FILING VALUES:
+		FORM TYPE:		SCHEDULE 13D/A
+
+	BUSINESS ADDRESS:	
+		STREET 1:		512 2ND STREET, SUITE 400
+		CITY:			SAN FRANCISCO
+		STATE:			CA
+		ZIP:			94107
+		BUSINESS PHONE:		(415) 663-2007
+
+	MAIL ADDRESS:	
+		STREET 1:		512 2ND STREET, SUITE 400
+		CITY:			SAN FRANCISCO
+		STATE:			CA
+		ZIP:			94107
+</SEC-HEADER>
+<DOCUMENT>
+<TYPE>SCHEDULE 13D/A
+<SEQUENCE>1
+<FILENAME>primary_doc.xml
+<TEXT>
+<XML>
+<?xml version="1.0" encoding="UTF-8"?><edgarSubmission xmlns="http://www.sec.gov/edgar/schedule13D" xmlns:com="http://www.sec.gov/edgar/common">
+  <headerData>
+    <submissionType>SCHEDULE 13D/A</submissionType>
+    <previousAccessionNumber>0000935836-25-000543</previousAccessionNumber>
+    <filerInfo>
+      <filer>
+        <filerCredentials>
+          <!-- Field: Pseudo-Tag; ID: Name; Data: Situational Awareness LP -->
+          <cik>0002045724</cik>
+          <ccc>XXXXXXXX</ccc>
+        </filerCredentials>
+      </filer>
+      <liveTestFlag>LIVE</liveTestFlag>
+
+
+
+    </filerInfo>
+  </headerData>
+  <formData>
+    <coverPageHeader>
+      <amendmentNo>1</amendmentNo>
+      <securitiesClassTitle>Common Stock</securitiesClassTitle>
+      <dateOfEvent>10/09/2025</dateOfEvent>
+      <previouslyFiledFlag>false</previouslyFiledFlag>
+      <issuerInfo>
+        <issuerCIK>0001839341</issuerCIK>
+        <issuerCUSIP>21874A106</issuerCUSIP>
+        <issuerName>Core Scientific, Inc.</issuerName>
+        <address>
+          <com:street1>838 WALKER ROAD</com:street1>
+          <com:street2>SUITE 21-2105</com:street2>
+          <com:city>DOVER</com:city>
+          <com:stateOrCountry>DE</com:stateOrCountry>
+          <com:zipCode>19904</com:zipCode>
+        </address>
+      </issuerInfo>
+      <authorizedPersons>
+        <notificationInfo>
+          <personName>Anthony J. Caldwell, Esq</personName>
+          <personPhoneNum>(415) 421-6500</personPhoneNum>
+          <personAddress>
+            <com:street1>425 Market Street, 11th Floor</com:street1>
+            <com:city>San Francisco</com:city>
+            <com:stateOrCountry>CA</com:stateOrCountry>
+            <com:zipCode>94105</com:zipCode>
+          </personAddress>
+        </notificationInfo>
+      </authorizedPersons>
+    </coverPageHeader>
+    <reportingPersons>
+      <reportingPersonInfo>
+        <reportingPersonCIK>0002045724</reportingPersonCIK>
+        <reportingPersonNoCIK>N</reportingPersonNoCIK>
+        <reportingPersonName>Situational Awareness LP</reportingPersonName>
+        <memberOfGroup>b</memberOfGroup>
+        <fundType>AF</fundType>
+        <legalProceedings>N</legalProceedings>
+        <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>28756478.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>28756478.00</sharedDispositivePower>
+        <aggregateAmountOwned>28756478.00</aggregateAmountOwned>
+        <isAggregateExcludeShares>N</isAggregateExcludeShares>
+        <percentOfClass>9.4</percentOfClass>
+        <typeOfReportingPerson>IA</typeOfReportingPerson>
+        <typeOfReportingPerson>PN</typeOfReportingPerson>
+        <commentContent>Percentage calculated based on 307,355,193 shares of Common Stock outstanding on September 19, 2025, as reported in the Proxy Statement filed by the Issuer on September 29, 2025.</commentContent>
+      </reportingPersonInfo>
+      <reportingPersonInfo>
+        <reportingPersonNoCIK>Y</reportingPersonNoCIK>
+        <reportingPersonName>SAF AI GP LP</reportingPersonName>
+        <memberOfGroup>b</memberOfGroup>
+        <fundType>AF</fundType>
+        <legalProceedings>N</legalProceedings>
+        <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>28756478.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>28756478.00</sharedDispositivePower>
+        <aggregateAmountOwned>28756478.00</aggregateAmountOwned>
+        <isAggregateExcludeShares>N</isAggregateExcludeShares>
+        <percentOfClass>9.4</percentOfClass>
+        <typeOfReportingPerson>PN</typeOfReportingPerson>
+        <commentContent>Percentage calculated based on 307,355,193 shares of Common Stock outstanding on September 19, 2025, as reported in the Proxy Statement filed by the Issuer on September 29, 2025.</commentContent>
+      </reportingPersonInfo>
+      <reportingPersonInfo>
+        <reportingPersonNoCIK>Y</reportingPersonNoCIK>
+        <reportingPersonName>Situational Awareness LLC</reportingPersonName>
+        <memberOfGroup>b</memberOfGroup>
+        <fundType>AF</fundType>
+        <legalProceedings>N</legalProceedings>
+        <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>28756478.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>28756478.00</sharedDispositivePower>
+        <aggregateAmountOwned>28756478.00</aggregateAmountOwned>
+        <isAggregateExcludeShares>N</isAggregateExcludeShares>
+        <percentOfClass>9.4</percentOfClass>
+        <typeOfReportingPerson>HC</typeOfReportingPerson>
+        <typeOfReportingPerson>OO</typeOfReportingPerson>
+        <commentContent>Percentage calculated based on 307,355,193 shares of Common Stock outstanding on September 19, 2025, as reported in the Proxy Statement filed by the Issuer on September 29, 2025.</commentContent>
+      </reportingPersonInfo>
+      <reportingPersonInfo>
+        <reportingPersonCIK>0002038540</reportingPersonCIK>
+        <reportingPersonNoCIK>N</reportingPersonNoCIK>
+        <reportingPersonName>Situational Awareness Partners LP</reportingPersonName>
+        <memberOfGroup>b</memberOfGroup>
+        <fundType>WC</fundType>
+        <legalProceedings>N</legalProceedings>
+        <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>28756478.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>28756478.00</sharedDispositivePower>
+        <aggregateAmountOwned>28756478.00</aggregateAmountOwned>
+        <isAggregateExcludeShares>N</isAggregateExcludeShares>
+        <percentOfClass>9.4</percentOfClass>
+        <typeOfReportingPerson>PN</typeOfReportingPerson>
+        <commentContent>Percentage calculated based on 307,355,193 shares of Common Stock outstanding on September 19, 2025, as reported in the Proxy Statement filed by the Issuer on September 29, 2025.</commentContent>
+      </reportingPersonInfo>
+      <reportingPersonInfo>
+        <reportingPersonNoCIK>Y</reportingPersonNoCIK>
+        <reportingPersonName>Leopold Aschenbrenner</reportingPersonName>
+        <memberOfGroup>b</memberOfGroup>
+        <fundType>AF</fundType>
+        <legalProceedings>N</legalProceedings>
+        <citizenshipOrOrganization>2M</citizenshipOrOrganization>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>28756478.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>28756478.00</sharedDispositivePower>
+        <aggregateAmountOwned>28756478.00</aggregateAmountOwned>
+        <isAggregateExcludeShares>N</isAggregateExcludeShares>
+        <percentOfClass>9.4</percentOfClass>
+        <typeOfReportingPerson>IN</typeOfReportingPerson>
+        <typeOfReportingPerson>HC</typeOfReportingPerson>
+        <commentContent>Percentage calculated based on 307,355,193 shares of Common Stock outstanding on September 19, 2025, as reported in the Proxy Statement filed by the Issuer on September 29, 2025.</commentContent>
+      </reportingPersonInfo>
+      <reportingPersonInfo>
+        <reportingPersonNoCIK>Y</reportingPersonNoCIK>
+        <reportingPersonName>Carl Shulman</reportingPersonName>
+        <memberOfGroup>b</memberOfGroup>
+        <fundType>AF</fundType>
+        <legalProceedings>N</legalProceedings>
+        <citizenshipOrOrganization>Z4</citizenshipOrOrganization>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>28756478.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>28756478.00</sharedDispositivePower>
+        <aggregateAmountOwned>28756478.00</aggregateAmountOwned>
+        <isAggregateExcludeShares>N</isAggregateExcludeShares>
+        <percentOfClass>9.4</percentOfClass>
+        <typeOfReportingPerson>IN</typeOfReportingPerson>
+        <typeOfReportingPerson>HC</typeOfReportingPerson>
+        <commentContent>Percentage calculated based on 307,355,193 shares of Common Stock outstanding on September 19, 2025, as reported in the Proxy Statement filed by the Issuer on September 29, 2025.</commentContent>
+      </reportingPersonInfo>
+    </reportingPersons>
+    <items1To7>
+      <item1>
+        <securityTitle>Common Stock</securityTitle>
+        <issuerName>Core Scientific, Inc.</issuerName>
+        <issuerPrincipalAddress>
+          <com:street1>838 WALKER ROAD</com:street1>
+          <com:street2>SUITE 21-2105</com:street2>
+          <com:city>DOVER</com:city>
+          <com:stateOrCountry>DE</com:stateOrCountry>
+          <com:zipCode>19904</com:zipCode>
+        </issuerPrincipalAddress>
+      </item1>
+      <item2>
+        <filingPersonName>The reporting persons are:
+
+Situational Awareness LP, a Delaware limited partnership ("Adviser")
+
+SAF AI GP LP, a Delaware limited partnership ("General Partner")
+
+Situational Awareness LLC, a Delaware limited liability company ("SA LLC")
+
+Situational Awareness Partners LP, a Delaware limited partnership ("Fund")
+
+Leopold Aschenbrenner
+
+Carl Shulman
+
+The reporting persons are filing this statement jointly, but not as  members of a group, and they expressly disclaim membership in a group.  In addition, the filing of this Schedule 13D on behalf of Fund should not be construed as an admission that it is, and it disclaims that it is, a beneficial owner, as defined in Rule 13d-3 under the Act, of any securities covered by this Schedule 13D.  Each reporting person also disclaims beneficial ownership of the securities reported herein except to the extent of that person's pecuniary interest therein.</filingPersonName>
+        <principalBusinessAddress>512 Second Street, Suite 400, San Francisco, CA 94107</principalBusinessAddress>
+        <principalJob>Adviser is an investment adviser to the Fund.  General Partner is the general partner of the Fund. SA LLC is the general partner of Adviser.  Mr. Aschenbrenner is the managing partner and control person of Adviser and General Partner and the manager of SA LLC.  Mr. Shulman is the co-portfolio manager of the Fund.</principalJob>
+        <hasBeenConvicted>During the last five years, none of the reporting persons has been convicted in a criminal proceeding (excluding traffic violations or similar misdemeanors).</hasBeenConvicted>
+        <convictionDescription>During the last five years, none of the reporting persons was a party to a civil proceeding of a judicial or administrative body of competent jurisdiction and as a result of such proceeding was or is subject to a judgment, decree or final order enjoining future violations of, or prohibiting or mandating activities subject to, federal or state securities laws or finding any violation with respect to such laws.</convictionDescription>
+        <citizenship>For citizenship of the reporting persons, see Item 6 of each reporting person's cover page.</citizenship>
+      </item2>
+      <item3>
+        <fundsSource>The Fund used its working capital to purchase the Issuer's Common Stock.  The amount of funds used in purchasing the Issuer's Common Stock was $362,121,757.59.</fundsSource>
+      </item3>
+      <item4>
+        <transactionPurpose>The reporting persons acquired the Common Stock for investment purposes based on their belief that the Common Stock, when purchased, was undervalued and represented an attractive investment opportunity.  The reporting persons will routinely monitor the Issuer regarding a wide variety of factors that affect their investment considerations, including, current and anticipated future trading prices of the Common Stock and other securities, the Issuer's operations, assets, prospects, financial position, and business development, Issuer's management, Issuer-related competitive and strategic matters, general economic, financial market and industry conditions, and other investment considerations. Depending on their evaluation of various factors, the reporting persons may take such actions regarding their holdings of the Issuer's securities as they deem appropriate in light of circumstances existing from time to time. Such actions may include purchasing additional Common Stock in the open market, through privately negotiated transactions with third parties or otherwise, and selling at any time, in the open market, through privately negotiated transactions with third parties or otherwise, all or part of the Common Stock that they now own or hereafter acquire. The reporting persons also may from time to time enter into or unwind hedging or other derivative transactions with respect to the Common Stock or pledge their interests in the Common Stock to obtain liquidity. In addition, from time to time the reporting persons and their representatives and advisers may communicate with other stockholders, industry participants and other interested parties about the Issuer.
+
+The reporting persons have no present plan or proposal that relates to or would result in any of the actions specified in clauses (a) through (j) of Item 4 of Schedule 13D.  However, the reporting persons may recommend action to the Issuer's management, board of directors and stockholders. Any such actions could involve one or more of the events referred to in clauses (a) through (j) of Item 4 of Schedule 13D, including, potentially, one or more mergers, consolidations, sales or acquisitions of assets, changes in control, issuances, purchases, dispositions or pledges of securities or other changes in capitalization.</transactionPurpose>
+      </item4>
+      <item5>
+        <percentageOfClassSecurities>Aggregate number of shares beneficially owned by the reporting persons:
+
+Adviser:  28,756,478
+
+General Partner:  28,756,478
+
+SA LLC:  28,756,478
+
+Fund:  28,756,478
+
+Aschenbrenner:  28,756,478
+
+Shulman:  28,756,478
+
+Aggregate percentage of the class of Common Stock beneficially owned by the reporting persons:
+
+Adviser:  9.4%
+
+General Partner:  9.4%
+
+SA LLC:  9.4%
+
+Fund:  9.4%
+
+Aschenbrenner:  9.4%
+
+Shulman:  9.4%</percentageOfClassSecurities>
+        <numberOfShares>Number of shares as to which the each reporting person has:
+
+(i) Sole power to vote or to direct the vote:
+
+Adviser:  0
+
+General Partner:  0
+
+SA LLC:  0
+
+Fund:  0
+
+Aschenbrenner:  0
+
+Shulman:  0
+
+(ii) Shared power to vote or to direct the vote:
+
+Adviser:  28,756,478
+
+General Partner:  28,756,478
+
+SA LLC:  28,756,478
+
+Fund:  28,756,478
+
+Aschenbrenner:  28,756,478
+
+Shulman:  28,756,478
+
+(iii) Sole power to dispose or to direct the disposition of:
+
+Adviser:  0
+
+General Partner:  0
+
+SA LLC:  0
+
+Fund:  0
+
+Aschenbrenner:  0
+
+Shulman:  0
+
+(iv) Shared power to dispose or to direct the disposition of:?
+
+Adviser:  28,756,478
+
+General Partner:  28,756,478
+
+SA LLC:  28,756,478
+
+Fund:  28,756,478
+
+Aschenbrenner:  28,756,478
+
+Shulman:  28,756,478</numberOfShares>
+        <transactionDesc>The reporting persons engaged in the transactions set forth on Exhibit 99.2 in the Issuer's Common Stock since the date on which the reporting persons filed their prior Schedule 13D.</transactionDesc>
+        <listOfShareholders>Not applicable.</listOfShareholders>
+        <date5PercentOwnership>Not applicable.</date5PercentOwnership>
+      </item5>
+      <item6>
+        <contractDescription>Adviser is the investment adviser to its clients pursuant to investment management agreements or limited partnership agreements providing to Adviser the authority, among other things, to invest the funds of such clients in Stock, to vote and dispose of Stock and to file this statement on behalf of such clients. Pursuant to such limited partnership agreements, General Partner is entitled to allocations based on assets under management and realized and unrealized gains.  Pursuant to such investment management agreements, Adviser is entitled to fees based on assets under management and realized and unrealized gains.</contractDescription>
+      </item6>
+      <item7>
+        <filedExhibits>Exhibit 99.1 - Agreement Regarding Joint Filing of Statement on Schedule 13D or 13G.
+
+Exhibit 99.2 - Transactions in the Past 60 Days.</filedExhibits>
+      </item7>
+    </items1To7>
+    <signatureInfo>
+      <signaturePerson>
+        <signatureReportingPerson>Situational Awareness LP</signatureReportingPerson>
+        <signatureDetails>
+          <signature>/s/ Leopold Aschenbrenner</signature>
+          <title>Managing Partner</title>
+          <date>10/14/2025</date>
+        </signatureDetails>
+      </signaturePerson>
+      <signaturePerson>
+        <signatureReportingPerson>SAF AI GP LP</signatureReportingPerson>
+        <signatureDetails>
+          <signature>/s/ Leopold Aschenbrenner</signature>
+          <title>Managing Partner</title>
+          <date>10/14/2025</date>
+        </signatureDetails>
+      </signaturePerson>
+      <signaturePerson>
+        <signatureReportingPerson>Situational Awareness LLC</signatureReportingPerson>
+        <signatureDetails>
+          <signature>/s/ Leopold Aschenbrenner</signature>
+          <title>Manager</title>
+          <date>10/14/2025</date>
+        </signatureDetails>
+      </signaturePerson>
+      <signaturePerson>
+        <signatureReportingPerson>Situational Awareness Partners LP</signatureReportingPerson>
+        <signatureDetails>
+          <signature>/s/ Leopold Aschenbrenner</signature>
+          <title>Managing Partner of SAF AI GP LP, general partner of Situational Awareness Partners LP</title>
+          <date>10/14/2025</date>
+        </signatureDetails>
+      </signaturePerson>
+      <signaturePerson>
+        <signatureReportingPerson>Leopold Aschenbrenner</signatureReportingPerson>
+        <signatureDetails>
+          <signature>/s/ Leopold Aschenbrenner</signature>
+          <title>Reporting person</title>
+          <date>10/14/2025</date>
+        </signatureDetails>
+      </signaturePerson>
+      <signaturePerson>
+        <signatureReportingPerson>Carl Shulman</signatureReportingPerson>
+        <signatureDetails>
+          <signature>/s/ Carl Shulman</signature>
+          <title>Reporting person</title>
+          <date>10/14/2025</date>
+        </signatureDetails>
+      </signaturePerson>
+    </signatureInfo>
+  </formData>
+
+</edgarSubmission>
+</XML>
+</TEXT>
+</DOCUMENT>
+<DOCUMENT>
+<TYPE>EX-99
+<SEQUENCE>2
+<FILENAME>corz13d.htm
+<DESCRIPTION>AGREEMENT REGARDING JOINT FILING
+<TEXT>
+<HTML>
+<HEAD>
+     <TITLE></TITLE>
+</HEAD>
+<BODY STYLE="font: 10pt Times New Roman, Times, Serif">
+
+<P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0; text-align: center">EXHIBIT 99.1</P>
+
+<P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P>
+
+<P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0; text-align: center">AGREEMENT REGARDING JOINT FILING</P>
+
+<P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0; text-align: center">OF STATEMENT ON SCHEDULE 13D OR 13G</P>
+
+<P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P>
+
+<P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0; text-align: justify">The undersigned agree to file jointly with the Securities
+and Exchange Commission (the &ldquo;SEC&rdquo;) any and all statements on Schedule 13D or Schedule 13G or Forms 3, 4 or 5(and any amendments
+or supplements thereto) required under section 13(d) and 16(a) of the Securities Exchange Act of 1934, as amended, in connection with
+purchases by the undersigned of the securities of any issuer. For that purpose, the undersigned hereby constitute and appoint Situational
+Awareness LP, a Delaware limited partnership, as their true and lawful agent and attorney-in-fact, with full power and authority for and
+on behalf of the undersigned to prepare or cause to be prepared, sign, file with the SEC and furnish to any other person all certificates,
+instruments, agreements and documents necessary to comply with section 13(d) and section 16(a) of the Securities Exchange Act of 1934,
+as amended, in connection with said purchases, and to do and perform every act necessary and proper to be done incident to the exercise
+of the foregoing power, as fully as the undersigned might or could do if personally present.</P>
+
+<P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P>
+
+<P STYLE="font: 12pt Times New Roman, Times, Serif; margin: 0"><FONT STYLE="font-size: 11pt">Dated:&#9;October 14, 2025</FONT></P>
+
+<P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P>
+
+<TABLE CELLSPACING="0" CELLPADDING="0" STYLE="width: 100%; border-collapse: collapse">
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="width: 47%; padding-right: 5.4pt; padding-left: 5.4pt">
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0"><B>SITUATIONAL AWARENESS LP</B><BR>
+    <BR>
+    <BR>
+    By:&#9;<I><U>/s/ Leopold Aschenbrenner</U></I><BR>
+    &#9;Leopold Aschenbrenner<BR>
+    &#9;Managing Partner</P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P></TD>
+    <TD STYLE="width: 53%; padding-right: 5.4pt; padding-left: 5.4pt">
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0"><B>SAF AI GP LP</B></P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0"><B>&nbsp;</B></P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0"><B>&nbsp;</B></P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">By: <U>/s/ <I>Leopold Aschenbrenner</I>&#9;&#9;</U></P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&#9;Leopold Aschenbrenner<BR>
+    &#9;Managing Partner</P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P></TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="font: 12pt Times New Roman, Times, Serif; padding-right: 5.4pt; padding-left: 5.4pt"><FONT STYLE="font-size: 11pt">&nbsp;</FONT></TD>
+    <TD STYLE="font: 12pt Times New Roman, Times, Serif; padding-right: 5.4pt; padding-left: 5.4pt">&nbsp;</TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="padding-right: 5.4pt; padding-left: 5.4pt">
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0"><B>SITUATIONAL AWARENESS LLC<U><BR>
+    <BR>
+    </U></B>By:<U>/s/ <I>Leopold Aschenbrenner</I>&#9;&#9;<BR>
+    </U>&#9;Leopold Aschenbrenner<BR>
+    &#9;Manager</P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P></TD>
+    <TD STYLE="padding-right: 5.4pt; padding-left: 5.4pt">
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0"><B>SITUATIONAL AWARENESS PARTNERS LP<BR>
+    <BR>
+    </B>By:&#9;<U>/s/ <I>Leopold Aschenbrenner&#9;</I></U><BR>
+    &#9;Leopold Aschenbrenner<BR>
+    &#9;Managing Partner</P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P></TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="padding-right: 5.4pt; padding-left: 5.4pt">
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0"><U>/s/ <I>Leopold Aschenbrenner</I>&#9;&#9;</U></P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">Leopold Aschenbrenner</P></TD>
+    <TD STYLE="padding-right: 5.4pt; padding-left: 5.4pt">
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0"><U>/s/ <I>Carl Shulman</I>&#9;&#9;&#9;</U></P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">Carl Shulman</P></TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="padding-right: 5.4pt; padding-left: 5.4pt">
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P></TD>
+    <TD STYLE="padding-right: 5.4pt; padding-left: 5.4pt">
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P></TD></TR>
+  </TABLE>
+<P STYLE="font: 12pt Times New Roman, Times, Serif; margin: 0; text-align: justify">&nbsp;</P>
+
+</BODY>
+</HTML>
+</TEXT>
+</DOCUMENT>
+<DOCUMENT>
+<TYPE>EX-99.2
+<SEQUENCE>3
+<FILENAME>ex99290days.htm
+<TEXT>
+<HTML>
+<HEAD>
+     <TITLE></TITLE>
+</HEAD>
+<BODY STYLE="font: 10pt Times New Roman, Times, Serif">
+
+<P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0; text-align: center">EXHIBIT 99.2</P>
+
+<P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P>
+
+<P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0; text-align: center">TRANSACTIONS IN THE PAST 60 DAYS</P>
+
+<P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P>
+
+<P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0; text-align: justify">The reporting persons engaged in the following open
+market transactions in the Issuer&rsquo;s Common Stock since the date on which the reporting persons filed their prior Schedule 13D.</P>
+
+<P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0; text-align: justify">&nbsp;</P>
+
+<TABLE CELLSPACING="0" CELLPADDING="0" STYLE="width: 100%; font: 12pt Arial, Helvetica, Sans-Serif; border-collapse: collapse">
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="width: 23%; border: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt">
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0; text-align: justify">Date</P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0; text-align: justify">&nbsp;</P></TD>
+    <TD STYLE="width: 28%; border-top: Black 1pt solid; border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify"><FONT STYLE="font-family: Times New Roman, Times, Serif; font-size: 11pt">Purchase or Sale</FONT></TD>
+    <TD STYLE="width: 26%; border-top: Black 1pt solid; border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right"><FONT STYLE="font-family: Times New Roman, Times, Serif; font-size: 11pt">Number of Shares </FONT></TD>
+    <TD STYLE="width: 23%; border-top: Black 1pt solid; border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify"><FONT STYLE="font-family: Times New Roman, Times, Serif; font-size: 11pt">Price per Share</FONT></TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">8/20/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Sale</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">(786,072)</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$13.8804 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">8/20/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Sale</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">(852,105)</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$13.9109 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">9/9/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">663,073 </TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$14.6123 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">9/10/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">432,327 </TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$15.3493 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">9/10/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">1,075,000 </TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$15.7350 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">9/30/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">46,138 </TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$17.9093 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">9/30/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">128,000 </TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$17.9161 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">9/30/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">1,000,000 </TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$17.9290 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">9/30/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">100,000 </TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$17.9550 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">9/30/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">58,060 </TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$17.8498 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">9/30/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">71,782 </TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$17.9255 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">10/9/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">1,171,114 </TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$17.5552 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">10/9/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">500,000 </TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$17.3700 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">10/9/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">300,000 </TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$17.3707 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">10/9/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">69,000 </TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$17.5250 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">10/9/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">200,000 </TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$17.4553 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">10/9/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">300,000 </TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$17.6227 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">10/9/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">715,962 </TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$18.0169 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">10/9/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">256,952 </TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$17.8259 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">10/10/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">106,588 </TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$18.9093 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">10/10/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">317,836 </TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$19.0273 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">10/10/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">499,295 </TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$18.3214 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">10/10/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">500,000 </TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$18.8116 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">10/10/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">229,177 </TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$18.5684 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">10/10/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">103,868 </TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$18.9643 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">10/10/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">1,000,000 </TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$18.4671 </TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">10/14/2025</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: justify">Purchase</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">2,306,152</TD>
+    <TD STYLE="border-right: Black 1pt solid; border-bottom: Black 1pt solid; padding-right: 5.4pt; padding-left: 5.4pt; text-align: right">$19.0684</TD></TR>
+  </TABLE>
+
+</BODY>
+</HTML>
+</TEXT>
+</DOCUMENT>
+</SEC-DOCUMENT>

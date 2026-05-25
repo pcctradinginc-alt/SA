@@ -33,14 +33,14 @@ _Last updated: 2026-05-25 · prices via yfinance · Not investment advice._
 | RIOT | RIOT PLATFORMS INC | 3.6M | 6.2M | 11.5M | +86.5% | ↑↑↑ | 3.7% | +95.1% | $281.7M | 🟢 Strong Add |
 | CLSK | CLEANSPARK INC | 0 | 1.6M | 12.3M | +648.4% | New + Add | 2.7% | +85.3% | $196.0M | 🟢 New + Add |
 | SEI | SOLARIS ENERGY INFRAS INC | 1.2M | 1.9M | 1.1M | -40.8% | Mixed | 1.6% | +33.9% | $82.1M | 🔴 Trim |
-| ? | T1 ENERGY INC | 0 | 0 | 10.0M | New | New | 1.1% | — | — | 🟡 New Buy |
+| TE | T1 ENERGY INC | 0 | 0 | 10.0M | New | New | 1.1% | +84.0% | $80.8M | 🟡 New Buy |
 | BITF | BITFARMS LTD | 0 | 6.9M | 19.9M | +188.2% | New + Add | 1.0% | +142.9% | $95.6M | 🟢 New + Add |
 | BTDR | BITDEER TECHNOLOGIES GROUP | 930k | 1.8M | 3.4M | +92.4% | ↑↑↑ | 0.8% | +56.9% | $50.4M | 🟢 Strong Add |
 | PSIX | POWER SOLUTIONS INTL INC | 0 | 432k | 432k | +0.0% | Mixed | 0.7% | -41.3% | $16.8M | 🟡 Hold |
 | ? | WHITEFIBER INC | 0 | 1.8M | 1.8M | +0.0% | Mixed | 0.5% | — | — | 🟡 Hold |
 | AMD | ADVANCED MICRO DEVICES INC | 0 | 0 | 99k | New | New | 0.5% | +122.4% | $46.3M | 🟡 New Buy |
 | BW | BABCOCK & WILCOX ENTERPRISES | 0 | 1.4M | 1.4M | +0.0% | Mixed | 0.5% | +27.2% | $25.8M | 🟡 Hold |
-| ? | SHARONAI HOLDINGS INC | 0 | 0 | 796k | New | New | 0.5% | — | — | 🟡 New Buy |
+| SHAZ | SHARONAI HOLDINGS INC | 0 | 0 | 796k | New | New | 0.5% | +199.4% | $54.2M | 🟡 New Buy |
 | PUMP | PROPETRO HLDG CORP | 0 | 910k | 910k | +0.0% | Mixed | 0.3% | +25.6% | $15.4M | 🟡 Hold |
 | SMH | VANECK ETF TRUST | 0 | 0 | 27k | New | New | 0.3% | +47.0% | $15.5M | 🟡 New Buy |
 | INTC | INTEL CORP | 0 | 1 | 202k | +20234300.0% | New + Add | 0.2% | +149.5% | $24.2M | 🟢 New + Add |
@@ -61,8 +61,8 @@ _Last updated: 2026-05-25 · prices via yfinance · Not investment advice._
 | HIVE | HIVE DIGITAL TECHNOLOGIES LT | Bitcoin Mining | 3.4M | $6.4M | 0.2% | +115.3% |
 | MU | MICRON TECHNOLOGY INC | Semiconductors | 17k | $5.9M | 0.1% | +104.2% |
 | NVDA | NVIDIA CORPORATION | Semiconductors | 3k | $497.9K | 0.0% | +22.5% |
-| ? | SHARONAI HOLDINGS INC | Technology | 796k | $18.1M | 0.5% | — |
-| ? | T1 ENERGY INC | Energy Infrastructure | 10.0M | $43.9M | 1.1% | — |
+| SHAZ | SHARONAI HOLDINGS INC | Technology | 796k | $18.1M | 0.5% | +199.4% |
+| TE | T1 ENERGY INC | Energy Infrastructure | 10.0M | $43.9M | 1.1% | +84.0% |
 | TSM | TAIWAN SEMICONDUCTOR MANUFAC | Semiconductors | 22k | $7.6M | 0.2% | +18.5% |
 | SMH | VANECK ETF TRUST | ETF | 27k | $10.3M | 0.3% | +47.0% |
 
@@ -74,7 +74,7 @@ _Last updated: 2026-05-25 · prices via yfinance · Not investment advice._
 | ? | CIPHER MINING INC | 5.7M | 0 | 0 | $0 |
 | COHR | COHERENT CORP | 154k | 480k | 0 | $0 |
 | EQT | EQT CORP | 1.2M | 2.5M | 0 | $0 |
-| ? | GALAXY DIGITAL INC. | 2.7M | 0 | 0 | $0 |
+| GLXY | GALAXY DIGITAL INC. | 2.7M | 0 | 0 | $0 |
 | HUT | HUT 8 CORP | 599k | 860k | 0 | $0 |
 | ? | LUMENTUM HLDGS INC | 418k | 0 | 0 | $0 |
 | ? | SEAGATE TECHNOLOGY HLDNGS PL | 49k | 0 | 0 | $0 |
@@ -109,7 +109,7 @@ _Last updated: 2026-05-25 · prices via yfinance · Not investment advice._
 | BLOOM ENERGY CORP | CALL | $12.3M | $0 | $0 | +0.0% | — | Notional, not premium; long/short direction unknown |
 | CRWV | PUT | $191.6M | $0 | $0 | +0.0% | +34.5% | Notional, not premium; long/short direction unknown |
 | INTC | CALL | $679.0M | $746.8M | $0 | Exit | +149.5% | Notional, not premium; long/short direction unknown |
-| VANECK ETF TRUST | PUT | $195.8M | $0 | $0 | +0.0% | — | Notional, not premium; long/short direction unknown |
+| GDX | PUT | $195.8M | $0 | $0 | +0.0% | -11.5% | Notional, not premium; long/short direction unknown |
 | EQT | CALL | $0 | $37.5M | $0 | Exit | -4.9% | Notional, not premium; long/short direction unknown |
 
 > Options are shown as reported notional exposure. Direction, premium, strike, expiry and true economic exposure are unknown.
