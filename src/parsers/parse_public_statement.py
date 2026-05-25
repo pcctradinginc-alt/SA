@@ -1,11 +1,12 @@
 """Extract candidate position statements from discovery items.
 
-This is intentionally conservative keyword matching with a confidence floor.
-It NEVER fabricates a quote: it only flags an item and records the matched
-phrase + a short excerpt of the source. High-precision NER / LLM extraction
-can be layered on later behind the same interface.
+Two extraction modes:
+  1. Keyword-only  — fast, free, zero dependencies. Used as pre-filter and fallback.
+  2. LLM-validated — Claude Haiku validates each keyword-matched candidate for real
+     semantic relevance and extracts structured fields. Activated when
+     ANTHROPIC_API_KEY is set and config.llm.validate_statements is true.
 
-Signal categories (also stored as ``signal_category`` in the returned dict):
+Signal categories (stored as ``signal_category`` in the returned dict):
   invest    — buying / entering a position
   sell      — selling / exiting / trimming
   announce  — fund launch, new vehicle, press release
@@ -13,9 +14,37 @@ Signal categories (also stored as ``signal_category`` in the returned dict):
 """
 from __future__ import annotations
 
+import json
+import logging
+import os
 import re
 
 from ..sources.discovery import DiscoveryItem
+
+log = logging.getLogger("parsers.public_statement")
+
+_LLM_SYSTEM_PROMPT = """\
+You are a financial signal classifier for a hedge fund monitoring system.
+
+The fund you monitor is "Situational Awareness LP", managed by Leopold Aschenbrenner (ex-OpenAI researcher). It holds long equity positions (CoreWeave, Core Scientific, Bloom Energy, SandDisk, Intel, etc.) and large put options on Nvidia and other AI chip companies.
+
+You receive a news headline + excerpt. Classify whether it contains actionable investment signal about THIS fund's positions or moves.
+
+Return ONLY valid JSON with these fields:
+{
+  "is_relevant": true | false,
+  "action": "buy" | "sell" | "highlight" | "announce" | "unrelated",
+  "ticker": "<TICKER>" | null,
+  "confidence": 0.0–1.0,
+  "reason": "<one short sentence>"
+}
+
+Rules:
+- is_relevant = true ONLY if the article specifically reports on this fund's investment moves (new stake, exit, increase, decrease, short position, fund-level announcement).
+- is_relevant = false for: general AI news, opinion pieces that merely mention Aschenbrenner, interviews not about positions, articles about other funds.
+- confidence reflects how clearly the headline/excerpt supports your classification (not how important the news is).
+- ticker: the primary stock ticker mentioned in the context of the fund's position, or null.
+- Return ONLY the JSON object — no markdown, no explanation outside the JSON."""
 
 # ── Phrase tables by signal category ────────────────────────────────────────
 INVEST_PHRASES = [
@@ -80,7 +109,7 @@ def _categorize(matched: list[str]) -> str:
 
 
 def extract_statement(item: DiscoveryItem) -> dict | None:
-    """Return a statement record if the item looks position-relevant, else None."""
+    """Keyword-only extraction. Fast, free, used as pre-filter and fallback."""
     text = f"{item.title} {item.excerpt}".lower()
     matched = [p for p in _ALL_PHRASES if p in text]
     if not matched:
@@ -102,4 +131,65 @@ def extract_statement(item: DiscoveryItem) -> dict | None:
         "url": item.url,
         "source_kind": item.source_kind,
         "content_hash": item.content_hash(),
+        "llm_validated": False,
     }
+
+
+def extract_statement_with_llm(item: DiscoveryItem, model: str = "claude-haiku-4-5-20251001") -> dict | None:
+    """Keyword pre-filter → Claude Haiku semantic validation.
+
+    Falls back silently to keyword-only if ANTHROPIC_API_KEY is not set or the
+    API call fails. The returned dict is compatible with extract_statement().
+    """
+    candidate = extract_statement(item)
+    if candidate is None:
+        return None
+
+    if not os.environ.get("ANTHROPIC_API_KEY"):
+        return candidate
+
+    try:
+        import anthropic
+        client = anthropic.Anthropic()
+        response = client.messages.create(
+            model=model,
+            max_tokens=256,
+            system=[{
+                "type": "text",
+                "text": _LLM_SYSTEM_PROMPT,
+                "cache_control": {"type": "ephemeral"},
+            }],
+            messages=[{
+                "role": "user",
+                "content": (
+                    f"Title: {item.title}\n"
+                    f"Excerpt: {item.excerpt}\n"
+                    f"Source: {item.source_kind}"
+                ),
+            }],
+        )
+        result = json.loads(response.content[0].text)
+    except Exception as exc:
+        log.warning("LLM validation failed (%s); using keyword result. Error: %s", item.url, exc)
+        return candidate
+
+    if not result.get("is_relevant"):
+        log.debug("LLM rejected item (action=%s, reason=%s): %s", result.get("action"), result.get("reason"), item.title[:80])
+        return None
+
+    # Merge LLM assessment into candidate
+    action = result.get("action", candidate["signal_category"])
+    if action in ("buy",):
+        action = "invest"
+    candidate["signal_category"] = action
+    candidate["confidence"] = round(float(result.get("confidence", candidate["confidence"])), 2)
+    candidate["needs_human_review"] = candidate["confidence"] < 0.80
+    candidate["llm_validated"] = True
+    candidate["llm_reason"] = result.get("reason", "")
+
+    llm_ticker = result.get("ticker")
+    if llm_ticker:
+        existing = set(candidate.get("ticker_guess") or [])
+        candidate["ticker_guess"] = sorted(existing | {llm_ticker})
+
+    return candidate
