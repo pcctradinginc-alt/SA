@@ -14,7 +14,7 @@ entity:
 sec:
   # SEC requires a descriptive User-Agent with contact info, and rate-limits to
   # ~10 requests/second. Put a real contact address here before running.
-  user_agent: "situational-awareness-tracker (contact: info@pcctradinginc.com)"
+  user_agent: "situational-awareness-tracker (contact: your-email@example.com)"
   request_delay_seconds: 0.2          # ~5 req/s, comfortably under the limit
   filing_types: ["13F-HR", "13F-HR/A", "SC 13D", "SC 13D/A", "SC 13G", "SC 13G/A", "D", "D/A"]
 
@@ -34,6 +34,21 @@ email:
   subject_prefix: "SA Tracker"
   from_name: "SA Tracker"
   # Recipients live in the SMTP_TO env var (comma-separated) — never commit addresses.
+
+alert:
+  # Immediate alert email sent when any new high-confidence event is detected.
+  # Uses the same SMTP_* env vars as the digest. Set enabled: true to activate.
+  enabled: false
+  subject_prefix: "SA Alert"
+  # Minimum event confidence (0–1) required to trigger an alert.
+  # SEC-verified filings always have confidence 1.0.
+  # News/media signals start at 0.45–0.85 depending on source.
+  min_confidence: 0.5
+  # Which signal types trigger an alert.
+  on_signal_types:
+    - "13f_position"       # new 13F quarterly filing
+    - "ownership_13dg"     # 13D/G beneficial-ownership change
+    - "public_statement"   # news / blog mention (invest, sell, announce, highlight)
 
 paths:
   reference: "data/reference"
