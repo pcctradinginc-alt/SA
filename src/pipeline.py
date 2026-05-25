@@ -9,6 +9,7 @@ Subcommands (see ``python -m src.pipeline --help``):
   digest             Render the email and send it (or save a preview).
   alert              Check for new high-signal events; send alert email if any.
   run                Full pipeline (fetch -> discover -> verify -> analyze -> digest -> alert).
+  map-cusips         Auto-map unmapped CUSIPs via OpenFIGI; update override CSV.
 """
 from __future__ import annotations
 
@@ -20,7 +21,7 @@ from .utils import get_logger, read_json, utc_now_iso, write_json
 from .sources import sec, entity_resolution, discovery
 from .sources import rss_news
 from .parsers import parse_13f, parse_public_statement
-from .analysis import positions, cusip_map, llm_13f, prices as prices_mod
+from .analysis import positions, cusip_map, llm_13f, prices as prices_mod, map_cusips
 from . import events
 from . import alert as alert_mod
 from .render import render_readme, render_email
@@ -173,13 +174,15 @@ def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(description="Situational Awareness Tracker")
     parser.add_argument("--config", default=None, help="Path to config.yaml")
     sub = parser.add_subparsers(dest="command", required=True)
-    for name in ("resolve-entities", "fetch", "discover", "analyze", "digest", "alert", "run"):
+    for name in ("resolve-entities", "fetch", "discover", "analyze", "digest", "alert", "run", "map-cusips"):
         sub.add_parser(name)
     args = parser.parse_args(argv)
     cfg = load_config(args.config)
 
     if args.command == "resolve-entities":
         entity_resolution.resolve(cfg)
+    elif args.command == "map-cusips":
+        map_cusips.run(cfg)
     elif args.command == "fetch":
         step_fetch(cfg)
     elif args.command == "discover":
