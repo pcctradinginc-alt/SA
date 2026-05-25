@@ -182,7 +182,7 @@
               <tr>
                 <td style="vertical-align:middle;">
                   <span style="font-size:11px;color:{{ C.ter }};font-weight:600;">#{{ loop.index }}</span>
-                  <span style="font-size:16px;font-weight:800;margin-left:8px;color:{{ C.text }};">{{ sig.ticker or '?' }}</span>
+                  <span style="font-size:16px;font-weight:800;margin-left:8px;color:{{ C.text }};">{{ sig.ticker or sig.issuer[:10] }}</span>
                   <span style="font-size:13px;color:{{ C.sec }};margin-left:6px;">{{ sig.issuer[:35] }}</span>
                 </td>
                 <td align="right" style="vertical-align:middle;white-space:nowrap;">
@@ -411,7 +411,7 @@
       {% for r in tldr.top_positions %}
       {%- set sk = {'strong_add':'green','new_add':'green','new_buy':'amber','hold':'gray','trim':'red','exit':'gray'}.get(r.status,'gray') -%}
       <tr>
-        <td style="padding:9px 6px 9px 0;font-weight:700;">{{ r.ticker or '?' }}</td>
+        <td style="padding:9px 6px 9px 0;font-weight:700;">{{ r.ticker or r.issuer[:8] }}</td>
         <td style="padding:9px 6px;color:{{ C.sec }};font-size:12px;">{{ r.issuer[:26] }}</td>
         <td align="right" style="padding:9px 6px;">{{ r.value_latest_usd|usd }}</td>
         <td align="right" style="padding:9px 6px;">{{ (r.portfolio_weight_common_stock * 100)|round(1) }}%</td>

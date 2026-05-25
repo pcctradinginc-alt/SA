@@ -25,21 +25,21 @@ _Last updated: {{ model.generated }} · prices via {{ model.price_source }} · N
 
 | Ticker | Issuer | {% for q in model.quarter_labels %}{{ q }} | {% endfor %}QoQ | 3Q | Wt | Px since Q-end | Est. value | Status |
 | --- | --- | {% for q in model.quarter_labels %}--- | {% endfor %}--- | --- | --- | --- | --- | --- |
-{% for r in model.common_stock %}| {{ r.ticker or '?' }} | {{ r.issuer }} | {% for s in r.shares_by_quarter %}{{ s|shares }} | {% endfor %}{{ r.qoq_share_change_pct|qoq }} | {{ r.three_quarter_trend|trend }} | {{ (r.portfolio_weight_common_stock*100)|round(1) }}% | {{ r.price_change_since_quarter_end_pct|pct }} | {{ r.estimated_current_value|usd }} | {{ r.status_icon }} {{ r.status_label }} |
+{% for r in model.common_stock %}| {{ r.ticker or r.issuer[:8] }} | {{ r.issuer }} | {% for s in r.shares_by_quarter %}{{ s|shares }} | {% endfor %}{{ r.qoq_share_change_pct|qoq }} | {{ r.three_quarter_trend|trend }} | {{ (r.portfolio_weight_common_stock*100)|round(1) }}% | {{ r.price_change_since_quarter_end_pct|pct }} | {{ r.estimated_current_value|usd }} | {{ r.status_icon }} {{ r.status_label }} |
 {% endfor %}
 
 {% if model.new_buys %}## New common stock positions in latest 13F
 
 | Ticker | Issuer | Sector | {{ model.summary.latest_quarter }} shares | Value | Wt | Px since Q-end |
 | --- | --- | --- | --- | --- | --- | --- |
-{% for r in model.new_buys %}| {{ r.ticker or '?' }} | {{ r.issuer }} | {{ r.sector }} | {{ r.shares_latest|shares }} | {{ r.value_latest_usd|usd }} | {{ (r.portfolio_weight_common_stock*100)|round(1) }}% | {{ r.price_change_since_quarter_end_pct|pct }} |
+{% for r in model.new_buys %}| {{ r.ticker or r.issuer[:8] }} | {{ r.issuer }} | {{ r.sector }} | {{ r.shares_latest|shares }} | {{ r.value_latest_usd|usd }} | {{ (r.portfolio_weight_common_stock*100)|round(1) }}% | {{ r.price_change_since_quarter_end_pct|pct }} |
 {% endfor %}{% endif %}
 
 {% if model.exits %}## Exited common stock positions
 
 | Ticker | Issuer | {% for q in model.quarter_labels %}{{ q }} | {% endfor %}Last seen value |
 | --- | --- | {% for q in model.quarter_labels %}--- | {% endfor %}--- |
-{% for r in model.exits %}| {{ r.ticker or '?' }} | {{ r.issuer }} | {% for s in r.shares_by_quarter %}{{ s|shares }} | {% endfor %}{{ r.value_latest_usd|usd }} |
+{% for r in model.exits %}| {{ r.ticker or r.issuer[:8] }} | {{ r.issuer }} | {% for s in r.shares_by_quarter %}{{ s|shares }} | {% endfor %}{{ r.value_latest_usd|usd }} |
 {% endfor %}{% endif %}
 
 ## Options / puts / calls — notional only

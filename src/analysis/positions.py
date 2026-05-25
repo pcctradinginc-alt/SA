@@ -231,12 +231,19 @@ def build(cfg: Config, parsed_quarters: list[dict],
     new_buys: list[dict] = []
     exits: list[dict] = []
 
+    _MIN_REAL_SHARES = 1_000  # below this, prev-quarter is a parser artifact, not a real position
+
     for s in common.values():
         info = cusip_map.resolve(s.cusip, s.issuer, overrides)
         weight = s.values[-1] / total_common_value
         shares_latest = s.shares[-1]
         shares_prev = s.shares[-2] if len(s.shares) > 1 else 0
         value_prev = s.values[-2] if len(s.values) > 1 else 0
+        # Treat near-zero previous positions as new to avoid absurd QoQ percentages
+        # (e.g. 1 share in Q4 → 202k in Q1 = +20M% is a parser artefact, not a real add).
+        if 0 < shares_prev < _MIN_REAL_SHARES:
+            shares_prev = 0
+            value_prev = 0
 
         # Dollar delta = net new shares × implied price this quarter.
         # Using value_diff would mix price appreciation with actual buying —

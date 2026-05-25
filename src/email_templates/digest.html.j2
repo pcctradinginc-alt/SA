@@ -98,7 +98,7 @@
       </tr>
       {% for r in model.common_stock %}
       <tr>
-        <td style="padding:8px 6px 8px 0; border-bottom:1px solid {{ C.page }}; font-weight:500;">{{ r.ticker or '?' }}</td>
+        <td style="padding:8px 6px 8px 0; border-bottom:1px solid {{ C.page }}; font-weight:500;">{{ r.ticker or r.issuer[:8] }}</td>
         {% for s in r.shares_by_quarter %}<td align="right" style="padding:8px 6px; border-bottom:1px solid {{ C.page }};">{{ s|shares }}</td>{% endfor %}
         <td align="right" style="padding:8px 6px; border-bottom:1px solid {{ C.page }};">{{ r.qoq_share_change_pct|qoq }}</td>
         <td align="right" style="padding:8px 6px; border-bottom:1px solid {{ C.page }};">{{ (r.portfolio_weight_common_stock*100)|round(1) }}%</td>
