@@ -4,6 +4,7 @@ These feeds require no API keys and are fetched on every discovery run.
 They complement the user-configured GOOGLE_ALERT_FEEDS / BLOG_FEEDS env vars.
 
 Sources included:
+  - Nitter RSS — @leopoldasch timeline via public Nitter instances (no API key)
   - Google News RSS (search by name + variants)
   - HackerNews RSS via hnrss.org
   - Reddit search RSS (r/MachineLearning, r/investing, r/agi, all)
@@ -19,6 +20,19 @@ from ..sources.discovery import DiscoveryItem, _parse_rss
 from ..utils import HttpClient, get_logger
 
 log = get_logger("sources.rss_news")
+
+# Nitter instances — tried in order, first successful response wins.
+# Instances go down frequently; update this list if needed.
+# RSS URL format: https://<instance>/<username>/rss
+_X_HANDLE = "leopoldasch"
+_NITTER_INSTANCES = [
+    "https://nitter.poast.org",
+    "https://nitter.privacydev.net",
+    "https://nitter.cz",
+    "https://nitter.net",
+    "https://bird.trom.tf",
+    "https://nitter.1d4.us",
+]
 
 # Google News RSS — free, no API key, throttle-tolerant (30 s between calls is fine)
 _GOOGLE_NEWS_QUERIES = [
@@ -50,6 +64,32 @@ def _fetch_feed(client: HttpClient, url: str, source_kind: str) -> list[Discover
     except Exception as exc:  # noqa: BLE001
         log.warning("Feed failed (%s): %s", url, exc)
         return []
+
+
+def from_nitter_x(cfg: Config) -> list[DiscoveryItem]:
+    """@leopoldasch timeline via public Nitter RSS — no API key required.
+
+    Tries each Nitter instance in order and returns items from the first that
+    responds successfully. Source kind is "x" so it inherits the 0.75 base
+    confidence and gets LLM-validated like any other X source.
+    """
+    client = HttpClient(cfg.sec_user_agent, cfg.sec_request_delay)
+    for instance in _NITTER_INSTANCES:
+        url = f"{instance}/{_X_HANDLE}/rss"
+        try:
+            text = client.get_text(url, timeout=15)
+            if not text or "<rss" not in text.lower():
+                log.debug("Nitter %s returned no RSS content", instance)
+                continue
+            items = _parse_rss(text, "x")
+            if items:
+                log.info("Nitter (%s): %d tweet(s) from @%s.", instance, len(items), _X_HANDLE)
+                return items
+            log.debug("Nitter %s: empty feed", instance)
+        except Exception as exc:  # noqa: BLE001
+            log.debug("Nitter %s failed: %s", instance, exc)
+    log.warning("Nitter: all instances failed for @%s — X source unavailable.", _X_HANDLE)
+    return []
 
 
 def from_google_news(cfg: Config) -> list[DiscoveryItem]:
@@ -115,6 +155,7 @@ def from_all_curated(cfg: Config) -> list[DiscoveryItem]:
     """Fetch all curated free sources. Called from step_discover in pipeline."""
     items: list[DiscoveryItem] = []
     items.extend(from_edgar_rss(cfg))
+    items.extend(from_nitter_x(cfg))
     items.extend(from_google_news(cfg))
     items.extend(from_hackernews(cfg))
     items.extend(from_reddit(cfg))
