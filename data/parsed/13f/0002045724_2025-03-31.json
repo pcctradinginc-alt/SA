@@ -1,0 +1,129 @@
+{
+  "cik": "0002045724",
+  "accession": "0002045724-25-000002",
+  "report_date": "2025-03-31",
+  "quarter": "Q1 2025",
+  "holding_count": 12,
+  "holdings": [
+    {
+      "name_of_issuer": "Applied Digital Corp",
+      "title_of_class": "COM NEW",
+      "cusip": "038169207",
+      "value_usd": 22680072,
+      "amount": 4035600,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "Broadcom Inc",
+      "title_of_class": "COM",
+      "cusip": "11135F101",
+      "value_usd": 117201000,
+      "amount": 700000,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "Constellation Energy Corp",
+      "title_of_class": "COM",
+      "cusip": "21037T109",
+      "value_usd": 36978942,
+      "amount": 183400,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "Core Scientific Inc New",
+      "title_of_class": "COM",
+      "cusip": "21874A106",
+      "value_usd": 32736225,
+      "amount": 4521578,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "CoreWeave Inc",
+      "title_of_class": "COM CL A",
+      "cusip": "21873S108",
+      "value_usd": 45423000,
+      "amount": 1225000,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "EQT Corp",
+      "title_of_class": "COM",
+      "cusip": "26884L109",
+      "value_usd": 52863535,
+      "amount": 989398,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "IREN Limited",
+      "title_of_class": "ORDINARY SHARES",
+      "cusip": "Q4982L109",
+      "value_usd": 20499732,
+      "amount": 3366130,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "Intel Corp",
+      "title_of_class": "COM",
+      "cusip": "458140100",
+      "value_usd": 459591354,
+      "amount": 20237400,
+      "amount_type": "SH",
+      "put_call": "Call",
+      "instrument_type": "OPTION_CALL"
+    },
+    {
+      "name_of_issuer": "Modine Mfg Co",
+      "title_of_class": "COM",
+      "cusip": "607828100",
+      "value_usd": 55016242,
+      "amount": 716824,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "Onto Innovation Inc",
+      "title_of_class": "COM",
+      "cusip": "683344105",
+      "value_usd": 71192241,
+      "amount": 586717,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "Talen Energy Corp",
+      "title_of_class": "COM",
+      "cusip": "87422Q109",
+      "value_usd": 29630030,
+      "amount": 148395,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "Vistra Corp",
+      "title_of_class": "COM",
+      "cusip": "92840M102",
+      "value_usd": 61755354,
+      "amount": 525846,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    }
+  ]
+}

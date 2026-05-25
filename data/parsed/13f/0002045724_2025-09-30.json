@@ -1,0 +1,289 @@
+{
+  "cik": "0002045724",
+  "accession": "0002045724-25-000008",
+  "report_date": "2025-09-30",
+  "quarter": "Q3 2025",
+  "holding_count": 28,
+  "holdings": [
+    {
+      "name_of_issuer": "APPLIED DIGITAL CORP",
+      "title_of_class": "COM NEW",
+      "cusip": "038169207",
+      "value_usd": 139111716,
+      "amount": 6064155,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "BITDEER TECHNOLOGIES GROUP",
+      "title_of_class": "CL A ORD SHS",
+      "cusip": "G11448100",
+      "value_usd": 15886864,
+      "amount": 929600,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "BLOOM ENERGY CORP",
+      "title_of_class": "COM CL A",
+      "cusip": "093712AH0",
+      "value_usd": 43890344,
+      "amount": 3048002,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "BLOOM ENERGY CORP",
+      "title_of_class": "COM CL A",
+      "cusip": "093712AH0",
+      "value_usd": 12330306,
+      "amount": 145800,
+      "amount_type": "SH",
+      "put_call": "Call",
+      "instrument_type": "OPTION_CALL"
+    },
+    {
+      "name_of_issuer": "BROADCOM INC",
+      "title_of_class": "COM",
+      "cusip": "11135F101",
+      "value_usd": 75879300,
+      "amount": 230000,
+      "amount_type": "SH",
+      "put_call": "Put",
+      "instrument_type": "OPTION_PUT"
+    },
+    {
+      "name_of_issuer": "CIPHER MINING INC",
+      "title_of_class": "COM",
+      "cusip": "17253JAA4",
+      "value_usd": 72272807,
+      "amount": 5740493,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "COHERENT CORP",
+      "title_of_class": "COM",
+      "cusip": "19247G107",
+      "value_usd": 16631968,
+      "amount": 154400,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "CORE SCIENTIFIC INC NEW",
+      "title_of_class": "COM",
+      "cusip": "21874A106",
+      "value_usd": 362038780,
+      "amount": 20180534,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "COREWEAVE INC",
+      "title_of_class": "COM CL A",
+      "cusip": "21873S108",
+      "value_usd": 191590000,
+      "amount": 1400000,
+      "amount_type": "SH",
+      "put_call": "Put",
+      "instrument_type": "OPTION_PUT"
+    },
+    {
+      "name_of_issuer": "COREWEAVE INC",
+      "title_of_class": "COM CL A",
+      "cusip": "21873S108",
+      "value_usd": 316739325,
+      "amount": 2314500,
+      "amount_type": "SH",
+      "put_call": "Call",
+      "instrument_type": "OPTION_CALL"
+    },
+    {
+      "name_of_issuer": "COREWEAVE INC",
+      "title_of_class": "COM CL A",
+      "cusip": "21873S108",
+      "value_usd": 563200154,
+      "amount": 4115456,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "EQT CORP",
+      "title_of_class": "COM",
+      "cusip": "26884L109",
+      "value_usd": 66262320,
+      "amount": 1217386,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "GALAXY DIGITAL INC.",
+      "title_of_class": "CL A",
+      "cusip": "36317J209",
+      "value_usd": 92554875,
+      "amount": 2737500,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "HUT 8 CORP",
+      "title_of_class": "COM",
+      "cusip": "44812J104",
+      "value_usd": 20851190,
+      "amount": 599000,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "IREN LIMITED",
+      "title_of_class": "ORDINARY SHARES",
+      "cusip": "Q4982L109",
+      "value_usd": 338854358,
+      "amount": 7220421,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "INTEL CORP",
+      "title_of_class": "COM",
+      "cusip": "458140100",
+      "value_usd": 678964770,
+      "amount": 20237400,
+      "amount_type": "SH",
+      "put_call": "Call",
+      "instrument_type": "OPTION_CALL"
+    },
+    {
+      "name_of_issuer": "LUMENTUM HLDGS INC",
+      "title_of_class": "COM",
+      "cusip": "55024UAD1",
+      "value_usd": 67947696,
+      "amount": 417600,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "MICRON TECHNOLOGY INC",
+      "title_of_class": "COM",
+      "cusip": "595112103",
+      "value_usd": 50196000,
+      "amount": 300000,
+      "amount_type": "SH",
+      "put_call": "Put",
+      "instrument_type": "OPTION_PUT"
+    },
+    {
+      "name_of_issuer": "NVIDIA CORPORATION",
+      "title_of_class": "COM",
+      "cusip": "67066G104",
+      "value_usd": 298528000,
+      "amount": 1600000,
+      "amount_type": "SH",
+      "put_call": "Put",
+      "instrument_type": "OPTION_PUT"
+    },
+    {
+      "name_of_issuer": "RIOT PLATFORMS INC",
+      "title_of_class": "COM",
+      "cusip": "767292105",
+      "value_usd": 68369062,
+      "amount": 3592699,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "SANDISK CORP",
+      "title_of_class": "COM",
+      "cusip": "80004C200",
+      "value_usd": 12903000,
+      "amount": 115000,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "SEAGATE TECHNOLOGY HLDNGS PL",
+      "title_of_class": "ORD SHS",
+      "cusip": "G7997R103",
+      "value_usd": 11464726,
+      "amount": 48567,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "SOLARIS ENERGY INFRAS INC",
+      "title_of_class": "COM CL A",
+      "cusip": "83418M103",
+      "value_usd": 45977491,
+      "amount": 1150300,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "TAIWAN SEMICONDUCTOR MFG LTD",
+      "title_of_class": "SPONSORED ADS",
+      "cusip": "874039100",
+      "value_usd": 75408300,
+      "amount": 270000,
+      "amount_type": "SH",
+      "put_call": "Put",
+      "instrument_type": "OPTION_PUT"
+    },
+    {
+      "name_of_issuer": "TOWER SEMICONDUCTOR LTD",
+      "title_of_class": "SHS NEW",
+      "cusip": "M87915274",
+      "value_usd": 34024380,
+      "amount": 470600,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "VANECK ETF TRUST",
+      "title_of_class": "SEMICONDUCTR ETF",
+      "cusip": "92189F106",
+      "value_usd": 195816000,
+      "amount": 600000,
+      "amount_type": "SH",
+      "put_call": "Put",
+      "instrument_type": "OPTION_PUT"
+    },
+    {
+      "name_of_issuer": "VISTRA CORP",
+      "title_of_class": "COM",
+      "cusip": "92840M102",
+      "value_usd": 252327327,
+      "amount": 1287910,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "WESTERN DIGITAL CORP",
+      "title_of_class": "COM",
+      "cusip": "958102AT2",
+      "value_usd": 18347689,
+      "amount": 152821,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    }
+  ]
+}
