@@ -67,5 +67,21 @@ def trend(value: str | None) -> str:
     return TREND.get(value or "", value or DASH)
 
 
-FILTERS = {"usd": usd, "usd_signed": usd_signed, "shares": shares,
-           "pct": pct, "qoq": qoq, "trend": trend}
+def usd_compact(value: float | int | None) -> str:
+    """Signed compact USD for delta displays: +$474M, -$12M."""
+    if value is None:
+        return DASH
+    v = float(value)
+    sign = "+" if v >= 0 else "-"
+    v = abs(v)
+    if v >= 1_000_000_000:
+        return f"{sign}${v / 1_000_000_000:.1f}B"
+    if v >= 1_000_000:
+        return f"{sign}${v / 1_000_000:.0f}M"
+    if v >= 1_000:
+        return f"{sign}${v / 1_000:.0f}K"
+    return f"{sign}${v:.0f}"
+
+
+FILTERS = {"usd": usd, "usd_signed": usd_signed, "usd_compact": usd_compact,
+           "shares": shares, "pct": pct, "qoq": qoq, "trend": trend}

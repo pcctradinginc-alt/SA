@@ -1,0 +1,76 @@
+name: fetch-intensive
+
+# Runs every 15 minutes, but only does real work during 13F filing deadline
+# hot windows (3 days before → 2 days after each deadline).
+# The window check uses stdlib only, so no pip install is needed to skip.
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-intensive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # stdlib-only check — no pip install needed when outside window
+      - name: Check filing deadline window
+        id: window
+        run: |
+          python3 - <<'EOF'
+          import datetime, os
+          DEADLINES = [
+              (datetime.date(2026, 2, 17), 3, 2),
+              (datetime.date(2026, 5, 15), 3, 2),
+              (datetime.date(2026, 8, 14), 3, 2),
+              (datetime.date(2026, 11, 16), 3, 2),
+              (datetime.date(2027, 2, 16), 3, 2),
+          ]
+          today = datetime.date.today()
+          hot = any(
+              (d - datetime.timedelta(days=before)) <= today <= (d + datetime.timedelta(days=after))
+              for d, before, after in DEADLINES
+          )
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write(f"hot={'true' if hot else 'false'}\n")
+          print(f"Today: {today}  Hot window: {hot}")
+          EOF
+
+      - uses: actions/setup-python@v5
+        if: steps.window.outputs.hot == 'true'
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        if: steps.window.outputs.hot == 'true'
+        run: pip install -r requirements.txt
+
+      - name: Fetch new SEC filings
+        if: steps.window.outputs.hot == 'true'
+        run: python -m src.pipeline fetch
+
+      - name: Send alert if new events
+        if: steps.window.outputs.hot == 'true'
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SMTP_TO: ${{ secrets.SMTP_TO }}
+        run: python -m src.pipeline alert
+
+      - name: Commit updated state
+        if: steps.window.outputs.hot == 'true'
+        run: |
+          git config user.name "sa-tracker-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --quiet && git diff --staged --quiet || \
+            git commit -m "data: intensive-fetch $(date -u +%FT%TZ)"
+          git pull --rebase origin main
+          git push

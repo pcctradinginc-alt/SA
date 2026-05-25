@@ -40,6 +40,19 @@ def load_recent_quarters(cfg: Config, n: int) -> list[dict]:
     return parsed[-n:]
 
 
+def collect_13dg_cusips(cfg: Config) -> frozenset[str]:
+    """Return CUSIPs that appear in any recorded 13D/G ownership event."""
+    cusips: set[str] = set()
+    for evt in events.load_events(cfg):
+        if evt.get("signal_type") != "ownership_13dg":
+            continue
+        for src in evt.get("sources", []):
+            c = (src.get("issuer_cusip") or "").strip()
+            if c:
+                cusips.add(c)
+    return frozenset(cusips)
+
+
 def latest_tickers(cfg: Config, model: dict) -> set[str]:
     out: set[str] = set()
     for r in model.get("common_stock", []) + model.get("options", []):
@@ -126,7 +139,8 @@ def step_discover(cfg: Config) -> None:
 def step_analyze(cfg: Config) -> dict:
     prices_mod.init(cfg.paths)
     quarters = load_recent_quarters(cfg, cfg.quarters)
-    model = positions.build(cfg, quarters)
+    dg_cusips = collect_13dg_cusips(cfg)
+    model = positions.build(cfg, quarters, cusips_with_13dg=dg_cusips)
     if model.get("available"):
         verified = events.verify_open_statements(cfg, latest_tickers(cfg, model))
         if verified:

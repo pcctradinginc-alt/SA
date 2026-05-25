@@ -44,30 +44,37 @@ def _conviction_score(row: dict) -> float:
     """Weighted 0–10 conviction score for copy-trading decisions.
 
     Components (max):
-      Portfolio weight  3.0  — primary conviction indicator
-      QoQ share change  2.5  — momentum
-      3-quarter trend   2.0  — consistency
-      Absolute value    1.5  — avoids micro-positions dominating
-      Price opportunity 1.0  — penalise if >50% already moved since filing
+      Portfolio weight   2.5  — primary conviction indicator
+      QoQ $ delta        2.5  — dollar add beats raw percentage (avoids 1→200k noise)
+      3-quarter trend    2.0  — consistency across quarters
+      Absolute value     1.5  — avoids micro-positions dominating
+      Price opportunity  1.0  — penalise if >50% already moved since filing
+      13D/G bonus       +1.5  — ownership filing = stronger/faster signal
+      (total capped at 10.0)
     """
     w = row["portfolio_weight_common_stock"]
-    qoq = row.get("qoq_share_change_pct")
+    dollar_delta = row.get("qoq_dollar_delta", 0)
+    is_new = row.get("value_prev_quarter_usd", -1) == 0
     trend = row.get("three_quarter_trend", "")
     val = row.get("value_latest_usd", 0)
     pm = row.get("price_change_since_quarter_end_pct")
+    has_13dg = row.get("has_13dg", False)
 
-    if w >= 0.15:       w_score = 3.0
-    elif w >= 0.08:     w_score = 2.4
-    elif w >= 0.03:     w_score = 1.8
-    elif w >= 0.01:     w_score = 1.2
-    else:               w_score = 0.6
+    if w >= 0.15:       w_score = 2.5
+    elif w >= 0.08:     w_score = 2.0
+    elif w >= 0.03:     w_score = 1.5
+    elif w >= 0.01:     w_score = 1.0
+    else:               w_score = 0.5
 
-    if qoq is None:     q_score = 2.0   # new buy, no prior quarter
-    elif qoq >= 1.0:    q_score = 2.5
-    elif qoq >= 0.5:    q_score = 2.0
-    elif qoq >= 0.3:    q_score = 1.5
-    elif qoq >= 0.15:   q_score = 1.0
-    else:               q_score = 0.4
+    # Dollar delta: new buys scored on full position size
+    if is_new:
+        q_score = 2.0 if val >= 50_000_000 else 1.5
+    elif dollar_delta >= 200_000_000:  q_score = 2.5
+    elif dollar_delta >= 100_000_000:  q_score = 2.0
+    elif dollar_delta >= 50_000_000:   q_score = 1.5
+    elif dollar_delta >= 20_000_000:   q_score = 1.0
+    elif dollar_delta >= 5_000_000:    q_score = 0.5
+    else:                              q_score = 0.2
 
     t_score = {"up_up_up": 2.0, "new_add": 1.8, "new": 1.4,
                "mixed": 0.8, "flat": 0.4, "down_down": 0.0}.get(trend, 0.6)
@@ -83,7 +90,9 @@ def _conviction_score(row: dict) -> float:
     elif pm > 0.2:      p_score = 0.4   # partially sailed
     else:               p_score = 1.0   # still opportunity (or dip)
 
-    return round(w_score + q_score + t_score + v_score + p_score, 1)
+    dg_bonus = 1.5 if has_13dg else 0.0
+
+    return min(10.0, round(w_score + q_score + t_score + v_score + p_score + dg_bonus, 1))
 
 
 def _build_top_signals(common_rows: list[dict]) -> list[dict]:
@@ -94,8 +103,8 @@ def _build_top_signals(common_rows: list[dict]) -> list[dict]:
             continue
         if r.get("value_latest_usd", 0) < 25_000_000:
             continue
-        qoq = r.get("qoq_share_change_pct")
-        if qoq is not None and qoq < 0.10:
+        # Require meaningful dollar add (or new buy)
+        if r.get("value_prev_quarter_usd", -1) != 0 and r.get("qoq_dollar_delta", 0) < 5_000_000:
             continue
         score = _conviction_score(r)
         if score < _SCORE_THRESHOLD:
@@ -107,9 +116,11 @@ def _build_top_signals(common_rows: list[dict]) -> list[dict]:
             "ticker": r["ticker"],
             "issuer": r["issuer"],
             "status_label": r["status_label"],
+            "has_13dg": r.get("has_13dg", False),
             "portfolio_weight_common_stock": r["portfolio_weight_common_stock"],
             "value_latest_usd": r["value_latest_usd"],
-            "qoq_share_change_pct": qoq,
+            "qoq_dollar_delta": r.get("qoq_dollar_delta", 0),
+            "qoq_share_change_pct": r.get("qoq_share_change_pct"),
             "three_quarter_trend": r["three_quarter_trend"],
             "price_change_since_quarter_end_pct": r.get("price_change_since_quarter_end_pct"),
             "conviction_score": score,
@@ -195,10 +206,13 @@ def _status(shares: list[int], weight: float, cfg: Config) -> str:
     return STATUS_STRONG_ADD if qoq > 0 else STATUS_TRIM
 
 
-def build(cfg: Config, parsed_quarters: list[dict]) -> dict:
+def build(cfg: Config, parsed_quarters: list[dict],
+          cusips_with_13dg: frozenset[str] = frozenset()) -> dict:
     """Build the full instrument-separated position model from N parsed quarters.
 
     ``parsed_quarters`` must be sorted oldest -> newest.
+    ``cusips_with_13dg`` is a set of CUSIPs that have associated 13D/G filings,
+    used to boost the conviction score for those positions.
     """
     if not parsed_quarters:
         return {"available": False}
@@ -231,6 +245,7 @@ def build(cfg: Config, parsed_quarters: list[dict]) -> dict:
                 est_value = round(shares_latest * current)
                 est_move = round(shares_latest * (current - q_end_price))
 
+        value_prev = s.values[-2] if len(s.values) > 1 else 0
         status = _status(s.shares, weight, cfg)
         row = {
             "cusip": s.cusip,
@@ -241,9 +256,12 @@ def build(cfg: Config, parsed_quarters: list[dict]) -> dict:
             "shares_by_quarter": s.shares,
             "shares_latest": shares_latest,
             "value_latest_usd": s.values[-1],
+            "value_prev_quarter_usd": value_prev,
+            "qoq_dollar_delta": s.values[-1] - value_prev,
             "portfolio_weight_common_stock": round(weight, 4),
             "qoq_share_change_pct": _qoq(s.shares[-2] if len(s.shares) > 1 else 0, shares_latest),
             "three_quarter_trend": _trend(s.shares),
+            "has_13dg": s.cusip in cusips_with_13dg,
             "price_at_quarter_end": q_end_price,
             "current_price": current,
             "price_change_since_quarter_end_pct": price_move,
