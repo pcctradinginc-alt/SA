@@ -39,6 +39,7 @@ def render(cfg: Config, new_events: list[dict], model: dict | None = None, tldr:
         news_events=news_events,
         model=model or {},
         tldr=tldr or {},
+        analysis_13f=(model or {}).get("llm_13f_analysis", ""),
         meta=meta,
     )
 

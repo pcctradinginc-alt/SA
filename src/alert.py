@@ -66,7 +66,11 @@ def _deduplicate_news(events: list[dict]) -> list[dict]:
 def _load_position_model(cfg: Config) -> dict:
     """Load the pre-built position model from disk (built by step_analyze)."""
     path = cfg.paths.derived / "position_table.json"
-    return read_json(path) or {}
+    model = read_json(path) or {}
+    if model and not model.get("llm_13f_analysis"):
+        cached = read_json(cfg.paths.derived / "13f_analysis.json") or {}
+        model["llm_13f_analysis"] = cached.get("analysis", "")
+    return model
 
 
 def _build_tldr(model: dict) -> dict:

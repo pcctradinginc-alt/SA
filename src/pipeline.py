@@ -20,7 +20,7 @@ from .utils import get_logger, read_json, utc_now_iso, write_json
 from .sources import sec, entity_resolution, discovery
 from .sources import rss_news
 from .parsers import parse_13f, parse_public_statement
-from .analysis import positions, cusip_map
+from .analysis import positions, cusip_map, llm_13f
 from . import events
 from . import alert as alert_mod
 from .render import render_readme, render_email
@@ -117,6 +117,7 @@ def step_analyze(cfg: Config) -> dict:
         if verified:
             log.info("Verified %d previously open statements.", verified)
         render_readme.render(cfg, model)
+        model["llm_13f_analysis"] = llm_13f.generate_analysis(cfg, model)
     else:
         log.warning("No parsed 13F data yet; run `fetch` first.")
     return model

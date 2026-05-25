@@ -24,27 +24,37 @@ from ..sources.discovery import DiscoveryItem
 log = logging.getLogger("parsers.public_statement")
 
 _LLM_SYSTEM_PROMPT = """\
-You are a financial signal classifier for a hedge fund monitoring system.
+Du bist ein präziser Finanz-Analyst der den Hedgefonds "Situational Awareness LP" \
+(Manager: Leopold Aschenbrenner, ex-OpenAI) überwacht.
 
-The fund you monitor is "Situational Awareness LP", managed by Leopold Aschenbrenner (ex-OpenAI researcher). It holds long equity positions (CoreWeave, Core Scientific, Bloom Energy, SandDisk, Intel, etc.) and large put options on Nvidia and other AI chip companies.
+Der Fonds hält Long-Positionen in KI-Infrastruktur und Bitcoin-Mining \
+(CoreWeave, Core Scientific, Bloom Energy, SandDisk, IREN, CleanSpark, Riot, Bitfarms usw.) \
+sowie große Put-Optionen auf Nvidia, AMD, TSMC, Broadcom, Oracle und den VanEck Semiconductor ETF.
 
-You receive a news headline + excerpt. Classify whether it contains actionable investment signal about THIS fund's positions or moves.
+Du bekommst einen Nachrichten-Headline + Excerpt. Klassifiziere ob er ein \
+relevantes Investment-Signal über DIESEN Fonds enthält.
 
-Return ONLY valid JSON with these fields:
+Antworte NUR mit gültigem JSON:
 {
   "is_relevant": true | false,
   "action": "buy" | "sell" | "highlight" | "announce" | "unrelated",
   "ticker": "<TICKER>" | null,
   "confidence": 0.0–1.0,
-  "reason": "<one short sentence>"
+  "reason": "<ein Satz warum relevant oder nicht>",
+  "analysis": "<2 Sätze auf Deutsch: Einordnung des Signals im Kontext des Fonds>",
+  "trade_signal": "<konkreter Trade-Vorschlag auf Deutsch, z.B. 'CORZ Long — Eintritt unter $15, Stop $11' | null>"
 }
 
-Rules:
-- is_relevant = true ONLY if the article specifically reports on this fund's investment moves (new stake, exit, increase, decrease, short position, fund-level announcement).
-- is_relevant = false for: general AI news, opinion pieces that merely mention Aschenbrenner, interviews not about positions, articles about other funds.
-- confidence reflects how clearly the headline/excerpt supports your classification (not how important the news is).
-- ticker: the primary stock ticker mentioned in the context of the fund's position, or null.
-- Return ONLY the JSON object — no markdown, no explanation outside the JSON."""
+Regeln:
+- is_relevant = true NUR wenn der Artikel konkret über Investment-Moves dieses Fonds berichtet \
+  (neue Beteiligung, Exit, Aufstockung, Short-Position, Fund-Ankündigung).
+- is_relevant = false für: allgemeine KI-News, Meinungsartikel die Aschenbrenner nur erwähnen, \
+  Interviews ohne Positionsangaben, andere Fonds.
+- analysis: nur ausfüllen wenn is_relevant = true, sonst null.
+- trade_signal: nur wenn action = "buy" oder "sell" und confidence >= 0.75, sonst null. \
+  Formuliere als direkten Vorschlag mit Entry und Stop wenn sinnvoll.
+- Nur das JSON-Objekt zurückgeben — kein Markdown, keine Erklärung außerhalb.\
+"""
 
 # ── Phrase tables by signal category ────────────────────────────────────────
 INVEST_PHRASES = [
@@ -186,6 +196,8 @@ def extract_statement_with_llm(item: DiscoveryItem, model: str = "claude-haiku-4
     candidate["needs_human_review"] = candidate["confidence"] < 0.80
     candidate["llm_validated"] = True
     candidate["llm_reason"] = result.get("reason", "")
+    candidate["llm_analysis"] = result.get("analysis") or ""
+    candidate["llm_trade_signal"] = result.get("trade_signal") or ""
 
     llm_ticker = result.get("ticker")
     if llm_ticker:
