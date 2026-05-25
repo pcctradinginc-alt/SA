@@ -81,6 +81,7 @@ except ImportError:
 
 
 def _nearby_close(symbol: str, on: date) -> float | None:
+    """Return the closing price on or just before `on`, never after it."""
     if yf is None or not symbol:
         return None
     try:
@@ -90,7 +91,13 @@ def _nearby_close(symbol: str, on: date) -> float | None:
         )
         if hist.empty:
             return None
-        return round(float(hist["Close"].iloc[-1]), 2)
+        # Strict: only use prices whose date is <= the requested date.
+        hist = hist[hist.index.normalize().date <= on] if hasattr(hist.index, "normalize") \
+            else hist[hist.index.map(lambda x: x.date()) <= on]
+        if hist.empty:
+            return None
+        px = hist["Close"].dropna()
+        return round(float(px.iloc[-1]), 2) if not px.empty else None
     except Exception as exc:
         log.debug("price_on(%s,%s) failed: %s", symbol, on, exc)
         return None

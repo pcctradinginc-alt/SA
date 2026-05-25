@@ -62,9 +62,11 @@ def read_json(path: str | Path, default: Any = None) -> Any:
 def write_json(path: str | Path, data: Any) -> None:
     p = Path(path)
     p.parent.mkdir(parents=True, exist_ok=True)
-    with p.open("w", encoding="utf-8") as fh:
+    tmp = p.with_suffix(p.suffix + ".tmp")
+    with tmp.open("w", encoding="utf-8") as fh:
         json.dump(data, fh, indent=2, ensure_ascii=False, default=str)
         fh.write("\n")
+    tmp.replace(p)
 
 
 def read_jsonl(path: str | Path) -> Iterator[dict[str, Any]]:

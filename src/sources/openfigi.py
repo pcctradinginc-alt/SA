@@ -75,7 +75,7 @@ def lookup_batch(cusips: list[str]) -> dict[str, dict | None]:
             resp.raise_for_status()
             data = resp.json()
         except Exception as exc:
-            log.error("OpenFIGI batch %d-%d failed: %s", i, i + BATCH_SIZE, exc)
+            log.error("OpenFIGI batch %d-%d failed: %s", i, i + batch_size, exc)
             for c in batch:
                 results[c] = {"error": str(exc)}
             continue

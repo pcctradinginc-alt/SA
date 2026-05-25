@@ -20,7 +20,7 @@ from .config import load_config, Config
 from .utils import get_logger, read_json, utc_now_iso, write_json
 from .sources import sec, entity_resolution, discovery
 from .sources import rss_news
-from .parsers import parse_13f, parse_public_statement
+from .parsers import parse_13f, parse_13dg, parse_public_statement
 from .analysis import positions, cusip_map, llm_13f, prices as prices_mod, map_cusips
 from . import events
 from . import alert as alert_mod
@@ -32,12 +32,23 @@ log = get_logger("pipeline")
 
 # ── helpers ─────────────────────────────────────────────────────────────────--
 def load_recent_quarters(cfg: Config, n: int) -> list[dict]:
-    """Load the most recent n parsed 13F quarters, sorted oldest -> newest."""
+    """Load the most recent n parsed 13F quarters, sorted oldest -> newest.
+
+    Deduplicates by report_date: if both a 13F-HR and a 13F-HR/A exist for the
+    same quarter, keeps the one with the highest accession number (the amendment).
+    """
     files = glob.glob(str(cfg.paths.parsed / "13f" / "*.json"))
     parsed = [read_json(f) for f in files]
     parsed = [p for p in parsed if p and p.get("holdings") is not None]
-    parsed.sort(key=lambda p: p.get("report_date", ""))
-    return parsed[-n:]
+    # Keep only the latest filing per report_date (amendment wins over original)
+    by_date: dict[str, dict] = {}
+    for p in parsed:
+        rd = p.get("report_date", "")
+        acc = p.get("accession", "")
+        if rd not in by_date or acc > by_date[rd].get("accession", ""):
+            by_date[rd] = p
+    deduped = sorted(by_date.values(), key=lambda p: p.get("report_date", ""))
+    return deduped[-n:]
 
 
 def collect_13dg_cusips(cfg: Config) -> frozenset[str]:
@@ -64,47 +75,55 @@ def latest_tickers(cfg: Config, model: dict) -> set[str]:
 # ── steps ───────────────────────────────────────────────────────────────────--
 def step_fetch(cfg: Config) -> None:
     new_filings = sec.collect_new_filings(cfg)
+    processed: list[str] = []
     for f in new_filings:
-        if f.form.startswith("13F"):
-            d = cfg.paths.raw / "sec" / f.cik / f.accession
-            parsed = parse_13f.parse_filing(cfg, d, f.cik, f.report_date, f.accession)
-            if parsed:
+        try:
+            if f.form.startswith("13F"):
+                d = cfg.paths.raw / "sec" / f.cik / f.accession
+                parsed = parse_13f.parse_filing(cfg, d, f.cik, f.report_date, f.accession)
+                if parsed:
+                    events.append_event(cfg, events.Event(
+                        event_id=f"evt_{f.report_date}_13f_{f.accession}",
+                        timestamp=utc_now_iso(), as_of=f.report_date, person=cfg.person,
+                        entity=cfg.primary_name, entity_cik=f.cik, signal_type="13f_position",
+                        source_class=events.SEC_VERIFIED, verification_status=events.VERIFIED,
+                        summary=f"{parsed['quarter']} 13F filed: {parsed['holding_count']} reported holdings.",
+                        sources=[{"kind": "sec_filing", "accession": f.accession}],
+                    ))
+                processed.append(f.accession)
+            elif f.form.startswith("SC 13"):
+                d = cfg.paths.raw / "sec" / f.cik / f.accession
+                dg = parse_13dg.summarize_filing(d)
+                issuer = dg.get("issuer_name") or "unknown issuer"
+                pct = dg.get("percent_of_class", "")
+                shares = dg.get("aggregate_shares", "")
+                pct_str = f" ({pct}% of class)" if pct else ""
+                shares_str = f", {int(float(shares.replace(',', ''))):,} shares" if shares else ""
+                is_amendment = f.form.endswith("/A")
+                amend_str = " [AMENDMENT]" if is_amendment else " [INITIAL]"
+                summary = f"{f.form}: {issuer}{pct_str}{shares_str}{amend_str} — filed {f.filing_date}."
+                sig_type = "ownership_13dg_amendment" if is_amendment else "ownership_13dg"
                 events.append_event(cfg, events.Event(
-                    event_id=f"evt_{f.report_date}_13f_{f.accession}",
-                    timestamp=utc_now_iso(), as_of=f.report_date, person=cfg.person,
-                    entity=cfg.primary_name, entity_cik=f.cik, signal_type="13f_position",
+                    event_id=f"evt_{f.filing_date}_13dg_{f.accession}",
+                    timestamp=utc_now_iso(), person=cfg.person, entity=cfg.primary_name,
+                    entity_cik=f.cik, signal_type=sig_type,
                     source_class=events.SEC_VERIFIED, verification_status=events.VERIFIED,
-                    summary=f"{parsed['quarter']} 13F filed: {parsed['holding_count']} reported holdings.",
-                    sources=[{"kind": "sec_filing", "accession": f.accession}],
+                    summary=summary,
+                    ticker_guess=[dg["issuer_cusip"]] if dg.get("issuer_cusip") else [],
+                    sources=[{
+                        "kind": "sec_filing", "accession": f.accession,
+                        "issuer_name": issuer, "issuer_cusip": dg.get("issuer_cusip", ""),
+                        "percent_of_class": pct, "aggregate_shares": shares,
+                        "is_amendment": is_amendment,
+                    }],
                 ))
-        elif f.form.startswith("SC 13"):
-            d = cfg.paths.raw / "sec" / f.cik / f.accession
-            dg = parse_13dg.summarize_filing(d)
-            issuer = dg.get("issuer_name") or "unknown issuer"
-            pct = dg.get("percent_of_class", "")
-            shares = dg.get("aggregate_shares", "")
-            pct_str = f" ({pct}% of class)" if pct else ""
-            shares_str = f", {int(float(shares.replace(',', ''))):,} shares" if shares else ""
-            is_amendment = f.form.endswith("/A")
-            amend_str = " [AMENDMENT]" if is_amendment else " [INITIAL]"
-            summary = f"{f.form}: {issuer}{pct_str}{shares_str}{amend_str} — filed {f.filing_date}."
-            # Amendments signal ongoing ownership changes — give them a dedicated type
-            sig_type = "ownership_13dg_amendment" if is_amendment else "ownership_13dg"
-            events.append_event(cfg, events.Event(
-                event_id=f"evt_{f.filing_date}_13dg_{f.accession}",
-                timestamp=utc_now_iso(), person=cfg.person, entity=cfg.primary_name,
-                entity_cik=f.cik, signal_type=sig_type,
-                source_class=events.SEC_VERIFIED, verification_status=events.VERIFIED,
-                summary=summary,
-                ticker_guess=[dg["issuer_cusip"]] if dg.get("issuer_cusip") else [],
-                sources=[{
-                    "kind": "sec_filing", "accession": f.accession,
-                    "issuer_name": issuer, "issuer_cusip": dg.get("issuer_cusip", ""),
-                    "percent_of_class": pct, "aggregate_shares": shares,
-                    "is_amendment": is_amendment,
-                }],
-            ))
-    log.info("Fetch complete: %d new filings.", len(new_filings))
+                processed.append(f.accession)
+            else:
+                processed.append(f.accession)  # Form D etc. — no parsing needed
+        except Exception:
+            log.exception("Failed to process filing %s; will retry on next run.", f.accession)
+    sec.mark_seen(cfg, processed)
+    log.info("Fetch complete: %d new filings, %d processed.", len(new_filings), len(processed))
 
 
 def step_discover(cfg: Config) -> None:

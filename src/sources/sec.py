@@ -27,6 +27,16 @@ ARCHIVE_FILE_URL = "https://www.sec.gov/Archives/edgar/data/{cik_int}/{acc_nodas
 
 SEEN_FILE = "seen_accessions.json"
 
+# EDGAR occasionally returns full form names (e.g. "SCHEDULE 13D") in older
+# filings or certain search endpoints; normalize them to the canonical short
+# codes that config.yaml and pipeline.py use.
+_FORM_ALIASES: dict[str, str] = {
+    "SCHEDULE 13D": "SC 13D",
+    "SCHEDULE 13D/A": "SC 13D/A",
+    "SCHEDULE 13G": "SC 13G",
+    "SCHEDULE 13G/A": "SC 13G/A",
+}
+
 
 @dataclass
 class Filing:
@@ -62,9 +72,11 @@ def iter_filings(submissions: dict, cik: str, allowed_forms: list[str]) -> list[
     """Flatten the ``filings.recent`` columnar arrays into Filing objects."""
     recent = submissions.get("filings", {}).get("recent", {})
     forms = recent.get("form", [])
+    allowed = set(allowed_forms)
     out: list[Filing] = []
-    for i, form in enumerate(forms):
-        if form not in allowed_forms:
+    for i, raw_form in enumerate(forms):
+        form = _FORM_ALIASES.get((raw_form or "").strip().upper(), (raw_form or "").strip())
+        if form not in allowed:
             continue
         out.append(
             Filing(
@@ -108,11 +120,23 @@ def download_filing(client: HttpClient, cfg: Config, filing: Filing) -> Path:
     return dest
 
 
+def mark_seen(cfg: Config, accessions: list[str]) -> None:
+    """Persist a list of accessions to the seen set.
+
+    Call after successful processing so a crashed/partial run can retry on the
+    next invocation rather than silently losing the filing.
+    """
+    seen = _seen_accessions(cfg)
+    seen.update(accessions)
+    _save_seen(cfg, seen)
+
+
 def collect_new_filings(cfg: Config) -> list[Filing]:
     """Discover and download all not-yet-seen filings for every watched CIK.
 
-    Idempotent: previously seen accession numbers are recorded in the state
-    file and skipped on subsequent runs.
+    Downloads are idempotent (existing files are skipped). Accessions are NOT
+    marked as seen here — the caller must call mark_seen() after successfully
+    processing each filing so that a parse error does not permanently lose it.
     """
     client = HttpClient(cfg.sec_user_agent, cfg.sec_request_delay)
     seen = _seen_accessions(cfg)
@@ -130,11 +154,14 @@ def collect_new_filings(cfg: Config) -> list[Filing]:
             if filing.accession in seen:
                 continue
             log.info("New filing %s %s (%s)", filing.form, filing.accession, filing.report_date)
-            download_filing(client, cfg, filing)
+            try:
+                download_filing(client, cfg, filing)
+            except Exception as exc:  # noqa: BLE001
+                log.error("Download failed for %s; will retry next run: %s", filing.accession, exc)
+                continue
             discovered.append(filing)
-            seen.add(filing.accession)
+            seen.add(filing.accession)  # in-memory only — prevents re-download in same run
 
-    _save_seen(cfg, seen)
     _write_index(cfg, discovered)
     return discovered
 
