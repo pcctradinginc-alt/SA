@@ -88,9 +88,33 @@ def from_reddit(cfg: Config) -> list[DiscoveryItem]:
     return out
 
 
+def from_edgar_rss(cfg: Config) -> list[DiscoveryItem]:
+    """EDGAR Atom feed for every filing by the watched CIKs.
+
+    This is the fastest free signal for new SC 13D/G filings — EDGAR publishes
+    the feed within minutes of acceptance, well before the JSON submissions
+    endpoint updates. Items that are already handled by step_fetch (via
+    collect_new_filings) are still surfaced here so discovery sees them too.
+    """
+    client = HttpClient(cfg.sec_user_agent, cfg.sec_request_delay)
+    out: list[DiscoveryItem] = []
+    for cik in cfg.all_ciks:
+        cik_int = str(int(cik))
+        url = (
+            "https://www.sec.gov/cgi-bin/browse-edgar"
+            f"?action=getcompany&CIK={cik_int}&type=&dateb=&owner=include"
+            "&count=20&search_text=&output=atom"
+        )
+        items = _fetch_feed(client, url, "edgar_rss")
+        out.extend(items)
+    log.info("EDGAR RSS: %d items across %d CIK(s).", len(out), len(cfg.all_ciks))
+    return out
+
+
 def from_all_curated(cfg: Config) -> list[DiscoveryItem]:
     """Fetch all curated free sources. Called from step_discover in pipeline."""
     items: list[DiscoveryItem] = []
+    items.extend(from_edgar_rss(cfg))
     items.extend(from_google_news(cfg))
     items.extend(from_hackernews(cfg))
     items.extend(from_reddit(cfg))

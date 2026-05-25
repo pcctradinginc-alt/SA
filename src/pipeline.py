@@ -20,7 +20,7 @@ from .utils import get_logger, read_json, utc_now_iso, write_json
 from .sources import sec, entity_resolution, discovery
 from .sources import rss_news
 from .parsers import parse_13f, parse_public_statement
-from .analysis import positions, cusip_map, llm_13f
+from .analysis import positions, cusip_map, llm_13f, prices as prices_mod
 from . import events
 from . import alert as alert_mod
 from .render import render_readme, render_email
@@ -64,13 +64,26 @@ def step_fetch(cfg: Config) -> None:
                     sources=[{"kind": "sec_filing", "accession": f.accession}],
                 ))
         elif f.form.startswith("SC 13"):
+            d = cfg.paths.raw / "sec" / f.cik / f.accession
+            dg = parse_13dg.summarize_filing(d)
+            issuer = dg.get("issuer_name") or "unknown issuer"
+            pct = dg.get("percent_of_class", "")
+            shares = dg.get("aggregate_shares", "")
+            pct_str = f" ({pct}% of class)" if pct else ""
+            shares_str = f", {int(float(shares.replace(',', ''))):,} shares" if shares else ""
+            summary = f"{f.form}: {issuer}{pct_str}{shares_str} — filed {f.filing_date}."
             events.append_event(cfg, events.Event(
                 event_id=f"evt_{f.filing_date}_13dg_{f.accession}",
                 timestamp=utc_now_iso(), person=cfg.person, entity=cfg.primary_name,
                 entity_cik=f.cik, signal_type="ownership_13dg",
                 source_class=events.SEC_VERIFIED, verification_status=events.VERIFIED,
-                summary=f"{f.form} beneficial-ownership filing ({f.filing_date}).",
-                sources=[{"kind": "sec_filing", "accession": f.accession}],
+                summary=summary,
+                ticker_guess=[dg["issuer_cusip"]] if dg.get("issuer_cusip") else [],
+                sources=[{
+                    "kind": "sec_filing", "accession": f.accession,
+                    "issuer_name": issuer, "issuer_cusip": dg.get("issuer_cusip", ""),
+                    "percent_of_class": pct, "aggregate_shares": shares,
+                }],
             ))
     log.info("Fetch complete: %d new filings.", len(new_filings))
 
@@ -110,6 +123,7 @@ def step_discover(cfg: Config) -> None:
 
 
 def step_analyze(cfg: Config) -> dict:
+    prices_mod.init(cfg.paths)
     quarters = load_recent_quarters(cfg, cfg.quarters)
     model = positions.build(cfg, quarters)
     if model.get("available"):
@@ -120,6 +134,7 @@ def step_analyze(cfg: Config) -> dict:
         model["llm_13f_analysis"] = llm_13f.generate_analysis(cfg, model)
     else:
         log.warning("No parsed 13F data yet; run `fetch` first.")
+    prices_mod.flush()
     return model
 
 

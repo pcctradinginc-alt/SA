@@ -97,6 +97,7 @@ TICKER_RE = re.compile(r"\$([A-Z]{1,5})\b|\(([A-Z]{1,5})\)")
 _SOURCE_CONFIDENCE = {
     "blog": 0.85, "x": 0.75, "google_news": 0.60,
     "google_alerts": 0.55, "hackernews": 0.55, "reddit": 0.45, "rss": 0.50,
+    "edgar_rss": 0.95,  # direct EDGAR feed — filing already accepted by SEC
 }
 
 # Category → confidence boost on top of source base

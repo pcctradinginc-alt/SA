@@ -209,7 +209,9 @@ def build(cfg: Config, parsed_quarters: list[dict]) -> dict:
     # ── summary ────────────────────────────────────────────────────────────────
     increased = [r for r in common_rows if isinstance(r["qoq_share_change_pct"], float) and r["qoq_share_change_pct"] > cfg.hold_band]
     reduced = [r for r in common_rows if isinstance(r["qoq_share_change_pct"], float) and r["qoq_share_change_pct"] < -cfg.hold_band]
-    priced = [r for r in common_rows if r["price_change_since_quarter_end_pct"] is not None]
+    priced = [r for r in common_rows
+              if r["price_change_since_quarter_end_pct"] is not None
+              and r["portfolio_weight_common_stock"] >= 0.005]
     best = max(priced, key=lambda r: r["price_change_since_quarter_end_pct"], default=None)
     worst = min(priced, key=lambda r: r["price_change_since_quarter_end_pct"], default=None)
     # Use dollar value as ranking basis, not percentage — avoids micro-positions
