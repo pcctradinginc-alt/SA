@@ -1,4 +1,4 @@
-"""Render a compact alert email for newly detected high-signal events."""
+"""Render the actionable alert email."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -23,24 +23,45 @@ def _env() -> Environment:
     return env
 
 
-def render(cfg: Config, new_events: list[dict]) -> str:
+def render(cfg: Config, new_events: list[dict], model: dict | None = None, tldr: dict | None = None) -> str:
     meta = {
         "person": cfg.person,
         "manager": cfg.primary_name,
         "subject_prefix": cfg.raw.get("alert", {}).get("subject_prefix", "SA Alert"),
     }
-    return _env().get_template("alert.html.j2").render(events=new_events, meta=meta)
+    sec_events = [e for e in new_events if e.get("signal_type") in ("13f_position", "ownership_13dg")]
+    news_events = [e for e in new_events if e.get("signal_type") == "public_statement"]
+    # Sort news by confidence descending
+    news_events.sort(key=lambda e: float(e.get("confidence", 0)), reverse=True)
+
+    return _env().get_template("alert.html.j2").render(
+        sec_events=sec_events,
+        news_events=news_events,
+        model=model or {},
+        tldr=tldr or {},
+        meta=meta,
+    )
 
 
-def subject(cfg: Config, new_events: list[dict]) -> str:
+def subject(cfg: Config, new_events: list[dict], tldr: dict | None = None) -> str:
     prefix = cfg.raw.get("alert", {}).get("subject_prefix", "SA Alert")
-    if not new_events:
-        return f"{prefix} · no new signals"
-    first = new_events[0]
-    sig = first.get("signal_type", "signal")
-    cat = first.get("signal_category", "")
-    label = cat if cat else sig.replace("_", " ")
-    summary = first.get("summary", "")[:60]
-    count = len(new_events)
-    tail = f" (+{count - 1} more)" if count > 1 else ""
-    return f"{prefix} · {label} · {summary}{tail}"
+    tldr = tldr or {}
+    quarter = tldr.get("quarter", "")
+    new_buys = tldr.get("new_buys", [])
+    puts = tldr.get("puts_shorts", [])
+
+    has_13f = any(e.get("signal_type") == "13f_position" for e in new_events)
+
+    if has_13f and new_buys:
+        bought = ", ".join(new_buys[:3])
+        short_str = f" | Short: {', '.join(puts[:2])}" if puts else ""
+        return f"{prefix} · {quarter} · Neu: {bought}{short_str}"
+    if has_13f:
+        return f"{prefix} · Neues 13F-Filing · {quarter}"
+
+    # News-only alert
+    tickers = sorted({t for e in new_events for t in (e.get("ticker_guess") or [])})
+    if tickers:
+        return f"{prefix} · News: {', '.join(tickers[:4])}"
+    first_summary = new_events[0].get("summary", "")[:55] if new_events else ""
+    return f"{prefix} · {first_summary}"

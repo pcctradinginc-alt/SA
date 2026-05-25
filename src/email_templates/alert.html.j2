@@ -1,4 +1,4 @@
-{# Compact alert email — sent immediately on new high-signal events. #}
+{# Actionable alert email — TLDR first, then positions, then news. #}
 {%- set C = {
   'page': '#f5f5f7', 'card': '#ffffff', 'text': '#1d1d1f', 'sec': '#6e6e73',
   'ter': '#86868b', 'line': '#d2d2d7', 'accent': '#0071e3',
@@ -7,131 +7,195 @@
   'red_bg': '#fdeaea',   'red_tx': '#b3261e',
   'gray_bg': '#eeeef0',  'gray_tx': '#6e6e73',
   'blue_bg': '#e8f0fe',  'blue_tx': '#1a56db',
+  'dark_bg': '#1d1d1f',  'dark_tx': '#f5f5f7',
 } -%}
 {%- set FONT = "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif" -%}
 
 {%- macro pill(text, kind) -%}
 {%- set bg = {'green': C.green_bg, 'amber': C.amber_bg, 'red': C.red_bg, 'gray': C.gray_bg, 'blue': C.blue_bg}.get(kind, C.gray_bg) -%}
 {%- set tx = {'green': C.green_tx, 'amber': C.amber_tx, 'red': C.red_tx, 'gray': C.gray_tx, 'blue': C.blue_tx}.get(kind, C.gray_tx) -%}
-<span style="display:inline-block; background:{{ bg }}; color:{{ tx }}; font-size:11px; font-weight:600; padding:3px 9px; border-radius:980px; white-space:nowrap; letter-spacing:0.02em;">{{ text }}</span>
+<span style="display:inline-block;background:{{ bg }};color:{{ tx }};font-size:11px;font-weight:600;padding:3px 9px;border-radius:980px;white-space:nowrap;">{{ text }}</span>
 {%- endmacro -%}
 
-{%- macro cat_pill(cat) -%}
-{%- set MAP = {'invest':'green','sell':'red','announce':'blue','highlight':'amber'} -%}
-{{ pill(cat|upper, MAP.get(cat,'gray')) }}
-{%- endmacro -%}
+<!-- preheader hidden -->
+{%- set tldr_longs = (tldr.new_buys or []) + (tldr.strong_adds or []) -%}
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;">
+  {% if tldr_longs %}Leo kaufte: {{ tldr_longs[:4]|join(', ') }}{% if tldr.puts_shorts %} · Short: {{ tldr.puts_shorts[:2]|join(', ') }}{% endif %}
+  {% else %}{{ (sec_events|length) + (news_events|length) }} neue Signale · {{ meta.manager }}{% endif %}
+</div>
 
-{%- macro src_pill(sc) -%}
-{%- set MAP = {'SEC_VERIFIED':'green','PRIMARY_SOURCE':'blue','MEDIA_REPORTED':'amber','MARKET_INFERRED':'gray'} -%}
-{{ pill(sc, MAP.get(sc,'gray')) }}
-{%- endmacro -%}
-
-<!-- preheader -->
-<div style="display:none; max-height:0; overflow:hidden; opacity:0;">{{ events|length }} new signal(s) detected for {{ meta.person }} / {{ meta.manager }}</div>
-
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{{ C.page }}; margin:0; padding:24px 0;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{{ C.page }};margin:0;padding:20px 0;">
 <tr><td align="center">
-<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px; max-width:600px; background:{{ C.card }}; border-radius:18px; overflow:hidden; font-family:{{ FONT }}; color:{{ C.text }};">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0"
+       style="width:600px;max-width:600px;background:{{ C.card }};border-radius:18px;overflow:hidden;font-family:{{ FONT }};color:{{ C.text }};">
 
-  <!-- header -->
-  <tr><td style="padding:24px 32px 12px 32px;">
-    <div style="font-size:13px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; color:{{ C.accent }};">{{ meta.subject_prefix }}</div>
-    <div style="font-size:22px; font-weight:600; letter-spacing:-0.02em; margin-top:5px;">
-      {{ events|length }} new signal{{ 's' if events|length != 1 else '' }} detected
+  <!-- ── HEADER ── -->
+  <tr><td style="padding:24px 32px 16px 32px;">
+    <div style="font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:{{ C.accent }};">{{ meta.subject_prefix }}</div>
+    <div style="font-size:22px;font-weight:700;letter-spacing:-0.02em;margin-top:4px;">
+      {% if tldr.quarter %}{{ tldr.quarter }} — was hat Leo getan?
+      {% elif sec_events %}Neues SEC-Filing
+      {% else %}News-Alert{% endif %}
     </div>
-    <div style="font-size:13px; color:{{ C.sec }}; margin-top:3px;">{{ meta.person }} · {{ meta.manager }}</div>
+    <div style="font-size:13px;color:{{ C.sec }};margin-top:3px;">{{ meta.person }} · {{ meta.manager }}</div>
   </td></tr>
 
-  <!-- divider -->
-  <tr><td style="padding:0 32px;"><div style="height:1px; background:{{ C.line }};"></div></td></tr>
-
-  <!-- event cards -->
-  {% for evt in events %}
-  <tr><td style="padding:16px 32px {{ '0' if not loop.last else '0' }}px 32px;">
+  <!-- ── TLDR BOX (only when 13F data available) ── -->
+  {% if tldr and (tldr.new_buys or tldr.strong_adds or tldr.exits or tldr.puts_shorts) %}
+  <tr><td style="padding:0 32px 0 32px;">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
-           style="background:{{ C.page }}; border-radius:14px; overflow:hidden;">
-      <tr><td style="padding:16px 20px;">
+           style="background:#1d1d1f;border-radius:14px;overflow:hidden;">
+      <tr><td style="padding:20px 22px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#86868b;margin-bottom:14px;">Zusammenfassung der Positionen</div>
 
-        <!-- pills row -->
-        <div style="margin-bottom:10px; line-height:2;">
-          {% set sig = evt.signal_type or '' %}
-          {% if sig == '13f_position' %}
-            {{ pill('13F FILING', 'green') }}
-          {% elif sig == 'ownership_13dg' %}
-            {{ pill('13D/G FILING', 'green') }}
-          {% elif sig == 'public_statement' %}
-            {{ cat_pill(evt.signal_category or 'highlight') }}
-          {% else %}
-            {{ pill(sig|upper|replace('_',' '), 'gray') }}
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-size:14px;">
+          {% if tldr.new_buys %}
+          <tr>
+            <td style="color:#86868b;padding:5px 0;width:130px;vertical-align:top;">Neue Käufe</td>
+            <td style="color:#30d158;font-weight:600;padding:5px 0;">
+              {{ tldr.new_buys|join('  ·  ') }}
+            </td>
+          </tr>
           {% endif %}
-          {{ src_pill(evt.source_class) }}
-          {% set vs = evt.verification_status or '' %}
-          {% set vk = {'verified':'green','open':'amber','not_verifiable_via_13f':'gray'}.get(vs,'gray') %}
-          {{ pill(vs, vk) }}
-          {% set conf = evt.confidence or 0.0 %}
-          {{ pill('conf ' ~ '%.0f%%'|format(conf * 100), 'green' if conf >= 0.8 else 'amber') }}
-        </div>
-
-        <!-- summary -->
-        <div style="font-size:15px; font-weight:500; line-height:1.45; color:{{ C.text }};">
-          {{ evt.summary }}
-        </div>
-
-        <!-- ticker -->
-        {% if evt.ticker_guess %}
-        <div style="font-size:13px; color:{{ C.sec }}; margin-top:8px;">
-          Ticker: <strong>{{ evt.ticker_guess|join(', ') }}</strong>
-        </div>
-        {% endif %}
-
-        <!-- matched phrases (for public_statement) -->
-        {% if evt.matched_phrases %}
-        <div style="font-size:12px; color:{{ C.ter }}; margin-top:5px;">
-          Matched: {{ evt.matched_phrases[:4]|join(' · ') }}{% if evt.matched_phrases|length > 4 %} …{% endif %}
-        </div>
-        {% endif %}
-
-        <!-- source link -->
-        {% if evt.sources %}
-          {% set src = evt.sources[0] %}
-          {% if src.url %}
-          <div style="margin-top:10px;">
-            <a href="{{ src.url }}" style="font-size:12px; color:{{ C.accent }}; text-decoration:none;">
-              {{ src.url[:90] }}{% if src.url|length > 90 %}…{% endif %}
-            </a>
-          </div>
-          {% elif src.accession %}
-          <div style="margin-top:10px;">
-            <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK={{ evt.entity_cik }}&type={{ src.kind }}&dateb=&owner=include&count=10"
-               style="font-size:12px; color:{{ C.accent }}; text-decoration:none;">
-              SEC EDGAR · accession {{ src.accession }}
-            </a>
-          </div>
+          {% if tldr.strong_adds %}
+          <tr>
+            <td style="color:#86868b;padding:5px 0;vertical-align:top;">Aufgestockt</td>
+            <td style="color:#30d158;font-weight:500;padding:5px 0;">
+              {{ tldr.strong_adds|join('  ·  ') }}
+            </td>
+          </tr>
           {% endif %}
-        {% endif %}
-
-        <!-- needs review warning -->
-        {% if evt.needs_human_review %}
-        <div style="margin-top:10px; padding:8px 12px; background:{{ C.amber_bg }}; border-radius:8px; font-size:12px; color:{{ C.amber_tx }};">
-          Needs human review — confidence below threshold.
+          {% if tldr.puts_shorts %}
+          <tr>
+            <td style="color:#86868b;padding:5px 0;vertical-align:top;">Puts / Short</td>
+            <td style="color:#ff453a;font-weight:600;padding:5px 0;">
+              {{ tldr.puts_shorts|join('  ·  ') }}
+            </td>
+          </tr>
+          {% endif %}
+          {% if tldr.exits %}
+          <tr>
+            <td style="color:#86868b;padding:5px 0;vertical-align:top;">Verkauft</td>
+            <td style="color:#636366;font-weight:500;padding:5px 0;">
+              {{ tldr.exits|join('  ·  ') }}
+            </td>
+          </tr>
+          {% endif %}
+          {% if tldr.total_value %}
+          <tr>
+            <td colspan="2" style="padding-top:12px;border-top:1px solid #3a3a3c;"></td>
+          </tr>
+          <tr>
+            <td style="color:#86868b;padding:5px 0;">Portfolio-Wert</td>
+            <td style="color:#f5f5f7;font-weight:500;padding:5px 0;">{{ tldr.total_value|usd }} (Common Stock Long)</td>
+          </tr>
+          {% endif %}
+        </table>
+        <div style="font-size:11px;color:#636366;margin-top:12px;">
+          13F-Daten — bis zu 45 Tage Verzögerung. Kein Anlageberatung.
         </div>
-        {% endif %}
-
       </td></tr>
     </table>
   </td></tr>
-  {% if not loop.last %}
-  <tr><td style="padding:12px 32px 0 32px;"></td></tr>
   {% endif %}
-  {% endfor %}
 
-  <!-- footer -->
-  <tr><td style="padding:24px 32px 28px 32px;">
-    <div style="border-top:1px solid {{ C.line }}; padding-top:14px; font-size:12px; color:{{ C.ter }}; line-height:1.6;">
-      <strong style="color:{{ C.sec }}; font-weight:500;">SA Tracker alert.</strong>
-      Archive only — not investment advice. SEC filings are public domain.
-      Media signals are unverified until a filing confirms the ticker.
-      Open statements flip to verified automatically on the next 13F parse.
+  <!-- ── TOP 5 POSITIONEN (when 13F available) ── -->
+  {% if tldr.top_positions %}
+  <tr><td style="padding:20px 32px 0 32px;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:{{ C.ter }};margin-bottom:10px;">Top-Positionen nach Wert</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+           style="border-collapse:collapse;font-size:13px;">
+      <tr style="color:{{ C.ter }};">
+        <td style="padding:6px 6px 6px 0;border-bottom:1px solid {{ C.line }};">Ticker</td>
+        <td style="padding:6px;border-bottom:1px solid {{ C.line }};">Unternehmen</td>
+        <td align="right" style="padding:6px;border-bottom:1px solid {{ C.line }};">Wert</td>
+        <td align="right" style="padding:6px;border-bottom:1px solid {{ C.line }};">Anteil</td>
+        <td align="right" style="padding:6px 0 6px 6px;border-bottom:1px solid {{ C.line }};">Status</td>
+      </tr>
+      {% for r in tldr.top_positions %}
+      {%- set sk = {'strong_add':'green','new_add':'green','new_buy':'amber','hold':'gray','trim':'red','exit':'gray'}.get(r.status,'gray') -%}
+      <tr style="border-bottom:1px solid {{ C.page }};">
+        <td style="padding:9px 6px 9px 0;font-weight:700;">{{ r.ticker or '?' }}</td>
+        <td style="padding:9px 6px;color:{{ C.sec }};font-size:12px;">{{ r.issuer[:28] }}</td>
+        <td align="right" style="padding:9px 6px;">{{ r.value_latest_usd|usd }}</td>
+        <td align="right" style="padding:9px 6px;">{{ (r.portfolio_weight_common_stock * 100)|round(1) }}%</td>
+        <td align="right" style="padding:9px 0 9px 6px;">{{ pill(r.status_label, sk) }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <div style="font-size:12px;color:{{ C.ter }};margin-top:6px;">
+      Vollständige Tabelle im täglichen Digest-Email.
+    </div>
+  </td></tr>
+  {% endif %}
+
+  <!-- ── SEC FILINGS (when no TLDR, show raw filing cards) ── -->
+  {% if sec_events and not tldr.new_buys and not tldr.puts_shorts %}
+  <tr><td style="padding:20px 32px 0 32px;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:{{ C.ter }};margin-bottom:10px;">SEC Filings</div>
+    {% for evt in sec_events %}
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+           style="background:{{ C.green_bg }};border-radius:12px;margin-bottom:8px;">
+      <tr><td style="padding:14px 16px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.04em;color:{{ C.green_tx }};">
+          {{ evt.signal_type|upper|replace('_',' ') }} · VERIFIZIERT
+        </div>
+        <div style="font-size:14px;font-weight:500;margin-top:4px;">{{ evt.summary }}</div>
+        {% if evt.sources and evt.sources[0].accession %}
+        <div style="margin-top:6px;">
+          <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK={{ evt.entity_cik }}&type=13F&dateb=&owner=include&count=5"
+             style="font-size:12px;color:{{ C.accent }};text-decoration:none;">SEC EDGAR ansehen →</a>
+        </div>
+        {% endif %}
+      </td></tr>
+    </table>
+    {% endfor %}
+  </td></tr>
+  {% endif %}
+
+  <!-- ── NEWS SIGNALS ── -->
+  {% if news_events %}
+  <tr><td style="padding:20px 32px 0 32px;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:{{ C.ter }};margin-bottom:10px;">
+      News-Signale ({{ news_events|length }})
+    </div>
+    {% for evt in news_events %}
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+           style="background:{{ C.page }};border-radius:12px;margin-bottom:8px;">
+      <tr><td style="padding:14px 16px;">
+        <div style="margin-bottom:6px;">
+          {% set cat = evt.signal_category or '' %}
+          {% if cat == 'invest' %}{{ pill('KAUF-SIGNAL', 'green') }}
+          {% elif cat == 'sell' %}{{ pill('VERKAUF', 'red') }}
+          {% elif cat == 'announce' %}{{ pill('ANKÜNDIGUNG', 'blue') }}
+          {% else %}{{ pill('ERWÄHNUNG', 'gray') }}{% endif %}
+          {% if evt.ticker_guess %}
+            {% for t in evt.ticker_guess[:3] %}
+            <span style="display:inline-block;background:{{ C.dark_bg }};color:{{ C.dark_tx }};font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;margin-left:4px;">{{ t }}</span>
+            {% endfor %}
+          {% endif %}
+          <span style="font-size:11px;color:{{ C.ter }};margin-left:6px;">{{ '%.0f%%'|format((evt.confidence or 0) * 100) }} Konfidenz</span>
+        </div>
+        <div style="font-size:14px;font-weight:500;line-height:1.4;color:{{ C.text }};">
+          {{ evt.summary[:120] }}{% if evt.summary|length > 120 %}…{% endif %}
+        </div>
+        {% if evt.sources and evt.sources[0].url %}
+        <div style="margin-top:8px;">
+          <a href="{{ evt.sources[0].url }}" style="font-size:12px;color:{{ C.accent }};text-decoration:none;">Quelle lesen →</a>
+        </div>
+        {% endif %}
+      </td></tr>
+    </table>
+    {% endfor %}
+  </td></tr>
+  {% endif %}
+
+  <!-- ── FOOTER ── -->
+  <tr><td style="padding:20px 32px 26px 32px;">
+    <div style="border-top:1px solid {{ C.line }};padding-top:14px;font-size:12px;color:{{ C.ter }};line-height:1.6;">
+      <strong style="color:{{ C.sec }};font-weight:500;">Wichtiger Hinweis.</strong>
+      13F-Daten haben bis zu 45 Tage Verzögerung. Short-Positionen, Privatinvestments und intraquartale Trades erscheinen nie im 13F.
+      News-Signale sind ungeprüft bis ein Filing den Ticker bestätigt. <strong>Kein Anlageberatung.</strong>
     </div>
   </td></tr>
 

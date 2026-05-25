@@ -122,9 +122,9 @@ def step_digest(cfg: Config, model: dict, signal: dict | None = None) -> None:
     notify.send_email(cfg, subject, html)
 
 
-def step_alert(cfg: Config) -> int:
+def step_alert(cfg: Config, model: dict | None = None) -> int:
     """Send an immediate alert if new high-signal events exist. Returns event count."""
-    found = alert_mod.check_and_alert(cfg)
+    found = alert_mod.check_and_alert(cfg, model=model)
     if found:
         log.info("Alert step: %d new event(s) triggered an alert.", found)
     else:
@@ -140,7 +140,7 @@ def step_run(cfg: Config) -> None:
     open_stmts = [e for e in events.load_events(cfg) if e.get("verification_status") == events.OPEN]
     signal = open_stmts[-1] if open_stmts else None
     step_digest(cfg, model, signal)
-    step_alert(cfg)
+    step_alert(cfg, model=model)
 
 
 # ── CLI ─────────────────────────────────────────────────────────────────────--
