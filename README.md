@@ -15,7 +15,7 @@ _Last updated: 2026-05-25 · prices via yfinance · Not investment advice._
 | Reported 13F value | $13.7B |
 | **Common stock long exposure** | **$3.9B** |
 | **Options notional exposure** | **$9.8B** _(direction unknown)_ |
-| New / Increased / Reduced / Exited (common) | 10 / 8 / 2 / 15 |
+| New / Increased / Reduced / Exited (common) | 10 / 7 / 2 / 15 |
 | Best post-quarter performer | BITF +142.9% |
 | Worst post-quarter performer | PSIX -41.3% |
 > Common stock long exposure and options notional are shown separately on purpose — combining them would let the options book dominate the picture.
@@ -37,13 +37,13 @@ _Last updated: 2026-05-25 · prices via yfinance · Not investment advice._
 | BITF | BITFARMS LTD | 0 | 6.9M | 19.9M | +188.2% | New + Add | 1.0% | +142.9% | $95.6M | 🟢 New + Add |
 | BTDR | BITDEER TECHNOLOGIES GROUP | 930k | 1.8M | 3.4M | +92.4% | ↑↑↑ | 0.8% | +56.9% | $50.4M | 🟢 Strong Add |
 | PSIX | POWER SOLUTIONS INTL INC | 0 | 432k | 432k | +0.0% | Mixed | 0.7% | -41.3% | $16.8M | 🟡 Hold |
-| ? | WHITEFIBER INC | 0 | 1.8M | 1.8M | +0.0% | Mixed | 0.5% | — | — | 🟡 Hold |
+| WHITEFIB | WHITEFIBER INC | 0 | 1.8M | 1.8M | +0.0% | Mixed | 0.5% | — | — | 🟡 Hold |
 | AMD | ADVANCED MICRO DEVICES INC | 0 | 0 | 99k | New | New | 0.5% | +122.4% | $46.3M | 🟡 New Buy |
 | BW | BABCOCK & WILCOX ENTERPRISES | 0 | 1.4M | 1.4M | +0.0% | Mixed | 0.5% | +27.2% | $25.8M | 🟡 Hold |
 | SHAZ | SHARONAI HOLDINGS INC | 0 | 0 | 796k | New | New | 0.5% | +199.4% | $54.2M | 🟡 New Buy |
 | PUMP | PROPETRO HLDG CORP | 0 | 910k | 910k | +0.0% | Mixed | 0.3% | +25.6% | $15.4M | 🟡 Hold |
 | SMH | VANECK ETF TRUST | 0 | 0 | 27k | New | New | 0.3% | +47.0% | $15.5M | 🟡 New Buy |
-| INTC | INTEL CORP | 0 | 1 | 202k | +20234300.0% | New + Add | 0.2% | +149.5% | $24.2M | 🟢 New + Add |
+| INTC | INTEL CORP | 0 | 1 | 202k | New | New + Add | 0.2% | +149.5% | $24.2M | 🟢 New + Add |
 | TSM | TAIWAN SEMICONDUCTOR MANUFAC | 0 | 0 | 22k | New | New | 0.2% | +18.5% | $9.1M | 🟡 New Buy |
 | HIVE | HIVE DIGITAL TECHNOLOGIES LT | 0 | 0 | 3.4M | New | New | 0.2% | +115.3% | $13.8M | 🟡 New Buy |
 | ASML | ASML HLDG NV N Y REGISTRY | 0 | 0 | 5k | New | New | 0.2% | +20.3% | $7.6M | 🟡 New Buy |
@@ -70,17 +70,17 @@ _Last updated: 2026-05-25 · prices via yfinance · Not investment advice._
 
 | Ticker | Issuer | Q3 2025 | Q4 2025 | Q1 2026 | Last seen value |
 | --- | --- | --- | --- | --- | --- |
-| ? | BLOOM ENERGY CORP | 3.0M | 0 | 0 | $0 |
-| ? | CIPHER MINING INC | 5.7M | 0 | 0 | $0 |
+| BLOOM EN | BLOOM ENERGY CORP | 3.0M | 0 | 0 | $0 |
+| CIPHER M | CIPHER MINING INC | 5.7M | 0 | 0 | $0 |
 | COHR | COHERENT CORP | 154k | 480k | 0 | $0 |
 | EQT | EQT CORP | 1.2M | 2.5M | 0 | $0 |
 | GLXY | GALAXY DIGITAL INC. | 2.7M | 0 | 0 | $0 |
 | HUT | HUT 8 CORP | 599k | 860k | 0 | $0 |
-| ? | LUMENTUM HLDGS INC | 418k | 0 | 0 | $0 |
-| ? | SEAGATE TECHNOLOGY HLDNGS PL | 49k | 0 | 0 | $0 |
+| LUMENTUM | LUMENTUM HLDGS INC | 418k | 0 | 0 | $0 |
+| SEAGATE  | SEAGATE TECHNOLOGY HLDNGS PL | 49k | 0 | 0 | $0 |
 | TSEM | TOWER SEMICONDUCTOR LTD | 471k | 723k | 0 | $0 |
 | VST | VISTRA CORP | 1.3M | 0 | 0 | $0 |
-| ? | WESTERN DIGITAL CORP | 153k | 0 | 0 | $0 |
+| WESTERN  | WESTERN DIGITAL CORP | 153k | 0 | 0 | $0 |
 | CIFR | CIPHER MINING INC | 0 | 10.5M | 0 | $0 |
 | KRC | KILROY RLTY CORP | 0 | 1.3M | 0 | $0 |
 | LBRT | LIBERTY ENERGY INC | 0 | 567k | 0 | $0 |

@@ -16,7 +16,7 @@
     "common_stock_long_exposure_usd": 3855771552,
     "options_notional_exposure_usd": 9820886025,
     "new_common_positions": 10,
-    "increased_common_positions": 8,
+    "increased_common_positions": 7,
     "reduced_common_positions": 2,
     "exited_common_positions": 15,
     "largest_add": {
@@ -815,16 +815,16 @@
       ],
       "shares_latest": 202344,
       "value_latest_usd": 8929441,
-      "value_prev_quarter_usd": 37,
-      "qoq_dollar_delta": 8929397,
+      "value_prev_quarter_usd": 0,
+      "qoq_dollar_delta": 8929441,
       "qoq_dollar_delta_m": 8.9,
       "portfolio_weight_common_stock": 0.0023,
-      "qoq_share_change_pct": 202343.0,
+      "qoq_share_change_pct": null,
       "three_quarter_trend": "new_add",
       "has_13dg": false,
       "price_at_quarter_end": 48.03,
-      "price_at_prev_quarter_end": 36.9,
-      "intra_quarter_return_pct": 0.3016,
+      "price_at_prev_quarter_end": null,
+      "intra_quarter_return_pct": null,
       "current_price": 119.84,
       "price_change_since_quarter_end_pct": 1.4951,
       "estimated_current_value": 24248905,
@@ -2459,5 +2459,152 @@
     "avg_return_pct": 17.9,
     "best": "SNDK",
     "worst": "BTDR"
-  }
+  },
+  "sector_breakdown": [
+    {
+      "sector": "Bitcoin Mining",
+      "value_usd": 1111712246,
+      "tickers": [
+        "IREN",
+        "CORZ",
+        "RIOT",
+        "CLSK",
+        "BITF",
+        "BTDR",
+        "HIVE"
+      ],
+      "adds": [
+        "IREN",
+        "RIOT",
+        "CLSK",
+        "BITF",
+        "BTDR",
+        "HIVE"
+      ],
+      "trims": [],
+      "exits": [],
+      "portfolio_weight": 0.2883
+    },
+    {
+      "sector": "Energy",
+      "value_usd": 891825353,
+      "tickers": [
+        "BE",
+        "PUMP"
+      ],
+      "adds": [],
+      "trims": [
+        "BE"
+      ],
+      "exits": [],
+      "portfolio_weight": 0.2313
+    },
+    {
+      "sector": "AI Infrastructure",
+      "value_usd": 876051503,
+      "tickers": [
+        "CRWV",
+        "APLD"
+      ],
+      "adds": [
+        "CRWV",
+        "APLD"
+      ],
+      "trims": [],
+      "exits": [],
+      "portfolio_weight": 0.2272
+    },
+    {
+      "sector": "Technology",
+      "value_usd": 764110086,
+      "tickers": [
+        "SNDK",
+        "WHITEFIB",
+        "SHAZ",
+        "GLW"
+      ],
+      "adds": [
+        "SNDK",
+        "SHAZ",
+        "GLW"
+      ],
+      "trims": [],
+      "exits": [],
+      "portfolio_weight": 0.1982
+    },
+    {
+      "sector": "Energy Infrastructure",
+      "value_usd": 106374687,
+      "tickers": [
+        "SEI",
+        "TE"
+      ],
+      "adds": [
+        "TE"
+      ],
+      "trims": [
+        "SEI"
+      ],
+      "exits": [],
+      "portfolio_weight": 0.0276
+    },
+    {
+      "sector": "Semiconductors",
+      "value_usd": 49157832,
+      "tickers": [
+        "AMD",
+        "INTC",
+        "TSM",
+        "ASML",
+        "MU",
+        "NVDA"
+      ],
+      "adds": [
+        "AMD",
+        "INTC",
+        "TSM",
+        "ASML",
+        "MU",
+        "NVDA"
+      ],
+      "trims": [],
+      "exits": [],
+      "portfolio_weight": 0.0127
+    },
+    {
+      "sector": "Industrial",
+      "value_usd": 26318424,
+      "tickers": [
+        "PSIX"
+      ],
+      "adds": [],
+      "trims": [],
+      "exits": [],
+      "portfolio_weight": 0.0068
+    },
+    {
+      "sector": "Energy/Industrial",
+      "value_usd": 19888791,
+      "tickers": [
+        "BW"
+      ],
+      "adds": [],
+      "trims": [],
+      "exits": [],
+      "portfolio_weight": 0.0052
+    },
+    {
+      "sector": "ETF",
+      "value_usd": 10332630,
+      "tickers": [
+        "SMH"
+      ],
+      "adds": [
+        "SMH"
+      ],
+      "trims": [],
+      "exits": [],
+      "portfolio_weight": 0.0027
+    }
+  ]
 }
