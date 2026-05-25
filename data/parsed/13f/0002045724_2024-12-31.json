@@ -1,0 +1,69 @@
+{
+  "cik": "0002045724",
+  "accession": "0000935836-25-000120",
+  "report_date": "2024-12-31",
+  "quarter": "Q4 2024",
+  "holding_count": 6,
+  "holdings": [
+    {
+      "name_of_issuer": "CONSTELLATION ENERGY CORP",
+      "title_of_class": "COM",
+      "cusip": "21037T109",
+      "value_usd": 21565644,
+      "amount": 96400,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "MODINE MFG CO",
+      "title_of_class": "COM",
+      "cusip": "607828100",
+      "value_usd": 7693926,
+      "amount": 66367,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "MARVELL TECHNOLOGY INC",
+      "title_of_class": "COM",
+      "cusip": "573874104",
+      "value_usd": 86802213,
+      "amount": 785896,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "TALEN ENERGY CORP",
+      "title_of_class": "COM",
+      "cusip": "87422Q109",
+      "value_usd": 27979751,
+      "amount": 138878,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "VERTIV HOLDINGS CO",
+      "title_of_class": "COM CL A",
+      "cusip": "92537N108",
+      "value_usd": 51709137,
+      "amount": 455146,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "VISTRA CORP",
+      "title_of_class": "COM",
+      "cusip": "92840M102",
+      "value_usd": 59063094,
+      "amount": 428397,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    }
+  ]
+}

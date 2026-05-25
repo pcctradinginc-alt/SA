@@ -1,0 +1,38 @@
+{
+  "directory": {
+    "item": [
+      {
+        "last-modified": "2025-05-14 15:14:51",
+        "name": "0002045724-25-000002-index-headers.html",
+        "type": "text.gif",
+        "size": ""
+      },
+      {
+        "last-modified": "2025-05-14 15:14:51",
+        "name": "0002045724-25-000002-index.html",
+        "type": "text.gif",
+        "size": ""
+      },
+      {
+        "last-modified": "2025-05-14 15:14:51",
+        "name": "0002045724-25-000002.txt",
+        "type": "text.gif",
+        "size": ""
+      },
+      {
+        "last-modified": "2025-05-14 15:14:51",
+        "name": "primary_doc.xml",
+        "type": "text.gif",
+        "size": "2027"
+      },
+      {
+        "last-modified": "2025-05-14 15:14:51",
+        "name": "SALP13fq1.xml",
+        "type": "text.gif",
+        "size": "6572"
+      }
+    ],
+    "name": "/Archives/edgar/data/2045724/000204572425000002",
+    "parent-dir": "/Archives/edgar/data/2045724"
+  }
+}

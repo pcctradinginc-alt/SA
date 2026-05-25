@@ -1,0 +1,53 @@
+{
+  "filings": [
+    {
+      "cik": "0002045724",
+      "accession": "0002045724-26-000008",
+      "form": "13F-HR",
+      "filing_date": "2026-05-18",
+      "report_date": "2026-03-31",
+      "primary_document": "xslForm13F_X02/primary_doc.xml"
+    },
+    {
+      "cik": "0002045724",
+      "accession": "0002045724-26-000002",
+      "form": "13F-HR",
+      "filing_date": "2026-02-11",
+      "report_date": "2025-12-31",
+      "primary_document": "xslForm13F_X02/primary_doc.xml"
+    },
+    {
+      "cik": "0002045724",
+      "accession": "0002045724-25-000008",
+      "form": "13F-HR",
+      "filing_date": "2025-11-14",
+      "report_date": "2025-09-30",
+      "primary_document": "xslForm13F_X02/primary_doc.xml"
+    },
+    {
+      "cik": "0002045724",
+      "accession": "0002045724-25-000006",
+      "form": "13F-HR",
+      "filing_date": "2025-08-14",
+      "report_date": "2025-06-30",
+      "primary_document": "xslForm13F_X02/primary_doc.xml"
+    },
+    {
+      "cik": "0002045724",
+      "accession": "0002045724-25-000002",
+      "form": "13F-HR",
+      "filing_date": "2025-05-14",
+      "report_date": "2025-03-31",
+      "primary_document": "xslForm13F_X02/primary_doc.xml"
+    },
+    {
+      "cik": "0002045724",
+      "accession": "0000935836-25-000120",
+      "form": "13F-HR",
+      "filing_date": "2025-02-12",
+      "report_date": "2024-12-31",
+      "primary_document": "xslForm13F_X02/primary_doc.xml"
+    }
+  ],
+  "updated": "2026-05-25T07:55:27Z"
+}
