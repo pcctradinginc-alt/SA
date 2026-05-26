@@ -92,6 +92,12 @@ def _conviction_score(row: dict) -> float:
 
     raw = w_score + q_score + t_score + v_score + dg_bonus
 
+    # High-% add bonus: a manager going from 0.3% → 2.7% in one quarter
+    # is a strong new commitment that w_score alone underweights.
+    add_pct = row.get("qoq_share_change_pct")
+    if isinstance(add_pct, float) and add_pct >= 1.5:
+        raw += 0.8 if add_pct >= 3.0 else 0.4
+
     octx = row.get("options_context", {})
     if octx.get("call_went_zero") and octx.get("has_active_put"):
         raw -= 1.5
@@ -355,13 +361,15 @@ def build(cfg: Config, parsed_quarters: list[dict],
             cur = prices.current_price(info["yfinance_symbol"])
             if qe and cur:
                 underlying_move = round((cur - qe) / qe, 4)
+        prev_notional = s.values[-2] if len(s.values) >= 2 else 0
         option_rows.append({
             "underlying": s.issuer,
             "ticker": info["ticker"],
             "instrument": "PUT" if s.instrument_type == OPTION_PUT else "CALL",
             "notional_by_quarter": s.values,
             "notional_latest_usd": s.values[-1],
-            "qoq_notional_change_pct": _qoq(s.values[-2] if len(s.values) > 1 else 0, s.values[-1]),
+            "notional_prev_usd": prev_notional,
+            "qoq_notional_change_pct": _qoq(prev_notional, s.values[-1]),
             "underlying_price_move": underlying_move,
             "interpretation_risk": "Notional, not premium; long/short direction unknown",
         })

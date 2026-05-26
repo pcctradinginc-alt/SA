@@ -2095,6 +2095,7 @@
         2042716860
       ],
       "notional_latest_usd": 2042716860,
+      "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
       "underlying_price_move": 0.532,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
@@ -2109,6 +2110,7 @@
         1568257120
       ],
       "notional_latest_usd": 1568257120,
+      "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
       "underlying_price_move": 0.2158,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
@@ -2123,6 +2125,7 @@
         1072873230
       ],
       "notional_latest_usd": 1072873230,
+      "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
       "underlying_price_move": 0.3217,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
@@ -2137,6 +2140,7 @@
         1006247961
       ],
       "notional_latest_usd": 1006247961,
+      "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
       "underlying_price_move": 0.3464,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
@@ -2151,6 +2155,7 @@
         969160863
       ],
       "notional_latest_usd": 969160863,
+      "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
       "underlying_price_move": 1.3771,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
@@ -2165,6 +2170,7 @@
         583686168
       ],
       "notional_latest_usd": 583686168,
+      "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
       "underlying_price_move": 1.4666,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
@@ -2179,6 +2185,7 @@
         535110030
       ],
       "notional_latest_usd": 535110030,
+      "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
       "underlying_price_move": 0.2094,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
@@ -2193,6 +2200,7 @@
         494122503
       ],
       "notional_latest_usd": 494122503,
+      "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
       "underlying_price_move": 0.2012,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
@@ -2207,6 +2215,7 @@
         422300000
       ],
       "notional_latest_usd": 422300000,
+      "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
       "underlying_price_move": 1.4666,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
@@ -2221,6 +2230,7 @@
         388764546
       ],
       "notional_latest_usd": 388764546,
+      "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
       "underlying_price_move": 1.3562,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
@@ -2235,6 +2245,7 @@
         354847500
       ],
       "notional_latest_usd": 354847500,
+      "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
       "underlying_price_move": 0.2094,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
@@ -2249,6 +2260,7 @@
         159106302
       ],
       "notional_latest_usd": 159106302,
+      "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
       "underlying_price_move": 1.5513,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
@@ -2263,6 +2275,7 @@
         140569315
       ],
       "notional_latest_usd": 140569315,
+      "notional_prev_usd": 774426345,
       "qoq_notional_change_pct": -0.8184858819595039,
       "underlying_price_move": 0.3497,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
@@ -2277,6 +2290,7 @@
         55347665
       ],
       "notional_latest_usd": 55347665,
+      "notional_prev_usd": 35494565,
       "qoq_notional_change_pct": 0.559327885832662,
       "underlying_price_move": 1.3063,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
@@ -2291,6 +2305,7 @@
         21020962
       ],
       "notional_latest_usd": 21020962,
+      "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
       "underlying_price_move": 0.3989,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
@@ -2305,6 +2320,7 @@
         6755000
       ],
       "notional_latest_usd": 6755000,
+      "notional_prev_usd": 8910000,
       "qoq_notional_change_pct": -0.24186307519640854,
       "underlying_price_move": -0.0835,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
@@ -2319,6 +2335,7 @@
         0
       ],
       "notional_latest_usd": 0,
+      "notional_prev_usd": 0,
       "qoq_notional_change_pct": 0.0,
       "underlying_price_move": null,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
@@ -2333,6 +2350,7 @@
         0
       ],
       "notional_latest_usd": 0,
+      "notional_prev_usd": 0,
       "qoq_notional_change_pct": 0.0,
       "underlying_price_move": 0.3497,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
@@ -2347,6 +2365,7 @@
         0
       ],
       "notional_latest_usd": 0,
+      "notional_prev_usd": 746760060,
       "qoq_notional_change_pct": -1.0,
       "underlying_price_move": 1.5513,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
@@ -2361,6 +2380,7 @@
         0
       ],
       "notional_latest_usd": 0,
+      "notional_prev_usd": 0,
       "qoq_notional_change_pct": 0.0,
       "underlying_price_move": -0.0852,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
@@ -2375,6 +2395,7 @@
         0
       ],
       "notional_latest_usd": 0,
+      "notional_prev_usd": 37520000,
       "qoq_notional_change_pct": -1.0,
       "underlying_price_move": -0.074,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
@@ -2590,17 +2611,17 @@
       }
     },
     {
-      "ticker": "RIOT",
-      "issuer": "RIOT PLATFORMS INC",
-      "status_label": "Strong Add",
+      "ticker": "CLSK",
+      "issuer": "CLEANSPARK INC",
+      "status_label": "New + Add",
       "has_13dg": false,
-      "portfolio_weight_common_stock": 0.0369,
-      "value_latest_usd": 142166413,
-      "qoq_dollar_delta": 65933641,
-      "qoq_share_change_pct": 0.8648989088314931,
-      "three_quarter_trend": "up_up_up",
-      "price_change_since_quarter_end_pct": 1.0693,
-      "conviction_score": 5.8,
+      "portfolio_weight_common_stock": 0.0271,
+      "value_latest_usd": 104469943,
+      "qoq_dollar_delta": 90510139,
+      "qoq_share_change_pct": 6.483625335284077,
+      "three_quarter_trend": "new_add",
+      "price_change_since_quarter_end_pct": 1.0012,
+      "conviction_score": 5.9,
       "entry_score": 0,
       "recommendation": "Beobachten",
       "options_context": {}

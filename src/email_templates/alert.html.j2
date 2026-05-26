@@ -159,6 +159,19 @@
     <div style="font-size:13px;color:{{ C.sec }};margin-top:2px;">Bis zu 45 Tage Verzögerung · Basis aller Portfolioangaben</div>
   </td></tr>
 
+  <!-- ── KERN-THESIS (LLM-Analyse) ── -->
+  {% if analysis_13f %}
+  <tr><td style="padding:12px 32px 0 32px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+           style="background:{{ C.teal_bg }};border-radius:14px;overflow:hidden;">
+      <tr><td style="padding:16px 18px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:{{ C.teal_tx }};margin-bottom:8px;">Kern-Thesis · KI-Einordnung</div>
+        <div style="font-size:14px;line-height:1.65;color:#1d4040;">{{ analysis_13f }}</div>
+      </td></tr>
+    </table>
+  </td></tr>
+  {% endif %}
+
   <!-- ── TOP NACHKAUF-SIGNALE (Conviction-Score) ── -->
   {% if top_signals %}
   <tr><td style="padding:12px 32px 0 32px;">
@@ -363,19 +376,6 @@
   </td></tr>
   {% endif %}
 
-  <!-- Haiku 13F-Analyse -->
-  {% if analysis_13f %}
-  <tr><td style="padding:12px 32px 0 32px;">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
-           style="background:{{ C.teal_bg }};border-radius:14px;overflow:hidden;">
-      <tr><td style="padding:16px 18px;">
-        <div style="font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:{{ C.teal_tx }};margin-bottom:8px;">KI-Analyse · Portfoliobewegungen</div>
-        <div style="font-size:14px;line-height:1.65;color:#1d4040;">{{ analysis_13f }}</div>
-      </td></tr>
-    </table>
-  </td></tr>
-  {% endif %}
-
   <!-- TLDR-Box (Positionsübersicht) -->
   <tr><td style="padding:12px 32px 0 32px;">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
@@ -429,39 +429,188 @@
     </table>
   </td></tr>
 
-  <!-- Top-Positionen Tabelle -->
-  {% if tldr.top_positions %}
+  <!-- ── DETAILLIERTE POSITIONS-ÜBERSICHT NACH SEKTOR ── -->
+  {% if model.common_stock and sector_breakdown %}
   <tr><td style="padding:16px 32px 0 32px;">
-    <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:{{ C.ter }};margin-bottom:10px;">Top-Positionen nach Wert</div>
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:{{ C.ter }};margin-bottom:12px;">Positionen nach Sektor</div>
+
+    {% for s in sector_breakdown %}
+    {% if s.portfolio_weight >= 0.01 %}
+    {%- set srows = model.common_stock | selectattr('sector', 'equalto', s.sector) | list | sort(attribute='value_latest_usd', reverse=True) -%}
+    {%- set sexits = model.exits | selectattr('sector', 'equalto', s.sector) | list -%}
+    {% if srows or sexits %}
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
-           style="border-collapse:collapse;font-size:13px;">
-      <tr style="color:{{ C.ter }};">
-        <td style="padding:6px 6px 6px 0;border-bottom:1px solid {{ C.line }};">Ticker</td>
-        <td style="padding:6px;border-bottom:1px solid {{ C.line }};">Unternehmen</td>
-        <td align="right" style="padding:6px;border-bottom:1px solid {{ C.line }};">Wert</td>
-        <td align="right" style="padding:6px;border-bottom:1px solid {{ C.line }};">Anteil</td>
-        <td align="right" style="padding:6px;border-bottom:1px solid {{ C.line }};">QoQ</td>
-        <td align="right" style="padding:6px 0 6px 6px;border-bottom:1px solid {{ C.line }};">Status</td>
+           style="border:1px solid {{ C.line }};border-radius:12px;overflow:hidden;margin-bottom:10px;">
+
+      <!-- Sector header -->
+      <tr><td colspan="6" style="padding:9px 14px;background:{{ C.gray_bg }};">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td>
+              <span style="font-size:13px;font-weight:700;color:{{ C.text }};">{{ s.sector }}</span>
+              {% if s.adds %}<span style="font-size:11px;color:{{ C.green_tx }};margin-left:8px;font-weight:600;">↑ {{ s.adds|join(' · ') }}</span>{% endif %}
+              {% if s.trims %}<span style="font-size:11px;color:{{ C.red_tx }};margin-left:6px;">↓ {{ s.trims|join(' · ') }}</span>{% endif %}
+            </td>
+            <td align="right">
+              <span style="font-size:13px;font-weight:700;color:{{ C.text }};">{{ (s.portfolio_weight * 100)|round(1) }}%</span>
+              <span style="font-size:12px;color:{{ C.ter }};margin-left:5px;">{{ s.value_usd|usd }}</span>
+            </td>
+          </tr>
+        </table>
+      </td></tr>
+
+      <!-- Column headers -->
+      <tr style="background:{{ C.card }};border-top:1px solid {{ C.line }};">
+        <td style="padding:5px 8px 5px 14px;font-size:10px;font-weight:600;color:{{ C.ter }};letter-spacing:0.04em;width:22%;">TICKER</td>
+        <td style="padding:5px 8px;font-size:10px;font-weight:600;color:{{ C.ter }};letter-spacing:0.04em;width:18%;">STATUS</td>
+        <td align="right" style="padding:5px 8px;font-size:10px;font-weight:600;color:{{ C.ter }};letter-spacing:0.04em;width:14%;">QoQ</td>
+        <td align="right" style="padding:5px 8px;font-size:10px;font-weight:600;color:{{ C.ter }};letter-spacing:0.04em;width:18%;">ADD Q1</td>
+        <td align="right" style="padding:5px 8px;font-size:10px;font-weight:600;color:{{ C.ter }};letter-spacing:0.04em;width:10%;">PORT.</td>
+        <td align="right" style="padding:5px 14px 5px 8px;font-size:10px;font-weight:600;color:{{ C.ter }};letter-spacing:0.04em;">WERT</td>
       </tr>
-      {% for r in tldr.top_positions %}
-      {%- set sk = {'strong_add':'green','new_add':'green','new_buy':'amber','hold':'gray','trim':'red','exit':'gray'}.get(r.status,'gray') -%}
-      <tr>
-        <td style="padding:9px 6px 9px 0;font-weight:700;">{{ r.ticker or r.issuer[:8] }}</td>
-        <td style="padding:9px 6px;color:{{ C.sec }};font-size:12px;">{{ r.issuer[:26] }}</td>
-        <td align="right" style="padding:9px 6px;">{{ r.value_latest_usd|usd }}</td>
-        <td align="right" style="padding:9px 6px;">{{ (r.portfolio_weight_common_stock * 100)|round(1) }}%</td>
-        <td align="right" style="padding:9px 6px;font-size:12px;color:{{ C.sec }};">
-          {%- if r.qoq_share_change_pct is not none and r.qoq_share_change_pct is not string %}
-            {%- set pct = (r.qoq_share_change_pct * 100)|round(0)|int -%}
-            <span style="color:{% if pct > 5 %}{{ C.green_tx }}{% elif pct < -5 %}{{ C.red_tx }}{% else %}{{ C.ter }}{% endif %};">
-              {{ '%+d%%'|format(pct) }}
-            </span>
-          {%- else %}—{%- endif %}
+
+      {% for r in srows %}
+      {%- set sk = {'strong_add':'green','new_add':'green','new_buy':'amber','hold':'gray','trim':'red'}.get(r.status,'gray') -%}
+      {%- set octx = r.options_context or {} -%}
+      <tr style="border-top:1px solid {{ C.line }};">
+        <td style="padding:8px 6px 8px 14px;">
+          <span style="font-size:13px;font-weight:700;">{{ r.ticker or r.issuer[:8] }}</span>
+          {%- if octx.call_went_zero and octx.has_active_put %}
+          <span style="font-size:10px;font-weight:600;background:{{ C.amber_bg }};color:{{ C.amber_tx }};padding:1px 5px;border-radius:4px;margin-left:4px;">Umgebaut</span>
+          {%- elif octx.call_heavily_reduced %}
+          <span style="font-size:10px;font-weight:600;background:{{ C.amber_bg }};color:{{ C.amber_tx }};padding:1px 5px;border-radius:4px;margin-left:4px;">Call↓</span>
+          {%- elif octx.has_active_call and octx.has_active_put %}
+          <span style="font-size:10px;background:{{ C.blue_bg }};color:{{ C.blue_tx }};padding:1px 5px;border-radius:4px;margin-left:4px;">C+P</span>
+          {%- elif octx.has_active_call %}
+          <span style="font-size:10px;background:{{ C.blue_bg }};color:{{ C.blue_tx }};padding:1px 5px;border-radius:4px;margin-left:4px;">Call</span>
+          {%- elif octx.has_active_put %}
+          <span style="font-size:10px;background:{{ C.red_bg }};color:{{ C.red_tx }};padding:1px 5px;border-radius:4px;margin-left:4px;">Put</span>
+          {%- endif %}
+          <div style="font-size:11px;color:{{ C.ter }};margin-top:1px;">{{ r.issuer[:22] }}</div>
         </td>
-        <td align="right" style="padding:9px 0 9px 6px;">{{ pill(r.status_label, sk) }}</td>
+        <td style="padding:8px 6px;vertical-align:top;padding-top:10px;">{{ pill(r.status_label, sk) }}</td>
+        <td align="right" style="padding:8px 6px;font-size:12px;vertical-align:top;padding-top:10px;">
+          {%- if r.qoq_share_change_pct is none %}<span style="color:{{ C.green_tx }};font-weight:600;">Neu</span>
+          {%- else %}<span style="color:{%- if r.qoq_share_change_pct > 0.01 %}{{ C.green_tx }}{%- elif r.qoq_share_change_pct < -0.01 %}{{ C.red_tx }}{%- else %}{{ C.ter }}{%- endif %};">{{ '%+.0f%%'|format(r.qoq_share_change_pct * 100) }}</span>{%- endif %}
+        </td>
+        <td align="right" style="padding:8px 6px;font-size:12px;vertical-align:top;padding-top:10px;">
+          {%- if r.qoq_dollar_delta and r.qoq_dollar_delta != 0 %}<span style="color:{%- if r.qoq_dollar_delta > 0 %}{{ C.green_tx }}{%- else %}{{ C.red_tx }}{%- endif %};">{{ r.qoq_dollar_delta|usd_compact }}</span>{%- else %}—{%- endif %}
+        </td>
+        <td align="right" style="padding:8px 6px;font-size:12px;color:{{ C.sec }};vertical-align:top;padding-top:10px;">{{ (r.portfolio_weight_common_stock * 100)|round(1) }}%</td>
+        <td align="right" style="padding:8px 14px 8px 6px;font-size:12px;font-weight:600;vertical-align:top;padding-top:10px;">{{ r.value_latest_usd|usd }}</td>
       </tr>
       {% endfor %}
+
+      {% for r in sexits %}
+      <tr style="border-top:1px solid {{ C.line }};">
+        <td style="padding:6px 6px 6px 14px;font-size:12px;color:{{ C.ter }};">{{ r.ticker or r.issuer[:10] }}</td>
+        <td style="padding:6px 6px;">{{ pill('Exit', 'gray') }}</td>
+        <td colspan="4" style="padding:6px 14px 6px 6px;font-size:11px;color:{{ C.ter }};">Verkauft · vorher {{ r.value_prev_quarter_usd|usd }}</td>
+      </tr>
+      {% endfor %}
+
     </table>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+  </td></tr>
+  {% endif %}
+
+  <!-- ── PUT-OPTIONEN (vollständig, nach Notional) ── -->
+  {%- set ns_puts = namespace(total=0, count=0) -%}
+  {%- for opt in model.options if opt.instrument == 'PUT' and opt.notional_latest_usd > 0 -%}
+    {%- set ns_puts.total = ns_puts.total + opt.notional_latest_usd -%}
+    {%- set ns_puts.count = ns_puts.count + 1 -%}
+  {%- endfor -%}
+  {% if ns_puts.count > 0 %}
+  <tr><td style="padding:12px 32px 0 32px;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:{{ C.ter }};margin-bottom:8px;">
+      Put-Optionen · Bearish Exposure ({{ ns_puts.count }} Positionen)
+    </div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+           style="border:1px solid {{ C.line }};border-radius:12px;overflow:hidden;">
+      <tr style="background:{{ C.gray_bg }};">
+        <td style="padding:6px 8px 6px 14px;font-size:10px;font-weight:600;color:{{ C.ter }};letter-spacing:0.04em;">TICKER</td>
+        <td align="right" style="padding:6px 8px;font-size:10px;font-weight:600;color:{{ C.ter }};letter-spacing:0.04em;">NOTIONAL</td>
+        <td align="right" style="padding:6px 14px 6px 8px;font-size:10px;font-weight:600;color:{{ C.ter }};letter-spacing:0.04em;">KURS SEIT 13F</td>
+      </tr>
+      {% for opt in model.options %}
+      {% if opt.instrument == 'PUT' and opt.notional_latest_usd > 0 %}
+      <tr style="border-top:1px solid {{ C.line }};">
+        <td style="padding:8px 8px 8px 14px;">
+          <span style="font-size:13px;font-weight:700;">{{ opt.ticker or opt.underlying[:10] }}</span>
+          <span style="font-size:11px;color:{{ C.ter }};margin-left:6px;">{{ opt.underlying[:25] }}</span>
+        </td>
+        <td align="right" style="padding:8px;font-size:13px;font-weight:600;color:{{ C.red_tx }};">{{ opt.notional_latest_usd|usd }}</td>
+        <td align="right" style="padding:8px 14px 8px 8px;font-size:12px;color:{{ C.sec }};">
+          {%- if opt.underlying_price_move is not none %}<span style="color:{%- if opt.underlying_price_move < 0 %}{{ C.red_tx }}{%- elif opt.underlying_price_move > 0 %}{{ C.green_tx }}{%- else %}{{ C.ter }}{%- endif %};">{{ '%+.0f%%'|format(opt.underlying_price_move * 100) }}</span>{%- else %}—{%- endif %}
+        </td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+      <tr style="border-top:2px solid {{ C.line }};background:{{ C.gray_bg }};">
+        <td style="padding:7px 8px 7px 14px;font-size:11px;font-weight:600;color:{{ C.sec }};">Gesamt-Exposure</td>
+        <td align="right" style="padding:7px 8px;font-size:13px;font-weight:700;color:{{ C.red_tx }};">{{ ns_puts.total|usd }}</td>
+        <td></td>
+      </tr>
+    </table>
+    <div style="font-size:11px;color:{{ C.ter }};margin-top:5px;">Richtung lt. 13F unbekannt · Notional (nicht Prämie) · Long/Short nicht verifizierbar</div>
+  </td></tr>
+  {% endif %}
+
+  <!-- ── CALL-POSITIONEN ── -->
+  {%- set ns_calls = namespace(total=0, count=0) -%}
+  {%- for opt in model.options if opt.instrument == 'CALL' and opt.notional_latest_usd > 0 -%}
+    {%- set ns_calls.total = ns_calls.total + opt.notional_latest_usd -%}
+    {%- set ns_calls.count = ns_calls.count + 1 -%}
+  {%- endfor -%}
+  {% if ns_calls.count > 0 %}
+  <tr><td style="padding:12px 32px 0 32px;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:{{ C.ter }};margin-bottom:8px;">
+      Call-Positionen ({{ ns_calls.count }} aktiv)
+    </div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+           style="border:1px solid {{ C.line }};border-radius:12px;overflow:hidden;">
+      <tr style="background:{{ C.gray_bg }};">
+        <td style="padding:6px 8px 6px 14px;font-size:10px;font-weight:600;color:{{ C.ter }};letter-spacing:0.04em;">TICKER</td>
+        <td align="right" style="padding:6px 8px;font-size:10px;font-weight:600;color:{{ C.ter }};letter-spacing:0.04em;">NOTIONAL Q1</td>
+        <td align="right" style="padding:6px 8px;font-size:10px;font-weight:600;color:{{ C.ter }};letter-spacing:0.04em;">QoQ</td>
+        <td align="right" style="padding:6px 14px 6px 8px;font-size:10px;font-weight:600;color:{{ C.ter }};letter-spacing:0.04em;">KURS SEIT 13F</td>
+      </tr>
+      {% for opt in model.options %}
+      {% if opt.instrument == 'CALL' and opt.notional_latest_usd > 0 %}
+      {%- set qoq_chg = opt.qoq_notional_change_pct -%}
+      {%- set is_reduced = qoq_chg is not none and qoq_chg < -0.3 -%}
+      <tr style="border-top:1px solid {{ C.line }};">
+        <td style="padding:8px 8px 8px 14px;">
+          <span style="font-size:13px;font-weight:700;">{{ opt.ticker or opt.underlying[:10] }}</span>
+          {%- if is_reduced %}
+          <span style="font-size:10px;font-weight:600;background:{{ C.amber_bg }};color:{{ C.amber_tx }};padding:1px 5px;border-radius:4px;margin-left:4px;">reduziert</span>
+          {%- endif %}
+          <span style="font-size:11px;color:{{ C.ter }};margin-left:{% if not is_reduced %}6{% else %}4{% endif %}px;">{{ opt.underlying[:25] }}</span>
+        </td>
+        <td align="right" style="padding:8px;font-size:13px;font-weight:600;color:{{ C.blue_tx }};">{{ opt.notional_latest_usd|usd }}</td>
+        <td align="right" style="padding:8px;font-size:12px;">
+          {%- if qoq_chg is not none %}
+          <span style="color:{%- if qoq_chg > 0 %}{{ C.green_tx }}{%- elif qoq_chg < 0 %}{{ C.red_tx }}{%- else %}{{ C.ter }}{%- endif %};">
+            {{ '%+.0f%%'|format(qoq_chg * 100) }}
+            {%- if opt.notional_prev_usd and is_reduced %} <span style="font-size:10px;color:{{ C.ter }};">(vorher {{ opt.notional_prev_usd|usd }})</span>{%- endif %}
+          </span>
+          {%- else %}<span style="color:{{ C.green_tx }};font-weight:600;">Neu</span>{%- endif %}
+        </td>
+        <td align="right" style="padding:8px 14px 8px 8px;font-size:12px;color:{{ C.sec }};">
+          {%- if opt.underlying_price_move is not none %}<span style="color:{%- if opt.underlying_price_move > 0 %}{{ C.green_tx }}{%- elif opt.underlying_price_move < 0 %}{{ C.red_tx }}{%- else %}{{ C.ter }}{%- endif %};">{{ '%+.0f%%'|format(opt.underlying_price_move * 100) }}</span>{%- else %}—{%- endif %}
+        </td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+      <tr style="border-top:2px solid {{ C.line }};background:{{ C.gray_bg }};">
+        <td style="padding:7px 8px 7px 14px;font-size:11px;font-weight:600;color:{{ C.sec }};">Gesamt-Exposure</td>
+        <td align="right" style="padding:7px 8px;font-size:13px;font-weight:700;color:{{ C.blue_tx }};">{{ ns_calls.total|usd }}</td>
+        <td colspan="2"></td>
+      </tr>
+    </table>
+    <div style="font-size:11px;color:{{ C.ter }};margin-top:5px;">Richtung lt. 13F unbekannt · Notional (nicht Prämie)</div>
   </td></tr>
   {% endif %}
 
