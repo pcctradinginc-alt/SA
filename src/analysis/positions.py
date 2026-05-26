@@ -462,6 +462,30 @@ def build(cfg: Config, parsed_quarters: list[dict],
         s["value_usd"] = round(s["value_usd"])
     sector_breakdown = sorted(_sec_map.values(), key=lambda s: s["value_usd"], reverse=True)
 
+    # Historical sector weights — all rows (active + exits) contribute their
+    # per-quarter values so prior-quarter totals are correctly denominated.
+    n_q = len(quarter_labels)
+    _all_rows = common_rows + exits
+    _qtotal = [0] * n_q
+    _qsec: dict[str, list[int]] = {}
+    for r in _all_rows:
+        sec = r.get("sector") or "Other"
+        _qsec.setdefault(sec, [0] * n_q)
+        for qi, v in enumerate(r.get("values_by_quarter", [])):
+            if qi < n_q:
+                _qtotal[qi] += v
+                _qsec[sec][qi] += v
+    for s in sector_breakdown:
+        sec = s["sector"]
+        vals = _qsec.get(sec, [0] * n_q)
+        weights = [round(vals[qi] / _qtotal[qi], 4) if _qtotal[qi] > 0 else 0.0 for qi in range(n_q)]
+        s["portfolio_weight_by_quarter"] = weights
+        s["quarter_labels"] = quarter_labels
+        s["qoq_weight_change"] = round(weights[-1] - weights[-2], 4) if n_q >= 2 else None
+        s["prev_qoq_weight_change"] = round(weights[-2] - weights[-3], 4) if n_q >= 3 else None
+        s["qoq_quarter_label"] = quarter_labels[-2] if n_q >= 2 else None
+        s["prev_qoq_quarter_label"] = quarter_labels[-3] if n_q >= 3 else None
+
     # ── summary ────────────────────────────────────────────────────────────────
     increased = [r for r in common_rows if isinstance(r["qoq_share_change_pct"], float) and r["qoq_share_change_pct"] > cfg.hold_band]
     reduced = [r for r in common_rows if isinstance(r["qoq_share_change_pct"], float) and r["qoq_share_change_pct"] < -cfg.hold_band]

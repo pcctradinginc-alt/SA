@@ -342,25 +342,39 @@
         {% for s in sector_breakdown %}
         {% if s.portfolio_weight >= 0.01 %}
         {%- set w_pct = (s.portfolio_weight * 100)|round(1) -%}
-        {%- set bar_w = [((s.portfolio_weight / 0.35) * 100)|round(0)|int, 100]|min -%}
+        {%- set bar_w = (s.portfolio_weight * 100)|round(0)|int -%}
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
                style="border-bottom:{% if not loop.last %}1px solid {{ C.line }}{% else %}none{% endif %};">
           <tr><td style="padding:11px 16px;">
 
-            <!-- Row 1: name + weight bar + value -->
+            <!-- Row 1: name + weight bar (100% = full portfolio) + value + QoQ chips -->
             <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
               <tr>
-                <td style="vertical-align:middle;width:38%;">
+                <td style="vertical-align:middle;width:32%;">
                   <span style="font-size:13px;font-weight:700;color:{{ C.text }};">{{ s.sector }}</span>
                 </td>
-                <td style="vertical-align:middle;padding:0 12px;">
-                  <div style="background:{{ C.line }};border-radius:4px;height:5px;">
-                    <div style="background:{{ C.accent }};border-radius:4px;height:5px;width:{{ bar_w }}%;"></div>
+                <td style="vertical-align:middle;padding:0 10px;">
+                  <div style="background:{{ C.line }};border-radius:4px;height:6px;">
+                    <div style="background:{{ C.accent }};border-radius:4px;height:6px;width:{{ bar_w }}%;"></div>
                   </div>
                 </td>
                 <td align="right" style="vertical-align:middle;white-space:nowrap;">
                   <strong style="font-size:14px;color:{{ C.text }};">{{ w_pct }}%</strong>
                   <span style="font-size:12px;color:{{ C.ter }};margin-left:5px;">{{ s.value_usd|usd }}</span>
+                  {%- if s.qoq_weight_change is not none %}
+                  {%- set dq1 = (s.qoq_weight_change * 100)|round(1) %}
+                  {%- set dq1_color = C.green_tx if dq1 > 0 else (C.red_tx if dq1 < 0 else C.ter) %}
+                  <span style="font-size:11px;font-weight:600;color:{{ dq1_color }};margin-left:8px;">
+                    {{ '%+.1f%%'|format(dq1) }} vs {{ s.qoq_quarter_label }}
+                  </span>
+                  {%- endif %}
+                  {%- if s.prev_qoq_weight_change is not none %}
+                  {%- set dq2 = (s.prev_qoq_weight_change * 100)|round(1) %}
+                  {%- set dq2_color = C.green_tx if dq2 > 0 else (C.red_tx if dq2 < 0 else C.ter) %}
+                  <span style="font-size:11px;color:{{ dq2_color }};margin-left:6px;opacity:0.75;">
+                    {{ '%+.1f%%'|format(dq2) }} vs {{ s.prev_qoq_quarter_label }}
+                  </span>
+                  {%- endif %}
                 </td>
               </tr>
             </table>

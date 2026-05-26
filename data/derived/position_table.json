@@ -2662,7 +2662,21 @@
         "CORZ"
       ],
       "exits": [],
-      "portfolio_weight": 0.2883
+      "portfolio_weight": 0.2883,
+      "portfolio_weight_by_quarter": [
+        0.395,
+        0.274,
+        0.2883
+      ],
+      "quarter_labels": [
+        "Q3 2025",
+        "Q4 2025",
+        "Q1 2026"
+      ],
+      "qoq_weight_change": 0.0143,
+      "prev_qoq_weight_change": -0.121,
+      "qoq_quarter_label": "Q4 2025",
+      "prev_qoq_quarter_label": "Q3 2025"
     },
     {
       "sector": "Energy",
@@ -2676,7 +2690,21 @@
         "BE"
       ],
       "exits": [],
-      "portfolio_weight": 0.2313
+      "portfolio_weight": 0.2313,
+      "portfolio_weight_by_quarter": [
+        0.1561,
+        0.2626,
+        0.2313
+      ],
+      "quarter_labels": [
+        "Q3 2025",
+        "Q4 2025",
+        "Q1 2026"
+      ],
+      "qoq_weight_change": -0.0313,
+      "prev_qoq_weight_change": 0.1065,
+      "qoq_quarter_label": "Q4 2025",
+      "prev_qoq_quarter_label": "Q3 2025"
     },
     {
       "sector": "AI Infrastructure",
@@ -2691,7 +2719,21 @@
       ],
       "trims": [],
       "exits": [],
-      "portfolio_weight": 0.2272
+      "portfolio_weight": 0.2272,
+      "portfolio_weight_by_quarter": [
+        0.3442,
+        0.1826,
+        0.2272
+      ],
+      "quarter_labels": [
+        "Q3 2025",
+        "Q4 2025",
+        "Q1 2026"
+      ],
+      "qoq_weight_change": 0.0446,
+      "prev_qoq_weight_change": -0.1616,
+      "qoq_quarter_label": "Q4 2025",
+      "prev_qoq_quarter_label": "Q3 2025"
     },
     {
       "sector": "Technology",
@@ -2709,7 +2751,21 @@
       ],
       "trims": [],
       "exits": [],
-      "portfolio_weight": 0.1982
+      "portfolio_weight": 0.1982,
+      "portfolio_weight_by_quarter": [
+        0.0145,
+        0.216,
+        0.1982
+      ],
+      "quarter_labels": [
+        "Q3 2025",
+        "Q4 2025",
+        "Q1 2026"
+      ],
+      "qoq_weight_change": -0.0178,
+      "prev_qoq_weight_change": 0.2015,
+      "qoq_quarter_label": "Q4 2025",
+      "prev_qoq_quarter_label": "Q3 2025"
     },
     {
       "sector": "Energy Infrastructure",
@@ -2725,7 +2781,21 @@
         "SEI"
       ],
       "exits": [],
-      "portfolio_weight": 0.0276
+      "portfolio_weight": 0.0276,
+      "portfolio_weight_by_quarter": [
+        0.0225,
+        0.0219,
+        0.0276
+      ],
+      "quarter_labels": [
+        "Q3 2025",
+        "Q4 2025",
+        "Q1 2026"
+      ],
+      "qoq_weight_change": 0.0057,
+      "prev_qoq_weight_change": -0.0006,
+      "qoq_quarter_label": "Q4 2025",
+      "prev_qoq_quarter_label": "Q3 2025"
     },
     {
       "sector": "Semiconductors",
@@ -2748,7 +2818,21 @@
       ],
       "trims": [],
       "exits": [],
-      "portfolio_weight": 0.0127
+      "portfolio_weight": 0.0127,
+      "portfolio_weight_by_quarter": [
+        0.0167,
+        0.0217,
+        0.0127
+      ],
+      "quarter_labels": [
+        "Q3 2025",
+        "Q4 2025",
+        "Q1 2026"
+      ],
+      "qoq_weight_change": -0.009,
+      "prev_qoq_weight_change": 0.005,
+      "qoq_quarter_label": "Q4 2025",
+      "prev_qoq_quarter_label": "Q3 2025"
     },
     {
       "sector": "Industrial",
@@ -2759,7 +2843,21 @@
       "adds": [],
       "trims": [],
       "exits": [],
-      "portfolio_weight": 0.0068
+      "portfolio_weight": 0.0068,
+      "portfolio_weight_by_quarter": [
+        0.0,
+        0.0063,
+        0.0068
+      ],
+      "quarter_labels": [
+        "Q3 2025",
+        "Q4 2025",
+        "Q1 2026"
+      ],
+      "qoq_weight_change": 0.0005,
+      "prev_qoq_weight_change": 0.0063,
+      "qoq_quarter_label": "Q4 2025",
+      "prev_qoq_quarter_label": "Q3 2025"
     },
     {
       "sector": "Energy/Industrial",
@@ -2770,7 +2868,21 @@
       "adds": [],
       "trims": [],
       "exits": [],
-      "portfolio_weight": 0.0052
+      "portfolio_weight": 0.0052,
+      "portfolio_weight_by_quarter": [
+        0.0,
+        0.0022,
+        0.0052
+      ],
+      "quarter_labels": [
+        "Q3 2025",
+        "Q4 2025",
+        "Q1 2026"
+      ],
+      "qoq_weight_change": 0.003,
+      "prev_qoq_weight_change": 0.0022,
+      "qoq_quarter_label": "Q4 2025",
+      "prev_qoq_quarter_label": "Q3 2025"
     },
     {
       "sector": "ETF",
@@ -2783,7 +2895,21 @@
       ],
       "trims": [],
       "exits": [],
-      "portfolio_weight": 0.0027
+      "portfolio_weight": 0.0027,
+      "portfolio_weight_by_quarter": [
+        0.0,
+        0.0,
+        0.0027
+      ],
+      "quarter_labels": [
+        "Q3 2025",
+        "Q4 2025",
+        "Q1 2026"
+      ],
+      "qoq_weight_change": 0.0027,
+      "prev_qoq_weight_change": 0.0,
+      "qoq_quarter_label": "Q4 2025",
+      "prev_qoq_quarter_label": "Q3 2025"
     }
   ]
 }
