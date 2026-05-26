@@ -235,6 +235,12 @@ def build(cfg: Config, parsed_quarters: list[dict],
 
     for s in common.values():
         info = cusip_map.resolve(s.cusip, s.issuer, overrides)
+        # Bond CUSIPs occasionally appear in 13F filings with wrong CUSIPs (filer
+        # error). OpenFIGI identifies these as bonds; skip them entirely so they
+        # don't generate phantom exits or pollute the common-stock model.
+        if info["mapping"] == "openfigi_bond":
+            log.debug("Skipping bond CUSIP %s (%s)", s.cusip, s.issuer)
+            continue
         weight = s.values[-1] / total_common_value
         shares_latest = s.shares[-1]
         shares_prev = s.shares[-2] if len(s.shares) > 1 else 0
@@ -371,7 +377,11 @@ def build(cfg: Config, parsed_quarters: list[dict],
         _sec_map[sec]["tickers"].append(t)
         if r["status"] in (STATUS_STRONG_ADD, STATUS_NEW_ADD, STATUS_NEW_BUY):
             _sec_map[sec]["adds"].append(t)
-        elif r["status"] in (STATUS_TRIM,):
+        elif r["status"] == STATUS_TRIM or (
+            r["status"] == STATUS_HOLD
+            and isinstance(r.get("qoq_share_change_pct"), float)
+            and r["qoq_share_change_pct"] < 0
+        ):
             _sec_map[sec]["trims"].append(t)
         elif r["status"] == STATUS_EXIT:
             _sec_map[sec]["exits"].append(t)

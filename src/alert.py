@@ -84,10 +84,15 @@ def _build_tldr(model: dict) -> dict:
     # changed across quarters), then sort largest-exited position first.
     # Exclude issuers that still have an active common-stock position — this
     # happens when a CUSIP changed (e.g. corporate action) across quarters.
-    _active_names = {
-        (r.get("ticker") or r.get("issuer") or "").strip()
-        for r in model.get("common_stock", [])
-    }
+    # Build the set from BOTH ticker and issuer so that a bond-CUSIP exit whose
+    # row has no ticker (name falls back to issuer) is still matched against the
+    # active equity position (which uses the ticker as its primary key).
+    _active_names: set[str] = set()
+    for r in model.get("common_stock", []):
+        if r.get("ticker"):
+            _active_names.add(r["ticker"].strip())
+        if r.get("issuer"):
+            _active_names.add(r["issuer"].strip())
     _exit_by_name: dict[str, int] = {}
     for r in model.get("exits", []):
         name = (r.get("ticker") or r.get("issuer") or "").strip()
@@ -106,10 +111,14 @@ def _build_tldr(model: dict) -> dict:
         and (r.get("ticker") or r.get("issuer"))
         and r.get("status") not in ("new_buy",)
     ]
+    # Only include puts that are still active in the latest quarter (notional > 0).
+    # The options list may contain expired/closed puts from prior quarters.
     puts = [
         r["ticker"] or r["underlying"]
         for r in model.get("options", [])
-        if r.get("instrument") == "PUT" and (r.get("ticker") or r.get("underlying"))
+        if r.get("instrument") == "PUT"
+        and r.get("notional_latest_usd", 0) > 0
+        and (r.get("ticker") or r.get("underlying"))
     ]
 
     return {
@@ -117,7 +126,7 @@ def _build_tldr(model: dict) -> dict:
         "new_buys": new_buys[:10],
         "strong_adds": strong_adds[:10],
         "exits": exits_sorted[:10],
-        "puts_shorts": puts[:10],
+        "puts_shorts": puts,
         "total_value": model.get("summary", {}).get("common_stock_long_exposure_usd"),
         "top_positions": model.get("common_stock", [])[:5],
     }
