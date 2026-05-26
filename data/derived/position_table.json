@@ -81,7 +81,8 @@
         "has_active_call": true,
         "call_went_zero": false,
         "call_heavily_reduced": false,
-        "call_reduction_usd": 0
+        "call_reduction_usd": 0,
+        "call_reduction_pct": 0.0
       }
     },
     {
@@ -128,7 +129,8 @@
         "has_active_call": true,
         "call_went_zero": false,
         "call_heavily_reduced": false,
-        "call_reduction_usd": 0
+        "call_reduction_usd": 0,
+        "call_reduction_pct": 0.0
       }
     },
     {
@@ -175,7 +177,8 @@
         "has_active_call": true,
         "call_went_zero": false,
         "call_heavily_reduced": true,
-        "call_reduction_usd": 633857030
+        "call_reduction_usd": 633857030,
+        "call_reduction_pct": 0.8185
       }
     },
     {
@@ -673,7 +676,8 @@
         "has_active_call": false,
         "call_went_zero": false,
         "call_heavily_reduced": false,
-        "call_reduction_usd": 0
+        "call_reduction_usd": 0,
+        "call_reduction_pct": 0.0
       }
     },
     {
@@ -843,7 +847,8 @@
         "has_active_call": false,
         "call_went_zero": false,
         "call_heavily_reduced": false,
-        "call_reduction_usd": 0
+        "call_reduction_usd": 0,
+        "call_reduction_pct": 0.0
       }
     },
     {
@@ -890,7 +895,8 @@
         "has_active_call": false,
         "call_went_zero": true,
         "call_heavily_reduced": false,
-        "call_reduction_usd": 746760060
+        "call_reduction_usd": 746760060,
+        "call_reduction_pct": 0.0
       }
     },
     {
@@ -937,7 +943,8 @@
         "has_active_call": true,
         "call_went_zero": false,
         "call_heavily_reduced": false,
-        "call_reduction_usd": 0
+        "call_reduction_usd": 0,
+        "call_reduction_pct": 0.0
       }
     },
     {
@@ -1025,7 +1032,8 @@
         "has_active_call": false,
         "call_went_zero": false,
         "call_heavily_reduced": false,
-        "call_reduction_usd": 0
+        "call_reduction_usd": 0,
+        "call_reduction_pct": 0.0
       }
     },
     {
@@ -1072,7 +1080,8 @@
         "has_active_call": true,
         "call_went_zero": false,
         "call_heavily_reduced": false,
-        "call_reduction_usd": 0
+        "call_reduction_usd": 0,
+        "call_reduction_pct": 0.0
       }
     },
     {
@@ -1119,7 +1128,8 @@
         "has_active_call": false,
         "call_went_zero": false,
         "call_heavily_reduced": false,
-        "call_reduction_usd": 0
+        "call_reduction_usd": 0,
+        "call_reduction_pct": 0.0
       }
     },
     {
@@ -1166,7 +1176,8 @@
         "has_active_call": false,
         "call_went_zero": false,
         "call_heavily_reduced": false,
-        "call_reduction_usd": 0
+        "call_reduction_usd": 0,
+        "call_reduction_pct": 0.0
       }
     }
   ],
@@ -1215,7 +1226,8 @@
         "has_active_call": false,
         "call_went_zero": false,
         "call_heavily_reduced": false,
-        "call_reduction_usd": 0
+        "call_reduction_usd": 0,
+        "call_reduction_pct": 0.0
       }
     },
     {
@@ -1262,7 +1274,8 @@
         "has_active_call": false,
         "call_went_zero": false,
         "call_heavily_reduced": false,
-        "call_reduction_usd": 0
+        "call_reduction_usd": 0,
+        "call_reduction_pct": 0.0
       }
     },
     {
@@ -1309,7 +1322,8 @@
         "has_active_call": false,
         "call_went_zero": false,
         "call_heavily_reduced": false,
-        "call_reduction_usd": 0
+        "call_reduction_usd": 0,
+        "call_reduction_pct": 0.0
       }
     },
     {
@@ -1397,7 +1411,8 @@
         "has_active_call": true,
         "call_went_zero": false,
         "call_heavily_reduced": false,
-        "call_reduction_usd": 0
+        "call_reduction_usd": 0,
+        "call_reduction_pct": 0.0
       }
     },
     {
@@ -1444,7 +1459,8 @@
         "has_active_call": false,
         "call_went_zero": false,
         "call_heavily_reduced": false,
-        "call_reduction_usd": 0
+        "call_reduction_usd": 0,
+        "call_reduction_pct": 0.0
       }
     },
     {
@@ -1573,7 +1589,8 @@
         "has_active_call": true,
         "call_went_zero": false,
         "call_heavily_reduced": false,
-        "call_reduction_usd": 0
+        "call_reduction_usd": 0,
+        "call_reduction_pct": 0.0
       }
     },
     {
@@ -1620,7 +1637,8 @@
         "has_active_call": false,
         "call_went_zero": false,
         "call_heavily_reduced": false,
-        "call_reduction_usd": 0
+        "call_reduction_usd": 0,
+        "call_reduction_pct": 0.0
       }
     }
   ],
@@ -2368,112 +2386,128 @@
       "has_active_call": false,
       "call_went_zero": false,
       "call_heavily_reduced": false,
-      "call_reduction_usd": 0
+      "call_reduction_usd": 0,
+      "call_reduction_pct": 0.0
     },
     "NVDA": {
       "has_active_put": true,
       "has_active_call": false,
       "call_went_zero": false,
       "call_heavily_reduced": false,
-      "call_reduction_usd": 0
+      "call_reduction_usd": 0,
+      "call_reduction_pct": 0.0
     },
     "ORCL": {
       "has_active_put": true,
       "has_active_call": false,
       "call_went_zero": false,
       "call_heavily_reduced": false,
-      "call_reduction_usd": 0
+      "call_reduction_usd": 0,
+      "call_reduction_pct": 0.0
     },
     "AVGO": {
       "has_active_put": true,
       "has_active_call": false,
       "call_went_zero": false,
       "call_heavily_reduced": false,
-      "call_reduction_usd": 0
+      "call_reduction_usd": 0,
+      "call_reduction_pct": 0.0
     },
     "AMD": {
       "has_active_put": true,
       "has_active_call": false,
       "call_went_zero": false,
       "call_heavily_reduced": false,
-      "call_reduction_usd": 0
+      "call_reduction_usd": 0,
+      "call_reduction_pct": 0.0
     },
     "MU": {
       "has_active_put": true,
       "has_active_call": true,
       "call_went_zero": false,
       "call_heavily_reduced": false,
-      "call_reduction_usd": 0
+      "call_reduction_usd": 0,
+      "call_reduction_pct": 0.0
     },
     "TSM": {
       "has_active_put": true,
       "has_active_call": true,
       "call_went_zero": false,
       "call_heavily_reduced": false,
-      "call_reduction_usd": 0
+      "call_reduction_usd": 0,
+      "call_reduction_pct": 0.0
     },
     "ASML": {
       "has_active_put": true,
       "has_active_call": false,
       "call_went_zero": false,
       "call_heavily_reduced": false,
-      "call_reduction_usd": 0
+      "call_reduction_usd": 0,
+      "call_reduction_pct": 0.0
     },
     "SNDK": {
       "has_active_put": false,
       "has_active_call": true,
       "call_went_zero": false,
       "call_heavily_reduced": false,
-      "call_reduction_usd": 0
+      "call_reduction_usd": 0,
+      "call_reduction_pct": 0.0
     },
     "INTC": {
       "has_active_put": true,
       "has_active_call": false,
       "call_went_zero": true,
       "call_heavily_reduced": false,
-      "call_reduction_usd": 746760060
+      "call_reduction_usd": 746760060,
+      "call_reduction_pct": 0.0
     },
     "CRWV": {
       "has_active_put": false,
       "has_active_call": true,
       "call_went_zero": false,
       "call_heavily_reduced": true,
-      "call_reduction_usd": 633857030
+      "call_reduction_usd": 633857030,
+      "call_reduction_pct": 0.8185
     },
     "BE": {
       "has_active_put": false,
       "has_active_call": true,
       "call_went_zero": false,
       "call_heavily_reduced": false,
-      "call_reduction_usd": 0
+      "call_reduction_usd": 0,
+      "call_reduction_pct": 0.0
     },
     "GLW": {
       "has_active_put": true,
       "has_active_call": false,
       "call_went_zero": false,
       "call_heavily_reduced": false,
-      "call_reduction_usd": 0
+      "call_reduction_usd": 0,
+      "call_reduction_pct": 0.0
     },
     "INFY": {
       "has_active_put": true,
       "has_active_call": false,
       "call_went_zero": false,
       "call_heavily_reduced": false,
-      "call_reduction_usd": 0
+      "call_reduction_usd": 0,
+      "call_reduction_pct": 0.0
     },
     "GDX": {
       "has_active_put": false,
       "has_active_call": false,
       "call_went_zero": false,
       "call_heavily_reduced": false,
-      "call_reduction_usd": 0
+      "call_reduction_usd": 0,
+      "call_reduction_pct": 0.0
     },
     "EQT": {
       "has_active_put": false,
       "has_active_call": false,
       "call_went_zero": false,
       "call_heavily_reduced": false,
-      "call_reduction_usd": 0
+      "call_reduction_usd": 0,
+      "call_reduction_pct": 0.0
     }
   },
   "top_signals": [
@@ -2489,13 +2523,15 @@
       "three_quarter_trend": "up_up_up",
       "price_change_since_quarter_end_pct": 1.3562,
       "conviction_score": 7.5,
-      "recommendation": "Watch / bei Schwäche",
+      "entry_score": 0,
+      "recommendation": "High Conviction",
       "options_context": {
         "has_active_put": false,
         "has_active_call": true,
         "call_went_zero": false,
         "call_heavily_reduced": false,
-        "call_reduction_usd": 0
+        "call_reduction_usd": 0,
+        "call_reduction_pct": 0.0
       }
     },
     {
@@ -2510,6 +2546,23 @@
       "three_quarter_trend": "up_up_up",
       "price_change_since_quarter_end_pct": 0.7562,
       "conviction_score": 7.5,
+      "entry_score": 1,
+      "recommendation": "High Conviction",
+      "options_context": {}
+    },
+    {
+      "ticker": "APLD",
+      "issuer": "APPLIED DIGITAL CORP",
+      "status_label": "Strong Add",
+      "has_13dg": false,
+      "portfolio_weight_common_stock": 0.083,
+      "value_latest_usd": 319978118,
+      "qoq_dollar_delta": 50788834,
+      "qoq_share_change_pct": 0.1886733115443432,
+      "three_quarter_trend": "up_up_up",
+      "price_change_since_quarter_end_pct": 0.8661,
+      "conviction_score": 6.6,
+      "entry_score": 1,
       "recommendation": "Watch / bei Schwäche",
       "options_context": {}
     },
@@ -2524,30 +2577,17 @@
       "qoq_share_change_pct": 0.17693724613908413,
       "three_quarter_trend": "up_up_up",
       "price_change_since_quarter_end_pct": 0.3497,
-      "conviction_score": 7.4,
+      "conviction_score": 6.2,
+      "entry_score": 3,
       "recommendation": "Watch / bei Schwäche",
       "options_context": {
         "has_active_put": false,
         "has_active_call": true,
         "call_went_zero": false,
         "call_heavily_reduced": true,
-        "call_reduction_usd": 633857030
+        "call_reduction_usd": 633857030,
+        "call_reduction_pct": 0.8185
       }
-    },
-    {
-      "ticker": "APLD",
-      "issuer": "APPLIED DIGITAL CORP",
-      "status_label": "Strong Add",
-      "has_13dg": false,
-      "portfolio_weight_common_stock": 0.083,
-      "value_latest_usd": 319978118,
-      "qoq_dollar_delta": 50788834,
-      "qoq_share_change_pct": 0.1886733115443432,
-      "three_quarter_trend": "up_up_up",
-      "price_change_since_quarter_end_pct": 0.8661,
-      "conviction_score": 6.6,
-      "recommendation": "Watch / bei Schwäche",
-      "options_context": {}
     },
     {
       "ticker": "RIOT",
@@ -2561,6 +2601,7 @@
       "three_quarter_trend": "up_up_up",
       "price_change_since_quarter_end_pct": 1.0693,
       "conviction_score": 5.8,
+      "entry_score": 0,
       "recommendation": "Beobachten",
       "options_context": {}
     }

@@ -177,7 +177,7 @@
                style="border-bottom:{% if not loop.last %}1px solid {{ C.line }}{% else %}none{% endif %};">
           <tr><td style="padding:14px 18px;">
 
-            <!-- Row 1: rank · ticker · score pill -->
+            <!-- Row 1: rank · ticker · conviction score pill -->
             <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
               <tr>
                 <td style="vertical-align:middle;">
@@ -186,8 +186,8 @@
                   <span style="font-size:13px;color:{{ C.sec }};margin-left:6px;">{{ sig.issuer[:35] }}</span>
                 </td>
                 <td align="right" style="vertical-align:middle;white-space:nowrap;">
-                  <span style="display:inline-block;background:{{ score_bg }};color:{{ score_color }};font-size:12px;font-weight:700;padding:3px 10px;border-radius:980px;">
-                    {{ score }}/10
+                  <span style="display:inline-block;background:{{ score_bg }};color:{{ score_color }};font-size:11px;font-weight:600;padding:3px 9px;border-radius:980px;">
+                    13F {{ score }}/10
                   </span>
                 </td>
               </tr>
@@ -234,11 +234,24 @@
               </tr>
             </table>
 
-            <!-- Row 3: Recommendation + delay caveat -->
-            <div style="margin-top:8px;font-size:13px;font-weight:600;color:{{ score_color }};">
-              → {{ sig.recommendation }}
-              <span style="font-size:11px;font-weight:400;color:{{ C.ter }};margin-left:6px;">· 13F-Daten bis zu 45 Tage alt</span>
-            </div>
+            <!-- Row 3: Conviction recommendation + Entry score -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:8px;">
+              <tr>
+                <td style="vertical-align:middle;">
+                  <span style="font-size:13px;font-weight:600;color:{{ score_color }};">→ {{ sig.recommendation }}</span>
+                  <span style="font-size:11px;font-weight:400;color:{{ C.ter }};margin-left:6px;">· 13F-Daten bis zu 45 Tage alt</span>
+                </td>
+                <td align="right" style="vertical-align:middle;white-space:nowrap;">
+                  {%- set es = sig.entry_score | default(5) -%}
+                  {%- if es >= 7 -%}{%- set es_bg = C.green_bg -%}{%- set es_tx = C.green_tx -%}
+                  {%- elif es >= 5 -%}{%- set es_bg = C.amber_bg -%}{%- set es_tx = C.amber_tx -%}
+                  {%- else -%}{%- set es_bg = C.red_bg -%}{%- set es_tx = C.red_tx -%}{%- endif -%}
+                  <span style="display:inline-block;background:{{ es_bg }};color:{{ es_tx }};font-size:11px;font-weight:600;padding:3px 9px;border-radius:980px;">
+                    Entry {{ es }}/10
+                  </span>
+                </td>
+              </tr>
+            </table>
 
             <!-- Row 4: Options context warnings (only when relevant) -->
             {%- set octx = sig.options_context or {} -%}

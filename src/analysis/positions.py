@@ -36,28 +36,32 @@ STATUS_LABEL = {
 }
 
 _SIGNAL_STATUSES = {STATUS_STRONG_ADD, STATUS_NEW_ADD, STATUS_NEW_BUY}
-_SCORE_THRESHOLD = 5.0
+_SCORE_THRESHOLD = 4.8
 _TOP_SIGNALS_N = 5
 
 
 def _conviction_score(row: dict) -> float:
-    """Weighted 0–10 conviction score for copy-trading decisions.
+    """13F-only conviction score (0–10).
 
-    Components (max):
-      Portfolio weight   2.5  — primary conviction indicator
-      QoQ $ delta        2.5  — dollar add beats raw percentage (avoids 1→200k noise)
-      3-quarter trend    2.0  — consistency across quarters
-      Absolute value     1.5  — avoids micro-positions dominating
-      Price opportunity  1.0  — penalise if >50% already moved since filing
-      13D/G bonus       +1.5  — ownership filing = stronger/faster signal
-      (total capped at 10.0)
+    Answers: what did the manager do at filing time?
+    Price movement is excluded — that belongs in entry_score.
+
+    Components (max 8.5 without 13D/G, 10.0 with):
+      Portfolio weight   2.5
+      QoQ $ delta        2.5
+      3-quarter trend    2.0
+      Absolute value     1.5
+      13D/G bonus       +1.5
+    Options structure penalties (factual, not directional):
+      call_went_zero + has_active_put  −1.5
+      call_heavily_reduced ≥70%/$250M  −0.75
+      call_heavily_reduced ≥50%/$100M  −0.5
     """
     w = row["portfolio_weight_common_stock"]
     dollar_delta = row.get("qoq_dollar_delta", 0)
     is_new = row.get("value_prev_quarter_usd", -1) == 0
     trend = row.get("three_quarter_trend", "")
     val = row.get("value_latest_usd", 0)
-    pm = row.get("price_change_since_quarter_end_pct")
     has_13dg = row.get("has_13dg", False)
 
     if w >= 0.15:       w_score = 2.5
@@ -66,7 +70,6 @@ def _conviction_score(row: dict) -> float:
     elif w >= 0.01:     w_score = 1.0
     else:               w_score = 0.5
 
-    # Dollar delta: new buys scored on full position size
     if is_new:
         q_score = 2.0 if val >= 50_000_000 else 1.5
     elif dollar_delta >= 200_000_000:  q_score = 2.5
@@ -85,14 +88,38 @@ def _conviction_score(row: dict) -> float:
     elif val >= 25_000_000:   v_score = 0.5
     else:                     v_score = 0.2
 
-    if pm is None:      p_score = 0.8   # unknown, neutral
-    elif pm > 0.5:      p_score = 0.0   # ship has sailed (+50%+)
-    elif pm > 0.2:      p_score = 0.4   # partially sailed
-    else:               p_score = 1.0   # still opportunity (or dip)
-
     dg_bonus = 1.5 if has_13dg else 0.0
 
-    return min(10.0, round(w_score + q_score + t_score + v_score + p_score + dg_bonus, 1))
+    raw = w_score + q_score + t_score + v_score + dg_bonus
+
+    octx = row.get("options_context", {})
+    if octx.get("call_went_zero") and octx.get("has_active_put"):
+        raw -= 1.5
+    elif octx.get("call_heavily_reduced"):
+        red_pct = octx.get("call_reduction_pct", 0)
+        red_usd = octx.get("call_reduction_usd", 0)
+        if red_pct >= 0.70 and red_usd >= 250_000_000:
+            raw -= 0.75
+        elif red_pct >= 0.50 and red_usd >= 100_000_000:
+            raw -= 0.5
+
+    return min(10.0, round(max(0.0, raw), 1))
+
+
+def _entry_score(price_change: float | None) -> int:
+    """0–10 entry opportunity based on price movement since 13F filing date.
+
+    Answers: is the trade still attractively priced today?
+    Higher = better entry (stock pulled back or hasn't moved).
+    """
+    if price_change is None:    return 5   # no data — neutral
+    if price_change <= -0.20:   return 10
+    if price_change <= -0.05:   return 8
+    if price_change <= 0.10:    return 7
+    if price_change <= 0.25:    return 5
+    if price_change <= 0.50:    return 3
+    if price_change <= 1.00:    return 1
+    return 0
 
 
 def _build_top_signals(common_rows: list[dict]) -> list[dict]:
@@ -103,15 +130,15 @@ def _build_top_signals(common_rows: list[dict]) -> list[dict]:
             continue
         if r.get("value_latest_usd", 0) < 25_000_000:
             continue
-        # Require meaningful dollar add (or new buy)
         if r.get("value_prev_quarter_usd", -1) != 0 and r.get("qoq_dollar_delta", 0) < 5_000_000:
             continue
         score = _conviction_score(r)
         if score < _SCORE_THRESHOLD:
             continue
-        if score >= 8.0:      rec = "High Conviction"
-        elif score >= 6.5:    rec = "Watch / bei Schwäche"
+        if score >= 7.5:      rec = "High Conviction"
+        elif score >= 6.0:    rec = "Watch / bei Schwäche"
         else:                 rec = "Beobachten"
+        es = _entry_score(r.get("price_change_since_quarter_end_pct"))
         signals.append({
             "ticker": r["ticker"],
             "issuer": r["issuer"],
@@ -124,6 +151,7 @@ def _build_top_signals(common_rows: list[dict]) -> list[dict]:
             "three_quarter_trend": r["three_quarter_trend"],
             "price_change_since_quarter_end_pct": r.get("price_change_since_quarter_end_pct"),
             "conviction_score": score,
+            "entry_score": es,
             "recommendation": rec,
             "options_context": r.get("options_context", {}),
         })
@@ -350,7 +378,7 @@ def build(cfg: Config, parsed_quarters: list[dict],
         ctx = _opt_ctx.setdefault(tk, {
             "has_active_put": False, "has_active_call": False,
             "call_went_zero": False, "call_heavily_reduced": False,
-            "call_reduction_usd": 0,
+            "call_reduction_usd": 0, "call_reduction_pct": 0.0,
         })
         vals = opt.get("notional_by_quarter", [])
         prev_val = vals[-2] if len(vals) >= 2 else 0
@@ -365,9 +393,11 @@ def build(cfg: Config, parsed_quarters: list[dict],
                 ctx["call_reduction_usd"] = max(ctx["call_reduction_usd"], prev_val)
             elif prev_val > 100_000_000 and latest_val > 0:
                 reduction = prev_val - latest_val
-                if reduction > 0 and reduction / prev_val > 0.5:
+                red_pct = reduction / prev_val
+                if reduction > 0 and red_pct > 0.5:
                     ctx["call_heavily_reduced"] = True
                     ctx["call_reduction_usd"] = max(ctx["call_reduction_usd"], reduction)
+                    ctx["call_reduction_pct"] = max(ctx["call_reduction_pct"], round(red_pct, 4))
     for row in common_rows:
         row["options_context"] = _opt_ctx.get(row.get("ticker") or "", {})
 
