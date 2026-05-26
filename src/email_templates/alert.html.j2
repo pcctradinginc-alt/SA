@@ -341,32 +341,42 @@
       <tr><td style="padding:4px 0;">
         {% for s in sector_breakdown %}
         {% if s.portfolio_weight >= 0.01 %}
+        {%- set w_pct = (s.portfolio_weight * 100)|round(1) -%}
+        {%- set bar_w = [((s.portfolio_weight / 0.35) * 100)|round(0)|int, 100]|min -%}
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
                style="border-bottom:{% if not loop.last %}1px solid {{ C.line }}{% else %}none{% endif %};">
-          <tr><td style="padding:10px 16px;">
+          <tr><td style="padding:11px 16px;">
+
+            <!-- Row 1: name + weight bar + value -->
             <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
               <tr>
-                <td style="vertical-align:middle;">
-                  <span style="font-size:13px;font-weight:600;color:{{ C.text }};">{{ s.sector }}</span>
-                  <span style="font-size:12px;color:{{ C.ter }};margin-left:8px;">
-                    {{ s.tickers | join(' · ') }}
-                  </span>
+                <td style="vertical-align:middle;width:38%;">
+                  <span style="font-size:13px;font-weight:700;color:{{ C.text }};">{{ s.sector }}</span>
                 </td>
-                <td align="right" style="vertical-align:middle;white-space:nowrap;font-size:12px;color:{{ C.sec }};">
-                  {{ s.value_usd | usd }}
-                  &nbsp;·&nbsp;
-                  <strong style="color:{{ C.text }};">{{ (s.portfolio_weight * 100) | round(1) }}%</strong>
-                  {% if s.adds %}
-                  &nbsp;·&nbsp;
-                  <span style="color:{{ C.green_tx }};font-weight:600;">↑ {{ s.adds | join(' ') }}</span>
-                  {% endif %}
-                  {% if s.trims %}
-                  &nbsp;·&nbsp;
-                  <span style="color:{{ C.red_tx }};">↓ {{ s.trims | join(' ') }}</span>
-                  {% endif %}
+                <td style="vertical-align:middle;padding:0 12px;">
+                  <div style="background:{{ C.line }};border-radius:4px;height:5px;">
+                    <div style="background:{{ C.accent }};border-radius:4px;height:5px;width:{{ bar_w }}%;"></div>
+                  </div>
+                </td>
+                <td align="right" style="vertical-align:middle;white-space:nowrap;">
+                  <strong style="font-size:14px;color:{{ C.text }};">{{ w_pct }}%</strong>
+                  <span style="font-size:12px;color:{{ C.ter }};margin-left:5px;">{{ s.value_usd|usd }}</span>
                 </td>
               </tr>
             </table>
+
+            <!-- Row 2: add/trim pills (only if any movement) -->
+            {% if s.adds or s.trims %}
+            <div style="margin-top:7px;line-height:1.8;">
+              {% for t in s.adds %}
+              <span style="display:inline-block;background:{{ C.green_bg }};color:{{ C.green_tx }};font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;margin:1px 3px 1px 0;">↑ {{ t }}</span>
+              {% endfor %}
+              {% for t in s.trims %}
+              <span style="display:inline-block;background:{{ C.red_bg }};color:{{ C.red_tx }};font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;margin:1px 3px 1px 0;">↓ {{ t }}</span>
+              {% endfor %}
+            </div>
+            {% endif %}
+
           </td></tr>
         </table>
         {% endif %}
