@@ -125,6 +125,7 @@ def _build_top_signals(common_rows: list[dict]) -> list[dict]:
             "price_change_since_quarter_end_pct": r.get("price_change_since_quarter_end_pct"),
             "conviction_score": score,
             "recommendation": rec,
+            "options_context": r.get("options_context", {}),
         })
     signals.sort(key=lambda x: x["conviction_score"], reverse=True)
     return signals[:_TOP_SIGNALS_N]
@@ -313,6 +314,63 @@ def build(cfg: Config, parsed_quarters: list[dict],
                 new_buys.append(row)
 
     common_rows.sort(key=lambda r: r["value_latest_usd"], reverse=True)
+
+    # ── options ──────────────────────────────────────────────────────────────
+    options = _collect(parsed_quarters, {OPTION_PUT, OPTION_CALL})
+    total_option_notional = sum(s.values[-1] for s in options.values())
+    option_rows: list[dict] = []
+    for s in options.values():
+        info = cusip_map.resolve(s.cusip, s.issuer, overrides)
+        underlying_move = None
+        if cfg.prices_enabled and info["yfinance_symbol"]:
+            qe = prices.quarter_end_price(info["yfinance_symbol"], report_date)
+            cur = prices.current_price(info["yfinance_symbol"])
+            if qe and cur:
+                underlying_move = round((cur - qe) / qe, 4)
+        option_rows.append({
+            "underlying": s.issuer,
+            "ticker": info["ticker"],
+            "instrument": "PUT" if s.instrument_type == OPTION_PUT else "CALL",
+            "notional_by_quarter": s.values,
+            "notional_latest_usd": s.values[-1],
+            "qoq_notional_change_pct": _qoq(s.values[-2] if len(s.values) > 1 else 0, s.values[-1]),
+            "underlying_price_move": underlying_move,
+            "interpretation_risk": "Notional, not premium; long/short direction unknown",
+        })
+    option_rows.sort(key=lambda r: r["notional_latest_usd"], reverse=True)
+
+    # Per-ticker options context used to enrich common-stock rows and the TLDR.
+    # call_went_zero: Call >$50M vanished this quarter (possible strategy flip to bearish)
+    # call_heavily_reduced: Call reduced >50% from a >$100M base (significant derisking)
+    _opt_ctx: dict[str, dict] = {}
+    for opt in option_rows:
+        tk = opt.get("ticker") or ""
+        if not tk:
+            continue
+        ctx = _opt_ctx.setdefault(tk, {
+            "has_active_put": False, "has_active_call": False,
+            "call_went_zero": False, "call_heavily_reduced": False,
+            "call_reduction_usd": 0,
+        })
+        vals = opt.get("notional_by_quarter", [])
+        prev_val = vals[-2] if len(vals) >= 2 else 0
+        latest_val = opt.get("notional_latest_usd", 0)
+        if opt["instrument"] == "PUT" and latest_val > 0:
+            ctx["has_active_put"] = True
+        if opt["instrument"] == "CALL":
+            if latest_val > 0:
+                ctx["has_active_call"] = True
+            if prev_val > 50_000_000 and latest_val == 0:
+                ctx["call_went_zero"] = True
+                ctx["call_reduction_usd"] = max(ctx["call_reduction_usd"], prev_val)
+            elif prev_val > 100_000_000 and latest_val > 0:
+                reduction = prev_val - latest_val
+                if reduction > 0 and reduction / prev_val > 0.5:
+                    ctx["call_heavily_reduced"] = True
+                    ctx["call_reduction_usd"] = max(ctx["call_reduction_usd"], reduction)
+    for row in common_rows:
+        row["options_context"] = _opt_ctx.get(row.get("ticker") or "", {})
+
     top_signals = _build_top_signals(common_rows)
 
     # ── signal backtest ───────────────────────────────────────────────────────
@@ -341,30 +399,6 @@ def build(cfg: Config, parsed_quarters: list[dict],
                 "best": max(prev_adds, key=lambda r: r["intra_quarter_return_pct"])["ticker"],
                 "worst": min(prev_adds, key=lambda r: r["intra_quarter_return_pct"])["ticker"],
             }
-
-    # ── options ──────────────────────────────────────────────────────────────
-    options = _collect(parsed_quarters, {OPTION_PUT, OPTION_CALL})
-    total_option_notional = sum(s.values[-1] for s in options.values())
-    option_rows: list[dict] = []
-    for s in options.values():
-        info = cusip_map.resolve(s.cusip, s.issuer, overrides)
-        underlying_move = None
-        if cfg.prices_enabled and info["yfinance_symbol"]:
-            qe = prices.quarter_end_price(info["yfinance_symbol"], report_date)
-            cur = prices.current_price(info["yfinance_symbol"])
-            if qe and cur:
-                underlying_move = round((cur - qe) / qe, 4)
-        option_rows.append({
-            "underlying": s.issuer,
-            "ticker": info["ticker"],
-            "instrument": "PUT" if s.instrument_type == OPTION_PUT else "CALL",
-            "notional_by_quarter": s.values,
-            "notional_latest_usd": s.values[-1],
-            "qoq_notional_change_pct": _qoq(s.values[-2] if len(s.values) > 1 else 0, s.values[-1]),
-            "underlying_price_move": underlying_move,
-            "interpretation_risk": "Notional, not premium; long/short direction unknown",
-        })
-    option_rows.sort(key=lambda r: r["notional_latest_usd"], reverse=True)
 
     # ── sector breakdown ──────────────────────────────────────────────────────
     _sec_map: dict[str, dict] = {}
@@ -438,6 +472,7 @@ def build(cfg: Config, parsed_quarters: list[dict],
         "new_buys": new_buys,
         "exits": exits,
         "options": option_rows,
+        "options_context": _opt_ctx,
         "top_signals": top_signals,
         "signal_backtest": signal_backtest,
         "sector_breakdown": sector_breakdown,

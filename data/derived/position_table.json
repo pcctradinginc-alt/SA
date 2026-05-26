@@ -33,7 +33,7 @@
     },
     "worst_performer": {
       "ticker": "PSIX",
-      "move": -0.3494
+      "move": -0.3512
     }
   },
   "common_stock": [
@@ -65,16 +65,23 @@
       "price_at_quarter_end": 132.45,
       "price_at_prev_quarter_end": 86.89,
       "intra_quarter_return_pct": 0.5243,
-      "current_price": 306.32,
-      "price_change_since_quarter_end_pct": 1.3127,
-      "estimated_current_value": 1986610179,
-      "estimated_value_change_since_quarter_end": 1127617889,
+      "current_price": 305.47,
+      "price_change_since_quarter_end_pct": 1.3063,
+      "estimated_current_value": 1981097582,
+      "estimated_value_change_since_quarter_end": 1122105292,
       "status": "trim",
       "status_icon": "🔴",
       "status_label": "Trim",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
+      },
+      "options_context": {
+        "has_active_put": false,
+        "has_active_call": true,
+        "call_went_zero": false,
+        "call_heavily_reduced": false,
+        "call_reduction_usd": 0
       }
     },
     {
@@ -105,16 +112,23 @@
       "price_at_quarter_end": 692.73,
       "price_at_prev_quarter_end": 237.38,
       "intra_quarter_return_pct": 1.9182,
-      "current_price": 1616.59,
-      "price_change_since_quarter_end_pct": 1.3337,
-      "estimated_current_value": 1843104974,
-      "estimated_value_change_since_quarter_end": 1053310339,
+      "current_price": 1632.2,
+      "price_change_since_quarter_end_pct": 1.3562,
+      "estimated_current_value": 1860902232,
+      "estimated_value_change_since_quarter_end": 1071107597,
       "status": "strong_add",
       "status_icon": "🟢",
       "status_label": "Strong Add",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
+      },
+      "options_context": {
+        "has_active_put": false,
+        "has_active_call": true,
+        "call_went_zero": false,
+        "call_heavily_reduced": false,
+        "call_reduction_usd": 0
       }
     },
     {
@@ -145,16 +159,23 @@
       "price_at_quarter_end": 78.44,
       "price_at_prev_quarter_end": 71.61,
       "intra_quarter_return_pct": 0.0954,
-      "current_price": 106.5,
-      "price_change_since_quarter_end_pct": 0.3577,
-      "estimated_current_value": 764448374,
-      "estimated_value_change_since_quarter_end": 201412407,
+      "current_price": 105.87,
+      "price_change_since_quarter_end_pct": 0.3497,
+      "estimated_current_value": 759926285,
+      "estimated_value_change_since_quarter_end": 196890318,
       "status": "strong_add",
       "status_icon": "🟢",
       "status_label": "Strong Add",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
+      },
+      "options_context": {
+        "has_active_put": false,
+        "has_active_call": true,
+        "call_went_zero": false,
+        "call_heavily_reduced": true,
+        "call_reduction_usd": 633857030
       }
     },
     {
@@ -185,17 +206,18 @@
       "price_at_quarter_end": 34.09,
       "price_at_prev_quarter_end": 37.77,
       "intra_quarter_return_pct": -0.0974,
-      "current_price": 60.12,
-      "price_change_since_quarter_end_pct": 0.7636,
-      "estimated_current_value": 703333960,
-      "estimated_value_change_since_quarter_end": 304520675,
+      "current_price": 59.87,
+      "price_change_since_quarter_end_pct": 0.7562,
+      "estimated_current_value": 700409251,
+      "estimated_value_change_since_quarter_end": 301595966,
       "status": "strong_add",
       "status_icon": "🟢",
       "status_label": "Strong Add",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
-      }
+      },
+      "options_context": {}
     },
     {
       "cusip": "21874A106",
@@ -225,17 +247,18 @@
       "price_at_quarter_end": 15.3,
       "price_at_prev_quarter_end": 14.56,
       "intra_quarter_return_pct": 0.0508,
-      "current_price": 26.39,
-      "price_change_since_quarter_end_pct": 0.7248,
-      "estimated_current_value": 686363602,
-      "estimated_value_change_since_quarter_end": 288433966,
+      "current_price": 26.28,
+      "price_change_since_quarter_end_pct": 0.7176,
+      "estimated_current_value": 683502670,
+      "estimated_value_change_since_quarter_end": 285573034,
       "status": "hold",
       "status_icon": "🟡",
       "status_label": "Hold",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
-      }
+      },
+      "options_context": {}
     },
     {
       "cusip": "038169207",
@@ -265,17 +288,18 @@
       "price_at_quarter_end": 24.49,
       "price_at_prev_quarter_end": 24.52,
       "intra_quarter_return_pct": -0.0012,
-      "current_price": 46.01,
-      "price_change_since_quarter_end_pct": 0.8787,
-      "estimated_current_value": 620142932,
-      "estimated_value_change_since_quarter_end": 290055986,
+      "current_price": 45.7,
+      "price_change_since_quarter_end_pct": 0.8661,
+      "estimated_current_value": 615964617,
+      "estimated_value_change_since_quarter_end": 285877670,
       "status": "strong_add",
       "status_icon": "🟢",
       "status_label": "Strong Add",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
-      }
+      },
+      "options_context": {}
     },
     {
       "cusip": "767292105",
@@ -305,17 +329,18 @@
       "price_at_quarter_end": 12.55,
       "price_at_prev_quarter_end": 12.67,
       "intra_quarter_return_pct": -0.0095,
-      "current_price": 26.01,
-      "price_change_since_quarter_end_pct": 1.0725,
-      "estimated_current_value": 299170583,
-      "estimated_value_change_since_quarter_end": 154818764,
+      "current_price": 25.97,
+      "price_change_since_quarter_end_pct": 1.0693,
+      "estimated_current_value": 298710498,
+      "estimated_value_change_since_quarter_end": 154358679,
       "status": "strong_add",
       "status_icon": "🟢",
       "status_label": "Strong Add",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
-      }
+      },
+      "options_context": {}
     },
     {
       "cusip": "18452B209",
@@ -345,17 +370,18 @@
       "price_at_quarter_end": 8.62,
       "price_at_prev_quarter_end": 10.12,
       "intra_quarter_return_pct": -0.1482,
-      "current_price": 17.3,
-      "price_change_since_quarter_end_pct": 1.007,
-      "estimated_current_value": 212377205,
-      "estimated_value_change_since_quarter_end": 106556887,
+      "current_price": 17.25,
+      "price_change_since_quarter_end_pct": 1.0012,
+      "estimated_current_value": 211763398,
+      "estimated_value_change_since_quarter_end": 105943080,
       "status": "new_add",
       "status_icon": "🟢",
       "status_label": "New + Add",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
-      }
+      },
+      "options_context": {}
     },
     {
       "cusip": "83418M103",
@@ -385,17 +411,18 @@
       "price_at_quarter_end": 55.47,
       "price_at_prev_quarter_end": 45.86,
       "intra_quarter_return_pct": 0.2096,
-      "current_price": 76.41,
-      "price_change_since_quarter_end_pct": 0.3775,
-      "estimated_current_value": 84475152,
-      "estimated_value_change_since_quarter_end": 23150238,
+      "current_price": 75.65,
+      "price_change_since_quarter_end_pct": 0.3638,
+      "estimated_current_value": 83634933,
+      "estimated_value_change_since_quarter_end": 22310019,
       "status": "trim",
       "status_icon": "🔴",
       "status_label": "Trim",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
-      }
+      },
+      "options_context": {}
     },
     {
       "cusip": "35834F104",
@@ -425,17 +452,18 @@
       "price_at_quarter_end": 4.39,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 10.6,
-      "price_change_since_quarter_end_pct": 1.4146,
-      "estimated_current_value": 106000000,
-      "estimated_value_change_since_quarter_end": 62100000,
+      "current_price": 10.52,
+      "price_change_since_quarter_end_pct": 1.3964,
+      "estimated_current_value": 105200000,
+      "estimated_value_change_since_quarter_end": 61300000,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
         "cusip_ticker_mapping": "openfigi",
         "price_source": "yfinance"
-      }
+      },
+      "options_context": {}
     },
     {
       "cusip": "09173B107",
@@ -475,7 +503,8 @@
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
-      }
+      },
+      "options_context": {}
     },
     {
       "cusip": "G11448100",
@@ -505,17 +534,18 @@
       "price_at_quarter_end": 9.34,
       "price_at_prev_quarter_end": 11.21,
       "intra_quarter_return_pct": -0.1668,
-      "current_price": 14.92,
-      "price_change_since_quarter_end_pct": 0.5974,
-      "estimated_current_value": 51316594,
-      "estimated_value_change_since_quarter_end": 19192131,
+      "current_price": 14.78,
+      "price_change_since_quarter_end_pct": 0.5824,
+      "estimated_current_value": 50835071,
+      "estimated_value_change_since_quarter_end": 18710608,
       "status": "strong_add",
       "status_icon": "🟢",
       "status_label": "Strong Add",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
-      }
+      },
+      "options_context": {}
     },
     {
       "cusip": "73933G202",
@@ -545,17 +575,18 @@
       "price_at_quarter_end": 66.18,
       "price_at_prev_quarter_end": 57.14,
       "intra_quarter_return_pct": 0.1582,
-      "current_price": 43.06,
-      "price_change_since_quarter_end_pct": -0.3494,
-      "estimated_current_value": 18614838,
-      "estimated_value_change_since_quarter_end": -9994776,
+      "current_price": 42.94,
+      "price_change_since_quarter_end_pct": -0.3512,
+      "estimated_current_value": 18562962,
+      "estimated_value_change_since_quarter_end": -10046652,
       "status": "hold",
       "status_icon": "🟡",
       "status_label": "Hold",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
-      }
+      },
+      "options_context": {}
     },
     {
       "cusip": "G96115103",
@@ -595,7 +626,8 @@
       "data_quality": {
         "cusip_ticker_mapping": "openfigi_no_match",
         "price_source": "unavailable"
-      }
+      },
+      "options_context": {}
     },
     {
       "cusip": "007903107",
@@ -625,16 +657,23 @@
       "price_at_quarter_end": 210.21,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 498.51,
-      "price_change_since_quarter_end_pct": 1.3715,
-      "estimated_current_value": 49421284,
-      "estimated_value_change_since_quarter_end": 28581485,
+      "current_price": 499.7,
+      "price_change_since_quarter_end_pct": 1.3771,
+      "estimated_current_value": 49539259,
+      "estimated_value_change_since_quarter_end": 28699460,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
+      },
+      "options_context": {
+        "has_active_put": true,
+        "has_active_call": false,
+        "call_went_zero": false,
+        "call_heavily_reduced": false,
+        "call_reduction_usd": 0
       }
     },
     {
@@ -665,17 +704,18 @@
       "price_at_quarter_end": 14.97,
       "price_at_prev_quarter_end": 6.34,
       "intra_quarter_return_pct": 1.3612,
-      "current_price": 19.61,
-      "price_change_since_quarter_end_pct": 0.31,
-      "estimated_current_value": 26549979,
-      "estimated_value_change_since_quarter_end": 6282096,
+      "current_price": 19.57,
+      "price_change_since_quarter_end_pct": 0.3073,
+      "estimated_current_value": 26495823,
+      "estimated_value_change_since_quarter_end": 6227940,
       "status": "hold",
       "status_icon": "🟡",
       "status_label": "Hold",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
-      }
+      },
+      "options_context": {}
     },
     {
       "cusip": "778920306",
@@ -705,17 +745,18 @@
       "price_at_quarter_end": 22.73,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 67.91,
-      "price_change_since_quarter_end_pct": 1.9877,
-      "estimated_current_value": 54063694,
-      "estimated_value_change_since_quarter_end": 35968159,
+      "current_price": 66.91,
+      "price_change_since_quarter_end_pct": 1.9437,
+      "estimated_current_value": 53267586,
+      "estimated_value_change_since_quarter_end": 35172051,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
         "cusip_ticker_mapping": "openfigi",
         "price_source": "yfinance"
-      }
+      },
+      "options_context": {}
     },
     {
       "cusip": "74347M108",
@@ -755,7 +796,8 @@
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
-      }
+      },
+      "options_context": {}
     },
     {
       "cusip": "92189F676",
@@ -785,16 +827,23 @@
       "price_at_quarter_end": 391.97,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 599.87,
-      "price_change_since_quarter_end_pct": 0.5304,
-      "estimated_current_value": 16166496,
-      "estimated_value_change_since_quarter_end": 5602905,
+      "current_price": 600.48,
+      "price_change_since_quarter_end_pct": 0.532,
+      "estimated_current_value": 16182936,
+      "estimated_value_change_since_quarter_end": 5619344,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
+      },
+      "options_context": {
+        "has_active_put": true,
+        "has_active_call": false,
+        "call_went_zero": false,
+        "call_heavily_reduced": false,
+        "call_reduction_usd": 0
       }
     },
     {
@@ -825,16 +874,23 @@
       "price_at_quarter_end": 48.03,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 122.41,
-      "price_change_since_quarter_end_pct": 1.5486,
-      "estimated_current_value": 24768929,
-      "estimated_value_change_since_quarter_end": 15050347,
+      "current_price": 122.54,
+      "price_change_since_quarter_end_pct": 1.5513,
+      "estimated_current_value": 24795234,
+      "estimated_value_change_since_quarter_end": 15076651,
       "status": "new_add",
       "status_icon": "🟢",
       "status_label": "New + Add",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
+      },
+      "options_context": {
+        "has_active_put": true,
+        "has_active_call": false,
+        "call_went_zero": true,
+        "call_heavily_reduced": false,
+        "call_reduction_usd": 746760060
       }
     },
     {
@@ -865,16 +921,23 @@
       "price_at_quarter_end": 341.49,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 413.02,
-      "price_change_since_quarter_end_pct": 0.2095,
-      "estimated_current_value": 9261147,
-      "estimated_value_change_since_quarter_end": 1603917,
+      "current_price": 412.99,
+      "price_change_since_quarter_end_pct": 0.2094,
+      "estimated_current_value": 9260475,
+      "estimated_value_change_since_quarter_end": 1603244,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
+      },
+      "options_context": {
+        "has_active_put": true,
+        "has_active_call": true,
+        "call_went_zero": false,
+        "call_heavily_reduced": false,
+        "call_reduction_usd": 0
       }
     },
     {
@@ -905,17 +968,18 @@
       "price_at_quarter_end": 1.89,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 4.2,
-      "price_change_since_quarter_end_pct": 1.2222,
-      "estimated_current_value": 14244497,
-      "estimated_value_change_since_quarter_end": 7834474,
+      "current_price": 4.19,
+      "price_change_since_quarter_end_pct": 1.2169,
+      "estimated_current_value": 14210582,
+      "estimated_value_change_since_quarter_end": 7800558,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
-      }
+      },
+      "options_context": {}
     },
     {
       "cusip": "N07059210",
@@ -945,16 +1009,23 @@
       "price_at_quarter_end": 1356.8,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 1626.23,
-      "price_change_since_quarter_end_pct": 0.1986,
-      "estimated_current_value": 7534324,
-      "estimated_value_change_since_quarter_end": 1248269,
+      "current_price": 1629.75,
+      "price_change_since_quarter_end_pct": 0.2012,
+      "estimated_current_value": 7550632,
+      "estimated_value_change_since_quarter_end": 1264577,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
+      },
+      "options_context": {
+        "has_active_put": true,
+        "has_active_call": false,
+        "call_went_zero": false,
+        "call_heavily_reduced": false,
+        "call_reduction_usd": 0
       }
     },
     {
@@ -985,16 +1056,23 @@
       "price_at_quarter_end": 367.85,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 901.76,
-      "price_change_since_quarter_end_pct": 1.4514,
-      "estimated_current_value": 15656357,
-      "estimated_value_change_since_quarter_end": 9269745,
+      "current_price": 907.35,
+      "price_change_since_quarter_end_pct": 1.4666,
+      "estimated_current_value": 15753411,
+      "estimated_value_change_since_quarter_end": 9366799,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
+      },
+      "options_context": {
+        "has_active_put": true,
+        "has_active_call": true,
+        "call_went_zero": false,
+        "call_heavily_reduced": false,
+        "call_reduction_usd": 0
       }
     },
     {
@@ -1025,16 +1103,23 @@
       "price_at_quarter_end": 142.38,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 198.74,
-      "price_change_since_quarter_end_pct": 0.3958,
-      "estimated_current_value": 1049943,
-      "estimated_value_change_since_quarter_end": 297750,
+      "current_price": 199.18,
+      "price_change_since_quarter_end_pct": 0.3989,
+      "estimated_current_value": 1052268,
+      "estimated_value_change_since_quarter_end": 300074,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
+      },
+      "options_context": {
+        "has_active_put": true,
+        "has_active_call": false,
+        "call_went_zero": false,
+        "call_heavily_reduced": false,
+        "call_reduction_usd": 0
       }
     },
     {
@@ -1065,16 +1150,23 @@
       "price_at_quarter_end": 175.75,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 214.29,
-      "price_change_since_quarter_end_pct": 0.2193,
-      "estimated_current_value": 611798,
-      "estimated_value_change_since_quarter_end": 110032,
+      "current_price": 213.68,
+      "price_change_since_quarter_end_pct": 0.2158,
+      "estimated_current_value": 610056,
+      "estimated_value_change_since_quarter_end": 108290,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
+      },
+      "options_context": {
+        "has_active_put": true,
+        "has_active_call": false,
+        "call_went_zero": false,
+        "call_heavily_reduced": false,
+        "call_reduction_usd": 0
       }
     }
   ],
@@ -1107,16 +1199,23 @@
       "price_at_quarter_end": 1356.8,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 1626.23,
-      "price_change_since_quarter_end_pct": 0.1986,
-      "estimated_current_value": 7534324,
-      "estimated_value_change_since_quarter_end": 1248269,
+      "current_price": 1629.75,
+      "price_change_since_quarter_end_pct": 0.2012,
+      "estimated_current_value": 7550632,
+      "estimated_value_change_since_quarter_end": 1264577,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
+      },
+      "options_context": {
+        "has_active_put": true,
+        "has_active_call": false,
+        "call_went_zero": false,
+        "call_heavily_reduced": false,
+        "call_reduction_usd": 0
       }
     },
     {
@@ -1147,16 +1246,23 @@
       "price_at_quarter_end": 210.21,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 498.51,
-      "price_change_since_quarter_end_pct": 1.3715,
-      "estimated_current_value": 49421284,
-      "estimated_value_change_since_quarter_end": 28581485,
+      "current_price": 499.7,
+      "price_change_since_quarter_end_pct": 1.3771,
+      "estimated_current_value": 49539259,
+      "estimated_value_change_since_quarter_end": 28699460,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
+      },
+      "options_context": {
+        "has_active_put": true,
+        "has_active_call": false,
+        "call_went_zero": false,
+        "call_heavily_reduced": false,
+        "call_reduction_usd": 0
       }
     },
     {
@@ -1187,16 +1293,23 @@
       "price_at_quarter_end": 142.38,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 198.74,
-      "price_change_since_quarter_end_pct": 0.3958,
-      "estimated_current_value": 1049943,
-      "estimated_value_change_since_quarter_end": 297750,
+      "current_price": 199.18,
+      "price_change_since_quarter_end_pct": 0.3989,
+      "estimated_current_value": 1052268,
+      "estimated_value_change_since_quarter_end": 300074,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
+      },
+      "options_context": {
+        "has_active_put": true,
+        "has_active_call": false,
+        "call_went_zero": false,
+        "call_heavily_reduced": false,
+        "call_reduction_usd": 0
       }
     },
     {
@@ -1227,17 +1340,18 @@
       "price_at_quarter_end": 1.89,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 4.2,
-      "price_change_since_quarter_end_pct": 1.2222,
-      "estimated_current_value": 14244497,
-      "estimated_value_change_since_quarter_end": 7834474,
+      "current_price": 4.19,
+      "price_change_since_quarter_end_pct": 1.2169,
+      "estimated_current_value": 14210582,
+      "estimated_value_change_since_quarter_end": 7800558,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
-      }
+      },
+      "options_context": {}
     },
     {
       "cusip": "595112103",
@@ -1267,16 +1381,23 @@
       "price_at_quarter_end": 367.85,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 901.76,
-      "price_change_since_quarter_end_pct": 1.4514,
-      "estimated_current_value": 15656357,
-      "estimated_value_change_since_quarter_end": 9269745,
+      "current_price": 907.35,
+      "price_change_since_quarter_end_pct": 1.4666,
+      "estimated_current_value": 15753411,
+      "estimated_value_change_since_quarter_end": 9366799,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
+      },
+      "options_context": {
+        "has_active_put": true,
+        "has_active_call": true,
+        "call_went_zero": false,
+        "call_heavily_reduced": false,
+        "call_reduction_usd": 0
       }
     },
     {
@@ -1307,16 +1428,23 @@
       "price_at_quarter_end": 175.75,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 214.29,
-      "price_change_since_quarter_end_pct": 0.2193,
-      "estimated_current_value": 611798,
-      "estimated_value_change_since_quarter_end": 110032,
+      "current_price": 213.68,
+      "price_change_since_quarter_end_pct": 0.2158,
+      "estimated_current_value": 610056,
+      "estimated_value_change_since_quarter_end": 108290,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
+      },
+      "options_context": {
+        "has_active_put": true,
+        "has_active_call": false,
+        "call_went_zero": false,
+        "call_heavily_reduced": false,
+        "call_reduction_usd": 0
       }
     },
     {
@@ -1347,17 +1475,18 @@
       "price_at_quarter_end": 22.73,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 67.91,
-      "price_change_since_quarter_end_pct": 1.9877,
-      "estimated_current_value": 54063694,
-      "estimated_value_change_since_quarter_end": 35968159,
+      "current_price": 66.91,
+      "price_change_since_quarter_end_pct": 1.9437,
+      "estimated_current_value": 53267586,
+      "estimated_value_change_since_quarter_end": 35172051,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
         "cusip_ticker_mapping": "openfigi",
         "price_source": "yfinance"
-      }
+      },
+      "options_context": {}
     },
     {
       "cusip": "35834F104",
@@ -1387,17 +1516,18 @@
       "price_at_quarter_end": 4.39,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 10.6,
-      "price_change_since_quarter_end_pct": 1.4146,
-      "estimated_current_value": 106000000,
-      "estimated_value_change_since_quarter_end": 62100000,
+      "current_price": 10.52,
+      "price_change_since_quarter_end_pct": 1.3964,
+      "estimated_current_value": 105200000,
+      "estimated_value_change_since_quarter_end": 61300000,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
         "cusip_ticker_mapping": "openfigi",
         "price_source": "yfinance"
-      }
+      },
+      "options_context": {}
     },
     {
       "cusip": "874039100",
@@ -1427,16 +1557,23 @@
       "price_at_quarter_end": 341.49,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 413.02,
-      "price_change_since_quarter_end_pct": 0.2095,
-      "estimated_current_value": 9261147,
-      "estimated_value_change_since_quarter_end": 1603917,
+      "current_price": 412.99,
+      "price_change_since_quarter_end_pct": 0.2094,
+      "estimated_current_value": 9260475,
+      "estimated_value_change_since_quarter_end": 1603244,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
+      },
+      "options_context": {
+        "has_active_put": true,
+        "has_active_call": true,
+        "call_went_zero": false,
+        "call_heavily_reduced": false,
+        "call_reduction_usd": 0
       }
     },
     {
@@ -1467,16 +1604,23 @@
       "price_at_quarter_end": 391.97,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 599.87,
-      "price_change_since_quarter_end_pct": 0.5304,
-      "estimated_current_value": 16166496,
-      "estimated_value_change_since_quarter_end": 5602905,
+      "current_price": 600.48,
+      "price_change_since_quarter_end_pct": 0.532,
+      "estimated_current_value": 16182936,
+      "estimated_value_change_since_quarter_end": 5619344,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
         "price_source": "yfinance"
+      },
+      "options_context": {
+        "has_active_put": true,
+        "has_active_call": false,
+        "call_went_zero": false,
+        "call_heavily_reduced": false,
+        "call_reduction_usd": 0
       }
     }
   ],
@@ -1509,8 +1653,8 @@
       "price_at_quarter_end": 247.8,
       "price_at_prev_quarter_end": 184.57,
       "intra_quarter_return_pct": 0.3426,
-      "current_price": 383.26,
-      "price_change_since_quarter_end_pct": 0.5467,
+      "current_price": 382.99,
+      "price_change_since_quarter_end_pct": 0.5456,
       "estimated_current_value": 0,
       "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
@@ -1549,8 +1693,8 @@
       "price_at_quarter_end": 60.92,
       "price_at_prev_quarter_end": 53.3,
       "intra_quarter_return_pct": 0.143,
-      "current_price": 56.46,
-      "price_change_since_quarter_end_pct": -0.0732,
+      "current_price": 56.41,
+      "price_change_since_quarter_end_pct": -0.074,
       "estimated_current_value": 0,
       "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
@@ -1589,8 +1733,8 @@
       "price_at_quarter_end": 17.37,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 30.02,
-      "price_change_since_quarter_end_pct": 0.7283,
+      "current_price": 29.96,
+      "price_change_since_quarter_end_pct": 0.7248,
       "estimated_current_value": 0,
       "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
@@ -1629,8 +1773,8 @@
       "price_at_quarter_end": 47.36,
       "price_at_prev_quarter_end": 45.94,
       "intra_quarter_return_pct": 0.0309,
-      "current_price": 113.04,
-      "price_change_since_quarter_end_pct": 1.3868,
+      "current_price": 111.82,
+      "price_change_since_quarter_end_pct": 1.3611,
       "estimated_current_value": 0,
       "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
@@ -1709,8 +1853,8 @@
       "price_at_quarter_end": 187.07,
       "price_at_prev_quarter_end": 117.42,
       "intra_quarter_return_pct": 0.5932,
-      "current_price": 285.9,
-      "price_change_since_quarter_end_pct": 0.5283,
+      "current_price": 285.78,
+      "price_change_since_quarter_end_pct": 0.5277,
       "estimated_current_value": 0,
       "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
@@ -1749,8 +1893,8 @@
       "price_at_quarter_end": 153.96,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 164.5,
-      "price_change_since_quarter_end_pct": 0.0685,
+      "current_price": 164.55,
+      "price_change_since_quarter_end_pct": 0.0688,
       "estimated_current_value": 0,
       "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
@@ -1789,8 +1933,8 @@
       "price_at_quarter_end": 12.64,
       "price_at_prev_quarter_end": 14.76,
       "intra_quarter_return_pct": -0.1436,
-      "current_price": 23.02,
-      "price_change_since_quarter_end_pct": 0.8212,
+      "current_price": 22.9,
+      "price_change_since_quarter_end_pct": 0.8117,
       "estimated_current_value": 0,
       "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
@@ -1829,8 +1973,8 @@
       "price_at_quarter_end": 28.08,
       "price_at_prev_quarter_end": 36.66,
       "intra_quarter_return_pct": -0.234,
-      "current_price": 34.41,
-      "price_change_since_quarter_end_pct": 0.2254,
+      "current_price": 34.44,
+      "price_change_since_quarter_end_pct": 0.2265,
       "estimated_current_value": 0,
       "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
@@ -1869,8 +2013,8 @@
       "price_at_quarter_end": 27.92,
       "price_at_prev_quarter_end": 18.4,
       "intra_quarter_return_pct": 0.5174,
-      "current_price": 32.19,
-      "price_change_since_quarter_end_pct": 0.1529,
+      "current_price": 32.22,
+      "price_change_since_quarter_end_pct": 0.154,
       "estimated_current_value": 0,
       "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
@@ -1909,8 +2053,8 @@
       "price_at_quarter_end": 764.65,
       "price_at_prev_quarter_end": 368.59,
       "intra_quarter_return_pct": 1.0745,
-      "current_price": 914.0,
-      "price_change_since_quarter_end_pct": 0.1953,
+      "current_price": 913.51,
+      "price_change_since_quarter_end_pct": 0.1947,
       "estimated_current_value": 0,
       "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
@@ -1934,7 +2078,7 @@
       ],
       "notional_latest_usd": 2042716860,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 0.5304,
+      "underlying_price_move": 0.532,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -1948,7 +2092,7 @@
       ],
       "notional_latest_usd": 1568257120,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 0.2193,
+      "underlying_price_move": 0.2158,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -1962,7 +2106,7 @@
       ],
       "notional_latest_usd": 1072873230,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 0.3244,
+      "underlying_price_move": 0.3217,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -1976,7 +2120,7 @@
       ],
       "notional_latest_usd": 1006247961,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 0.3473,
+      "underlying_price_move": 0.3464,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -1990,7 +2134,7 @@
       ],
       "notional_latest_usd": 969160863,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 1.3715,
+      "underlying_price_move": 1.3771,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2004,7 +2148,7 @@
       ],
       "notional_latest_usd": 583686168,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 1.4514,
+      "underlying_price_move": 1.4666,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2018,7 +2162,7 @@
       ],
       "notional_latest_usd": 535110030,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 0.2095,
+      "underlying_price_move": 0.2094,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2032,7 +2176,7 @@
       ],
       "notional_latest_usd": 494122503,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 0.1986,
+      "underlying_price_move": 0.2012,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2046,7 +2190,7 @@
       ],
       "notional_latest_usd": 422300000,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 1.4514,
+      "underlying_price_move": 1.4666,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2060,7 +2204,7 @@
       ],
       "notional_latest_usd": 388764546,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 1.3337,
+      "underlying_price_move": 1.3562,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2074,7 +2218,7 @@
       ],
       "notional_latest_usd": 354847500,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 0.2095,
+      "underlying_price_move": 0.2094,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2088,7 +2232,7 @@
       ],
       "notional_latest_usd": 159106302,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 1.5486,
+      "underlying_price_move": 1.5513,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2102,7 +2246,7 @@
       ],
       "notional_latest_usd": 140569315,
       "qoq_notional_change_pct": -0.8184858819595039,
-      "underlying_price_move": 0.3577,
+      "underlying_price_move": 0.3497,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2116,7 +2260,7 @@
       ],
       "notional_latest_usd": 55347665,
       "qoq_notional_change_pct": 0.559327885832662,
-      "underlying_price_move": 1.3127,
+      "underlying_price_move": 1.3063,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2130,7 +2274,7 @@
       ],
       "notional_latest_usd": 21020962,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 0.3958,
+      "underlying_price_move": 0.3989,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2144,7 +2288,7 @@
       ],
       "notional_latest_usd": 6755000,
       "qoq_notional_change_pct": -0.24186307519640854,
-      "underlying_price_move": -0.0812,
+      "underlying_price_move": -0.0835,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2172,7 +2316,7 @@
       ],
       "notional_latest_usd": 0,
       "qoq_notional_change_pct": 0.0,
-      "underlying_price_move": 0.3577,
+      "underlying_price_move": 0.3497,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2186,7 +2330,7 @@
       ],
       "notional_latest_usd": 0,
       "qoq_notional_change_pct": -1.0,
-      "underlying_price_move": 1.5486,
+      "underlying_price_move": 1.5513,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2200,7 +2344,7 @@
       ],
       "notional_latest_usd": 0,
       "qoq_notional_change_pct": 0.0,
-      "underlying_price_move": -0.0861,
+      "underlying_price_move": -0.0852,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2214,10 +2358,124 @@
       ],
       "notional_latest_usd": 0,
       "qoq_notional_change_pct": -1.0,
-      "underlying_price_move": -0.0732,
+      "underlying_price_move": -0.074,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     }
   ],
+  "options_context": {
+    "SMH": {
+      "has_active_put": true,
+      "has_active_call": false,
+      "call_went_zero": false,
+      "call_heavily_reduced": false,
+      "call_reduction_usd": 0
+    },
+    "NVDA": {
+      "has_active_put": true,
+      "has_active_call": false,
+      "call_went_zero": false,
+      "call_heavily_reduced": false,
+      "call_reduction_usd": 0
+    },
+    "ORCL": {
+      "has_active_put": true,
+      "has_active_call": false,
+      "call_went_zero": false,
+      "call_heavily_reduced": false,
+      "call_reduction_usd": 0
+    },
+    "AVGO": {
+      "has_active_put": true,
+      "has_active_call": false,
+      "call_went_zero": false,
+      "call_heavily_reduced": false,
+      "call_reduction_usd": 0
+    },
+    "AMD": {
+      "has_active_put": true,
+      "has_active_call": false,
+      "call_went_zero": false,
+      "call_heavily_reduced": false,
+      "call_reduction_usd": 0
+    },
+    "MU": {
+      "has_active_put": true,
+      "has_active_call": true,
+      "call_went_zero": false,
+      "call_heavily_reduced": false,
+      "call_reduction_usd": 0
+    },
+    "TSM": {
+      "has_active_put": true,
+      "has_active_call": true,
+      "call_went_zero": false,
+      "call_heavily_reduced": false,
+      "call_reduction_usd": 0
+    },
+    "ASML": {
+      "has_active_put": true,
+      "has_active_call": false,
+      "call_went_zero": false,
+      "call_heavily_reduced": false,
+      "call_reduction_usd": 0
+    },
+    "SNDK": {
+      "has_active_put": false,
+      "has_active_call": true,
+      "call_went_zero": false,
+      "call_heavily_reduced": false,
+      "call_reduction_usd": 0
+    },
+    "INTC": {
+      "has_active_put": true,
+      "has_active_call": false,
+      "call_went_zero": true,
+      "call_heavily_reduced": false,
+      "call_reduction_usd": 746760060
+    },
+    "CRWV": {
+      "has_active_put": false,
+      "has_active_call": true,
+      "call_went_zero": false,
+      "call_heavily_reduced": true,
+      "call_reduction_usd": 633857030
+    },
+    "BE": {
+      "has_active_put": false,
+      "has_active_call": true,
+      "call_went_zero": false,
+      "call_heavily_reduced": false,
+      "call_reduction_usd": 0
+    },
+    "GLW": {
+      "has_active_put": true,
+      "has_active_call": false,
+      "call_went_zero": false,
+      "call_heavily_reduced": false,
+      "call_reduction_usd": 0
+    },
+    "INFY": {
+      "has_active_put": true,
+      "has_active_call": false,
+      "call_went_zero": false,
+      "call_heavily_reduced": false,
+      "call_reduction_usd": 0
+    },
+    "GDX": {
+      "has_active_put": false,
+      "has_active_call": false,
+      "call_went_zero": false,
+      "call_heavily_reduced": false,
+      "call_reduction_usd": 0
+    },
+    "EQT": {
+      "has_active_put": false,
+      "has_active_call": false,
+      "call_went_zero": false,
+      "call_heavily_reduced": false,
+      "call_reduction_usd": 0
+    }
+  },
   "top_signals": [
     {
       "ticker": "SNDK",
@@ -2229,9 +2487,16 @@
       "qoq_dollar_delta": 54587777,
       "qoq_share_change_pct": 0.08150161259723013,
       "three_quarter_trend": "up_up_up",
-      "price_change_since_quarter_end_pct": 1.3337,
+      "price_change_since_quarter_end_pct": 1.3562,
       "conviction_score": 7.5,
-      "recommendation": "Watch / bei Schwäche"
+      "recommendation": "Watch / bei Schwäche",
+      "options_context": {
+        "has_active_put": false,
+        "has_active_call": true,
+        "call_went_zero": false,
+        "call_heavily_reduced": false,
+        "call_reduction_usd": 0
+      }
     },
     {
       "ticker": "IREN",
@@ -2243,9 +2508,10 @@
       "qoq_dollar_delta": 102778776,
       "qoq_share_change_pct": 0.34459770170428067,
       "three_quarter_trend": "up_up_up",
-      "price_change_since_quarter_end_pct": 0.7636,
+      "price_change_since_quarter_end_pct": 0.7562,
       "conviction_score": 7.5,
-      "recommendation": "Watch / bei Schwäche"
+      "recommendation": "Watch / bei Schwäche",
+      "options_context": {}
     },
     {
       "ticker": "CRWV",
@@ -2257,9 +2523,16 @@
       "qoq_dollar_delta": 83598419,
       "qoq_share_change_pct": 0.17693724613908413,
       "three_quarter_trend": "up_up_up",
-      "price_change_since_quarter_end_pct": 0.3577,
+      "price_change_since_quarter_end_pct": 0.3497,
       "conviction_score": 7.4,
-      "recommendation": "Watch / bei Schwäche"
+      "recommendation": "Watch / bei Schwäche",
+      "options_context": {
+        "has_active_put": false,
+        "has_active_call": true,
+        "call_went_zero": false,
+        "call_heavily_reduced": true,
+        "call_reduction_usd": 633857030
+      }
     },
     {
       "ticker": "APLD",
@@ -2271,9 +2544,10 @@
       "qoq_dollar_delta": 50788834,
       "qoq_share_change_pct": 0.1886733115443432,
       "three_quarter_trend": "up_up_up",
-      "price_change_since_quarter_end_pct": 0.8787,
+      "price_change_since_quarter_end_pct": 0.8661,
       "conviction_score": 6.6,
-      "recommendation": "Watch / bei Schwäche"
+      "recommendation": "Watch / bei Schwäche",
+      "options_context": {}
     },
     {
       "ticker": "RIOT",
@@ -2285,9 +2559,10 @@
       "qoq_dollar_delta": 65933641,
       "qoq_share_change_pct": 0.8648989088314931,
       "three_quarter_trend": "up_up_up",
-      "price_change_since_quarter_end_pct": 1.0725,
+      "price_change_since_quarter_end_pct": 1.0693,
       "conviction_score": 5.8,
-      "recommendation": "Beobachten"
+      "recommendation": "Beobachten",
+      "options_context": {}
     }
   ],
   "signal_backtest": {

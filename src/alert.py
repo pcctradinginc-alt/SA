@@ -121,12 +121,21 @@ def _build_tldr(model: dict) -> dict:
         and (r.get("ticker") or r.get("underlying"))
     ]
 
+    # Strategy flips: a Call >$50M closed this quarter while an active Put exists
+    # for the same ticker — indicates a deliberate bearish restructuring (e.g. INTC).
+    opt_ctx = model.get("options_context", {})
+    strategy_changes = [
+        tk for tk, ctx in opt_ctx.items()
+        if ctx.get("call_went_zero") and ctx.get("has_active_put")
+    ]
+
     return {
         "quarter": model.get("summary", {}).get("latest_quarter", ""),
         "new_buys": new_buys[:10],
         "strong_adds": strong_adds[:10],
         "exits": exits_sorted[:10],
         "puts_shorts": puts,
+        "strategy_changes": strategy_changes,
         "total_value": model.get("summary", {}).get("common_stock_long_exposure_usd"),
         "top_positions": model.get("common_stock", [])[:5],
     }

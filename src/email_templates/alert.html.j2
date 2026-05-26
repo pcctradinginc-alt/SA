@@ -140,7 +140,7 @@
   <!-- ══════════════════════════════════════════════════════════
        TRENNLINIE
   ══════════════════════════════════════════════════════════ -->
-  {% if (news_events or sec_events) and (tldr and (tldr.new_buys or tldr.puts_shorts)) %}
+  {% if (news_events or sec_events) and (tldr and (tldr.new_buys or tldr.puts_shorts or tldr.strategy_changes)) %}
   <tr><td style="padding:20px 32px 0 32px;">
     <div style="border-top:2px solid {{ C.line }};"></div>
   </td></tr>
@@ -149,7 +149,7 @@
   <!-- ══════════════════════════════════════════════════════════
        UNTERER TEIL: 13F POSITIONEN
   ══════════════════════════════════════════════════════════ -->
-  {% if tldr and (tldr.new_buys or tldr.strong_adds or tldr.exits or tldr.puts_shorts) %}
+  {% if tldr and (tldr.new_buys or tldr.strong_adds or tldr.exits or tldr.puts_shorts or tldr.strategy_changes) %}
 
   <!-- Section header -->
   <tr><td style="padding:20px 32px 0 32px;">
@@ -239,6 +239,18 @@
               → {{ sig.recommendation }}
               <span style="font-size:11px;font-weight:400;color:{{ C.ter }};margin-left:6px;">· 13F-Daten bis zu 45 Tage alt</span>
             </div>
+
+            <!-- Row 4: Options context warnings (only when relevant) -->
+            {%- set octx = sig.options_context or {} -%}
+            {%- if octx.call_went_zero and octx.has_active_put %}
+            <div style="margin-top:6px;background:{{ C.amber_bg }};border-radius:8px;padding:7px 12px;font-size:12px;color:{{ C.amber_tx }};font-weight:500;">
+              ⚠ Call-Position glattgestellt · Put aktiv — Netto bearish (lt. 13F)
+            </div>
+            {%- elif octx.call_heavily_reduced and octx.call_reduction_usd %}
+            <div style="margin-top:6px;background:{{ C.gray_bg }};border-radius:8px;padding:7px 12px;font-size:12px;color:{{ C.gray_tx }};">
+              ⓘ Call-Exposure −{{ octx.call_reduction_usd | usd }} reduziert (Gesamt-Exposure gesunken)
+            </div>
+            {%- endif %}
 
           </td></tr>
         </table>
@@ -370,10 +382,20 @@
             <td style="color:#30d158;font-weight:500;padding:5px 0;">{{ tldr.strong_adds|join('  ·  ') }}</td>
           </tr>
           {% endif %}
+          {% if tldr.strategy_changes %}
+          <tr>
+            <td style="color:#86868b;padding:5px 0;vertical-align:top;">Umgebaut</td>
+            <td style="color:#ff9f0a;font-weight:600;padding:5px 0;">{{ tldr.strategy_changes|join('  ·  ') }}
+              <span style="font-size:11px;font-weight:400;color:#636366;margin-left:4px;">Call ↓0 · Put aktiv</span>
+            </td>
+          </tr>
+          {% endif %}
           {% if tldr.puts_shorts %}
           <tr>
-            <td style="color:#86868b;padding:5px 0;vertical-align:top;">Puts / Short</td>
-            <td style="color:#ff453a;font-weight:600;padding:5px 0;">{{ tldr.puts_shorts|join('  ·  ') }}</td>
+            <td style="color:#86868b;padding:5px 0;vertical-align:top;">Put-Optionen</td>
+            <td style="color:#ff453a;font-weight:600;padding:5px 0;">{{ tldr.puts_shorts|join('  ·  ') }}
+              <span style="font-size:11px;font-weight:400;color:#636366;margin-left:4px;">(Richtung lt. 13F unbekannt)</span>
+            </td>
           </tr>
           {% endif %}
           {% if tldr.exits %}
