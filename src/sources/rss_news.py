@@ -4,6 +4,7 @@ These feeds require no API keys and are fetched on every discovery run.
 They complement the user-configured GOOGLE_ALERT_FEEDS / BLOG_FEEDS env vars.
 
 Sources included:
+  - situational-awareness.ai/feed/ — Leo's primary publication (highest confidence)
   - Nitter RSS — @leopoldasch timeline via public Nitter instances (no API key)
   - Google News RSS (search by name + variants)
   - HackerNews RSS via hnrss.org
@@ -55,6 +56,11 @@ _GNEWS_BASE = "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US:en&q="
 _HN_FEEDS = [
     "https://hnrss.org/newest?q=Aschenbrenner",
     "https://hnrss.org/newest?q=%22Situational+Awareness%22+invest",
+]
+
+# Primary sources — Leo's own publications, no auth required
+_PRIMARY_FEEDS = [
+    "https://situational-awareness.ai/feed/",
 ]
 
 # Reddit search RSS — free, no auth required
@@ -227,11 +233,25 @@ def from_edgar_form_d(cfg: Config) -> list[DiscoveryItem]:
     return out
 
 
+def from_primary_sources(cfg: Config) -> list[DiscoveryItem]:
+    """Leo's own publications (situational-awareness.ai) — highest confidence."""
+    client = HttpClient(cfg.sec_user_agent, cfg.sec_request_delay)
+    out: list[DiscoveryItem] = []
+    for url in _PRIMARY_FEEDS:
+        items = _fetch_feed(client, url, "blog")
+        out.extend(items)
+        log.debug("Primary source %s: %d items", url, len(items))
+    if out:
+        log.info("Primary sources: %d item(s).", len(out))
+    return out
+
+
 def from_all_curated(cfg: Config) -> list[DiscoveryItem]:
     """Fetch all curated free sources. Called from step_discover in pipeline."""
     items: list[DiscoveryItem] = []
     items.extend(from_edgar_rss(cfg))
     items.extend(from_edgar_form_d(cfg))
+    items.extend(from_primary_sources(cfg))
     items.extend(from_nitter_x(cfg))
     items.extend(from_google_news(cfg))
     items.extend(from_hackernews(cfg))
