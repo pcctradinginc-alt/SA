@@ -220,7 +220,19 @@ def extract_statement_with_llm(
                 ),
             }],
         )
-        result = json.loads(response.content[0].text)
+        raw = response.content[0].text.strip()
+        # Models sometimes wrap JSON in markdown code blocks (```json ... ```)
+        # or prepend/append prose. Extract the first {...} object robustly.
+        if raw.startswith("```"):
+            # Strip opening fence (```json or ```)
+            raw = re.sub(r'^```(?:json)?\s*', '', raw)
+            # Strip closing fence
+            raw = re.sub(r'\s*```\s*$', '', raw.strip())
+        # Final fallback: find the outermost {...} in case there is still noise
+        m = re.search(r'\{.*\}', raw, re.DOTALL)
+        if m:
+            raw = m.group()
+        result = json.loads(raw)
     except Exception as exc:
         log.warning("LLM validation failed (%s); using keyword result. Error: %s", item.url, exc)
         return candidate
