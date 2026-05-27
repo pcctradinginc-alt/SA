@@ -1,0 +1,499 @@
+<SEC-DOCUMENT>0000935836-26-000303.txt : 20260527
+<SEC-HEADER>0000935836-26-000303.hdr.sgml : 20260527
+<ACCEPTANCE-DATETIME>20260527170140
+ACCESSION NUMBER:		0000935836-26-000303
+CONFORMED SUBMISSION TYPE:	SCHEDULE 13G
+PUBLIC DOCUMENT COUNT:		2
+FILED AS OF DATE:		20260527
+DATE AS OF CHANGE:		20260527
+
+SUBJECT COMPANY:	
+
+	COMPANY DATA:	
+		COMPANY CONFORMED NAME:			Nebius Group N.V.
+		CENTRAL INDEX KEY:			0001513845
+		STANDARD INDUSTRIAL CLASSIFICATION:	SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC. [7370]
+		ORGANIZATION NAME:           	06 Technology
+		EIN:				000000000
+		STATE OF INCORPORATION:			P7
+
+	FILING VALUES:
+		FORM TYPE:		SCHEDULE 13G
+		SEC ACT:		1934 Act
+		SEC FILE NUMBER:	005-86274
+		FILM NUMBER:		261027323
+
+	BUSINESS ADDRESS:	
+		ADDRESS IS A NON US LOCATION: 	YES
+		STREET 1:		SCHIPHOL BOULEVARD 165
+		CITY:			SCHIPHOL
+		PROVINCE COUNTRY:   	P7
+		BUSINESS PHONE:		31202066970
+
+	MAIL ADDRESS:	
+		ADDRESS IS A NON US LOCATION: 	YES
+		STREET 1:		SCHIPHOL BOULEVARD 165
+		CITY:			SCHIPHOL
+		PROVINCE COUNTRY:   	P7
+
+	FORMER COMPANY:	
+		FORMER CONFORMED NAME:	Yandex N.V.
+		DATE OF NAME CHANGE:	20110223
+
+FILED BY:		
+
+	COMPANY DATA:	
+		COMPANY CONFORMED NAME:			Situational Awareness LP
+		CENTRAL INDEX KEY:			0002045724
+		ORGANIZATION NAME:           	
+		EIN:				992901544
+		STATE OF INCORPORATION:			DE
+		FISCAL YEAR END:			1231
+		LEGAL ENTITY IDENTIFIER:    	254900Q1483NSNRJ0W04
+
+	FILING VALUES:
+		FORM TYPE:		SCHEDULE 13G
+
+	BUSINESS ADDRESS:	
+		STREET 1:		77 FEDERAL STREET
+		STREET 2:		4TH FLOOR
+		CITY:			SAN FRANCISCO
+		STATE:			CA
+		ZIP:			94107
+		BUSINESS PHONE:		(415) 916-1521
+
+	MAIL ADDRESS:	
+		STREET 1:		77 FEDERAL STREET
+		STREET 2:		4TH FLOOR
+		CITY:			SAN FRANCISCO
+		STATE:			CA
+		ZIP:			94107
+</SEC-HEADER>
+<DOCUMENT>
+<TYPE>SCHEDULE 13G
+<SEQUENCE>1
+<FILENAME>primary_doc.xml
+<TEXT>
+<XML>
+<?xml version="1.0" encoding="UTF-8"?><edgarSubmission xmlns="http://www.sec.gov/edgar/schedule13g" xmlns:com="http://www.sec.gov/edgar/common">
+  <schemaVersion>X0202</schemaVersion>
+<headerData>
+    <submissionType>SCHEDULE 13G</submissionType>
+    <filerInfo>
+      <filer>
+        <filerCredentials>
+          <!-- Field: Pseudo-Tag; ID: Name; Data: Situational Awareness LP -->
+          <cik>0002045724</cik>
+          <ccc>XXXXXXXX</ccc>
+        </filerCredentials>
+      </filer>
+      <liveTestFlag>LIVE</liveTestFlag>
+
+
+
+    </filerInfo>
+  </headerData>
+  <formData>
+    <coverPageHeader>
+      <securitiesClassTitle>Class A Ordinary Shares</securitiesClassTitle>
+      <eventDateRequiresFilingThisStatement>05/19/2026</eventDateRequiresFilingThisStatement>
+      <issuerInfo>
+        <issuerCik>0001513845</issuerCik>
+        <issuerName>Nebius Group N.V.</issuerName>
+        <issuerCusips>
+          <issuerCusipNumber>N97284108</issuerCusipNumber>
+        </issuerCusips>
+        <issuerPrincipalExecutiveOfficeAddress>
+          <com:street1>SCHIPHOL BOULEVARD 165</com:street1>
+          <com:city>SCHIPHOL</com:city>
+          <com:stateOrCountry>P7</com:stateOrCountry>
+          <com:zipCode>1118 BG</com:zipCode>
+        </issuerPrincipalExecutiveOfficeAddress>
+      </issuerInfo>
+      <designateRulesPursuantThisScheduleFiled>
+        <designateRulePursuantThisScheduleFiled>Rule 13d-1(b)</designateRulePursuantThisScheduleFiled>
+        <designateRulePursuantThisScheduleFiled>Rule 13d-1(c)</designateRulePursuantThisScheduleFiled>
+      </designateRulesPursuantThisScheduleFiled>
+    </coverPageHeader>
+    <coverPageHeaderReportingPersonDetails>
+
+
+      <reportingPersonName>Situational Awareness LP</reportingPersonName>
+      <memberGroup>b</memberGroup>
+      <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+      <reportingPersonBeneficiallyOwnedNumberOfShares>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>12410060.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>12410060.00</sharedDispositivePower>
+      </reportingPersonBeneficiallyOwnedNumberOfShares>
+      <reportingPersonBeneficiallyOwnedAggregateNumberOfShares>12410060.00</reportingPersonBeneficiallyOwnedAggregateNumberOfShares>
+      <aggregateAmountExcludesCertainSharesFlag>N</aggregateAmountExcludesCertainSharesFlag>
+      <classPercent>5.6</classPercent>
+      <typeOfReportingPerson>PN</typeOfReportingPerson>
+      <typeOfReportingPerson>IN</typeOfReportingPerson>
+      <comments>The percentage reported herein is calculated based on 220,406,311 Class A Ordinary Shares outstanding as of March 31, 2026, as reported in the financial statements filed by the Issuer as an exhibit to the Form 6-K filed by the issuer on May 20, 2026.</comments>
+    </coverPageHeaderReportingPersonDetails>
+    <coverPageHeaderReportingPersonDetails>
+
+      <reportingPersonName>SAF AI GP LP</reportingPersonName>
+      <memberGroup>b</memberGroup>
+      <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+      <reportingPersonBeneficiallyOwnedNumberOfShares>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>12410060.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>12410060.00</sharedDispositivePower>
+      </reportingPersonBeneficiallyOwnedNumberOfShares>
+      <reportingPersonBeneficiallyOwnedAggregateNumberOfShares>12410060.00</reportingPersonBeneficiallyOwnedAggregateNumberOfShares>
+      <aggregateAmountExcludesCertainSharesFlag>N</aggregateAmountExcludesCertainSharesFlag>
+      <classPercent>5.6</classPercent>
+      <typeOfReportingPerson>PN</typeOfReportingPerson>
+      <comments>The percentage reported herein is calculated based on 220,406,311 Class A Ordinary Shares outstanding as of March 31, 2026, as reported in the financial statements filed by the Issuer as an exhibit to the Form 6-K filed by the issuer on May 20, 2026.</comments>
+    </coverPageHeaderReportingPersonDetails>
+    <coverPageHeaderReportingPersonDetails>
+
+      <reportingPersonName>Situational Awareness LLC</reportingPersonName>
+      <memberGroup>b</memberGroup>
+      <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+      <reportingPersonBeneficiallyOwnedNumberOfShares>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>12410060.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>12410060.00</sharedDispositivePower>
+      </reportingPersonBeneficiallyOwnedNumberOfShares>
+      <reportingPersonBeneficiallyOwnedAggregateNumberOfShares>12410060.00</reportingPersonBeneficiallyOwnedAggregateNumberOfShares>
+      <aggregateAmountExcludesCertainSharesFlag>N</aggregateAmountExcludesCertainSharesFlag>
+      <classPercent>5.6</classPercent>
+      <typeOfReportingPerson>HC</typeOfReportingPerson>
+      <typeOfReportingPerson>OO</typeOfReportingPerson>
+      <comments>The percentage reported herein is calculated based on 220,406,311 Class A Ordinary Shares outstanding as of March 31, 2026, as reported in the financial statements filed by the Issuer as an exhibit to the Form 6-K filed by the issuer on May 20, 2026.</comments>
+    </coverPageHeaderReportingPersonDetails>
+    <coverPageHeaderReportingPersonDetails>
+
+
+      <reportingPersonName>Situational Awareness Partners LP</reportingPersonName>
+      <memberGroup>b</memberGroup>
+      <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+      <reportingPersonBeneficiallyOwnedNumberOfShares>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>12410060.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>12410060.00</sharedDispositivePower>
+      </reportingPersonBeneficiallyOwnedNumberOfShares>
+      <reportingPersonBeneficiallyOwnedAggregateNumberOfShares>12410060.00</reportingPersonBeneficiallyOwnedAggregateNumberOfShares>
+      <aggregateAmountExcludesCertainSharesFlag>N</aggregateAmountExcludesCertainSharesFlag>
+      <classPercent>5.6</classPercent>
+      <typeOfReportingPerson>PN</typeOfReportingPerson>
+      <comments>The percentage reported herein is calculated based on 220,406,311 Class A Ordinary Shares outstanding as of March 31, 2026, as reported in the financial statements filed by the Issuer as an exhibit to the Form 6-K filed by the issuer on May 20, 2026.</comments>
+    </coverPageHeaderReportingPersonDetails>
+    <coverPageHeaderReportingPersonDetails>
+
+      <reportingPersonName>Leopold Aschenbrenner</reportingPersonName>
+      <memberGroup>b</memberGroup>
+      <citizenshipOrOrganization>2M</citizenshipOrOrganization>
+      <reportingPersonBeneficiallyOwnedNumberOfShares>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>12410060.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>12410060.00</sharedDispositivePower>
+      </reportingPersonBeneficiallyOwnedNumberOfShares>
+      <reportingPersonBeneficiallyOwnedAggregateNumberOfShares>12410060.00</reportingPersonBeneficiallyOwnedAggregateNumberOfShares>
+      <aggregateAmountExcludesCertainSharesFlag>N</aggregateAmountExcludesCertainSharesFlag>
+      <classPercent>5.6</classPercent>
+      <typeOfReportingPerson>HC</typeOfReportingPerson>
+      <typeOfReportingPerson>IN</typeOfReportingPerson>
+      <comments>The percentage reported herein is calculated based on 220,406,311 Class A Ordinary Shares outstanding as of March 31, 2026, as reported in the financial statements filed by the Issuer as an exhibit to the Form 6-K filed by the issuer on May 20, 2026.</comments>
+    </coverPageHeaderReportingPersonDetails>
+    <coverPageHeaderReportingPersonDetails>
+
+
+      <reportingPersonName>Carl Shulman</reportingPersonName>
+      <memberGroup>b</memberGroup>
+      <citizenshipOrOrganization>Z4</citizenshipOrOrganization>
+      <reportingPersonBeneficiallyOwnedNumberOfShares>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>12410060.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>12410060.00</sharedDispositivePower>
+      </reportingPersonBeneficiallyOwnedNumberOfShares>
+      <reportingPersonBeneficiallyOwnedAggregateNumberOfShares>12410060.00</reportingPersonBeneficiallyOwnedAggregateNumberOfShares>
+      <aggregateAmountExcludesCertainSharesFlag>N</aggregateAmountExcludesCertainSharesFlag>
+      <classPercent>5.6</classPercent>
+      <typeOfReportingPerson>IN</typeOfReportingPerson>
+      <comments>The percentage reported herein is calculated based on 220,406,311 Class A Ordinary Shares outstanding as of March 31, 2026, as reported in the financial statements filed by the Issuer as an exhibit to the Form 6-K filed by the issuer on May 20, 2026.</comments>
+    </coverPageHeaderReportingPersonDetails>
+    <items>
+      <item1>
+        <issuerName>Nebius Group N.V.</issuerName>
+        <issuerPrincipalExecutiveOfficeAddress>Schiphol Boulevard 165, Schiphol P7 1118 BG, The Netherlands</issuerPrincipalExecutiveOfficeAddress>
+      </item1>
+      <item2>
+        <filingPersonName>Situational Awareness LP, a Delaware limited partnership ("Adviser")
+
+SAF AI GP LP, a Delaware limited partnership ("General Partner")
+
+Situational Awareness LLC, a Delaware limited liability company ("SA LLC")
+
+Situational Awareness Partners LP, a Delaware limited partnership ("Fund")
+
+Leopold Aschenbrenner
+
+Carl Shulman
+
+Adviser is the investment adviser to the Fund.  General Partner is the general partner of the Fund.  SA LLC is the general partner of Adviser.  Mr. Aschenbrenner is the managing partner and control person of Adviser and General Partner and the manager of SA LLC.  Mr. Shulman is the co-portfolio manager of the Fund.
+
+The reporting persons are filing this Schedule 13G jointly but not as members of a group, and each disclaims membership in a group.  Each reporting person disclaims beneficial ownership of Class A Ordinary Shares except to the extent of that person's pecuniary interest therein.  In addition, the filing of this Schedule 13G on behalf of the Fund should not be construed as an admission that it is, and it disclaims that it is, a beneficial owner, as defined in Rule 13d-3 under the Act, of any Class A Ordinary Shares covered by this Schedule 13G.</filingPersonName>
+        <principalBusinessOfficeOrResidenceAddress>77 Federal Street, Floor 4, San Francisco, CA  94107</principalBusinessOfficeOrResidenceAddress>
+        <citizenship>See Item 4 of the cover sheet for each reporting person.</citizenship>
+      </item2>
+      <item3>
+        <notApplicableFlag>N</notApplicableFlag>
+        <typeOfPersonFiling>IA</typeOfPersonFiling>
+        <typeOfPersonFiling>HC</typeOfPersonFiling>
+      </item3>
+      <item4>
+        <amountBeneficiallyOwned>Adviser:  12,410,060
+
+General Partner:  12,410,060
+
+SA LLC:  12,410,060
+
+Fund:  12,410,060
+
+Leopold Aschenbrenner:  12,410,060
+
+Carl Shulman:  12,410,060</amountBeneficiallyOwned>
+        <classPercent>Adviser:  5.6%
+
+General Partner:  5.6%
+
+SA LLC:  5.6%
+
+Fund:  5.6%
+
+Leopold Aschenbrenner:  5.6%
+
+Carl Shulman:  5.6%</classPercent>
+        <numberOfSharesPersonHas>
+          <solePowerOrDirectToVote>Adviser:  0
+
+General Partner:  0
+
+SA LLC:  0
+
+Fund:  0
+
+Leopold Aschenbrenner:  0
+
+Carl Shulman:  0</solePowerOrDirectToVote>
+          <sharedPowerOrDirectToVote>Adviser:  12,410,060
+
+General Partner:  12,410,060
+
+SA LLC:  12,410,060
+
+Fund:  12,410,060
+
+Leopold Aschenbrenner:  12,410,060
+
+Carl Shulman:  12,410,060</sharedPowerOrDirectToVote>
+          <solePowerOrDirectToDispose>Adviser:  0
+
+General Partner:  0
+
+SA LLC:  0
+
+Fund:  0
+
+Leopold Aschenbrenner:  0
+
+Carl Shulman:  0</solePowerOrDirectToDispose>
+          <sharedPowerOrDirectToDispose>Adviser:  12,410,060
+
+General Partner:  12,410,060
+
+SA LLC:  12,410,060
+
+Fund:  12,410,060
+
+Leopold Aschenbrenner:  12,410,060
+
+Carl Shulman:  12,410,060</sharedPowerOrDirectToDispose>
+        </numberOfSharesPersonHas>
+      </item4>
+      <item5>
+        <notApplicableFlag>Y</notApplicableFlag>
+      </item5>
+      <item6>
+        <notApplicableFlag>N</notApplicableFlag>
+        <ownershipMoreThan5PercentOnBehalfOfAnotherPerson>The Fund has the right to receive or the power to direct the receipt of dividends from, or the proceeds from the sale of, Class A Ordinary Shares.</ownershipMoreThan5PercentOnBehalfOfAnotherPerson>
+      </item6>
+      <item7>
+        <notApplicableFlag>Y</notApplicableFlag>
+      </item7>
+      <item8>
+        <notApplicableFlag>Y</notApplicableFlag>
+      </item8>
+      <item9>
+        <notApplicableFlag>Y</notApplicableFlag>
+      </item9>
+      <item10>
+        <notApplicableFlag>N</notApplicableFlag>
+        <certifications>By signing below I certify that, to the best of my knowledge and belief, the securities referred to above were acquired and are held in the ordinary course of business and were not acquired and are not held for the purpose of or with the effect of changing or influencing the control of the issuer of the securities and were not acquired and are not held in connection with or as a participant in any transaction having that purpose or effect, other than activities solely in connection with a nomination under Â§ 240.14a-11.
+
+By signing below I certify that, to the best of my knowledge and belief, the securities referred to above were not acquired and are not held for the purpose of or with the effect of changing or influencing the control of the issuer of the securities and were not acquired and are not held in connection with or as a participant in any transaction having that purpose or effect, other than activities solely in connection with a nomination under Â§ 240.14a-11.</certifications>
+      </item10>
+    </items>
+    <exhibitInfo>EXHIBIT 99.1 - AGREEMENT REGARDING JOINT FILING OF STATEMENT ON SCHEDULE 13D OR SCHEDULE 13G</exhibitInfo>
+    <signatureInformation>
+      <reportingPersonName>Situational Awareness LP</reportingPersonName>
+      <signatureDetails>
+        <signature>/s/ Leopold Aschenbrenner</signature>
+        <title>Leopold Aschenbrenner, Managing Partner</title>
+        <date>05/27/2026</date>
+      </signatureDetails>
+    </signatureInformation>
+    <signatureInformation>
+      <reportingPersonName>SAF AI GP LP</reportingPersonName>
+      <signatureDetails>
+        <signature>/s/ Leopold Aschenbrenner</signature>
+        <title>Leopold Aschenbrenner, Managing Partner</title>
+        <date>05/27/2026</date>
+      </signatureDetails>
+    </signatureInformation>
+    <signatureInformation>
+      <reportingPersonName>Situational Awareness LLC</reportingPersonName>
+      <signatureDetails>
+        <signature>/s/ Leopold Aschenbrenner</signature>
+        <title>Leopold Aschenbrenner, Manager</title>
+        <date>05/27/2026</date>
+      </signatureDetails>
+    </signatureInformation>
+    <signatureInformation>
+      <reportingPersonName>Situational Awareness Partners LP</reportingPersonName>
+      <signatureDetails>
+        <signature>/s/ Leopold Aschenbrenner</signature>
+        <title>Managing Partner of SAF AI GP LP, general partner of Situational Awareness Partners LP</title>
+        <date>05/27/2026</date>
+      </signatureDetails>
+    </signatureInformation>
+    <signatureInformation>
+      <reportingPersonName>Leopold Aschenbrenner</reportingPersonName>
+      <signatureDetails>
+        <signature>/s/ Leopold Aschenbrenner</signature>
+        <title>Reporting person</title>
+        <date>05/27/2026</date>
+      </signatureDetails>
+    </signatureInformation>
+    <signatureInformation>
+      <reportingPersonName>Carl Shulman</reportingPersonName>
+      <signatureDetails>
+        <signature>/s/ Carl Shulman</signature>
+        <title>Reporting person</title>
+        <date>05/27/2026</date>
+      </signatureDetails>
+    </signatureInformation>
+  </formData>
+
+</edgarSubmission>
+</XML>
+</TEXT>
+</DOCUMENT>
+<DOCUMENT>
+<TYPE>EX-99.1
+<SEQUENCE>2
+<FILENAME>ex99.htm
+<DESCRIPTION>AGREEMENT REGARDING JOINT FILING
+<TEXT>
+<HTML>
+<HEAD>
+     <TITLE></TITLE>
+</HEAD>
+<BODY STYLE="font: 10pt Times New Roman, Times, Serif">
+
+<P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0; text-align: center">EXHIBIT 99.1</P>
+
+<P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P>
+
+<P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0; text-align: center">AGREEMENT REGARDING JOINT FILING</P>
+
+<P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0; text-align: center">OF STATEMENT ON SCHEDULE 13D OR 13G</P>
+
+<P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P>
+
+<P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0; text-align: justify">The undersigned agree to file jointly with the Securities
+and Exchange Commission (the &ldquo;SEC&rdquo;) any and all statements on Schedule&nbsp;13D or Schedule&nbsp;13G and Forms 3, 4 and 5
+(and any amendments or supplements thereto) required under section 13(d) or section 16(a) of the Securities Exchange Act of 1934, as amended,
+in connection with purchases and sales by the undersigned of securities of any issuer, until such time as the undersigned file with the
+SEC a statement terminating this Agreement Regarding Joint Filing of Statement on Schedule&nbsp;13D or 13G. For that purpose, the undersigned
+hereby constitute and appoint Situational Awareness LP, a Delaware limited partnership, as their true and lawful agent and attorney-in-fact,
+with full power and authority for and on behalf of the undersigned to prepare or cause to be prepared, sign, file with the SEC and furnish
+to any other person all certificates, instruments, agreements and documents necessary to comply with section 13(d) and section 16(a) of
+the Securities Exchange Act of 1934, as amended, in connection with said purchases and sales, and to do and perform every act necessary
+and proper to be done incident to the exercise of the foregoing power, as fully as the undersigned might or could do if personally present,
+until such time as the undersigned file with the SEC a statement terminating this Agreement Regarding Joint Filing of Statement on Schedule&nbsp;13D
+or 13G.</P>
+
+<P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P>
+
+<P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">Dated:&#9;October 14, 2025</P>
+
+<P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P>
+
+<TABLE CELLSPACING="0" CELLPADDING="0" STYLE="width: 100%; border-collapse: collapse">
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="width: 50%; padding-right: 5.4pt; padding-left: 5.4pt">
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0"><B>SITUATIONAL AWARENESS LP</B></P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">By:&#9;<I><U>/s/ Leopold Aschenbrenner</U></I><U><BR>
+    </U>&#9;Leopold Aschenbrenner<BR>
+    &#9;Managing Partner</P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P></TD>
+    <TD STYLE="width: 50%; padding-right: 5.4pt; padding-left: 5.4pt">
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0"><B>SAF AI GP LP</B></P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0"><B>&nbsp;</B></P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0"><B>&nbsp;</B></P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0 0 0 0.5in; text-indent: -0.5in">By: &#9;<I><U>/s/ Leopold Aschenbrenner</U></I></P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&#9;Leopold Aschenbrenner<BR>
+    &#9;Managing Partner</P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P></TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="padding-right: 5.4pt; padding-left: 5.4pt">
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0"><B>SITUATIONAL AWARENESS LLC</B></P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">By:&#9;<I><U>/s/ Leopold Aschenbrenner</U></I><U><BR>
+    </U>&#9;Leopold Aschenbrenner<BR>
+    &#9;Managing Partner</P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P></TD>
+    <TD STYLE="padding-right: 5.4pt; padding-left: 5.4pt">
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0"><B>SITUATIONAL AWARENESS PARTNERS LP<BR>
+    <BR>
+    </B>By:&#9;SAF AI GP LP,<BR>
+    &#9;General Partner<BR>
+    <BR>
+    By:&#9;<I><U>/s/ Leopold Aschenbrenner</U></I><BR>
+    &#9;Leopold Aschenbrenner<BR>
+    &#9;Managing Partner</P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P></TD></TR>
+  <TR STYLE="vertical-align: top">
+    <TD STYLE="padding-right: 5.4pt; padding-left: 5.4pt">
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0"><I><U>/s/ Leopold Aschenbrenner</U></I></P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">Leopold Aschenbrenner</P></TD>
+    <TD STYLE="padding-right: 5.4pt; padding-left: 5.4pt">
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0"><U>/s/ Carl Shulman</U></P>
+    <P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">Carl Shulman</P></TD></TR>
+  </TABLE>
+<P STYLE="font: 11pt Times New Roman, Times, Serif; margin: 0">&nbsp;</P>
+
+</BODY>
+</HTML>
+</TEXT>
+</DOCUMENT>
+</SEC-DOCUMENT>

@@ -63,7 +63,15 @@
       "filing_date": "2025-08-19",
       "report_date": "",
       "primary_document": "xslSCHEDULE_13D_X01/primary_doc.xml"
+    },
+    {
+      "cik": "0002045724",
+      "accession": "0000935836-26-000303",
+      "form": "SC 13G",
+      "filing_date": "2026-05-27",
+      "report_date": "",
+      "primary_document": "xslSCHEDULE_13G_X02/primary_doc.xml"
     }
   ],
-  "updated": "2026-05-27T17:09:02Z"
+  "updated": "2026-05-27T22:52:50Z"
 }
