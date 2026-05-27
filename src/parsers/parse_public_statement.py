@@ -2,9 +2,17 @@
 
 Two extraction modes:
   1. Keyword-only  — fast, free, zero dependencies. Used as pre-filter and fallback.
-  2. LLM-validated — Claude Haiku validates each keyword-matched candidate for real
-     semantic relevance and extracts structured fields. Activated when
+  2. LLM-validated — Claude Haiku validates each keyword-matched candidate and
+     classifies it into one of three signal tiers. Activated when
      ANTHROPIC_API_KEY is set and config.llm.validate_statements is true.
+
+Signal tiers (stored as ``signal_tier`` in the returned dict):
+  alpha_signal     — statement implies a NEW position NOT in the current 13F
+  position_update  — statement contains NEW actionable info about a KNOWN position
+                     (exit / add / reduce / strategy change)
+  context          — discusses a KNOWN position but no new position info
+                     (general commentary, thesis restatement) → not alerted
+  unrelated        — not relevant to this fund
 
 Signal categories (stored as ``signal_category`` in the returned dict):
   invest    — buying / entering a position
@@ -23,38 +31,63 @@ from ..sources.discovery import DiscoveryItem
 
 log = logging.getLogger("parsers.public_statement")
 
-_LLM_SYSTEM_PROMPT = """\
+_LLM_SYSTEM_PROMPT_BASE = """\
 Du bist ein präziser Finanz-Analyst der den Hedgefonds "Situational Awareness LP" \
-(Manager: Leopold Aschenbrenner, ex-OpenAI) überwacht.
+(Manager: Leopold Aschenbrenner, ex-OpenAI) überwacht, um Investmentaktivitäten \
+frühzeitig zu erkennen.
 
-Der Fonds hält Long-Positionen in KI-Infrastruktur und Bitcoin-Mining \
-(CoreWeave, Core Scientific, Bloom Energy, SandDisk, IREN, CleanSpark, Riot, Bitfarms usw.) \
-sowie große Put-Optionen auf Nvidia, AMD, TSMC, Broadcom, Oracle und den VanEck Semiconductor ETF.
+Du bekommst einen Nachrichten-Headline + Excerpt sowie die Liste der aktuell bekannten \
+13F-Positionen des Fonds. Klassifiziere das Signal in exakt eine der folgenden Stufen:
 
-Du bekommst einen Nachrichten-Headline + Excerpt. Klassifiziere ob er ein \
-relevantes Investment-Signal über DIESEN Fonds enthält.
+signal_tier:
+  "alpha_signal"    — Die Aussage deutet auf eine NEUE Position hin, die NICHT in der \
+aktuellen 13F-Liste steht. Dies ist der höchste Informationswert.
+  "position_update" — Die Aussage enthält NEUE, handlungsrelevante Information über eine \
+BEKANNTE Position (z.B. Exit, Aufstockung, Reduzierung, Strategie-Wechsel, Optionsstruktur). \
+Wichtig: Auch ein Exit oder "Ich habe verkauft" bei einer bekannten Position ist ein position_update.
+  "context"         — Die Aussage diskutiert eine bekannte Position oder einen bekannten \
+Sektor, enthält aber keine neue Positionsinformation (allgemeiner Kommentar, \
+Thesis-Wiederholung, Erklärung einer bereits bekannten Beteiligung).
+  "unrelated"       — Nicht relevant für diesen Fonds.
 
 Antworte NUR mit gültigem JSON:
 {
   "is_relevant": true | false,
+  "signal_tier": "alpha_signal" | "position_update" | "context" | "unrelated",
   "action": "buy" | "sell" | "highlight" | "announce" | "unrelated",
   "ticker": "<TICKER>" | null,
   "confidence": 0.0–1.0,
-  "reason": "<ein Satz warum relevant oder nicht>",
-  "analysis": "<2 Sätze auf Deutsch: Einordnung des Signals im Kontext des Fonds>",
-  "trade_signal": "<konkreter Trade-Vorschlag auf Deutsch, z.B. 'CORZ Long — Eintritt unter $15, Stop $11' | null>"
+  "reason": "<ein Satz warum diese Tier-Einstufung>",
+  "quote": "<das prägnanteste Zitat oder die Kernaussage aus dem Artikel, max. 120 Zeichen>",
+  "inference": "<was diese Aussage über eine mögliche neue/geänderte Position impliziert, \
+oder null wenn context/unrelated>",
+  "action_hint": "<grobe Handlungsrichtung: z.B. 'Möglicher Einstieg in Kupfer-Aktien vor \
+nächstem 13F' — NUR bei alpha_signal oder position_update mit confidence >= 0.7, sonst null. \
+Kein konkreter Trade-Vorschlag, keine Kursziele.>"
 }
 
 Regeln:
-- is_relevant = true NUR wenn der Artikel konkret über Investment-Moves dieses Fonds berichtet \
-  (neue Beteiligung, Exit, Aufstockung, Short-Position, Fund-Ankündigung).
-- is_relevant = false für: allgemeine KI-News, Meinungsartikel die Aschenbrenner nur erwähnen, \
-  Interviews ohne Positionsangaben, andere Fonds.
-- analysis: nur ausfüllen wenn is_relevant = true, sonst null.
-- trade_signal: nur wenn action = "buy" oder "sell" und confidence >= 0.75, sonst null. \
-  Formuliere als direkten Vorschlag mit Entry und Stop wenn sinnvoll.
+- is_relevant = true für alpha_signal und position_update. false für context und unrelated.
+- Für "context": is_relevant = false (kein Alert nötig), aber signal_tier trotzdem "context" setzen.
+- confidence: 0.9+ nur bei expliziten Positionsangaben. 0.7–0.85 bei starker Implikation. \
+  Unter 0.65 → is_relevant = false.
 - Nur das JSON-Objekt zurückgeben — kein Markdown, keine Erklärung außerhalb.\
 """
+
+
+def _build_system_prompt(active_tickers: set[str] | None = None) -> str:
+    """Build the LLM system prompt, injecting current 13F positions as context."""
+    prompt = _LLM_SYSTEM_PROMPT_BASE
+    if active_tickers:
+        tickers_str = ", ".join(sorted(active_tickers))
+        prompt += f"\n\nAktuelle 13F-Positionen des Fonds (bekannte Whitelist): {tickers_str}"
+    else:
+        prompt += (
+            "\n\nHinweis: Keine 13F-Positionsliste verfügbar. Klassifiziere konservativ — "
+            "im Zweifel 'context' statt 'alpha_signal'."
+        )
+    return prompt
+
 
 # ── Phrase tables by signal category ────────────────────────────────────────
 INVEST_PHRASES = [
@@ -87,25 +120,20 @@ HIGHLIGHT_PHRASES = [
     "stands out", "worth watching",
 ]
 
-# All phrases in one flat list for quick membership check
 _ALL_PHRASES = INVEST_PHRASES + SELL_PHRASES + ANNOUNCE_PHRASES + HIGHLIGHT_PHRASES
 
-# Naive ticker pattern: 1-5 uppercase letters in parentheses or after a $.
 TICKER_RE = re.compile(r"\$([A-Z]{1,5})\b|\(([A-Z]{1,5})\)")
 
-# Source-kind → base confidence
 _SOURCE_CONFIDENCE = {
     "blog": 0.85, "x": 0.75, "google_news": 0.60,
     "google_alerts": 0.55, "hackernews": 0.55, "reddit": 0.45, "rss": 0.50,
-    "edgar_rss": 0.95,  # direct EDGAR feed — filing already accepted by SEC
+    "edgar_rss": 0.95,
 }
 
-# Category → confidence boost on top of source base
 _CATEGORY_BOOST = {"invest": 0.10, "sell": 0.10, "announce": 0.05, "highlight": 0.0}
 
 
 def _categorize(matched: list[str]) -> str:
-    """Return the dominant signal category for the matched phrases."""
     counts = {"invest": 0, "sell": 0, "announce": 0, "highlight": 0}
     for p in matched:
         if p in INVEST_PHRASES:
@@ -134,6 +162,7 @@ def extract_statement(item: DiscoveryItem) -> dict | None:
     return {
         "matched_phrases": matched,
         "signal_category": category,
+        "signal_tier": None,        # unknown without LLM — alert system treats as alertable
         "ticker_guess": tickers,
         "confidence": confidence,
         "needs_human_review": confidence < 0.80,
@@ -143,11 +172,22 @@ def extract_statement(item: DiscoveryItem) -> dict | None:
         "source_kind": item.source_kind,
         "content_hash": item.content_hash(),
         "llm_validated": False,
+        "llm_quote": "",
+        "llm_inference": "",
+        "llm_action_hint": "",
     }
 
 
-def extract_statement_with_llm(item: DiscoveryItem, model: str = "claude-haiku-4-5-20251001") -> dict | None:
-    """Keyword pre-filter → Claude Haiku semantic validation.
+def extract_statement_with_llm(
+    item: DiscoveryItem,
+    model: str = "claude-haiku-4-5-20251001",
+    active_tickers: set[str] | None = None,
+) -> dict | None:
+    """Keyword pre-filter → Claude Haiku semantic validation with 3-tier classification.
+
+    active_tickers: set of ticker symbols currently in the 13F (passed from step_discover).
+    Used to distinguish alpha_signal (new) from position_update (known, new info)
+    from context (known, no new info).
 
     Falls back silently to keyword-only if ANTHROPIC_API_KEY is not set or the
     API call fails. The returned dict is compatible with extract_statement().
@@ -162,12 +202,13 @@ def extract_statement_with_llm(item: DiscoveryItem, model: str = "claude-haiku-4
     try:
         import anthropic
         client = anthropic.Anthropic()
+        system_prompt = _build_system_prompt(active_tickers)
         response = client.messages.create(
             model=model,
-            max_tokens=256,
+            max_tokens=384,
             system=[{
                 "type": "text",
-                "text": _LLM_SYSTEM_PROMPT,
+                "text": system_prompt,
                 "cache_control": {"type": "ephemeral"},
             }],
             messages=[{
@@ -184,25 +225,43 @@ def extract_statement_with_llm(item: DiscoveryItem, model: str = "claude-haiku-4
         log.warning("LLM validation failed (%s); using keyword result. Error: %s", item.url, exc)
         return candidate
 
-    if not result.get("is_relevant"):
-        log.debug("LLM rejected item (action=%s, reason=%s): %s", result.get("action"), result.get("reason"), item.title[:80])
+    signal_tier = result.get("signal_tier", "unrelated")
+
+    # Discard unrelated and context signals entirely (no event needed)
+    if not result.get("is_relevant") or signal_tier in ("unrelated",):
+        log.debug(
+            "LLM rejected item (tier=%s, reason=%s): %s",
+            signal_tier, result.get("reason"), item.title[:80],
+        )
         return None
 
-    # Merge LLM assessment into candidate
+    # context: store as event but mark tier so alert system suppresses it
+    # alpha_signal / position_update: fully alertable
+
     action = result.get("action", candidate["signal_category"])
-    if action in ("buy",):
+    if action == "buy":
         action = "invest"
     candidate["signal_category"] = action
+    candidate["signal_tier"] = signal_tier
     candidate["confidence"] = round(float(result.get("confidence", candidate["confidence"])), 2)
     candidate["needs_human_review"] = candidate["confidence"] < 0.80
     candidate["llm_validated"] = True
     candidate["llm_reason"] = result.get("reason", "")
-    candidate["llm_analysis"] = result.get("analysis") or ""
-    candidate["llm_trade_signal"] = result.get("trade_signal") or ""
+    candidate["llm_quote"] = result.get("quote") or ""
+    candidate["llm_inference"] = result.get("inference") or ""
+    candidate["llm_action_hint"] = result.get("action_hint") or ""
+
+    # Keep backward compat fields
+    candidate["llm_analysis"] = candidate["llm_inference"]
+    candidate["llm_trade_signal"] = candidate["llm_action_hint"]
 
     llm_ticker = result.get("ticker")
     if llm_ticker:
         existing = set(candidate.get("ticker_guess") or [])
         candidate["ticker_guess"] = sorted(existing | {llm_ticker})
 
+    log.debug(
+        "LLM classified (tier=%s, conf=%.2f): %s",
+        signal_tier, candidate["confidence"], item.title[:80],
+    )
     return candidate

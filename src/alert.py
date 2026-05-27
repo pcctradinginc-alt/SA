@@ -144,7 +144,12 @@ def _build_tldr(model: dict) -> dict:
 
 
 def get_new_alertable_events(cfg: Config, state: dict) -> list[dict]:
-    """Return events not yet alerted that clear the confidence threshold."""
+    """Return events not yet alerted that clear the confidence threshold.
+
+    For public_statement events the signal_tier is checked:
+      - alpha_signal / position_update / None (keyword-only) → alert
+      - context → suppress (no new information about a known position)
+    """
     all_events = list(evts.load_events(cfg))
     alerted_ids = set(state.get("alerted_event_ids", []))
     min_conf: float = float(_alert_cfg(cfg).get("min_confidence", 0.5))
@@ -158,6 +163,11 @@ def get_new_alertable_events(cfg: Config, state: dict) -> list[dict]:
             continue
         if evt.get("signal_type") not in on_types:
             continue
+        # Suppress context-only news: known position, no new information
+        if evt.get("signal_type") == "public_statement":
+            tier = evt.get("signal_tier")
+            if tier == "context":
+                continue
         new.append(evt)
 
     return _deduplicate_news(new)

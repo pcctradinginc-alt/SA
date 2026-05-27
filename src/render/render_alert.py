@@ -29,10 +29,16 @@ def render(cfg: Config, new_events: list[dict], model: dict | None = None, tldr:
         "manager": cfg.primary_name,
         "subject_prefix": cfg.raw.get("alert", {}).get("subject_prefix", "SA Alert"),
     }
-    sec_events = [e for e in new_events if e.get("signal_type") in ("13f_position", "ownership_13dg")]
+    sec_events = [e for e in new_events if e.get("signal_type") in (
+        "13f_position", "ownership_13dg", "ownership_13dg_amendment",
+    )]
     news_events = [e for e in new_events if e.get("signal_type") == "public_statement"]
-    # Sort news by confidence descending
-    news_events.sort(key=lambda e: float(e.get("confidence", 0)), reverse=True)
+    # Sort: alpha_signal first, then position_update, then others — then by confidence desc
+    _tier_order = {"alpha_signal": 0, "position_update": 1}
+    news_events.sort(key=lambda e: (
+        _tier_order.get(e.get("signal_tier") or "", 9),
+        -float(e.get("confidence", 0)),
+    ))
 
     return _env().get_template("alert.html.j2").render(
         sec_events=sec_events,

@@ -60,6 +60,12 @@ class Event:
     instrument: dict[str, Any] | None = None
     needs_human_review: bool = False
     reason_not_verifiable: str | None = None
+    # Signal tier for public_statement events (set by LLM classifier):
+    #   alpha_signal     — new position not in current 13F → alert
+    #   position_update  — known position, new info (exit/add/reduce) → alert
+    #   context          — known position, no new info → suppress alert
+    #   None             — unknown (keyword-only, no LLM) → alert conservatively
+    signal_tier: str | None = None
     sources: list[dict[str, Any]] = field(default_factory=list)
     links_to: list[str] = field(default_factory=list)
 

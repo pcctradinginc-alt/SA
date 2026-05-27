@@ -48,61 +48,100 @@
   </td></tr>
 
   <!-- ══════════════════════════════════════════════════════════
-       OBERER TEIL: NEWS MIT HAIKU-ANALYSE + TRADE-SIGNAL
+       OBERER TEIL: NEWS — 3-TIER SIGNAL CARDS
+       alpha_signal     = neues Asset (grüner Akzent)
+       position_update  = bekannte Position, neue Info (amber)
+       context / None   = allgemeine Erwähnung (grau, suppressed from here)
   ══════════════════════════════════════════════════════════ -->
   {% if news_events %}
   <tr><td style="padding:4px 32px 0 32px;">
     <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:{{ C.ter }};margin-bottom:12px;">
-      Aktuelle News ({{ news_events|length }})
+      News-Signale ({{ news_events|length }})
     </div>
 
     {% for evt in news_events %}
-    {%- set cat = evt.signal_category or '' -%}
-    {%- set has_analysis = evt.llm_analysis is defined and evt.llm_analysis -%}
-    {%- set has_trade = evt.llm_trade_signal is defined and evt.llm_trade_signal -%}
+    {%- set src0 = evt.sources[0] if evt.sources else {} -%}
+    {%- set cat = src0.signal_category or evt.get('signal_category') or '' -%}
+    {%- set tier = evt.signal_tier or '' -%}
+    {%- set quote = src0.llm_quote or '' -%}
+    {%- set inference = src0.llm_inference or '' -%}
+    {%- set action_hint = src0.llm_action_hint or '' -%}
+    {%- set llm_ok = src0.llm_validated or false -%}
+
+    {%- if tier == 'alpha_signal' -%}
+      {%- set card_border = C.green_tx -%}
+      {%- set tier_label = 'NEUES ALPHA' -%}
+      {%- set tier_color = C.green_tx -%}
+      {%- set tier_bg = C.green_bg -%}
+    {%- elif tier == 'position_update' -%}
+      {%- set card_border = C.amber_tx -%}
+      {%- set tier_label = 'POSITIONS-UPDATE' -%}
+      {%- set tier_color = C.amber_tx -%}
+      {%- set tier_bg = C.amber_bg -%}
+    {%- else -%}
+      {%- set card_border = C.line -%}
+      {%- set tier_label = '' -%}
+      {%- set tier_color = C.ter -%}
+      {%- set tier_bg = C.page -%}
+    {%- endif -%}
 
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
-           style="border:1px solid {{ C.line }};border-radius:14px;margin-bottom:12px;overflow:hidden;">
+           style="border:1px solid {{ card_border }};border-radius:14px;margin-bottom:12px;overflow:hidden;">
       <tr><td style="padding:16px 18px;">
 
-        <!-- pills + ticker chips -->
+        <!-- Row 1: tier pill + category pill + tickers + confidence -->
         <div style="margin-bottom:10px;">
-          {%- if cat == 'invest' %}{{ pill('KAUF-SIGNAL', 'green') }}
+          {%- if tier_label %}
+          <span style="display:inline-block;padding:2px 8px;border-radius:6px;font-size:10px;font-weight:700;
+                       letter-spacing:0.07em;text-transform:uppercase;background:{{ tier_bg }};
+                       color:{{ tier_color }};margin-right:6px;">{{ tier_label }}</span>
+          {%- endif %}
+          {%- if cat == 'invest' %}{{ pill('KAUF', 'green') }}
           {%- elif cat == 'sell' %}{{ pill('VERKAUF', 'red') }}
           {%- elif cat == 'announce' %}{{ pill('ANKÜNDIGUNG', 'blue') }}
-          {%- else %}{{ pill('ERWÄHNUNG', 'gray') }}{%- endif %}
+          {%- elif cat == 'highlight' %}{{ pill('THESE', 'gray') }}
+          {%- endif %}
           {%- if evt.ticker_guess %}{% for t in evt.ticker_guess[:3] %}{{ ticker_chip(t) }}{% endfor %}{%- endif %}
-          <span style="font-size:11px;color:{{ C.ter }};margin-left:6px;">
+          <span style="font-size:11px;color:{{ C.ter }};margin-left:4px;">
             {{ '%.0f%%'|format((evt.confidence or 0)*100) }} Konfidenz
-            {%- if evt.llm_validated is defined and evt.llm_validated %} · KI-geprüft{%- endif %}
+            {%- if llm_ok %} · KI-geprüft{%- endif %}
           </span>
         </div>
 
-        <!-- headline -->
-        <div style="font-size:15px;font-weight:600;line-height:1.4;color:{{ C.text }};margin-bottom:{% if has_analysis %}10px{% else %}0{% endif %};">
+        <!-- Row 2: headline -->
+        <div style="font-size:15px;font-weight:600;line-height:1.4;color:{{ C.text }};margin-bottom:10px;">
           {{ evt.summary[:140] }}{% if evt.summary|length > 140 %}…{% endif %}
         </div>
 
-        <!-- Haiku-Analyse -->
-        {% if has_analysis %}
-        <div style="background:{{ C.page }};border-radius:10px;padding:12px 14px;margin-bottom:{% if has_trade %}10px{% else %}0{% endif %};">
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:{{ C.ter }};margin-bottom:5px;">Einordnung</div>
-          <div style="font-size:13px;line-height:1.6;color:{{ C.text }};">{{ evt.llm_analysis }}</div>
+        <!-- Row 3: 📌 Quelle & Zitat -->
+        {% if quote %}
+        <div style="border-left:3px solid {{ card_border }};padding:8px 12px;margin-bottom:10px;background:{{ C.page }};border-radius:0 8px 8px 0;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:{{ C.ter }};margin-bottom:4px;">📌 Zitat</div>
+          <div style="font-size:13px;font-style:italic;line-height:1.5;color:{{ C.text }};">„{{ quote }}"</div>
         </div>
         {% endif %}
 
-        <!-- Trade-Signal -->
-        {% if has_trade %}
-        <div style="background:{{ C.amber_bg }};border-radius:10px;padding:12px 14px;">
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:{{ C.amber_tx }};margin-bottom:5px;">Trade-Idee</div>
-          <div style="font-size:13px;font-weight:600;color:{{ C.amber_tx }};">{{ evt.llm_trade_signal }}</div>
+        <!-- Row 4: 💡 Rückschluss (only for alpha_signal / position_update) -->
+        {% if inference %}
+        <div style="background:{{ tier_bg }};border-radius:10px;padding:11px 14px;margin-bottom:{% if action_hint %}10px{% else %}0{% endif %};">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:{{ tier_color }};margin-bottom:4px;">💡 Rückschluss</div>
+          <div style="font-size:13px;line-height:1.55;color:{{ C.text }};">{{ inference }}</div>
+        </div>
+        {% endif %}
+
+        <!-- Row 5: ⚡ Handlungsrichtung (optional, only when LLM provided it) -->
+        {% if action_hint %}
+        <div style="background:{{ C.amber_bg }};border-radius:10px;padding:11px 14px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:{{ C.amber_tx }};margin-bottom:4px;">⚡ Handlungsrichtung</div>
+          <div style="font-size:13px;color:{{ C.amber_tx }};line-height:1.5;">{{ action_hint }}</div>
+          <div style="font-size:10px;color:{{ C.ter }};margin-top:4px;">Kein bestätigter Trade — Einschätzung basiert auf öffentlicher Aussage, nicht auf Filing.</div>
         </div>
         {% endif %}
 
         <!-- source link -->
-        {% if evt.sources and evt.sources[0].url %}
+        {% if src0.url %}
         <div style="margin-top:10px;">
-          <a href="{{ evt.sources[0].url }}"
+          <a href="{{ src0.url }}"
              style="font-size:12px;color:{{ C.accent }};text-decoration:none;">Quelle lesen →</a>
         </div>
         {% endif %}

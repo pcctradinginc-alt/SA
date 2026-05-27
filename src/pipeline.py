@@ -133,14 +133,30 @@ def step_discover(cfg: Config) -> None:
         + discovery.from_x(cfg)
         + rss_news.from_all_curated(cfg)  # free curated sources: Google News, HN, Reddit
     )
+
+    # Load active 13F tickers to pass as whitelist context to the LLM classifier.
+    # This enables the alpha_signal / position_update / context tier distinction.
+    # Falls back to empty set if no position model exists yet (first run).
+    try:
+        _model = read_json(cfg.paths.derived / "position_table.json") or {}
+        _active_tickers = latest_tickers(cfg, _model)
+    except Exception:
+        _active_tickers = set()
+    if _active_tickers:
+        log.info("Discover: passing %d active 13F tickers as whitelist context.", len(_active_tickers))
+    else:
+        log.info("Discover: no position model found — all signals treated as potential alpha.")
+
     use_llm = cfg.llm_validate_statements
-    extractor = (
-        lambda item: parse_public_statement.extract_statement_with_llm(item, model=cfg.llm_model)
-        if use_llm
-        else parse_public_statement.extract_statement
-    )
     if use_llm:
         log.info("LLM validation enabled (model=%s).", cfg.llm_model)
+        extractor = (
+            lambda item: parse_public_statement.extract_statement_with_llm(
+                item, model=cfg.llm_model, active_tickers=_active_tickers,
+            )
+        )
+    else:
+        extractor = parse_public_statement.extract_statement
 
     # Fix [H3]: skip EDGAR RSS/Form-D items from statement extraction.
     # These are SEC filing notifications — they belong in step_fetch (parse_13f /
@@ -150,6 +166,7 @@ def step_discover(cfg: Config) -> None:
     _SKIP_KINDS = {"edgar_rss"}
 
     n = 0
+    n_context = 0
     for item in items:
         if item.source_kind in _SKIP_KINDS:
             log.debug("Skipping edgar_rss item from statement pipeline (handled by fetch): %s", item.url)
@@ -157,6 +174,9 @@ def step_discover(cfg: Config) -> None:
         stmt = extractor(item)
         if not stmt:
             continue
+        tier = stmt.get("signal_tier")
+        if tier == "context":
+            n_context += 1
         src_class = events.PRIMARY_SOURCE if item.source_kind in {"blog", "x"} else events.MEDIA_REPORTED
         events.append_event(cfg, events.Event(
             event_id=f"evt_stmt_{stmt['content_hash'][7:23]}",
@@ -164,10 +184,22 @@ def step_discover(cfg: Config) -> None:
             source_class=src_class, verification_status=events.OPEN,
             summary=stmt["title"][:200], confidence=stmt["confidence"],
             ticker_guess=stmt["ticker_guess"], needs_human_review=stmt["needs_human_review"],
-            sources=[{"kind": item.source_kind, "url": stmt["url"], "hash": stmt["content_hash"]}],
+            signal_tier=tier,
+            sources=[{
+                "kind": item.source_kind, "url": stmt["url"], "hash": stmt["content_hash"],
+                "llm_quote": stmt.get("llm_quote", ""),
+                "llm_inference": stmt.get("llm_inference", ""),
+                "llm_action_hint": stmt.get("llm_action_hint", ""),
+                "llm_reason": stmt.get("llm_reason", ""),
+                "signal_category": stmt.get("signal_category", ""),
+                "llm_validated": stmt.get("llm_validated", False),
+            }],
         ))
         n += 1
-    log.info("Discovery complete: %d candidate statements.", n)
+    log.info(
+        "Discovery complete: %d candidate statements (%d context-only, suppressed from alerts).",
+        n, n_context,
+    )
 
 
 def step_analyze(cfg: Config) -> dict:
