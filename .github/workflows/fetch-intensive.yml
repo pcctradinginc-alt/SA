@@ -21,31 +21,50 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # stdlib-only check — no pip install needed when outside window
+      # stdlib-only check — no pip install needed when outside window.
+      # Deadlines are computed dynamically (open-end): SEC rule = 45 calendar days
+      # after each quarter-end, rolled forward to the next business day if needed.
+      # No hardcoded date list — works indefinitely without maintenance.
       - name: Check filing deadline window
         id: window
         run: |
           python3 - <<'EOF'
           import datetime, os
-          DEADLINES = [
-              (datetime.date(2026, 2, 17), 3, 2),
-              (datetime.date(2026, 5, 15), 3, 2),
-              (datetime.date(2026, 8, 14), 3, 2),
-              (datetime.date(2026, 11, 16), 3, 2),
-              (datetime.date(2027, 2, 16), 3, 2),
-              (datetime.date(2027, 5, 17), 3, 2),
-              (datetime.date(2027, 8, 16), 3, 2),
-              (datetime.date(2027, 11, 15), 3, 2),
-              (datetime.date(2028, 2, 14), 3, 2),
-          ]
+
+          BEFORE_DAYS = 3   # activate N days before the deadline
+          AFTER_DAYS  = 2   # stay active N days after the deadline
+
+          def _next_business_day(d: datetime.date) -> datetime.date:
+              """Roll d forward past weekends (no holiday calendar needed —
+              SEC extends to next business day, which is always Mon if Sat/Sun)."""
+              while d.weekday() >= 5:   # 5 = Saturday, 6 = Sunday
+                  d += datetime.timedelta(days=1)
+              return d
+
+          def _deadlines_around(today: datetime.date, window: int = 10):
+              """Yield (deadline, before, after) for all quarters within `window`
+              years either side of today — effectively infinite coverage."""
+              QUARTER_ENDS = [(3, 31), (6, 30), (9, 30), (12, 31)]
+              for yr in range(today.year - 1, today.year + window + 1):
+                  for month, day in QUARTER_ENDS:
+                      qe = datetime.date(yr, month, day)
+                      dl = _next_business_day(qe + datetime.timedelta(days=45))
+                      yield dl, BEFORE_DAYS, AFTER_DAYS
+
           today = datetime.date.today()
           hot = any(
               (d - datetime.timedelta(days=before)) <= today <= (d + datetime.timedelta(days=after))
-              for d, before, after in DEADLINES
+              for d, before, after in _deadlines_around(today)
           )
+          # Print the nearest upcoming deadline for log visibility
+          upcoming = sorted(
+              d for d, *_ in _deadlines_around(today) if d >= today
+          )
+          print(f"Today: {today}  Hot window: {hot}")
+          if upcoming:
+              print(f"Next deadline: {upcoming[0]}  (window: {upcoming[0] - datetime.timedelta(days=BEFORE_DAYS)} → {upcoming[0] + datetime.timedelta(days=AFTER_DAYS)})")
           with open(os.environ["GITHUB_OUTPUT"], "a") as f:
               f.write(f"hot={'true' if hot else 'false'}\n")
-          print(f"Today: {today}  Hot window: {hot}")
           EOF
 
       - uses: actions/setup-python@v5
