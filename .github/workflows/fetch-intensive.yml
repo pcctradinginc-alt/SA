@@ -33,6 +33,10 @@ jobs:
               (datetime.date(2026, 8, 14), 3, 2),
               (datetime.date(2026, 11, 16), 3, 2),
               (datetime.date(2027, 2, 16), 3, 2),
+              (datetime.date(2027, 5, 17), 3, 2),
+              (datetime.date(2027, 8, 16), 3, 2),
+              (datetime.date(2027, 11, 15), 3, 2),
+              (datetime.date(2028, 2, 14), 3, 2),
           ]
           today = datetime.date.today()
           hot = any(
@@ -57,6 +61,14 @@ jobs:
       - name: Fetch new SEC filings
         if: steps.window.outputs.hot == 'true'
         run: python -m src.pipeline fetch
+
+      # Fix [K1]: rebuild position model after fetch so alert uses current data,
+      # not the stale position_table.json from the last daily analyze run.
+      - name: Rebuild position model
+        if: steps.window.outputs.hot == 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python -m src.pipeline analyze
 
       - name: Send alert if new events
         if: steps.window.outputs.hot == 'true'

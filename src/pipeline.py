@@ -142,8 +142,18 @@ def step_discover(cfg: Config) -> None:
     if use_llm:
         log.info("LLM validation enabled (model=%s).", cfg.llm_model)
 
+    # Fix [H3]: skip EDGAR RSS/Form-D items from statement extraction.
+    # These are SEC filing notifications — they belong in step_fetch (parse_13f /
+    # parse_13dg). Running them through parse_public_statement produces spurious
+    # public_statement events (conf 0.6–0.7) that duplicate or shadow the proper
+    # 13f_position / ownership_13dg events created by step_fetch.
+    _SKIP_KINDS = {"edgar_rss"}
+
     n = 0
     for item in items:
+        if item.source_kind in _SKIP_KINDS:
+            log.debug("Skipping edgar_rss item from statement pipeline (handled by fetch): %s", item.url)
+            continue
         stmt = extractor(item)
         if not stmt:
             continue

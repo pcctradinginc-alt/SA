@@ -19,8 +19,11 @@ sec:
   filing_types: ["13F-HR", "13F-HR/A", "SC 13D", "SC 13D/A", "SC 13G", "SC 13G/A", "D", "D/A"]
 
 analysis:
-  # How many trailing 13F quarters to show in the position table.
-  quarters: 3
+  # How many trailing 13F quarters to load for analysis and position history.
+  # Fix [H2]: was 3 — raises to 6 to use all available data (currently 6 quarters
+  # on disk: Q4 2024 → Q1 2026). Sector-weight QoQ history and exit detection
+  # were silently truncated with 3 quarters.
+  quarters: 6
   # Status thresholds for the Common Stock "Reported Position Change" traffic light.
   hold_band_pct: 0.10                 # |QoQ| <= 10% counts as "Hold"
   trim_threshold_pct: -0.10           # QoQ < -10% counts as "Trim"
@@ -52,9 +55,10 @@ alert:
   min_confidence: 0.5
   # Which signal types trigger an alert.
   on_signal_types:
-    - "13f_position"       # new 13F quarterly filing
-    - "ownership_13dg"     # 13D/G beneficial-ownership change
-    - "public_statement"   # news / blog mention (invest, sell, announce, highlight)
+    - "13f_position"                # new 13F quarterly filing
+    - "ownership_13dg"              # 13D/G beneficial-ownership change (initial)
+    - "ownership_13dg_amendment"    # SC 13D/A or 13G/A — position update (fix [H1])
+    - "public_statement"            # news / blog mention (invest, sell, announce, highlight)
 
 paths:
   reference: "data/reference"

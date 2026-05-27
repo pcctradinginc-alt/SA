@@ -24,9 +24,21 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - name: Fetch + parse + analyze
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           python -m src.pipeline fetch
           python -m src.pipeline analyze
+      # Fix [H4]: send immediate alert after daily filing ingest so new 13F/13D events
+      # are not delayed up to 55 min waiting for the next hourly alert.yml run.
+      - name: Alert on new events
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SMTP_TO: ${{ secrets.SMTP_TO }}
+        run: python -m src.pipeline alert
       - name: Commit updated data
         run: |
           git config user.name "sa-tracker-bot"

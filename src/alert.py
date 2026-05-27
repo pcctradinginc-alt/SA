@@ -22,7 +22,9 @@ from .utils import get_logger, read_json, utc_now_iso, write_json
 log = get_logger("alert")
 
 _STATE_FILE = "alert_state.json"
-_ALERTABLE_TYPES = {"13f_position", "ownership_13dg", "public_statement"}
+# Fix [H1]: include amendments — SC 13D/A is the highest-signal SEC event class;
+# omitting it caused a conf=1.0 Core Scientific amendment to go unalerted.
+_ALERTABLE_TYPES = {"13f_position", "ownership_13dg", "ownership_13dg_amendment", "public_statement"}
 
 
 def _load_state(cfg: Config) -> dict:

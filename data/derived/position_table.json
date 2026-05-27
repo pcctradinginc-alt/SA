@@ -1,8 +1,11 @@
 {
   "available": true,
-  "generated": "2026-05-26",
+  "generated": "2026-05-27",
   "manager": "Situational Awareness LP",
   "quarter_labels": [
+    "Q4 2024",
+    "Q1 2025",
+    "Q2 2025",
     "Q3 2025",
     "Q4 2025",
     "Q1 2026"
@@ -18,7 +21,7 @@
     "new_common_positions": 10,
     "increased_common_positions": 7,
     "reduced_common_positions": 2,
-    "exited_common_positions": 11,
+    "exited_common_positions": 18,
     "largest_add": {
       "ticker": "SNDK",
       "issuer": "SANDISK CORP"
@@ -29,11 +32,11 @@
     },
     "best_performer": {
       "ticker": "BITF",
-      "move": 1.4293
+      "move": 1.5909
     },
     "worst_performer": {
       "ticker": "PSIX",
-      "move": -0.3504
+      "move": -0.362
     }
   },
   "common_stock": [
@@ -45,10 +48,16 @@
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
+        0,
+        0,
+        0,
         10076022,
         6485408
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         875505552,
         878707930
@@ -65,10 +74,10 @@
       "price_at_quarter_end": 132.45,
       "price_at_prev_quarter_end": 86.89,
       "intra_quarter_return_pct": 0.5243,
-      "current_price": 302.4,
-      "price_change_since_quarter_end_pct": 1.2831,
-      "estimated_current_value": 1961187379,
-      "estimated_value_change_since_quarter_end": 1102195090,
+      "current_price": 299.58,
+      "price_change_since_quarter_end_pct": 1.2618,
+      "estimated_current_value": 1942898529,
+      "estimated_value_change_since_quarter_end": 1083906239,
       "status": "trim",
       "status_icon": "🔴",
       "status_label": "Trim",
@@ -92,11 +101,17 @@
       "sector": "Technology",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
+        0,
+        0,
+        0,
         115000,
         1054200,
         1140119
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         12903000,
         250245996,
         724363205
@@ -113,10 +128,10 @@
       "price_at_quarter_end": 692.73,
       "price_at_prev_quarter_end": 237.38,
       "intra_quarter_return_pct": 1.9182,
-      "current_price": 1589.55,
-      "price_change_since_quarter_end_pct": 1.2946,
-      "estimated_current_value": 1812276156,
-      "estimated_value_change_since_quarter_end": 1022481522,
+      "current_price": 1559.74,
+      "price_change_since_quarter_end_pct": 1.2516,
+      "estimated_current_value": 1778289209,
+      "estimated_value_change_since_quarter_end": 988494574,
       "status": "strong_add",
       "status_icon": "🟢",
       "status_label": "Strong Add",
@@ -136,15 +151,21 @@
     {
       "cusip": "21873S108",
       "ticker": "CRWV",
-      "issuer": "COREWEAVE INC",
+      "issuer": "CoreWeave Inc",
       "sector": "AI Infrastructure",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
+        0,
+        1225000,
+        0,
         4115456,
         6098812,
         7177919
       ],
       "values_by_quarter": [
+        0,
+        45423000,
+        0,
         563200154,
         436735927,
         556073385
@@ -161,10 +182,10 @@
       "price_at_quarter_end": 78.44,
       "price_at_prev_quarter_end": 71.61,
       "intra_quarter_return_pct": 0.0954,
-      "current_price": 105.89,
-      "price_change_since_quarter_end_pct": 0.3499,
-      "estimated_current_value": 760069843,
-      "estimated_value_change_since_quarter_end": 197033877,
+      "current_price": 102.27,
+      "price_change_since_quarter_end_pct": 0.3038,
+      "estimated_current_value": 734085776,
+      "estimated_value_change_since_quarter_end": 171049810,
       "status": "strong_add",
       "status_icon": "🟢",
       "status_label": "Strong Add",
@@ -184,15 +205,21 @@
     {
       "cusip": "Q4982L109",
       "ticker": "IREN",
-      "issuer": "IREN LIMITED",
+      "issuer": "IREN Limited",
       "sector": "Bitcoin Mining",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
+        0,
+        3366130,
+        6400384,
         7220421,
         8700621,
         11698835
       ],
       "values_by_quarter": [
+        0,
+        20499732,
+        93253595,
         338854358,
         328622455,
         401036064
@@ -209,10 +236,10 @@
       "price_at_quarter_end": 34.09,
       "price_at_prev_quarter_end": 37.77,
       "intra_quarter_return_pct": -0.0974,
-      "current_price": 59.78,
-      "price_change_since_quarter_end_pct": 0.7536,
-      "estimated_current_value": 699356356,
-      "estimated_value_change_since_quarter_end": 300543071,
+      "current_price": 65.33,
+      "price_change_since_quarter_end_pct": 0.9164,
+      "estimated_current_value": 764284891,
+      "estimated_value_change_since_quarter_end": 365471605,
       "status": "strong_add",
       "status_icon": "🟢",
       "status_label": "Strong Add",
@@ -225,15 +252,21 @@
     {
       "cusip": "21874A106",
       "ticker": "CORZ",
-      "issuer": "CORE SCIENTIFIC INC NEW",
+      "issuer": "Core Scientific Inc New",
       "sector": "Bitcoin Mining",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
+        0,
+        4521578,
+        7994038,
         20180534,
         28756478,
         26008473
       ],
       "values_by_quarter": [
+        0,
+        32736225,
+        136458229,
         362038780,
         418694320,
         389086756
@@ -246,14 +279,14 @@
       "portfolio_weight_common_stock": 0.1009,
       "qoq_share_change_pct": -0.09556125058152115,
       "three_quarter_trend": "mixed",
-      "has_13dg": true,
+      "has_13dg": false,
       "price_at_quarter_end": 15.3,
       "price_at_prev_quarter_end": 14.56,
       "intra_quarter_return_pct": 0.0508,
-      "current_price": 26.37,
-      "price_change_since_quarter_end_pct": 0.7235,
-      "estimated_current_value": 685843433,
-      "estimated_value_change_since_quarter_end": 287913796,
+      "current_price": 27.18,
+      "price_change_since_quarter_end_pct": 0.7765,
+      "estimated_current_value": 706910296,
+      "estimated_value_change_since_quarter_end": 308980659,
       "status": "hold",
       "status_icon": "🟡",
       "status_label": "Hold",
@@ -266,15 +299,21 @@
     {
       "cusip": "038169207",
       "ticker": "APLD",
-      "issuer": "APPLIED DIGITAL CORP",
+      "issuer": "Applied Digital Corp",
       "sector": "AI Infrastructure",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
+        0,
+        4035600,
+        6591800,
         6064155,
         11339060,
         13478438
       ],
       "values_by_quarter": [
+        0,
+        22680072,
+        66379426,
         139111716,
         278033751,
         319978118
@@ -291,10 +330,10 @@
       "price_at_quarter_end": 24.49,
       "price_at_prev_quarter_end": 24.52,
       "intra_quarter_return_pct": -0.0012,
-      "current_price": 45.14,
-      "price_change_since_quarter_end_pct": 0.8432,
-      "estimated_current_value": 608416691,
-      "estimated_value_change_since_quarter_end": 278329745,
+      "current_price": 46.89,
+      "price_change_since_quarter_end_pct": 0.9147,
+      "estimated_current_value": 632003958,
+      "estimated_value_change_since_quarter_end": 301917011,
       "status": "strong_add",
       "status_icon": "🟢",
       "status_label": "Strong Add",
@@ -311,11 +350,17 @@
       "sector": "Bitcoin Mining",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
+        0,
+        0,
+        0,
         3592699,
         6167700,
         11502137
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         68369062,
         78144759,
         142166413
@@ -332,10 +377,10 @@
       "price_at_quarter_end": 12.55,
       "price_at_prev_quarter_end": 12.67,
       "intra_quarter_return_pct": -0.0095,
-      "current_price": 26.08,
-      "price_change_since_quarter_end_pct": 1.0781,
-      "estimated_current_value": 299975733,
-      "estimated_value_change_since_quarter_end": 155623914,
+      "current_price": 26.3,
+      "price_change_since_quarter_end_pct": 1.0956,
+      "estimated_current_value": 302506203,
+      "estimated_value_change_since_quarter_end": 158154384,
       "status": "strong_add",
       "status_icon": "🟢",
       "status_label": "Strong Add",
@@ -353,10 +398,16 @@
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
+        0,
+        0,
+        0,
         1640400,
         12276139
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         16600848,
         104469943
@@ -373,10 +424,10 @@
       "price_at_quarter_end": 8.62,
       "price_at_prev_quarter_end": 10.12,
       "intra_quarter_return_pct": -0.1482,
-      "current_price": 17.13,
-      "price_change_since_quarter_end_pct": 0.9872,
-      "estimated_current_value": 210290261,
-      "estimated_value_change_since_quarter_end": 104469943,
+      "current_price": 17.5,
+      "price_change_since_quarter_end_pct": 1.0302,
+      "estimated_current_value": 214832432,
+      "estimated_value_change_since_quarter_end": 109012114,
       "status": "new_add",
       "status_icon": "🟢",
       "status_label": "New + Add",
@@ -393,11 +444,17 @@
       "sector": "Energy Infrastructure",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
+        0,
+        0,
+        0,
         1150300,
         1866500,
         1105551
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         45977491,
         85803005,
         62474687
@@ -414,10 +471,10 @@
       "price_at_quarter_end": 55.47,
       "price_at_prev_quarter_end": 45.86,
       "intra_quarter_return_pct": 0.2096,
-      "current_price": 75.37,
-      "price_change_since_quarter_end_pct": 0.3588,
-      "estimated_current_value": 83325379,
-      "estimated_value_change_since_quarter_end": 22000465,
+      "current_price": 72.61,
+      "price_change_since_quarter_end_pct": 0.309,
+      "estimated_current_value": 80274058,
+      "estimated_value_change_since_quarter_end": 18949144,
       "status": "trim",
       "status_icon": "🔴",
       "status_label": "Trim",
@@ -436,9 +493,15 @@
       "shares_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         10000000
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         0,
         43900000
@@ -455,10 +518,10 @@
       "price_at_quarter_end": 4.39,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 10.45,
-      "price_change_since_quarter_end_pct": 1.3804,
-      "estimated_current_value": 104500000,
-      "estimated_value_change_since_quarter_end": 60600000,
+      "current_price": 10.74,
+      "price_change_since_quarter_end_pct": 1.4465,
+      "estimated_current_value": 107400000,
+      "estimated_value_change_since_quarter_end": 63500000,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
@@ -476,10 +539,16 @@
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
+        0,
+        0,
+        0,
         6897100,
         19875840
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         16208185,
         38757888
@@ -496,10 +565,10 @@
       "price_at_quarter_end": 1.98,
       "price_at_prev_quarter_end": 2.35,
       "intra_quarter_return_pct": -0.1574,
-      "current_price": 4.81,
-      "price_change_since_quarter_end_pct": 1.4293,
-      "estimated_current_value": 95602790,
-      "estimated_value_change_since_quarter_end": 56248627,
+      "current_price": 5.13,
+      "price_change_since_quarter_end_pct": 1.5909,
+      "estimated_current_value": 101963059,
+      "estimated_value_change_since_quarter_end": 62608896,
       "status": "new_add",
       "status_icon": "🟢",
       "status_label": "New + Add",
@@ -516,11 +585,17 @@
       "sector": "Bitcoin Mining",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
+        0,
+        0,
+        0,
         929600,
         1788000,
         3439450
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         15886864,
         20043480,
         29751243
@@ -537,10 +612,10 @@
       "price_at_quarter_end": 9.34,
       "price_at_prev_quarter_end": 11.21,
       "intra_quarter_return_pct": -0.1668,
-      "current_price": 15.11,
-      "price_change_since_quarter_end_pct": 0.6178,
-      "estimated_current_value": 51970090,
-      "estimated_value_change_since_quarter_end": 19845626,
+      "current_price": 15.56,
+      "price_change_since_quarter_end_pct": 0.666,
+      "estimated_current_value": 53517842,
+      "estimated_value_change_since_quarter_end": 21393379,
       "status": "strong_add",
       "status_icon": "🟢",
       "status_label": "Strong Add",
@@ -558,10 +633,16 @@
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
+        0,
+        0,
+        0,
         432300,
         432300
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         24701622,
         26318424
@@ -578,10 +659,10 @@
       "price_at_quarter_end": 66.18,
       "price_at_prev_quarter_end": 57.14,
       "intra_quarter_return_pct": 0.1582,
-      "current_price": 42.99,
-      "price_change_since_quarter_end_pct": -0.3504,
-      "estimated_current_value": 18584577,
-      "estimated_value_change_since_quarter_end": -10025037,
+      "current_price": 42.22,
+      "price_change_since_quarter_end_pct": -0.362,
+      "estimated_current_value": 18251706,
+      "estimated_value_change_since_quarter_end": -10357908,
       "status": "hold",
       "status_icon": "🟡",
       "status_label": "Hold",
@@ -599,10 +680,16 @@
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
+        0,
+        0,
+        0,
         1757600,
         1757600
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         27770080,
         20933016
@@ -641,9 +728,15 @@
       "shares_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         99138
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         0,
         20167643
@@ -660,10 +753,10 @@
       "price_at_quarter_end": 210.21,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 503.89,
-      "price_change_since_quarter_end_pct": 1.3971,
-      "estimated_current_value": 49954647,
-      "estimated_value_change_since_quarter_end": 29114848,
+      "current_price": 490.83,
+      "price_change_since_quarter_end_pct": 1.335,
+      "estimated_current_value": 48659905,
+      "estimated_value_change_since_quarter_end": 27820106,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
@@ -688,10 +781,16 @@
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
+        0,
+        0,
+        0,
         1353900,
         1353900
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         8583726,
         19888791
@@ -708,10 +807,10 @@
       "price_at_quarter_end": 14.97,
       "price_at_prev_quarter_end": 6.34,
       "intra_quarter_return_pct": 1.3612,
-      "current_price": 19.65,
-      "price_change_since_quarter_end_pct": 0.3126,
-      "estimated_current_value": 26604135,
-      "estimated_value_change_since_quarter_end": 6336252,
+      "current_price": 19.38,
+      "price_change_since_quarter_end_pct": 0.2946,
+      "estimated_current_value": 26238582,
+      "estimated_value_change_since_quarter_end": 5970699,
       "status": "hold",
       "status_icon": "🟡",
       "status_label": "Hold",
@@ -730,9 +829,15 @@
       "shares_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         796108
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         0,
         18095535
@@ -749,10 +854,10 @@
       "price_at_quarter_end": 22.73,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 65.0,
-      "price_change_since_quarter_end_pct": 1.8597,
-      "estimated_current_value": 51747020,
-      "estimated_value_change_since_quarter_end": 33651485,
+      "current_price": 65.22,
+      "price_change_since_quarter_end_pct": 1.8693,
+      "estimated_current_value": 51922164,
+      "estimated_value_change_since_quarter_end": 33826629,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
@@ -770,10 +875,16 @@
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
+        0,
+        0,
+        0,
         910300,
         910300
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         8656953,
         13117423
@@ -790,10 +901,10 @@
       "price_at_quarter_end": 13.5,
       "price_at_prev_quarter_end": 9.51,
       "intra_quarter_return_pct": 0.4196,
-      "current_price": 16.87,
-      "price_change_since_quarter_end_pct": 0.2496,
-      "estimated_current_value": 15356761,
-      "estimated_value_change_since_quarter_end": 3067711,
+      "current_price": 16.25,
+      "price_change_since_quarter_end_pct": 0.2037,
+      "estimated_current_value": 14792375,
+      "estimated_value_change_since_quarter_end": 2503325,
       "status": "hold",
       "status_icon": "🟡",
       "status_label": "Hold",
@@ -812,9 +923,15 @@
       "shares_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         26950
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         0,
         10332630
@@ -831,10 +948,10 @@
       "price_at_quarter_end": 391.97,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 602.14,
-      "price_change_since_quarter_end_pct": 0.5362,
-      "estimated_current_value": 16227673,
-      "estimated_value_change_since_quarter_end": 5664081,
+      "current_price": 589.02,
+      "price_change_since_quarter_end_pct": 0.5027,
+      "estimated_current_value": 15874089,
+      "estimated_value_change_since_quarter_end": 5310497,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
@@ -859,10 +976,16 @@
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
+        0,
+        0,
+        0,
         1,
         202344
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         37,
         8929441
@@ -879,10 +1002,10 @@
       "price_at_quarter_end": 48.03,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 123.52,
-      "price_change_since_quarter_end_pct": 1.5717,
-      "estimated_current_value": 24993531,
-      "estimated_value_change_since_quarter_end": 15274949,
+      "current_price": 118.52,
+      "price_change_since_quarter_end_pct": 1.4676,
+      "estimated_current_value": 23981811,
+      "estimated_value_change_since_quarter_end": 14263229,
       "status": "new_add",
       "status_icon": "🟢",
       "status_label": "New + Add",
@@ -908,9 +1031,15 @@
       "shares_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         22423
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         0,
         7577853
@@ -927,10 +1056,10 @@
       "price_at_quarter_end": 341.49,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 412.32,
-      "price_change_since_quarter_end_pct": 0.2074,
-      "estimated_current_value": 9245451,
-      "estimated_value_change_since_quarter_end": 1588221,
+      "current_price": 418.38,
+      "price_change_since_quarter_end_pct": 0.2252,
+      "estimated_current_value": 9381335,
+      "estimated_value_change_since_quarter_end": 1724104,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
@@ -956,9 +1085,15 @@
       "shares_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         3391547
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         0,
         6443939
@@ -975,10 +1110,10 @@
       "price_at_quarter_end": 1.89,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 4.1,
-      "price_change_since_quarter_end_pct": 1.1693,
-      "estimated_current_value": 13905343,
-      "estimated_value_change_since_quarter_end": 7495319,
+      "current_price": 4.2,
+      "price_change_since_quarter_end_pct": 1.2222,
+      "estimated_current_value": 14244497,
+      "estimated_value_change_since_quarter_end": 7834474,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
@@ -997,9 +1132,15 @@
       "shares_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         4633
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         0,
         6119405
@@ -1016,10 +1157,10 @@
       "price_at_quarter_end": 1356.8,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 1632.03,
-      "price_change_since_quarter_end_pct": 0.2029,
-      "estimated_current_value": 7561195,
-      "estimated_value_change_since_quarter_end": 1275141,
+      "current_price": 1588.71,
+      "price_change_since_quarter_end_pct": 0.1709,
+      "estimated_current_value": 7360493,
+      "estimated_value_change_since_quarter_end": 1074439,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
@@ -1045,9 +1186,15 @@
       "shares_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         17362
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         0,
         5865578
@@ -1064,10 +1211,10 @@
       "price_at_quarter_end": 367.85,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 895.88,
-      "price_change_since_quarter_end_pct": 1.4354,
-      "estimated_current_value": 15554269,
-      "estimated_value_change_since_quarter_end": 9167657,
+      "current_price": 904.27,
+      "price_change_since_quarter_end_pct": 1.4583,
+      "estimated_current_value": 15699936,
+      "estimated_value_change_since_quarter_end": 9313324,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
@@ -1093,9 +1240,15 @@
       "shares_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         5283
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         0,
         718330
@@ -1112,10 +1265,10 @@
       "price_at_quarter_end": 142.38,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 196.17,
-      "price_change_since_quarter_end_pct": 0.3778,
-      "estimated_current_value": 1036366,
-      "estimated_value_change_since_quarter_end": 284173,
+      "current_price": 189.35,
+      "price_change_since_quarter_end_pct": 0.3299,
+      "estimated_current_value": 1000336,
+      "estimated_value_change_since_quarter_end": 248143,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
@@ -1141,9 +1294,15 @@
       "shares_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         2855
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         0,
         497912
@@ -1160,10 +1319,10 @@
       "price_at_quarter_end": 175.75,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 214.86,
-      "price_change_since_quarter_end_pct": 0.2225,
-      "estimated_current_value": 613425,
-      "estimated_value_change_since_quarter_end": 111659,
+      "current_price": 211.03,
+      "price_change_since_quarter_end_pct": 0.2007,
+      "estimated_current_value": 602491,
+      "estimated_value_change_since_quarter_end": 100724,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
@@ -1191,9 +1350,15 @@
       "shares_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         4633
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         0,
         6119405
@@ -1210,10 +1375,10 @@
       "price_at_quarter_end": 1356.8,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 1632.03,
-      "price_change_since_quarter_end_pct": 0.2029,
-      "estimated_current_value": 7561195,
-      "estimated_value_change_since_quarter_end": 1275141,
+      "current_price": 1588.71,
+      "price_change_since_quarter_end_pct": 0.1709,
+      "estimated_current_value": 7360493,
+      "estimated_value_change_since_quarter_end": 1074439,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
@@ -1239,9 +1404,15 @@
       "shares_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         99138
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         0,
         20167643
@@ -1258,10 +1429,10 @@
       "price_at_quarter_end": 210.21,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 503.89,
-      "price_change_since_quarter_end_pct": 1.3971,
-      "estimated_current_value": 49954647,
-      "estimated_value_change_since_quarter_end": 29114848,
+      "current_price": 490.83,
+      "price_change_since_quarter_end_pct": 1.335,
+      "estimated_current_value": 48659905,
+      "estimated_value_change_since_quarter_end": 27820106,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
@@ -1287,9 +1458,15 @@
       "shares_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         5283
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         0,
         718330
@@ -1306,10 +1483,10 @@
       "price_at_quarter_end": 142.38,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 196.17,
-      "price_change_since_quarter_end_pct": 0.3778,
-      "estimated_current_value": 1036366,
-      "estimated_value_change_since_quarter_end": 284173,
+      "current_price": 189.35,
+      "price_change_since_quarter_end_pct": 0.3299,
+      "estimated_current_value": 1000336,
+      "estimated_value_change_since_quarter_end": 248143,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
@@ -1335,9 +1512,15 @@
       "shares_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         3391547
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         0,
         6443939
@@ -1354,10 +1537,10 @@
       "price_at_quarter_end": 1.89,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 4.1,
-      "price_change_since_quarter_end_pct": 1.1693,
-      "estimated_current_value": 13905343,
-      "estimated_value_change_since_quarter_end": 7495319,
+      "current_price": 4.2,
+      "price_change_since_quarter_end_pct": 1.2222,
+      "estimated_current_value": 14244497,
+      "estimated_value_change_since_quarter_end": 7834474,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
@@ -1376,9 +1559,15 @@
       "shares_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         17362
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         0,
         5865578
@@ -1395,10 +1584,10 @@
       "price_at_quarter_end": 367.85,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 895.88,
-      "price_change_since_quarter_end_pct": 1.4354,
-      "estimated_current_value": 15554269,
-      "estimated_value_change_since_quarter_end": 9167657,
+      "current_price": 904.27,
+      "price_change_since_quarter_end_pct": 1.4583,
+      "estimated_current_value": 15699936,
+      "estimated_value_change_since_quarter_end": 9313324,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
@@ -1424,9 +1613,15 @@
       "shares_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         2855
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         0,
         497912
@@ -1443,10 +1638,10 @@
       "price_at_quarter_end": 175.75,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 214.86,
-      "price_change_since_quarter_end_pct": 0.2225,
-      "estimated_current_value": 613425,
-      "estimated_value_change_since_quarter_end": 111659,
+      "current_price": 211.03,
+      "price_change_since_quarter_end_pct": 0.2007,
+      "estimated_current_value": 602491,
+      "estimated_value_change_since_quarter_end": 100724,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
@@ -1472,9 +1667,15 @@
       "shares_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         796108
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         0,
         18095535
@@ -1491,10 +1692,10 @@
       "price_at_quarter_end": 22.73,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 65.0,
-      "price_change_since_quarter_end_pct": 1.8597,
-      "estimated_current_value": 51747020,
-      "estimated_value_change_since_quarter_end": 33651485,
+      "current_price": 65.22,
+      "price_change_since_quarter_end_pct": 1.8693,
+      "estimated_current_value": 51922164,
+      "estimated_value_change_since_quarter_end": 33826629,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
@@ -1513,9 +1714,15 @@
       "shares_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         10000000
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         0,
         43900000
@@ -1532,10 +1739,10 @@
       "price_at_quarter_end": 4.39,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 10.45,
-      "price_change_since_quarter_end_pct": 1.3804,
-      "estimated_current_value": 104500000,
-      "estimated_value_change_since_quarter_end": 60600000,
+      "current_price": 10.74,
+      "price_change_since_quarter_end_pct": 1.4465,
+      "estimated_current_value": 107400000,
+      "estimated_value_change_since_quarter_end": 63500000,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
@@ -1554,9 +1761,15 @@
       "shares_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         22423
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         0,
         7577853
@@ -1573,10 +1786,10 @@
       "price_at_quarter_end": 341.49,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 412.32,
-      "price_change_since_quarter_end_pct": 0.2074,
-      "estimated_current_value": 9245451,
-      "estimated_value_change_since_quarter_end": 1588221,
+      "current_price": 418.38,
+      "price_change_since_quarter_end_pct": 0.2252,
+      "estimated_current_value": 9381335,
+      "estimated_value_change_since_quarter_end": 1724104,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
@@ -1602,9 +1815,15 @@
       "shares_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         26950
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         0,
         10332630
@@ -1621,10 +1840,10 @@
       "price_at_quarter_end": 391.97,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 602.14,
-      "price_change_since_quarter_end_pct": 0.5362,
-      "estimated_current_value": 16227673,
-      "estimated_value_change_since_quarter_end": 5664081,
+      "current_price": 589.02,
+      "price_change_since_quarter_end_pct": 0.5027,
+      "estimated_current_value": 15874089,
+      "estimated_value_change_since_quarter_end": 5310497,
       "status": "new_buy",
       "status_icon": "🟡",
       "status_label": "New Buy",
@@ -1644,35 +1863,317 @@
   ],
   "exits": [
     {
-      "cusip": "19247G107",
-      "ticker": "COHR",
-      "issuer": "COHERENT CORP",
-      "sector": "Technology",
+      "cusip": "21037T109",
+      "ticker": "CEG",
+      "issuer": "CONSTELLATION ENERGY CORP",
+      "sector": "",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
-        154400,
-        480300,
+        96400,
+        183400,
+        319200,
+        0,
+        0,
         0
       ],
       "values_by_quarter": [
-        16631968,
-        88648971,
+        21565644,
+        36978942,
+        103024992,
+        0,
+        0,
         0
       ],
       "shares_latest": 0,
       "value_latest_usd": 0,
-      "value_prev_quarter_usd": 88648971,
+      "value_prev_quarter_usd": 0,
       "qoq_dollar_delta": 0,
       "qoq_dollar_delta_m": 0.0,
       "portfolio_weight_common_stock": 0.0,
-      "qoq_share_change_pct": -1.0,
+      "qoq_share_change_pct": 0.0,
+      "three_quarter_trend": "flat",
+      "has_13dg": false,
+      "price_at_quarter_end": 278.82,
+      "price_at_prev_quarter_end": null,
+      "intra_quarter_return_pct": null,
+      "current_price": 289.79,
+      "price_change_since_quarter_end_pct": 0.0393,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
+      "status": "exit",
+      "status_icon": "⚫",
+      "status_label": "Exit",
+      "data_quality": {
+        "cusip_ticker_mapping": "openfigi",
+        "price_source": "yfinance"
+      }
+    },
+    {
+      "cusip": "607828100",
+      "ticker": "MOD",
+      "issuer": "MODINE MFG CO",
+      "sector": "",
+      "instrument_type": "COMMON_STOCK",
+      "shares_by_quarter": [
+        66367,
+        716824,
+        0,
+        0,
+        0,
+        0
+      ],
+      "values_by_quarter": [
+        7693926,
+        55016242,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shares_latest": 0,
+      "value_latest_usd": 0,
+      "value_prev_quarter_usd": 0,
+      "qoq_dollar_delta": 0,
+      "qoq_dollar_delta_m": 0.0,
+      "portfolio_weight_common_stock": 0.0,
+      "qoq_share_change_pct": 0.0,
+      "three_quarter_trend": "flat",
+      "has_13dg": false,
+      "price_at_quarter_end": 216.71,
+      "price_at_prev_quarter_end": null,
+      "intra_quarter_return_pct": null,
+      "current_price": 279.62,
+      "price_change_since_quarter_end_pct": 0.2903,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
+      "status": "exit",
+      "status_icon": "⚫",
+      "status_label": "Exit",
+      "data_quality": {
+        "cusip_ticker_mapping": "openfigi",
+        "price_source": "yfinance"
+      }
+    },
+    {
+      "cusip": "573874104",
+      "ticker": "MRVL",
+      "issuer": "MARVELL TECHNOLOGY INC",
+      "sector": "",
+      "instrument_type": "COMMON_STOCK",
+      "shares_by_quarter": [
+        785896,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "values_by_quarter": [
+        86802213,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shares_latest": 0,
+      "value_latest_usd": 0,
+      "value_prev_quarter_usd": 0,
+      "qoq_dollar_delta": 0,
+      "qoq_dollar_delta_m": 0.0,
+      "portfolio_weight_common_stock": 0.0,
+      "qoq_share_change_pct": 0.0,
+      "three_quarter_trend": "flat",
+      "has_13dg": false,
+      "price_at_quarter_end": 99.0,
+      "price_at_prev_quarter_end": null,
+      "intra_quarter_return_pct": null,
+      "current_price": 200.2,
+      "price_change_since_quarter_end_pct": 1.0222,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
+      "status": "exit",
+      "status_icon": "⚫",
+      "status_label": "Exit",
+      "data_quality": {
+        "cusip_ticker_mapping": "openfigi",
+        "price_source": "yfinance"
+      }
+    },
+    {
+      "cusip": "87422Q109",
+      "ticker": "TLN",
+      "issuer": "TALEN ENERGY CORP",
+      "sector": "",
+      "instrument_type": "COMMON_STOCK",
+      "shares_by_quarter": [
+        138878,
+        148395,
+        0,
+        0,
+        0,
+        0
+      ],
+      "values_by_quarter": [
+        27979751,
+        29630030,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shares_latest": 0,
+      "value_latest_usd": 0,
+      "value_prev_quarter_usd": 0,
+      "qoq_dollar_delta": 0,
+      "qoq_dollar_delta_m": 0.0,
+      "portfolio_weight_common_stock": 0.0,
+      "qoq_share_change_pct": 0.0,
+      "three_quarter_trend": "flat",
+      "has_13dg": false,
+      "price_at_quarter_end": 319.23,
+      "price_at_prev_quarter_end": null,
+      "intra_quarter_return_pct": null,
+      "current_price": 380.04,
+      "price_change_since_quarter_end_pct": 0.1905,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
+      "status": "exit",
+      "status_icon": "⚫",
+      "status_label": "Exit",
+      "data_quality": {
+        "cusip_ticker_mapping": "openfigi",
+        "price_source": "yfinance"
+      }
+    },
+    {
+      "cusip": "92537N108",
+      "ticker": "VRT",
+      "issuer": "VERTIV HOLDINGS CO",
+      "sector": "",
+      "instrument_type": "COMMON_STOCK",
+      "shares_by_quarter": [
+        455146,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "values_by_quarter": [
+        51709137,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shares_latest": 0,
+      "value_latest_usd": 0,
+      "value_prev_quarter_usd": 0,
+      "qoq_dollar_delta": 0,
+      "qoq_dollar_delta_m": 0.0,
+      "portfolio_weight_common_stock": 0.0,
+      "qoq_share_change_pct": 0.0,
+      "three_quarter_trend": "flat",
+      "has_13dg": false,
+      "price_at_quarter_end": 250.58,
+      "price_at_prev_quarter_end": null,
+      "intra_quarter_return_pct": null,
+      "current_price": 319.29,
+      "price_change_since_quarter_end_pct": 0.2742,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
+      "status": "exit",
+      "status_icon": "⚫",
+      "status_label": "Exit",
+      "data_quality": {
+        "cusip_ticker_mapping": "openfigi",
+        "price_source": "yfinance"
+      }
+    },
+    {
+      "cusip": "92840M102",
+      "ticker": "VST",
+      "issuer": "VISTRA CORP",
+      "sector": "Energy",
+      "instrument_type": "COMMON_STOCK",
+      "shares_by_quarter": [
+        428397,
+        525846,
+        1274178,
+        1287910,
+        0,
+        0
+      ],
+      "values_by_quarter": [
+        59063094,
+        61755354,
+        246948438,
+        252327327,
+        0,
+        0
+      ],
+      "shares_latest": 0,
+      "value_latest_usd": 0,
+      "value_prev_quarter_usd": 0,
+      "qoq_dollar_delta": 0,
+      "qoq_dollar_delta_m": 0.0,
+      "portfolio_weight_common_stock": 0.0,
+      "qoq_share_change_pct": 0.0,
       "three_quarter_trend": "mixed",
       "has_13dg": false,
-      "price_at_quarter_end": 247.8,
-      "price_at_prev_quarter_end": 184.57,
-      "intra_quarter_return_pct": 0.3426,
-      "current_price": 381.35,
-      "price_change_since_quarter_end_pct": 0.5389,
+      "price_at_quarter_end": 153.96,
+      "price_at_prev_quarter_end": null,
+      "intra_quarter_return_pct": null,
+      "current_price": 160.46,
+      "price_change_since_quarter_end_pct": 0.0422,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
+      "status": "exit",
+      "status_icon": "⚫",
+      "status_label": "Exit",
+      "data_quality": {
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
+      }
+    },
+    {
+      "cusip": "11135F101",
+      "ticker": "AVGO",
+      "issuer": "Broadcom Inc",
+      "sector": "Semiconductors",
+      "instrument_type": "COMMON_STOCK",
+      "shares_by_quarter": [
+        0,
+        700000,
+        1191606,
+        0,
+        0,
+        0
+      ],
+      "values_by_quarter": [
+        0,
+        117201000,
+        328466194,
+        0,
+        0,
+        0
+      ],
+      "shares_latest": 0,
+      "value_latest_usd": 0,
+      "value_prev_quarter_usd": 0,
+      "qoq_dollar_delta": 0,
+      "qoq_dollar_delta_m": 0.0,
+      "portfolio_weight_common_stock": 0.0,
+      "qoq_share_change_pct": 0.0,
+      "three_quarter_trend": "flat",
+      "has_13dg": false,
+      "price_at_quarter_end": 313.49,
+      "price_at_prev_quarter_end": null,
+      "intra_quarter_return_pct": null,
+      "current_price": 419.01,
+      "price_change_since_quarter_end_pct": 0.3366,
       "estimated_current_value": 0,
       "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
@@ -1686,15 +2187,21 @@
     {
       "cusip": "26884L109",
       "ticker": "EQT",
-      "issuer": "EQT CORP",
+      "issuer": "EQT Corp",
       "sector": "Energy",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
+        0,
+        989398,
+        2145345,
         1217386,
         2482225,
         0
       ],
       "values_by_quarter": [
+        0,
+        52863535,
+        125116520,
         66262320,
         133047260,
         0
@@ -1711,8 +2218,100 @@
       "price_at_quarter_end": 60.92,
       "price_at_prev_quarter_end": 53.3,
       "intra_quarter_return_pct": 0.143,
-      "current_price": 56.21,
-      "price_change_since_quarter_end_pct": -0.0773,
+      "current_price": 55.65,
+      "price_change_since_quarter_end_pct": -0.0865,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
+      "status": "exit",
+      "status_icon": "⚫",
+      "status_label": "Exit",
+      "data_quality": {
+        "cusip_ticker_mapping": "manual",
+        "price_source": "yfinance"
+      }
+    },
+    {
+      "cusip": "683344105",
+      "ticker": "ONTO",
+      "issuer": "Onto Innovation Inc",
+      "sector": "",
+      "instrument_type": "COMMON_STOCK",
+      "shares_by_quarter": [
+        0,
+        586717,
+        0,
+        0,
+        0,
+        0
+      ],
+      "values_by_quarter": [
+        0,
+        71192241,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shares_latest": 0,
+      "value_latest_usd": 0,
+      "value_prev_quarter_usd": 0,
+      "qoq_dollar_delta": 0,
+      "qoq_dollar_delta_m": 0.0,
+      "portfolio_weight_common_stock": 0.0,
+      "qoq_share_change_pct": 0.0,
+      "three_quarter_trend": "flat",
+      "has_13dg": false,
+      "price_at_quarter_end": 205.07,
+      "price_at_prev_quarter_end": null,
+      "intra_quarter_return_pct": null,
+      "current_price": 263.73,
+      "price_change_since_quarter_end_pct": 0.286,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
+      "status": "exit",
+      "status_icon": "⚫",
+      "status_label": "Exit",
+      "data_quality": {
+        "cusip_ticker_mapping": "openfigi",
+        "price_source": "yfinance"
+      }
+    },
+    {
+      "cusip": "19247G107",
+      "ticker": "COHR",
+      "issuer": "COHERENT CORP",
+      "sector": "Technology",
+      "instrument_type": "COMMON_STOCK",
+      "shares_by_quarter": [
+        0,
+        0,
+        0,
+        154400,
+        480300,
+        0
+      ],
+      "values_by_quarter": [
+        0,
+        0,
+        0,
+        16631968,
+        88648971,
+        0
+      ],
+      "shares_latest": 0,
+      "value_latest_usd": 0,
+      "value_prev_quarter_usd": 88648971,
+      "qoq_dollar_delta": 0,
+      "qoq_dollar_delta_m": 0.0,
+      "portfolio_weight_common_stock": 0.0,
+      "qoq_share_change_pct": -1.0,
+      "three_quarter_trend": "mixed",
+      "has_13dg": false,
+      "price_at_quarter_end": 247.8,
+      "price_at_prev_quarter_end": 184.57,
+      "intra_quarter_return_pct": 0.3426,
+      "current_price": 378.39,
+      "price_change_since_quarter_end_pct": 0.527,
       "estimated_current_value": 0,
       "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
@@ -1730,11 +2329,17 @@
       "sector": "",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
+        0,
+        0,
+        0,
         2737500,
         0,
         0
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         92554875,
         0,
         0
@@ -1751,8 +2356,8 @@
       "price_at_quarter_end": 17.37,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 29.62,
-      "price_change_since_quarter_end_pct": 0.7052,
+      "current_price": 28.87,
+      "price_change_since_quarter_end_pct": 0.6621,
       "estimated_current_value": 0,
       "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
@@ -1770,11 +2375,17 @@
       "sector": "Bitcoin Mining",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
+        0,
+        0,
+        0,
         599000,
         860200,
         0
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         20851190,
         39517588,
         0
@@ -1791,8 +2402,8 @@
       "price_at_quarter_end": 47.36,
       "price_at_prev_quarter_end": 45.94,
       "intra_quarter_return_pct": 0.0309,
-      "current_price": 112.54,
-      "price_change_since_quarter_end_pct": 1.3763,
+      "current_price": 116.64,
+      "price_change_since_quarter_end_pct": 1.4628,
       "estimated_current_value": 0,
       "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
@@ -1810,11 +2421,17 @@
       "sector": "",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
+        0,
+        0,
+        0,
         48567,
         0,
         0
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         11464726,
         0,
         0
@@ -1850,11 +2467,17 @@
       "sector": "Semiconductors",
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
+        0,
+        0,
+        0,
         470600,
         723004,
         0
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         34024380,
         84895130,
         0
@@ -1871,48 +2494,8 @@
       "price_at_quarter_end": 187.07,
       "price_at_prev_quarter_end": 117.42,
       "intra_quarter_return_pct": 0.5932,
-      "current_price": 288.53,
-      "price_change_since_quarter_end_pct": 0.5424,
-      "estimated_current_value": 0,
-      "estimated_value_change_since_quarter_end": 0,
-      "status": "exit",
-      "status_icon": "⚫",
-      "status_label": "Exit",
-      "data_quality": {
-        "cusip_ticker_mapping": "manual",
-        "price_source": "yfinance"
-      }
-    },
-    {
-      "cusip": "92840M102",
-      "ticker": "VST",
-      "issuer": "VISTRA CORP",
-      "sector": "Energy",
-      "instrument_type": "COMMON_STOCK",
-      "shares_by_quarter": [
-        1287910,
-        0,
-        0
-      ],
-      "values_by_quarter": [
-        252327327,
-        0,
-        0
-      ],
-      "shares_latest": 0,
-      "value_latest_usd": 0,
-      "value_prev_quarter_usd": 0,
-      "qoq_dollar_delta": 0,
-      "qoq_dollar_delta_m": 0.0,
-      "portfolio_weight_common_stock": 0.0,
-      "qoq_share_change_pct": 0.0,
-      "three_quarter_trend": "mixed",
-      "has_13dg": false,
-      "price_at_quarter_end": 153.96,
-      "price_at_prev_quarter_end": null,
-      "intra_quarter_return_pct": null,
-      "current_price": 164.56,
-      "price_change_since_quarter_end_pct": 0.0688,
+      "current_price": 276.45,
+      "price_change_since_quarter_end_pct": 0.4778,
       "estimated_current_value": 0,
       "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
@@ -1931,10 +2514,16 @@
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
+        0,
+        0,
+        0,
         10469093,
         0
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         154523813,
         0
@@ -1951,8 +2540,8 @@
       "price_at_quarter_end": 12.64,
       "price_at_prev_quarter_end": 14.76,
       "intra_quarter_return_pct": -0.1436,
-      "current_price": 23.02,
-      "price_change_since_quarter_end_pct": 0.8212,
+      "current_price": 23.91,
+      "price_change_since_quarter_end_pct": 0.8916,
       "estimated_current_value": 0,
       "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
@@ -1971,10 +2560,16 @@
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
+        0,
+        0,
+        0,
         1327700,
         0
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         49616149,
         0
@@ -1991,8 +2586,8 @@
       "price_at_quarter_end": 28.08,
       "price_at_prev_quarter_end": 36.66,
       "intra_quarter_return_pct": -0.234,
-      "current_price": 34.47,
-      "price_change_since_quarter_end_pct": 0.2276,
+      "current_price": 34.78,
+      "price_change_since_quarter_end_pct": 0.2386,
       "estimated_current_value": 0,
       "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
@@ -2011,10 +2606,16 @@
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
+        0,
+        0,
+        0,
         567200,
         0
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         10470512,
         0
@@ -2031,8 +2632,8 @@
       "price_at_quarter_end": 27.92,
       "price_at_prev_quarter_end": 18.4,
       "intra_quarter_return_pct": 0.5174,
-      "current_price": 31.95,
-      "price_change_since_quarter_end_pct": 0.1443,
+      "current_price": 30.65,
+      "price_change_since_quarter_end_pct": 0.0978,
       "estimated_current_value": 0,
       "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
@@ -2051,10 +2652,16 @@
       "instrument_type": "COMMON_STOCK",
       "shares_by_quarter": [
         0,
+        0,
+        0,
+        0,
         1298400,
         0
       ],
       "values_by_quarter": [
+        0,
+        0,
+        0,
         0,
         478577256,
         0
@@ -2071,8 +2678,8 @@
       "price_at_quarter_end": 764.65,
       "price_at_prev_quarter_end": 368.59,
       "intra_quarter_return_pct": 1.0745,
-      "current_price": 910.81,
-      "price_change_since_quarter_end_pct": 0.1911,
+      "current_price": 893.74,
+      "price_change_since_quarter_end_pct": 0.1688,
       "estimated_current_value": 0,
       "estimated_value_change_since_quarter_end": 0,
       "status": "exit",
@@ -2092,12 +2699,15 @@
       "notional_by_quarter": [
         0,
         0,
+        570058608,
+        0,
+        0,
         2042716860
       ],
       "notional_latest_usd": 2042716860,
       "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 0.5362,
+      "underlying_price_move": 0.5027,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2105,6 +2715,9 @@
       "ticker": "NVDA",
       "instrument": "PUT",
       "notional_by_quarter": [
+        0,
+        0,
+        0,
         298528000,
         0,
         1568257120
@@ -2112,7 +2725,7 @@
       "notional_latest_usd": 1568257120,
       "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 0.2225,
+      "underlying_price_move": 0.2007,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2122,12 +2735,15 @@
       "notional_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         1072873230
       ],
       "notional_latest_usd": 1072873230,
       "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 0.334,
+      "underlying_price_move": 0.3036,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2135,6 +2751,9 @@
       "ticker": "AVGO",
       "instrument": "PUT",
       "notional_by_quarter": [
+        0,
+        0,
+        0,
         75879300,
         0,
         1006247961
@@ -2142,7 +2761,7 @@
       "notional_latest_usd": 1006247961,
       "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 0.3462,
+      "underlying_price_move": 0.3366,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2152,12 +2771,15 @@
       "notional_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         969160863
       ],
       "notional_latest_usd": 969160863,
       "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 1.3971,
+      "underlying_price_move": 1.335,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2165,6 +2787,9 @@
       "ticker": "MU",
       "instrument": "PUT",
       "notional_by_quarter": [
+        0,
+        0,
+        0,
         50196000,
         0,
         583686168
@@ -2172,7 +2797,7 @@
       "notional_latest_usd": 583686168,
       "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 1.4354,
+      "underlying_price_move": 1.4583,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2180,6 +2805,9 @@
       "ticker": "TSM",
       "instrument": "PUT",
       "notional_by_quarter": [
+        0,
+        0,
+        0,
         75408300,
         0,
         535110030
@@ -2187,7 +2815,7 @@
       "notional_latest_usd": 535110030,
       "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 0.2074,
+      "underlying_price_move": 0.2252,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2197,12 +2825,15 @@
       "notional_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         494122503
       ],
       "notional_latest_usd": 494122503,
       "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 0.2029,
+      "underlying_price_move": 0.1709,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2212,12 +2843,15 @@
       "notional_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         422300000
       ],
       "notional_latest_usd": 422300000,
       "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 1.4354,
+      "underlying_price_move": 1.4583,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2227,12 +2861,15 @@
       "notional_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         388764546
       ],
       "notional_latest_usd": 388764546,
       "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 1.2946,
+      "underlying_price_move": 1.2516,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2242,12 +2879,15 @@
       "notional_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         354847500
       ],
       "notional_latest_usd": 354847500,
       "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 0.2074,
+      "underlying_price_move": 0.2252,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2257,12 +2897,15 @@
       "notional_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         159106302
       ],
       "notional_latest_usd": 159106302,
       "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 1.5717,
+      "underlying_price_move": 1.4676,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2270,6 +2913,9 @@
       "ticker": "CRWV",
       "instrument": "CALL",
       "notional_by_quarter": [
+        0,
+        0,
+        0,
         316739325,
         774426345,
         140569315
@@ -2277,7 +2923,7 @@
       "notional_latest_usd": 140569315,
       "notional_prev_usd": 774426345,
       "qoq_notional_change_pct": -0.8184858819595039,
-      "underlying_price_move": 0.3499,
+      "underlying_price_move": 0.3038,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2286,13 +2932,16 @@
       "instrument": "CALL",
       "notional_by_quarter": [
         0,
+        0,
+        0,
+        0,
         35494565,
         55347665
       ],
       "notional_latest_usd": 55347665,
       "notional_prev_usd": 35494565,
       "qoq_notional_change_pct": 0.559327885832662,
-      "underlying_price_move": 1.2831,
+      "underlying_price_move": 1.2618,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2302,12 +2951,15 @@
       "notional_by_quarter": [
         0,
         0,
+        0,
+        0,
+        0,
         21020962
       ],
       "notional_latest_usd": 21020962,
       "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 0.3778,
+      "underlying_price_move": 0.3299,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2316,13 +2968,34 @@
       "instrument": "PUT",
       "notional_by_quarter": [
         0,
+        0,
+        0,
+        0,
         8910000,
         6755000
       ],
       "notional_latest_usd": 6755000,
       "notional_prev_usd": 8910000,
       "qoq_notional_change_pct": -0.24186307519640854,
-      "underlying_price_move": -0.0917,
+      "underlying_price_move": -0.0752,
+      "interpretation_risk": "Notional, not premium; long/short direction unknown"
+    },
+    {
+      "underlying": "Intel Corp",
+      "ticker": "INTC",
+      "instrument": "CALL",
+      "notional_by_quarter": [
+        0,
+        459591354,
+        453317760,
+        678964770,
+        746760060,
+        0
+      ],
+      "notional_latest_usd": 0,
+      "notional_prev_usd": 746760060,
+      "qoq_notional_change_pct": -1.0,
+      "underlying_price_move": 1.4676,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2330,6 +3003,9 @@
       "ticker": "",
       "instrument": "CALL",
       "notional_by_quarter": [
+        0,
+        0,
+        0,
         12330306,
         0,
         0
@@ -2345,6 +3021,9 @@
       "ticker": "CRWV",
       "instrument": "PUT",
       "notional_by_quarter": [
+        0,
+        0,
+        0,
         191590000,
         0,
         0
@@ -2352,22 +3031,7 @@
       "notional_latest_usd": 0,
       "notional_prev_usd": 0,
       "qoq_notional_change_pct": 0.0,
-      "underlying_price_move": 0.3499,
-      "interpretation_risk": "Notional, not premium; long/short direction unknown"
-    },
-    {
-      "underlying": "INTEL CORP",
-      "ticker": "INTC",
-      "instrument": "CALL",
-      "notional_by_quarter": [
-        678964770,
-        746760060,
-        0
-      ],
-      "notional_latest_usd": 0,
-      "notional_prev_usd": 746760060,
-      "qoq_notional_change_pct": -1.0,
-      "underlying_price_move": 1.5717,
+      "underlying_price_move": 0.3038,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2375,6 +3039,9 @@
       "ticker": "GDX",
       "instrument": "PUT",
       "notional_by_quarter": [
+        0,
+        0,
+        0,
         195816000,
         0,
         0
@@ -2382,7 +3049,7 @@
       "notional_latest_usd": 0,
       "notional_prev_usd": 0,
       "qoq_notional_change_pct": 0.0,
-      "underlying_price_move": -0.0782,
+      "underlying_price_move": -0.1029,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2391,13 +3058,16 @@
       "instrument": "CALL",
       "notional_by_quarter": [
         0,
+        0,
+        0,
+        0,
         37520000,
         0
       ],
       "notional_latest_usd": 0,
       "notional_prev_usd": 37520000,
       "qoq_notional_change_pct": -1.0,
-      "underlying_price_move": -0.0773,
+      "underlying_price_move": -0.0865,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     }
   ],
@@ -2542,7 +3212,7 @@
       "qoq_dollar_delta": 54587777,
       "qoq_share_change_pct": 0.08150161259723013,
       "three_quarter_trend": "up_up_up",
-      "price_change_since_quarter_end_pct": 1.2946,
+      "price_change_since_quarter_end_pct": 1.2516,
       "conviction_score": 7.5,
       "entry_score": 0,
       "recommendation": "High Conviction",
@@ -2557,7 +3227,7 @@
     },
     {
       "ticker": "IREN",
-      "issuer": "IREN LIMITED",
+      "issuer": "IREN Limited",
       "status_label": "Strong Add",
       "has_13dg": false,
       "portfolio_weight_common_stock": 0.104,
@@ -2565,7 +3235,7 @@
       "qoq_dollar_delta": 102778776,
       "qoq_share_change_pct": 0.34459770170428067,
       "three_quarter_trend": "up_up_up",
-      "price_change_since_quarter_end_pct": 0.7536,
+      "price_change_since_quarter_end_pct": 0.9164,
       "conviction_score": 7.5,
       "entry_score": 1,
       "recommendation": "High Conviction",
@@ -2573,7 +3243,7 @@
     },
     {
       "ticker": "APLD",
-      "issuer": "APPLIED DIGITAL CORP",
+      "issuer": "Applied Digital Corp",
       "status_label": "Strong Add",
       "has_13dg": false,
       "portfolio_weight_common_stock": 0.083,
@@ -2581,7 +3251,7 @@
       "qoq_dollar_delta": 50788834,
       "qoq_share_change_pct": 0.1886733115443432,
       "three_quarter_trend": "up_up_up",
-      "price_change_since_quarter_end_pct": 0.8432,
+      "price_change_since_quarter_end_pct": 0.9147,
       "conviction_score": 6.6,
       "entry_score": 1,
       "recommendation": "Watch / bei Schwäche",
@@ -2589,7 +3259,7 @@
     },
     {
       "ticker": "CRWV",
-      "issuer": "COREWEAVE INC",
+      "issuer": "CoreWeave Inc",
       "status_label": "Strong Add",
       "has_13dg": false,
       "portfolio_weight_common_stock": 0.1442,
@@ -2597,7 +3267,7 @@
       "qoq_dollar_delta": 83598419,
       "qoq_share_change_pct": 0.17693724613908413,
       "three_quarter_trend": "up_up_up",
-      "price_change_since_quarter_end_pct": 0.3499,
+      "price_change_since_quarter_end_pct": 0.3038,
       "conviction_score": 6.2,
       "entry_score": 3,
       "recommendation": "Watch / bei Schwäche",
@@ -2620,9 +3290,9 @@
       "qoq_dollar_delta": 90510139,
       "qoq_share_change_pct": 6.483625335284077,
       "three_quarter_trend": "new_add",
-      "price_change_since_quarter_end_pct": 0.9872,
+      "price_change_since_quarter_end_pct": 1.0302,
       "conviction_score": 5.9,
-      "entry_score": 1,
+      "entry_score": 0,
       "recommendation": "Beobachten",
       "options_context": {}
     }
@@ -2664,11 +3334,17 @@
       "exits": [],
       "portfolio_weight": 0.2883,
       "portfolio_weight_by_quarter": [
+        0.0,
+        0.0975,
+        0.2089,
         0.395,
         0.274,
         0.2883
       ],
       "quarter_labels": [
+        "Q4 2024",
+        "Q1 2025",
+        "Q2 2025",
         "Q3 2025",
         "Q4 2025",
         "Q1 2026"
@@ -2692,11 +3368,17 @@
       "exits": [],
       "portfolio_weight": 0.2313,
       "portfolio_weight_by_quarter": [
+        0.2318,
+        0.2099,
+        0.3383,
         0.1561,
         0.2626,
         0.2313
       ],
       "quarter_labels": [
+        "Q4 2024",
+        "Q1 2025",
+        "Q2 2025",
         "Q3 2025",
         "Q4 2025",
         "Q1 2026"
@@ -2721,11 +3403,17 @@
       "exits": [],
       "portfolio_weight": 0.2272,
       "portfolio_weight_by_quarter": [
+        0.0,
+        0.1247,
+        0.0604,
         0.3442,
         0.1826,
         0.2272
       ],
       "quarter_labels": [
+        "Q4 2024",
+        "Q1 2025",
+        "Q2 2025",
         "Q3 2025",
         "Q4 2025",
         "Q1 2026"
@@ -2753,11 +3441,17 @@
       "exits": [],
       "portfolio_weight": 0.1982,
       "portfolio_weight_by_quarter": [
+        0.0,
+        0.0,
+        0.0,
         0.0145,
         0.216,
         0.1982
       ],
       "quarter_labels": [
+        "Q4 2024",
+        "Q1 2025",
+        "Q2 2025",
         "Q3 2025",
         "Q4 2025",
         "Q1 2026"
@@ -2783,11 +3477,17 @@
       "exits": [],
       "portfolio_weight": 0.0276,
       "portfolio_weight_by_quarter": [
+        0.0,
+        0.0,
+        0.0,
         0.0225,
         0.0219,
         0.0276
       ],
       "quarter_labels": [
+        "Q4 2024",
+        "Q1 2025",
+        "Q2 2025",
         "Q3 2025",
         "Q4 2025",
         "Q1 2026"
@@ -2820,11 +3520,17 @@
       "exits": [],
       "portfolio_weight": 0.0127,
       "portfolio_weight_by_quarter": [
+        0.0,
+        0.2147,
+        0.2987,
         0.0167,
         0.0217,
         0.0127
       ],
       "quarter_labels": [
+        "Q4 2024",
+        "Q1 2025",
+        "Q2 2025",
         "Q3 2025",
         "Q4 2025",
         "Q1 2026"
@@ -2846,10 +3552,16 @@
       "portfolio_weight": 0.0068,
       "portfolio_weight_by_quarter": [
         0.0,
+        0.0,
+        0.0,
+        0.0,
         0.0063,
         0.0068
       ],
       "quarter_labels": [
+        "Q4 2024",
+        "Q1 2025",
+        "Q2 2025",
         "Q3 2025",
         "Q4 2025",
         "Q1 2026"
@@ -2871,10 +3583,16 @@
       "portfolio_weight": 0.0052,
       "portfolio_weight_by_quarter": [
         0.0,
+        0.0,
+        0.0,
+        0.0,
         0.0022,
         0.0052
       ],
       "quarter_labels": [
+        "Q4 2024",
+        "Q1 2025",
+        "Q2 2025",
         "Q3 2025",
         "Q4 2025",
         "Q1 2026"
@@ -2899,9 +3617,15 @@
       "portfolio_weight_by_quarter": [
         0.0,
         0.0,
+        0.0,
+        0.0,
+        0.0,
         0.0027
       ],
       "quarter_labels": [
+        "Q4 2024",
+        "Q1 2025",
+        "Q2 2025",
         "Q3 2025",
         "Q4 2025",
         "Q1 2026"

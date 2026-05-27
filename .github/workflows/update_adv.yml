@@ -9,6 +9,11 @@ on:
 permissions:
   contents: write
 
+# Fix [L3]: add concurrency control (was the only workflow without it).
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
 jobs:
   run:
     runs-on: ubuntu-latest
