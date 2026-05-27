@@ -10,6 +10,7 @@ Subcommands (see ``python -m src.pipeline --help``):
   alert              Check for new high-signal events; send alert email if any.
   run                Full pipeline (fetch -> discover -> verify -> analyze -> digest -> alert).
   map-cusips         Auto-map unmapped CUSIPs via OpenFIGI; update override CSV.
+  backfill-tiers     One-shot: LLM-classify existing events that lack signal_tier.
 """
 from __future__ import annotations
 
@@ -249,12 +250,134 @@ def step_run(cfg: Config) -> None:
     step_alert(cfg, model=model)
 
 
+def step_backfill_tiers(cfg: Config) -> None:
+    """Retroactively classify public_statement events that lack a signal_tier.
+
+    Events created before the 3-tier LLM system was in place have
+    ``signal_tier=None`` and ``llm_validated=False``.  Because ``append_event``
+    is idempotent by event_id, re-discovering the same articles never updates
+    them.  This command does a one-shot backfill:
+
+      1. Loads all events from events.jsonl.
+      2. For each ``public_statement`` event whose sources[0] does NOT contain
+         ``llm_validated=True``, calls Claude to classify the headline.
+      3. Writes updated fields (signal_tier, llm_validated, llm_quote,
+         llm_inference, llm_action_hint, llm_reason) back into the event's
+         sources dict and the top-level ``signal_tier`` field.
+      4. Rewrites events.jsonl atomically.
+
+    Safe to re-run: already-validated events are skipped.
+    """
+    import os
+    import json as _json
+    import re as _re
+
+    if not os.environ.get("ANTHROPIC_API_KEY"):
+        log.warning("ANTHROPIC_API_KEY not set — cannot backfill tiers.")
+        return
+
+    try:
+        import anthropic
+    except ImportError:
+        log.warning("anthropic package not installed — cannot backfill tiers.")
+        return
+
+    # Load active 13F tickers for whitelist context (same as step_discover).
+    try:
+        _model = read_json(cfg.paths.derived / "position_table.json") or {}
+        _active_tickers = latest_tickers(cfg, _model)
+    except Exception:
+        _active_tickers = set()
+
+    from .parsers.parse_public_statement import _build_system_prompt
+
+    system_prompt = _build_system_prompt(_active_tickers)
+    client = anthropic.Anthropic()
+
+    all_events = events.load_events(cfg)
+    updated = 0
+    skipped = 0
+
+    for evt in all_events:
+        if evt.get("signal_type") != "public_statement":
+            continue
+        src = evt.get("sources", [{}])[0] if evt.get("sources") else {}
+        if src.get("llm_validated") is True:
+            skipped += 1
+            continue  # already classified
+
+        title = evt.get("summary", "")
+        source_kind = src.get("kind", "unknown")
+
+        try:
+            response = client.messages.create(
+                model=cfg.llm_model,
+                max_tokens=384,
+                system=[{
+                    "type": "text",
+                    "text": system_prompt,
+                    "cache_control": {"type": "ephemeral"},
+                }],
+                messages=[{
+                    "role": "user",
+                    "content": (
+                        f"Title: {title}\n"
+                        f"Excerpt: (no excerpt stored)\n"
+                        f"Source: {source_kind}"
+                    ),
+                }],
+            )
+            raw = response.content[0].text.strip()
+            if raw.startswith("```"):
+                raw = _re.sub(r'^```(?:json)?\s*', '', raw)
+                raw = _re.sub(r'\s*```\s*$', '', raw.strip())
+            m = _re.search(r'\{.*\}', raw, _re.DOTALL)
+            if m:
+                raw = m.group()
+            result = _json.loads(raw)
+        except Exception as exc:
+            log.warning("Backfill LLM call failed for event %s: %s", evt.get("event_id"), exc)
+            continue
+
+        signal_tier = result.get("signal_tier", "unrelated")
+        evt["signal_tier"] = signal_tier
+
+        # Update the sources entry with LLM fields.
+        if evt.get("sources"):
+            evt["sources"][0]["llm_validated"] = True
+            evt["sources"][0]["llm_quote"] = result.get("quote") or ""
+            evt["sources"][0]["llm_inference"] = result.get("inference") or ""
+            evt["sources"][0]["llm_action_hint"] = result.get("action_hint") or ""
+            evt["sources"][0]["llm_reason"] = result.get("reason") or ""
+            evt["sources"][0]["signal_category"] = result.get("action", "")
+
+        # Rebuild confidence from LLM result if available.
+        llm_conf = result.get("confidence")
+        if llm_conf is not None:
+            evt["confidence"] = round(float(llm_conf), 2)
+            evt["needs_human_review"] = evt["confidence"] < 0.80
+
+        updated += 1
+        log.debug(
+            "Backfilled event %s → tier=%s conf=%.2f",
+            evt.get("event_id"), signal_tier, evt.get("confidence", 0),
+        )
+
+    from .utils import rewrite_jsonl
+    rewrite_jsonl(cfg.paths.parsed / events.EVENTS_FILE, all_events)
+    log.info(
+        "Backfill complete: %d events updated, %d already validated, %d non-statement.",
+        updated, skipped, len(all_events) - updated - skipped,
+    )
+
+
 # ── CLI ─────────────────────────────────────────────────────────────────────--
 def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(description="Situational Awareness Tracker")
     parser.add_argument("--config", default=None, help="Path to config.yaml")
     sub = parser.add_subparsers(dest="command", required=True)
-    for name in ("resolve-entities", "fetch", "discover", "analyze", "digest", "alert", "run", "map-cusips"):
+    for name in ("resolve-entities", "fetch", "discover", "analyze", "digest", "alert", "run",
+                 "map-cusips", "backfill-tiers"):
         sub.add_parser(name)
     args = parser.parse_args(argv)
     cfg = load_config(args.config)
@@ -281,6 +404,8 @@ def main(argv: list[str] | None = None) -> None:
         step_alert(cfg)
     elif args.command == "run":
         step_run(cfg)
+    elif args.command == "backfill-tiers":
+        step_backfill_tiers(cfg)
 
 
 if __name__ == "__main__":
