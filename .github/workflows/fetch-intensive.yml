@@ -19,7 +19,7 @@ jobs:
   fetch-intensive:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.2.2
 
       # stdlib-only check — no pip install needed when outside window.
       # Deadlines are computed dynamically (open-end): SEC rule = 45 calendar days
@@ -67,7 +67,7 @@ jobs:
               f.write(f"hot={'true' if hot else 'false'}\n")
           EOF
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5.6.0
         if: steps.window.outputs.hot == 'true'
         with:
           python-version: "3.12"

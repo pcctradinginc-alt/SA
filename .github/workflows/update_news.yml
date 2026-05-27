@@ -23,7 +23,7 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.2.2
 
       - name: Guard to Berlin 09:00 / 17:00
         id: guard
@@ -36,7 +36,7 @@ jobs:
           if [ "$H" = "09" ] || [ "$H" = "17" ]; then echo "go=true" >> "$GITHUB_OUTPUT";
           else echo "go=false" >> "$GITHUB_OUTPUT"; fi
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5.6.0
         if: steps.guard.outputs.go == 'true'
         with:
           python-version: "3.12"
