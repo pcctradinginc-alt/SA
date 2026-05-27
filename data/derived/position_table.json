@@ -279,7 +279,7 @@
       "portfolio_weight_common_stock": 0.1009,
       "qoq_share_change_pct": -0.09556125058152115,
       "three_quarter_trend": "mixed",
-      "has_13dg": false,
+      "has_13dg": true,
       "price_at_quarter_end": 15.3,
       "price_at_prev_quarter_end": 14.56,
       "intra_quarter_return_pct": 0.0508,
