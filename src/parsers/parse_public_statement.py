@@ -26,10 +26,38 @@ import json
 import logging
 import os
 import re
+from pathlib import Path
 
 from ..sources.discovery import DiscoveryItem
 
 log = logging.getLogger("parsers.public_statement")
+
+# ── In-process LLM classification cache ─────────────────────────────────────
+# Keyed by content_hash. Loaded from disk on first use, written back on each
+# new entry. Avoids re-calling the LLM for the same URL across multiple runs
+# within a process (alert.yml fires hourly; items stay in RSS feeds for days).
+_llm_cache: dict = {}
+_llm_cache_path: Path | None = None
+_llm_cache_loaded: bool = False
+
+
+def _load_llm_cache(path: Path) -> None:
+    global _llm_cache, _llm_cache_path, _llm_cache_loaded
+    if _llm_cache_loaded and _llm_cache_path == path:
+        return
+    try:
+        _llm_cache = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    except Exception:
+        _llm_cache = {}
+    _llm_cache_path = path
+    _llm_cache_loaded = True
+
+
+def _save_llm_cache(path: Path) -> None:
+    try:
+        path.write_text(json.dumps(_llm_cache, ensure_ascii=False), encoding="utf-8")
+    except Exception as exc:
+        log.warning("LLM cache write failed: %s", exc)
 
 _LLM_SYSTEM_PROMPT_BASE = """\
 Du bist ein präziser Finanz-Analyst der den Hedgefonds "Situational Awareness LP" \
@@ -182,12 +210,16 @@ def extract_statement_with_llm(
     item: DiscoveryItem,
     model: str = "claude-haiku-4-5-20251001",
     active_tickers: set[str] | None = None,
+    cache_path: Path | None = None,
 ) -> dict | None:
     """Keyword pre-filter → Claude Haiku semantic validation with 3-tier classification.
 
     active_tickers: set of ticker symbols currently in the 13F (passed from step_discover).
     Used to distinguish alpha_signal (new) from position_update (known, new info)
     from context (known, no new info).
+
+    cache_path: if given, LLM results are persisted by content_hash so the same
+    URL is never re-classified within or across runs (RSS items stay in feeds for days).
 
     Falls back silently to keyword-only if ANTHROPIC_API_KEY is not set or the
     API call fails. The returned dict is compatible with extract_statement().
@@ -198,6 +230,33 @@ def extract_statement_with_llm(
 
     if not os.environ.get("ANTHROPIC_API_KEY"):
         return candidate
+
+    content_hash = candidate["content_hash"]
+
+    # ── Cache lookup ─────────────────────────────────────────────────────────
+    if cache_path is not None:
+        _load_llm_cache(cache_path)
+        cached = _llm_cache.get(content_hash)
+        if cached is not None:
+            if cached.get("rejected"):
+                log.debug("LLM cache hit (rejected): %s", item.title[:80])
+                return None
+            log.debug("LLM cache hit (tier=%s): %s", cached.get("signal_tier"), item.title[:80])
+            candidate["signal_category"] = cached["signal_category"]
+            candidate["signal_tier"] = cached["signal_tier"]
+            candidate["confidence"] = cached["confidence"]
+            candidate["needs_human_review"] = cached["confidence"] < 0.80
+            candidate["llm_validated"] = True
+            candidate["llm_reason"] = cached.get("llm_reason", "")
+            candidate["llm_quote"] = cached.get("llm_quote", "")
+            candidate["llm_inference"] = cached.get("llm_inference", "")
+            candidate["llm_action_hint"] = cached.get("llm_action_hint", "")
+            candidate["llm_analysis"] = candidate["llm_inference"]
+            candidate["llm_trade_signal"] = candidate["llm_action_hint"]
+            if cached.get("ticker_extra"):
+                existing = set(candidate.get("ticker_guess") or [])
+                candidate["ticker_guess"] = sorted(existing | set(cached["ticker_extra"]))
+            return candidate
 
     try:
         import anthropic
@@ -245,6 +304,9 @@ def extract_statement_with_llm(
             "LLM rejected item (tier=%s, reason=%s): %s",
             signal_tier, result.get("reason"), item.title[:80],
         )
+        if cache_path is not None:
+            _llm_cache[content_hash] = {"rejected": True}
+            _save_llm_cache(cache_path)
         return None
 
     # context: store as event but mark tier so alert system suppresses it
@@ -268,12 +330,28 @@ def extract_statement_with_llm(
     candidate["llm_trade_signal"] = candidate["llm_action_hint"]
 
     llm_ticker = result.get("ticker")
+    ticker_extra: list[str] = []
     if llm_ticker:
         existing = set(candidate.get("ticker_guess") or [])
+        ticker_extra = [llm_ticker] if llm_ticker not in existing else []
         candidate["ticker_guess"] = sorted(existing | {llm_ticker})
 
     log.debug(
         "LLM classified (tier=%s, conf=%.2f): %s",
         signal_tier, candidate["confidence"], item.title[:80],
     )
+
+    if cache_path is not None:
+        _llm_cache[content_hash] = {
+            "signal_tier": candidate["signal_tier"],
+            "signal_category": candidate["signal_category"],
+            "confidence": candidate["confidence"],
+            "ticker_extra": ticker_extra,
+            "llm_reason": candidate.get("llm_reason", ""),
+            "llm_quote": candidate.get("llm_quote", ""),
+            "llm_inference": candidate.get("llm_inference", ""),
+            "llm_action_hint": candidate.get("llm_action_hint", ""),
+        }
+        _save_llm_cache(cache_path)
+
     return candidate

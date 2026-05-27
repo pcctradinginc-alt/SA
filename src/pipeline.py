@@ -154,6 +154,7 @@ def step_discover(cfg: Config) -> None:
         extractor = (
             lambda item: parse_public_statement.extract_statement_with_llm(
                 item, model=cfg.llm_model, active_tickers=_active_tickers,
+                cache_path=cfg.paths.state / "llm_classification_cache.json",
             )
         )
     else:
