@@ -270,7 +270,12 @@ def main(argv: list[str] | None = None) -> None:
     elif args.command == "analyze":
         step_analyze(cfg)
     elif args.command == "digest":
-        model = step_analyze(cfg)
+        # Fix [Bug1]: load pre-built model from disk instead of re-running step_analyze.
+        # update_news.yml runs `analyze` then `digest` — the old code caused step_analyze
+        # to run twice (once explicitly, once inside the digest CLI command).
+        model = read_json(cfg.paths.derived / "position_table.json") or {}
+        if not model.get("available"):
+            log.warning("No position_table.json found; run `analyze` first.")
         step_digest(cfg, model)
     elif args.command == "alert":
         step_alert(cfg)
