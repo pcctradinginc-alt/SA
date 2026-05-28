@@ -10,6 +10,7 @@ derived from the latest parsed 13F model, followed by a deduplicated news sectio
 from __future__ import annotations
 
 import smtplib
+from datetime import datetime, timedelta, timezone
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pathlib import Path
@@ -27,12 +28,43 @@ _STATE_FILE = "alert_state.json"
 _ALERTABLE_TYPES = {"13f_position", "ownership_13dg", "ownership_13dg_amendment", "public_statement"}
 
 
+_CLEANUP_DAYS = 60  # remove alerted IDs older than this from state
+_STORY_WINDOW_HOURS = 48  # same-ticker events within this window = same story
+
+
 def _load_state(cfg: Config) -> dict:
     path = cfg.paths.state / _STATE_FILE
-    return read_json(path) or {"alerted_event_ids": [], "last_sent_at": None, "last_run_at": None}
+    return read_json(path) or {
+        "alerted_event_ids": [],
+        "alerted_event_ids_ts": {},  # event_id → ISO timestamp when alerted
+        "last_sent_at": None,
+        "last_run_at": None,
+    }
+
+
+def _cleanup_state(state: dict) -> None:
+    """Remove alerted_event_ids entries older than _CLEANUP_DAYS."""
+    cutoff = datetime.now(timezone.utc) - timedelta(days=_CLEANUP_DAYS)
+    ts_map: dict[str, str] = state.get("alerted_event_ids_ts", {})
+
+    # Purge timestamp map
+    stale = [eid for eid, ts in ts_map.items()
+             if datetime.fromisoformat(ts.replace("Z", "+00:00")) < cutoff]
+    for eid in stale:
+        del ts_map[eid]
+
+    # Keep only IDs that still have a timestamp (i.e. not yet stale).
+    # IDs without a timestamp (legacy, before this change) are kept indefinitely
+    # until they age out naturally — we don't have their timestamp, so we can't
+    # prune them here without risk of re-alerting.
+    current_ids = set(state.get("alerted_event_ids", []))
+    stale_set = set(stale)
+    state["alerted_event_ids"] = [eid for eid in current_ids if eid not in stale_set]
+    state["alerted_event_ids_ts"] = ts_map
 
 
 def _save_state(cfg: Config, state: dict) -> None:
+    _cleanup_state(state)
     write_json(cfg.paths.state / _STATE_FILE, state)
 
 
@@ -43,26 +75,52 @@ def _alert_cfg(cfg: Config) -> dict:
 def _deduplicate_news(events: list[dict]) -> list[dict]:
     """Remove near-duplicate news items — keep the highest-confidence version.
 
-    Two news events are considered duplicates if they share the same ticker
-    AND the first 50 characters of their summary are identical.
+    Two public_statement events are considered the same story if they share at
+    least one ticker AND were discovered within _STORY_WINDOW_HOURS of each
+    other. When tickers are unknown, fall back to the first 50 chars of the
+    summary (original behaviour).
     """
-    seen: dict[str, dict] = {}
-    out: list[dict] = []
-    for evt in events:
-        if evt.get("signal_type") != "public_statement":
-            out.append(evt)
-            continue
-        tickers = tuple(sorted(evt.get("ticker_guess") or []))
-        key = tickers + (evt.get("summary", "")[:50],)
-        existing = seen.get(str(key))
-        if existing is None:
-            seen[str(key)] = evt
-            out.append(evt)
-        elif float(evt.get("confidence", 0)) > float(existing.get("confidence", 0)):
-            # Replace with higher-confidence version
-            out[out.index(existing)] = evt
-            seen[str(key)] = evt
-    return out
+    # SEC filings pass through unchanged
+    out_sec = [e for e in events if e.get("signal_type") != "public_statement"]
+    news = [e for e in events if e.get("signal_type") == "public_statement"]
+
+    # Sort by confidence desc so we keep the best version of each story
+    news.sort(key=lambda e: float(e.get("confidence", 0)), reverse=True)
+
+    def _discovered_dt(evt: dict):
+        raw = evt.get("discovered_at") or evt.get("date") or ""
+        try:
+            return datetime.fromisoformat(raw.replace("Z", "+00:00"))
+        except (ValueError, AttributeError):
+            return None
+
+    kept: list[dict] = []
+    for evt in news:
+        tickers = set(evt.get("ticker_guess") or [])
+        dt = _discovered_dt(evt)
+        is_dup = False
+        for existing in kept:
+            existing_tickers = set(existing.get("ticker_guess") or [])
+            existing_dt = _discovered_dt(existing)
+
+            if tickers and existing_tickers and tickers & existing_tickers:
+                # Same ticker — check time window
+                if dt is None or existing_dt is None:
+                    is_dup = True  # no timestamp → conservative: treat as dup
+                elif abs((dt - existing_dt).total_seconds()) <= _STORY_WINDOW_HOURS * 3600:
+                    is_dup = True
+            elif not tickers or not existing_tickers:
+                # No ticker available — fall back to summary prefix match
+                if evt.get("summary", "")[:50] == existing.get("summary", "")[:50]:
+                    is_dup = True
+
+            if is_dup:
+                break
+
+        if not is_dup:
+            kept.append(evt)
+
+    return out_sec + kept
 
 
 def _load_position_model(cfg: Config) -> dict:
@@ -236,11 +294,15 @@ def check_and_alert(cfg: Config, model: dict | None = None) -> int:
     sent = _send(cfg, subj, html)
 
     if sent:
+        now_ts = utc_now_iso()
         sent_ids = {e["event_id"] for e in new_events}
         state["alerted_event_ids"] = list(
             set(state.get("alerted_event_ids", [])) | sent_ids
         )
-        state["last_sent_at"] = utc_now_iso()
+        ts_map: dict = state.setdefault("alerted_event_ids_ts", {})
+        for eid in sent_ids:
+            ts_map.setdefault(eid, now_ts)  # don't overwrite if already present
+        state["last_sent_at"] = now_ts
         log.info("Alert state updated (%d total alerted IDs).", len(state["alerted_event_ids"]))
 
     _save_state(cfg, state)
