@@ -1,9 +1,12 @@
 name: filings
 
-# SEC EDGAR ingest once daily (13F/13D/G/Form D appear at most a few times a year).
+# SEC EDGAR ingest every ~3 hours on weekdays to catch 13D/G filings quickly.
+# 13D/G must be filed within 10 days — polling every 3h keeps latency under 3h.
+# Weekend run kept (Saturday morning) to catch any Friday-evening EDGAR postings.
 on:
   schedule:
-    - cron: "17 21 * * *"   # ~22:17/23:17 Berlin — after the EDGAR day
+    - cron: "17 6,9,12,15,18,21 * * 1-5"  # every 3h Mo-Fr (Berlin 07-23 CEST)
+    - cron: "17 8 * * 6"                   # Saturday morning catch-up
   workflow_dispatch:
 
 permissions:
