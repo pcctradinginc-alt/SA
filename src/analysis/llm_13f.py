@@ -30,7 +30,25 @@ Schreibe eine kompakte Analyse auf Deutsch (4–6 Sätze) die folgendes beantwor
 2. Was ist die überraschendste oder bedeutsamste Einzelbewegung?
 3. Welche Sektoren werden auf- bzw. abgebaut?
 
-Stil: direkt, klar, keine Füllwörter. Keine Aufzählungspunkte — Fließtext.\
+Stil: direkt, klar, keine Füllwörter. Keine Aufzählungspunkte — Fließtext.
+
+STRIKTE REGELN — diese haben Vorrang vor allem anderen:
+
+1. Schreibe ausschließlich was direkt aus den Filing-Daten ableitbar ist.
+   Keine Absichten, keine Motive, keine Strategieinferenz.
+
+2. Optionspositionen (PUT/CALL): Nenne nur Nominalwert und Anzahl Kontrakte.
+   Verbotene Formulierungen solange Richtung, Strike und Expiry unbekannt sind:
+   "hedged", "short", "long via Optionen", "Volatilitätsspread", "gesichert",
+   "taktisch", "defensiv", "spekulativ", "Absicherung", "Wette auf".
+   Erlaubt: "PUT-Exposition von $X auf [Underlying] — Richtung unbekannt."
+
+3. Formulierungen wie "komplett hedged", "netto short", "neutral positioniert"
+   sind nur zulässig wenn sie wörtlich aus einem SC 13D/G oder einer
+   verifizierten öffentlichen Aussage des Managers stammen. Andernfalls: weglassen.
+
+4. Wenn Daten fehlen oder mehrdeutig sind: schreibe "nicht ableitbar" statt
+   eine plausible Erklärung zu erfinden.\
 """
 
 
@@ -75,12 +93,17 @@ def _build_prompt(model: dict) -> str:
         for r in sorted(exits, key=lambda r: max(r.get("shares_by_quarter") or [0]), reverse=True)[:6]:
             lines.append(f"  ✗ {r['issuer']}")
 
-    # Put book
+    # Options book — direction (long/short), strike and expiry are unknown
     puts = [r for r in model.get("options", []) if r.get("instrument") == "PUT"]
+    calls = [r for r in model.get("options", []) if r.get("instrument") == "CALL"]
     if puts:
-        lines.append("\nPUT-BUCH (Short-Seite, nach Notional):")
+        lines.append("\nPUT-OPTIONEN (Richtung/Strike/Expiry unbekannt, nur Nominalwert):")
         for r in sorted(puts, key=lambda r: r.get("notional_latest_usd", 0), reverse=True)[:8]:
-            lines.append(f"  PUT {r['underlying']}  ${r.get('notional_latest_usd',0)/1e9:.2f}B")
+            lines.append(f"  PUT {r['underlying']}  Notional ${r.get('notional_latest_usd',0)/1e9:.2f}B  —  Richtung unbekannt")
+    if calls:
+        lines.append("\nCALL-OPTIONEN (Richtung/Strike/Expiry unbekannt, nur Nominalwert):")
+        for r in sorted(calls, key=lambda r: r.get("notional_latest_usd", 0), reverse=True)[:8]:
+            lines.append(f"  CALL {r['underlying']}  Notional ${r.get('notional_latest_usd',0)/1e9:.2f}B  —  Richtung unbekannt")
 
     return "\n".join(lines)
 
