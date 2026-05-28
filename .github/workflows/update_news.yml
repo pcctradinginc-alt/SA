@@ -1,15 +1,11 @@
 name: news-and-digest
 
-# Discovery + digest, twice daily at ~09:17 and ~17:17 Europe/Berlin.
-# GitHub cron is UTC and not minute-exact, and Berlin shifts CET<->CEST, so we
-# trigger at all four candidate UTC times and gate with a Berlin-local guard so
-# the job only runs at the two intended local hours.
+# News discovery runs daily (via alert.yml hourly + filings.yml every 3h).
+# The full digest email is sent once a month on the first Monday at ~09:17 Berlin.
 on:
   schedule:
-    - cron: "17 7 * * *"    # 09:17 CEST (summer)
-    - cron: "17 8 * * *"    # 09:17 CET  (winter)
-    - cron: "17 15 * * *"   # 17:17 CEST (summer)
-    - cron: "17 16 * * *"   # 17:17 CET  (winter)
+    - cron: "17 7 * * 1"    # Monday 09:17 CEST (summer)
+    - cron: "17 8 * * 1"    # Monday 09:17 CET  (winter)
   workflow_dispatch:
 
 permissions:
@@ -25,16 +21,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4.2.2
 
-      - name: Guard to Berlin 09:00 / 17:00
+      - name: Guard to first Monday of month, Berlin 09:00
         id: guard
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "go=true" >> "$GITHUB_OUTPUT"; exit 0
           fi
           H=$(TZ=Europe/Berlin date +%H)
-          echo "Berlin hour: $H"
-          if [ "$H" = "09" ] || [ "$H" = "17" ]; then echo "go=true" >> "$GITHUB_OUTPUT";
-          else echo "go=false" >> "$GITHUB_OUTPUT"; fi
+          DAY=$(TZ=Europe/Berlin date +%d)
+          echo "Berlin hour: $H  day-of-month: $DAY"
+          # First Monday = day 1-7
+          if [ "$H" = "09" ] && [ "$DAY" -le 7 ]; then
+            echo "go=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - uses: actions/setup-python@v5.6.0
         if: steps.guard.outputs.go == 'true'
@@ -52,8 +53,6 @@ jobs:
           GOOGLE_ALERT_FEEDS: ${{ secrets.GOOGLE_ALERT_FEEDS }}
           BLOG_FEEDS: ${{ secrets.BLOG_FEEDS }}
           X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
-          # Fix [Bug2]: ANTHROPIC_API_KEY was missing — LLM validation and 13F analysis
-          # were silently skipped, disabling the 3-tier signal classification entirely.
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           SMTP_HOST: ${{ secrets.SMTP_HOST }}
           SMTP_PORT: ${{ secrets.SMTP_PORT }}
