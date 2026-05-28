@@ -20,6 +20,12 @@ from ..config import Config
 from ..utils import get_logger, read_json
 from ..sources import openfigi
 
+# Suffixes stripped before yfinance name search to improve match rate
+_CORP_SUFFIXES = (
+    " INC", " CORP", " LTD", " LLC", " LP", " PLC",
+    " HOLDINGS", " GROUP", " CO", " AG", " NV", " SA",
+)
+
 log = get_logger("analysis.map_cusips")
 
 _FIELDS = ["cusip", "issuer", "ticker", "yfinance_symbol", "sector", "source", "confidence"]
@@ -45,6 +51,55 @@ def _write_csv(path: Path, rows: dict[str, dict]) -> None:
         for row in rows.values():
             w.writerow({f: row.get(f, "") for f in _FIELDS})
     log.info("Wrote %d rows to %s", len(rows), path)
+
+
+def _yfinance_lookup(issuer_name: str) -> str | None:
+    """Try to resolve a ticker from a company name via yfinance Search.
+
+    Returns the best-match ticker symbol, or None if nothing useful is found.
+    Only used as a last-resort fallback after OpenFIGI returns no result.
+    """
+    try:
+        import yfinance as yf  # optional dependency
+    except ImportError:
+        return None
+
+    # Strip legal suffixes for a cleaner search query
+    query = issuer_name.upper()
+    for suffix in _CORP_SUFFIXES:
+        if query.endswith(suffix):
+            query = query[: -len(suffix)].strip()
+            break
+
+    if not query:
+        return None
+
+    # Use the first word as the search term — full cleaned names often return
+    # zero results (e.g. "SEAGATE TECHNOLOGY HLDNGS PL" → no hits, but
+    # "SEAGATE" → STX immediately).
+    root = query.split()[0] if query else query
+    try:
+        results = yf.Search(root, max_results=5).quotes
+    except Exception as exc:
+        log.debug("yfinance Search failed for %r: %s", root, exc)
+        return None
+
+    if not results:
+        return None
+
+    # Pick the first result whose shortName contains the root word.
+    for hit in results:
+        symbol = (hit.get("symbol") or "").strip()
+        short = (hit.get("shortname") or hit.get("longname") or "").lower()
+        if not symbol or len(symbol) > 6:  # skip indexes / fund codes
+            continue
+        # Whole-word match to avoid "bloom" → "bloomberg" false positives
+        import re as _re
+        if _re.search(r"\b" + _re.escape(root.lower()) + r"\b", short):
+            log.info("  yfinance fallback: %r → %s (%s)", issuer_name, symbol, short[:40])
+            return symbol
+
+    return None
 
 
 def _needs_query(row: dict) -> bool:
@@ -101,18 +156,23 @@ def run(cfg: Config) -> None:
             if err == "bond_cusip":
                 log.info("  %-12s → bond/convertible, skipped", cusip)
                 source = "openfigi_bond"
+                ticker = ""
             else:
                 log.debug("No match: %s (%s) — %s", cusip, issuer[:40], err)
-                source = "openfigi_no_match"
+                # Fallback: try yfinance name search for equity CUSIPs
+                ticker = _yfinance_lookup(issuer) or ""
+                source = "yfinance_name" if ticker else "openfigi_no_match"
             existing.setdefault(cusip, {
                 "cusip": cusip, "issuer": issuer,
                 "ticker": "", "yfinance_symbol": "",
                 "sector": "", "source": source, "confidence": "none",
             })
-            existing[cusip]["source"] = source  # update if already there
-            existing[cusip]["ticker"] = ""
-            existing[cusip]["yfinance_symbol"] = ""
-            errors += 1
+            existing[cusip]["source"] = source
+            existing[cusip]["ticker"] = ticker
+            existing[cusip]["yfinance_symbol"] = ticker
+            existing[cusip]["confidence"] = "medium" if ticker else "none"
+            if not ticker:
+                errors += 1
             continue
 
         ticker = res["ticker"]
