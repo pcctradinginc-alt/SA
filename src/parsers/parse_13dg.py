@@ -54,12 +54,27 @@ def _parse_xml(text: str) -> dict:
         el = issuer_el.find(f"{{{ns}}}{tag}")
         return (el.text or "").strip() if el is not None else ""
 
-    # Aggregate ownership from first reportingPersonInfo block
+    # CUSIP: older 13D schema uses issuerCUSIP directly; newer 13G schema nests
+    # it under issuerCusips/issuerCusipNumber.
+    issuer_cusip = iss("issuerCUSIP")
+    if not issuer_cusip and issuer_el is not None:
+        cusips_el = issuer_el.find(f"{{{ns}}}issuerCusips")
+        if cusips_el is not None:
+            first = cusips_el.find(f"{{{ns}}}issuerCusipNumber")
+            if first is not None:
+                issuer_cusip = (first.text or "").strip()
+
+    # issuerCik: older schema = issuerCIK, newer 13G schema = issuerCik
+    issuer_cik = iss("issuerCIK") or iss("issuerCik")
+
+    # Aggregate ownership: older schema uses reportingPersons/reportingPersonInfo;
+    # newer 13G schema uses coverPageHeaderReportingPersonDetails directly under formData.
+    aggregate = ""
+    pct = ""
+
     persons = root.findall(
         f"{{{ns}}}formData/{{{ns}}}reportingPersons/{{{ns}}}reportingPersonInfo"
     )
-    aggregate = ""
-    pct = ""
     if persons:
         p = persons[0]
         agg_el = p.find(f"{{{ns}}}aggregateAmountOwned")
@@ -69,12 +84,30 @@ def _parse_xml(text: str) -> dict:
         if pct_el is not None:
             pct = (pct_el.text or "").strip()
 
+    if not aggregate or not pct:
+        # Newer 13G schema: first coverPageHeaderReportingPersonDetails block
+        details = root.findall(
+            f"{{{ns}}}formData/{{{ns}}}coverPageHeaderReportingPersonDetails"
+        )
+        if details:
+            d = details[0]
+            if not aggregate:
+                agg_el = d.find(
+                    f"{{{ns}}}reportingPersonBeneficiallyOwnedAggregateNumberOfShares"
+                )
+                if agg_el is not None:
+                    aggregate = (agg_el.text or "").strip()
+            if not pct:
+                pct_el = d.find(f"{{{ns}}}classPercent")
+                if pct_el is not None:
+                    pct = (pct_el.text or "").strip()
+
     return {
         "issuer_name": iss("issuerName"),
-        "issuer_cusip": iss("issuerCUSIP"),
-        "issuer_cik": iss("issuerCIK"),
+        "issuer_cusip": issuer_cusip,
+        "issuer_cik": issuer_cik,
         "securities_class": cv("securitiesClassTitle"),
-        "date_of_event": cv("dateOfEvent"),
+        "date_of_event": cv("dateOfEvent") or cv("eventDateRequiresFilingThisStatement"),
         "aggregate_shares": aggregate,
         "percent_of_class": pct,
     }
