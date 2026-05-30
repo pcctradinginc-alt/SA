@@ -12,6 +12,7 @@ from __future__ import annotations
 import os
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass
+from urllib.parse import urlparse
 
 from ..config import Config
 from ..utils import HttpClient, get_logger, sha256_text
@@ -56,9 +57,13 @@ def _parse_rss(xml_text: str, source_kind: str) -> list[DiscoveryItem]:
             link = link_el.get("href", "") if link_el is not None else ""
         desc = (node.findtext("description") or node.findtext("atom:summary", default="", namespaces=ns) or "").strip()
         published = node.findtext("pubDate") or node.findtext("atom:updated", default=None, namespaces=ns)
+        url = link.strip()
+        if urlparse(url).scheme not in ("http", "https"):
+            log.debug("Skipping RSS item with invalid URL scheme: %r", url[:80])
+            continue
         items.append(
             DiscoveryItem(
-                url=link.strip(),
+                url=url,
                 title=title,
                 excerpt=desc[:EXCERPT_CHARS],
                 source_kind=source_kind,
