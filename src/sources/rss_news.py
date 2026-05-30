@@ -6,6 +6,9 @@ They complement the user-configured GOOGLE_ALERT_FEEDS / BLOG_FEEDS env vars.
 Sources included:
   - situational-awareness.ai/feed/ — Leo's primary publication (highest confidence)
   - Nitter RSS — @leopoldasch timeline via public Nitter instances (no API key)
+  - ScrapeCreators API — @leopoldasch tweets via api.scrapecreators.com (free tier,
+    requires SCRAPE_CREATORS_API_KEY env var; runs in parallel with Nitter so either
+    source alone is sufficient)
   - Google News RSS (search by name + variants)
   - HackerNews RSS via hnrss.org
   - Reddit search RSS (r/MachineLearning, r/investing, r/agi, all)
@@ -17,31 +20,22 @@ are applied automatically.
 from __future__ import annotations
 
 import json
+import os
 import urllib.parse
 
 from ..config import Config
 from ..sources.discovery import DiscoveryItem, _parse_rss
-from ..utils import HttpClient, get_logger, read_json, write_json, utc_now_iso
+from ..utils import HttpClient, get_logger
 
 log = get_logger("sources.rss_news")
 
-# Nitter instances — tried in order; last successful instance is persisted to
-# data/derived/nitter_state.json and moved to front of list on the next run.
-# Update this list when instances go down (community list: github.com/zedeus/nitter/wiki/Instances)
 _X_HANDLE = "leopoldasch"
-_NITTER_INSTANCES = [
-    "https://nitter.poast.org",
-    "https://nitter.net",
-    "https://nitter.privacydev.net",
-    "https://nitter.cz",
-    "https://bird.trom.tf",
-    "https://nitter.1d4.us",
-    "https://nitter.mint.lgbt",
-    "https://nitter.unixfox.eu",
-    "https://nitter.moomoo.me",
-    "https://lightbrd.com",
+# twiiit.com auto-selects a live Nitter instance. nitter.net is the fallback
+# for when twiiit.com redirects to an instance that returns 403.
+_NITTER_URLS = [
+    f"https://twiiit.com/{_X_HANDLE}/rss",
+    f"https://nitter.net/{_X_HANDLE}/rss",
 ]
-_NITTER_STATE_KEY = "nitter_last_working"
 
 # Google News RSS — free, no API key, throttle-tolerant (30 s between calls is fine)
 _GOOGLE_NEWS_QUERIES = [
@@ -80,46 +74,82 @@ def _fetch_feed(client: HttpClient, url: str, source_kind: str) -> list[Discover
         return []
 
 
-def _nitter_state_path(cfg: Config):
-    return cfg.paths.derived / "nitter_state.json"
-
-
 def from_nitter_x(cfg: Config) -> list[DiscoveryItem]:
-    """@leopoldasch timeline via public Nitter RSS — no API key required.
+    """@leopoldasch timeline via Nitter RSS.
 
-    Tries each Nitter instance in order and returns items from the first that
-    responds successfully. The last successful instance is persisted so it is
-    tried first on the next run, cutting latency when an instance is stable.
+    Tries twiiit.com first (auto-selects a live instance), falls back to
+    nitter.net directly if twiiit.com redirects to a broken instance.
+    ScrapeCreators runs in parallel as an independent backup.
     """
-    # Load last known-good instance and promote it to front
-    state = read_json(str(_nitter_state_path(cfg))) or {}
-    last_working = state.get(_NITTER_STATE_KEY, "")
-    instances = list(_NITTER_INSTANCES)
-    if last_working and last_working in instances:
-        instances.remove(last_working)
-        instances.insert(0, last_working)
-
     client = HttpClient(cfg.sec_user_agent, cfg.sec_request_delay)
-    for instance in instances:
-        url = f"{instance}/{_X_HANDLE}/rss"
+    for url in _NITTER_URLS:
         try:
-            text = client.get_text(url, timeout=15)
+            text = client.get_text(url, timeout=20)
             if not text or "<rss" not in text.lower():
-                log.debug("Nitter %s returned no RSS content", instance)
+                log.debug("Nitter: no RSS from %s, trying next.", url)
                 continue
             items = _parse_rss(text, "x")
-            if items:
-                log.info("Nitter (%s): %d tweet(s) from @%s.", instance, len(items), _X_HANDLE)
-                # Persist this instance so it's tried first next run
-                if instance != last_working:
-                    write_json(str(_nitter_state_path(cfg)),
-                               {_NITTER_STATE_KEY: instance, "updated": utc_now_iso()})
-                return items
-            log.debug("Nitter %s: empty feed", instance)
+            log.info("Nitter (%s): %d tweet(s) from @%s.", url, len(items), _X_HANDLE)
+            return items
         except Exception as exc:  # noqa: BLE001
-            log.debug("Nitter %s failed: %s", instance, exc)
-    log.warning("Nitter: all instances failed for @%s — X source unavailable.", _X_HANDLE)
+            log.debug("Nitter: %s failed: %s", url, exc)
+    log.warning("Nitter: all URLs failed for @%s.", _X_HANDLE)
     return []
+
+
+_SCRAPE_CREATORS_URL = "https://api.scrapecreators.com/v1/twitter/user-tweets"
+
+
+def from_scrape_creators_x(cfg: Config) -> list[DiscoveryItem]:
+    """@leopoldasch tweets via ScrapeCreators API (free tier).
+
+    Runs in parallel with from_nitter_x — deduplication happens downstream via
+    content_hash(). If SCRAPE_CREATORS_API_KEY is not set, this source is
+    silently skipped so the pipeline stays key-free by default.
+    """
+    api_key = os.environ.get("SCRAPE_CREATORS_API_KEY", "")
+    if not api_key:
+        log.debug("ScrapeCreators: SCRAPE_CREATORS_API_KEY not set, skipping.")
+        return []
+
+    client = HttpClient(cfg.sec_user_agent, cfg.sec_request_delay)
+    try:
+        # Inject the API key header for this single request, then remove it.
+        client.session.headers["x-api-key"] = api_key
+        resp = client.get(f"{_SCRAPE_CREATORS_URL}?handle={_X_HANDLE}", timeout=20)
+        client.session.headers.pop("x-api-key", None)
+        data = json.loads(resp.text)
+    except Exception as exc:  # noqa: BLE001
+        client.session.headers.pop("x-api-key", None)
+        log.warning("ScrapeCreators X: request failed: %s", exc)
+        return []
+
+    # Response shape: {"tweets": [...]} where each tweet has id, text, created_at, url
+    tweets = data.get("tweets") or data.get("data") or []
+    if not isinstance(tweets, list):
+        log.warning("ScrapeCreators X: unexpected response shape.")
+        return []
+
+    out: list[DiscoveryItem] = []
+    for t in tweets:
+        tweet_id = t.get("id") or t.get("rest_id") or ""
+        text_body = t.get("text") or t.get("full_text") or ""
+        created_at = t.get("created_at") or t.get("date") or ""
+        url = t.get("url") or (
+            f"https://x.com/{_X_HANDLE}/status/{tweet_id}" if tweet_id else ""
+        )
+        if not url or not text_body:
+            continue
+        out.append(DiscoveryItem(
+            url=url,
+            title=f"@{_X_HANDLE}: {text_body[:120]}",
+            excerpt=text_body[:500],
+            source_kind="x",
+            published=created_at,
+        ))
+
+    log.info("ScrapeCreators X: %d tweet(s) from @%s.", len(out), _X_HANDLE)
+    return out
 
 
 def from_google_news(cfg: Config) -> list[DiscoveryItem]:
@@ -253,6 +283,7 @@ def from_all_curated(cfg: Config) -> list[DiscoveryItem]:
     items.extend(from_edgar_form_d(cfg))
     items.extend(from_primary_sources(cfg))
     items.extend(from_nitter_x(cfg))
+    items.extend(from_scrape_creators_x(cfg))  # parallel X source — dedup downstream
     items.extend(from_google_news(cfg))
     items.extend(from_hackernews(cfg))
     items.extend(from_reddit(cfg))
