@@ -10,7 +10,6 @@ Sources included:
     requires SCRAPE_CREATORS_API_KEY env var; runs in parallel with Nitter so either
     source alone is sufficient)
   - Google News RSS (search by name + variants)
-  - HackerNews RSS via hnrss.org
   - Reddit search RSS (r/MachineLearning, r/investing, r/agi, all)
 
 All items are passed through the same DiscoveryItem → parse_public_statement
@@ -45,12 +44,6 @@ _GOOGLE_NEWS_QUERIES = [
     '"Leopold Aschenbrenner" fund',
 ]
 _GNEWS_BASE = "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US:en&q="
-
-# HackerNews via hnrss.org — free, no auth required
-_HN_FEEDS = [
-    "https://hnrss.org/newest?q=Aschenbrenner",
-    "https://hnrss.org/newest?q=%22Situational+Awareness%22+invest",
-]
 
 # Primary sources — Leo's own publications, no auth required
 _PRIMARY_FEEDS = [
@@ -180,16 +173,6 @@ def from_google_news(cfg: Config) -> list[DiscoveryItem]:
     return out
 
 
-def from_hackernews(cfg: Config) -> list[DiscoveryItem]:
-    """HackerNews RSS via hnrss.org."""
-    client = HttpClient(cfg.sec_user_agent, cfg.sec_request_delay)
-    out: list[DiscoveryItem] = []
-    for url in _HN_FEEDS:
-        items = _fetch_feed(client, url, "hackernews")
-        out.extend(items)
-    log.info("HackerNews: %d items.", len(out))
-    return out
-
 
 def from_reddit(cfg: Config) -> list[DiscoveryItem]:
     """Reddit search RSS — free, no credentials required."""
@@ -299,7 +282,6 @@ def from_all_curated(cfg: Config) -> list[DiscoveryItem]:
     items.extend(from_nitter_x(cfg))
     items.extend(from_scrape_creators_x(cfg))  # parallel X source — dedup downstream
     items.extend(from_google_news(cfg))
-    items.extend(from_hackernews(cfg))
     items.extend(from_reddit(cfg))
     log.info("Curated news sources total: %d items.", len(items))
     return items
