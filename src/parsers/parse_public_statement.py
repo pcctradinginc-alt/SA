@@ -60,46 +60,44 @@ def _save_llm_cache(path: Path) -> None:
         log.warning("LLM cache write failed: %s", exc)
 
 _LLM_SYSTEM_PROMPT_BASE = """\
-Du bist ein präziser Finanz-Analyst der den Hedgefonds "Situational Awareness LP" \
-(Manager: Leopold Aschenbrenner, ex-OpenAI) überwacht, um Investmentaktivitäten \
-frühzeitig zu erkennen.
+You are a precise financial analyst monitoring the hedge fund "Situational Awareness LP" \
+(manager: Leopold Aschenbrenner, former OpenAI) to detect investment activity early.
 
-Du bekommst einen Nachrichten-Headline + Excerpt sowie die Liste der aktuell bekannten \
-13F-Positionen des Fonds. Klassifiziere das Signal in exakt eine der folgenden Stufen:
+You receive a news headline + excerpt and the list of currently known 13F positions of the fund. \
+Classify the signal into exactly one of the following tiers:
 
 signal_tier:
-  "alpha_signal"    — Die Aussage deutet auf eine NEUE Position hin, die NICHT in der \
-aktuellen 13F-Liste steht. Dies ist der höchste Informationswert.
-  "position_update" — Die Aussage enthält NEUE, handlungsrelevante Information über eine \
-BEKANNTE Position (z.B. Exit, Aufstockung, Reduzierung, Strategie-Wechsel, Optionsstruktur). \
-Wichtig: Auch ein Exit oder "Ich habe verkauft" bei einer bekannten Position ist ein position_update.
-  "context"         — Die Aussage diskutiert eine bekannte Position oder einen bekannten \
-Sektor, enthält aber keine neue Positionsinformation (allgemeiner Kommentar, \
-Thesis-Wiederholung, Erklärung einer bereits bekannten Beteiligung).
-  "unrelated"       — Nicht relevant für diesen Fonds.
+  "alpha_signal"    — The statement indicates a NEW position NOT in the current 13F list. \
+This is the highest information value.
+  "position_update" — The statement contains NEW, actionable information about a KNOWN position \
+(e.g. exit, increase, reduction, strategy change, options structure). \
+Important: an exit or "I sold" on a known position is also a position_update.
+  "context"         — The statement discusses a known position or sector but contains no new \
+position information (general commentary, thesis repetition, explanation of an already known holding).
+  "unrelated"       — Not relevant to this fund.
 
-Antworte NUR mit gültigem JSON:
+Respond ONLY with valid JSON:
 {
   "is_relevant": true | false,
   "signal_tier": "alpha_signal" | "position_update" | "context" | "unrelated",
   "action": "buy" | "sell" | "highlight" | "announce" | "unrelated",
   "ticker": "<TICKER>" | null,
   "confidence": 0.0–1.0,
-  "reason": "<ein Satz warum diese Tier-Einstufung>",
-  "quote": "<das prägnanteste Zitat oder die Kernaussage aus dem Artikel, max. 120 Zeichen>",
-  "inference": "<was diese Aussage über eine mögliche neue/geänderte Position impliziert, \
-oder null wenn context/unrelated>",
-  "action_hint": "<grobe Handlungsrichtung: z.B. 'Möglicher Einstieg in Kupfer-Aktien vor \
-nächstem 13F' — NUR bei alpha_signal oder position_update mit confidence >= 0.7, sonst null. \
-Kein konkreter Trade-Vorschlag, keine Kursziele.>"
+  "reason": "<one sentence explaining this tier classification>",
+  "quote": "<the most salient quote or core statement from the article, max 120 chars>",
+  "inference": "<what this statement implies about a possible new/changed position, \
+or null if context/unrelated>",
+  "action_hint": "<rough action direction, e.g. 'Possible entry into copper stocks before next 13F' \
+— ONLY for alpha_signal or position_update with confidence >= 0.7, otherwise null. \
+No specific trade suggestions, no price targets.>"
 }
 
-Regeln:
-- is_relevant = true für alpha_signal und position_update. false für context und unrelated.
-- Für "context": is_relevant = false (kein Alert nötig), aber signal_tier trotzdem "context" setzen.
-- confidence: 0.9+ nur bei expliziten Positionsangaben. 0.7–0.85 bei starker Implikation. \
-  Unter 0.65 → is_relevant = false.
-- Nur das JSON-Objekt zurückgeben — kein Markdown, keine Erklärung außerhalb.\
+Rules:
+- is_relevant = true for alpha_signal and position_update. false for context and unrelated.
+- For "context": is_relevant = false (no alert needed), but still set signal_tier to "context".
+- confidence: 0.9+ only for explicit position statements. 0.7–0.85 for strong implication. \
+  Below 0.65 → is_relevant = false.
+- Return only the JSON object — no markdown, no explanation outside it.\
 """
 
 
@@ -108,7 +106,7 @@ def _build_system_prompt(active_tickers: set[str] | None = None) -> str:
     prompt = _LLM_SYSTEM_PROMPT_BASE
     if active_tickers:
         tickers_str = ", ".join(sorted(active_tickers))
-        prompt += f"\n\nAktuelle 13F-Positionen des Fonds (bekannte Whitelist): {tickers_str}"
+        prompt += f"\n\nCurrent 13F positions of the fund (known whitelist): {tickers_str}"
     else:
         prompt += (
             "\n\nHinweis: Keine 13F-Positionsliste verfügbar. Klassifiziere konservativ — "
