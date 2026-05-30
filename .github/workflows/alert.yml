@@ -35,6 +35,7 @@ jobs:
           GOOGLE_ALERT_FEEDS: ${{ secrets.GOOGLE_ALERT_FEEDS }}
           BLOG_FEEDS: ${{ secrets.BLOG_FEEDS }}
           X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+          SCRAPE_CREATORS_API_KEY: ${{ secrets.SCRAPE_CREATORS_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python -m src.pipeline discover
 
