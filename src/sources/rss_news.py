@@ -127,9 +127,21 @@ def from_scrape_creators_x(cfg: Config) -> list[DiscoveryItem]:
         return []
 
     # Response shape: {"tweets": [...]} where each tweet has id, text, created_at, url
-    tweets = data.get("tweets") or data.get("data") or []
-    if not isinstance(tweets, list):
-        log.warning("ScrapeCreators X: unexpected response shape.")
+    raw_tweets = data.get("tweets") if "tweets" in data else data.get("data")
+    if raw_tweets is None:
+        # Key missing entirely — API changed shape or returned an error payload.
+        log.warning(
+            "ScrapeCreators X: unexpected response shape (keys: %s). "
+            "API may have changed or account may be rate-limited.",
+            list(data.keys()),
+        )
+        return []
+    if not isinstance(raw_tweets, list):
+        log.warning("ScrapeCreators X: 'tweets' field is not a list (%s).", type(raw_tweets))
+        return []
+    tweets = raw_tweets
+    if not tweets:
+        log.info("ScrapeCreators X: 0 tweet(s) from @%s — account appears inactive.", _X_HANDLE)
         return []
 
     out: list[DiscoveryItem] = []
