@@ -241,6 +241,23 @@ def _status(shares: list[int], weight: float, cfg: Config) -> str:
     return STATUS_STRONG_ADD if qoq > 0 else STATUS_TRIM
 
 
+def _shares_delta_label(prev: int, latest: int) -> str:
+    """Human-readable share-count delta for the alert email."""
+    if prev == 0 and latest > 0:
+        return "NEU"
+    if latest == 0 and prev > 0:
+        return "EXIT"
+    delta = latest - prev
+    if delta == 0:
+        return "±0"
+    sign = "+" if delta > 0 else ""
+    if abs(delta) >= 1_000_000:
+        return f"{sign}{delta / 1_000_000:.1f}M"
+    if abs(delta) >= 1_000:
+        return f"{sign}{delta / 1_000:.0f}k"
+    return f"{sign}{delta}"
+
+
 def build(cfg: Config, parsed_quarters: list[dict],
           cusips_with_13dg: frozenset[str] = frozenset()) -> dict:
     """Build the full instrument-separated position model from N parsed quarters.
@@ -333,6 +350,9 @@ def build(cfg: Config, parsed_quarters: list[dict],
             "price_change_since_quarter_end_pct": price_move,
             "estimated_current_value": est_value,
             "estimated_value_change_since_quarter_end": est_move,
+            "shares_prev": shares_prev,
+            "shares_delta": shares_latest - shares_prev,
+            "shares_delta_label": _shares_delta_label(shares_prev, shares_latest),
             "status": status,
             "status_icon": STATUS_ICON[status],
             "status_label": STATUS_LABEL[status],

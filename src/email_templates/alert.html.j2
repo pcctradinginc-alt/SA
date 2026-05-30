@@ -261,16 +261,17 @@
                   {%- if sig.three_quarter_trend == 'up_up_up' %}{{ pill('↑↑↑ 3Q', 'green') }}
                   {%- elif sig.three_quarter_trend == 'new_add' %}{{ pill('Neu + Add', 'green') }}
                   {%- elif sig.three_quarter_trend == 'new' %}{{ pill('Neu', 'amber') }}{%- endif %}
-                  <!-- Dollar delta + 13D/G -->
+                  <!-- Dollar delta + share delta + 13D/G -->
                   <span style="font-size:12px;color:{{ C.sec }};margin-left:8px;">
                     {%- set dd = sig.qoq_dollar_delta | default(0) -%}
+                    {%- set sdl = sig.shares_delta_label | default('') -%}
                     {%- if sig.qoq_share_change_pct is not none -%}
                       <span style="color:{{ C.green_tx }};font-weight:600;">
                         {{ '%+.0f%%'|format(sig.qoq_share_change_pct * 100) }} QoQ
-                        &nbsp;({{ dd | usd_compact }} Add)
+                        &nbsp;({{ dd | usd_compact }} · {{ sdl }} Shares)
                       </span>
                     {%- else -%}
-                      <span style="color:{{ C.green_tx }};font-weight:600;">Neue Position · {{ dd | usd_compact }}</span>
+                      <span style="color:{{ C.green_tx }};font-weight:600;">{{ sdl }} · Neue Position · {{ dd | usd_compact }}</span>
                     {%- endif -%}
                     {%- if sig.has_13dg %}
                       &nbsp;{{ pill('13D/G', 'teal') }}
