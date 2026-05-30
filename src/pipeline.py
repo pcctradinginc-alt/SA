@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 import glob
+import xml.etree.ElementTree as _ET
 
 from .config import load_config, Config
 from .utils import get_logger, read_json, utc_now_iso, write_json
@@ -121,8 +122,17 @@ def step_fetch(cfg: Config) -> None:
                 processed.append(f.accession)
             else:
                 processed.append(f.accession)  # Form D etc. — no parsing needed
-        except Exception:
-            log.exception("Failed to process filing %s; will retry on next run.", f.accession)
+        except (_ET.ParseError, ValueError, KeyError, UnicodeDecodeError) as exc:
+            # Permanent parse error — filing is malformed and will never succeed.
+            # Mark as seen so we stop retrying, but log at ERROR for visibility.
+            log.error("Permanent parse error for %s (skipping permanently): %s", f.accession, exc)
+            processed.append(f.accession)
+        except OSError as exc:
+            # Transient I/O or network error — do NOT mark as seen so next run retries.
+            log.warning("Transient error for %s (will retry next run): %s", f.accession, exc)
+        except Exception as exc:
+            # Unexpected error — log with full traceback, do not mark as seen.
+            log.exception("Unexpected error for %s (will retry next run): %s", f.accession, exc)
     sec.mark_seen(cfg, processed)
     log.info("Fetch complete: %d new filings, %d processed.", len(new_filings), len(processed))
 
