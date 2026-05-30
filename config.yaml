@@ -49,10 +49,12 @@ alert:
   # Uses the same SMTP_* env vars as the digest. Set enabled: true to activate.
   enabled: true
   subject_prefix: "SA Alert"
-  # Minimum event confidence (0–1) required to trigger an alert.
-  # SEC-verified filings always have confidence 1.0.
-  # News/media signals start at 0.45–0.85 depending on source.
-  min_confidence: 0.5
+  # Minimum event confidence (0–1) required to trigger an immediate alert.
+  # SEC-verified filings always have confidence 1.0 and are unaffected.
+  # News/media signals: 0.85+ → immediate alert; below → pending_review.jsonl.
+  min_confidence: 0.85
+  # Confidence floor below which news events are silently dropped (not even queued).
+  min_confidence_queue: 0.5
   # Which signal types trigger an alert.
   on_signal_types:
     - "13f_position"                # new 13F quarterly filing

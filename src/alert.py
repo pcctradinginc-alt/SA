@@ -201,31 +201,60 @@ def _build_tldr(model: dict) -> dict:
     }
 
 
+_PENDING_REVIEW_FILE = "pending_review.jsonl"
+
+
+def _queue_for_review(cfg: Config, evt: dict) -> None:
+    """Write a below-threshold news event to pending_review.jsonl for manual inspection."""
+    from .utils import append_jsonl, read_jsonl
+    path = cfg.paths.derived / _PENDING_REVIEW_FILE
+    existing_ids = {e.get("event_id") for e in read_jsonl(path)}
+    if evt.get("event_id") not in existing_ids:
+        append_jsonl(path, {**evt, "queued_at": utc_now_iso()})
+
+
 def get_new_alertable_events(cfg: Config, state: dict) -> list[dict]:
     """Return events not yet alerted that clear the confidence threshold.
 
     For public_statement events the signal_tier is checked:
-      - alpha_signal / position_update / None (keyword-only) → alert
-      - context → suppress (no new information about a known position)
+      - alpha_signal / position_update / None (keyword-only) → alert if conf >= min_confidence
+      - confidence in [min_confidence_queue, min_confidence) → pending_review.jsonl
+      - confidence < min_confidence_queue or tier == context → silently dropped
+    SEC-verified events (13f_position, ownership_13dg*) are never queued — always alert.
     """
     all_events = list(evts.load_events(cfg))
     alerted_ids = set(state.get("alerted_event_ids", []))
-    min_conf: float = float(_alert_cfg(cfg).get("min_confidence", 0.5))
-    on_types: list[str] = list(_alert_cfg(cfg).get("on_signal_types", list(_ALERTABLE_TYPES)))
+    alert_cfg = _alert_cfg(cfg)
+    min_conf: float = float(alert_cfg.get("min_confidence", 0.85))
+    min_conf_queue: float = float(alert_cfg.get("min_confidence_queue", 0.5))
+    on_types: list[str] = list(alert_cfg.get("on_signal_types", list(_ALERTABLE_TYPES)))
 
     new: list[dict] = []
     for evt in all_events:
         if evt.get("event_id") in alerted_ids:
             continue
-        if float(evt.get("confidence", 0.0)) < min_conf:
-            continue
         if evt.get("signal_type") not in on_types:
             continue
-        # Suppress context-only news: known position, no new information
-        if evt.get("signal_type") == "public_statement":
+
+        is_news = evt.get("signal_type") == "public_statement"
+        conf = float(evt.get("confidence", 0.0))
+
+        if is_news:
             tier = evt.get("signal_tier")
             if tier == "context":
+                continue  # context-only: never alert, never queue
+            if conf < min_conf_queue:
+                continue  # too weak even for review queue
+            if conf < min_conf:
+                # Below immediate-alert threshold → queue for manual review
+                _queue_for_review(cfg, evt)
+                log.debug("Queued for review (conf=%.2f): %s", conf, evt.get("event_id"))
                 continue
+        else:
+            # SEC-verified filings: apply standard threshold (always 1.0, effectively unfiltered)
+            if conf < min_conf_queue:
+                continue
+
         new.append(evt)
 
     return _deduplicate_news(new)
