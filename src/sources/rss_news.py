@@ -115,12 +115,14 @@ def from_scrape_creators_x(cfg: Config) -> list[DiscoveryItem]:
     client = HttpClient(cfg.sec_user_agent, cfg.sec_request_delay)
     try:
         # Inject the API key header for this single request, then remove it.
-        client.session.headers["x-api-key"] = api_key
-        resp = client.get(f"{_SCRAPE_CREATORS_URL}?handle={_X_HANDLE}", timeout=20)
-        client.session.headers.pop("x-api-key", None)
+        resp = client.session.get(
+            f"{_SCRAPE_CREATORS_URL}?handle={_X_HANDLE}",
+            headers={"x-api-key": api_key},
+            timeout=20,
+        )
+        resp.raise_for_status()
         data = json.loads(resp.text)
     except Exception as exc:  # noqa: BLE001
-        client.session.headers.pop("x-api-key", None)
         log.warning("ScrapeCreators X: request failed: %s", exc)
         return []
 
