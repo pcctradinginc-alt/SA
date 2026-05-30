@@ -9,6 +9,7 @@ from __future__ import annotations
 import hashlib
 import json
 import logging
+import random
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -114,12 +115,23 @@ class HttpClient:
         self.request_delay = request_delay
         self._log = get_logger("http")
 
-    def get(self, url: str, *, accept: str | None = None, timeout: int = 30):
+    def get(self, url: str, *, accept: str | None = None, timeout: int = 30,
+            _max_retries: int = 3, _base_wait: float = 1.0):
         headers = {"Accept": accept} if accept else {}
         self._log.debug("GET %s", url)
-        resp = self.session.get(url, headers=headers, timeout=timeout)
+        for attempt in range(_max_retries):
+            resp = self.session.get(url, headers=headers, timeout=timeout)
+            if resp.status_code == 429:
+                wait = min(30.0, _base_wait * (2 ** attempt) + random.random())
+                self._log.warning("429 rate-limited by %s — retrying in %.1fs (attempt %d/%d)",
+                                  url, wait, attempt + 1, _max_retries)
+                time.sleep(wait)
+                continue
+            resp.raise_for_status()
+            time.sleep(self.request_delay)
+            return resp
+        # Final attempt after all retries exhausted
         resp.raise_for_status()
-        time.sleep(self.request_delay)
         return resp
 
     def get_json(self, url: str, timeout: int = 30) -> Any:
