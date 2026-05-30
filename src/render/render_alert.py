@@ -47,7 +47,7 @@ def _enrich_events(events: list[dict]) -> list[dict]:
     return events
 
 
-def render(cfg: Config, new_events: list[dict], model: dict | None = None, tldr: dict | None = None) -> str:
+def render(cfg: Config, new_events: list[dict], model: dict | None = None, tldr: dict | None = None, review_events: list[dict] | None = None) -> str:
     meta = {
         "person": cfg.person,
         "manager": cfg.primary_name,
@@ -67,6 +67,7 @@ def render(cfg: Config, new_events: list[dict], model: dict | None = None, tldr:
     return _env().get_template("alert.html.j2").render(
         sec_events=sec_events,
         news_events=news_events,
+        review_events=_enrich_events(list(review_events or [])),
         model=model or {},
         tldr=tldr or {},
         analysis_13f=(model or {}).get("llm_13f_analysis", ""),

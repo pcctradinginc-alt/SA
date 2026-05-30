@@ -296,6 +296,14 @@ def _send(cfg: Config, subject_line: str, html: str) -> bool:
     return True
 
 
+def get_review_queue_events(cfg: Config, state: dict) -> list[dict]:
+    """Return pending_review.jsonl entries not yet included in an alert."""
+    from .utils import read_jsonl
+    path = cfg.paths.derived / _PENDING_REVIEW_FILE
+    alerted_ids = set(state.get("alerted_event_ids", []))
+    return [e for e in read_jsonl(path) if e.get("event_id") not in alerted_ids]
+
+
 def check_and_alert(cfg: Config, model: dict | None = None) -> int:
     """Check for new alertable events; send email if any found.
 
@@ -306,33 +314,35 @@ def check_and_alert(cfg: Config, model: dict | None = None) -> int:
     state["last_run_at"] = utc_now_iso()
 
     new_events = get_new_alertable_events(cfg, state)
-    if not new_events:
+    review_events = get_review_queue_events(cfg, state)
+
+    if not new_events and not review_events:
         log.info("No new alertable events.")
         _save_state(cfg, state)
         return 0
 
-    log.info("%d new alertable event(s) found.", len(new_events))
+    log.info("%d alertable + %d review-queue event(s) found.", len(new_events), len(review_events))
 
     # Load the position model (from disk if not passed in)
     if model is None:
         model = _load_position_model(cfg)
     tldr = _build_tldr(model)
 
-    html = render_alert.render(cfg, new_events, model=model, tldr=tldr)
+    html = render_alert.render(cfg, new_events, model=model, tldr=tldr, review_events=review_events)
     subj = render_alert.subject(cfg, new_events, tldr=tldr)
     sent = _send(cfg, subj, html)
 
     if sent:
         now_ts = utc_now_iso()
-        sent_ids = {e["event_id"] for e in new_events}
+        sent_ids = {e["event_id"] for e in new_events} | {e["event_id"] for e in review_events}
         state["alerted_event_ids"] = list(
             set(state.get("alerted_event_ids", [])) | sent_ids
         )
         ts_map: dict = state.setdefault("alerted_event_ids_ts", {})
         for eid in sent_ids:
-            ts_map.setdefault(eid, now_ts)  # don't overwrite if already present
+            ts_map.setdefault(eid, now_ts)
         state["last_sent_at"] = now_ts
         log.info("Alert state updated (%d total alerted IDs).", len(state["alerted_event_ids"]))
 
     _save_state(cfg, state)
-    return len(new_events)
+    return len(new_events) + len(review_events)

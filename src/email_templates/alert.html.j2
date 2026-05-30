@@ -694,6 +694,43 @@
 
   {% endif %}{# end 13F block #}
 
+  <!-- ══ REVIEW QUEUE: niedrig-confidence Signale zur Info ══ -->
+  {% if review_events %}
+  <tr><td style="padding:20px 32px 0 32px;">
+    <div style="border-top:2px dashed {{ C.line }};padding-top:16px;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:{{ C.ter }};margin-bottom:4px;">
+        Zur Info — Nicht Actionable
+      </div>
+      <div style="font-size:11px;color:{{ C.ter }};margin-bottom:10px;">
+        Confidence &lt; 0.85 · Manuell prüfen vor einem Trade
+      </div>
+      {% for evt in review_events %}
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+             style="background:#f8f8f8;border:1px solid {{ C.line }};border-radius:8px;margin-bottom:6px;opacity:0.85;">
+        <tr><td style="padding:10px 14px;">
+          <div style="font-size:11px;color:{{ C.ter }};font-weight:600;">
+            {{ evt.source_kind | upper | default('NEWS') }}
+            · Confidence: {{ (evt.confidence * 100) | round(0) | int }}%
+            {%- if evt.latency_str %} · {{ evt.latency_str }}{%- endif %}
+          </div>
+          <div style="font-size:13px;color:{{ C.text }};margin-top:3px;">{{ evt.summary or evt.title or '' }}</div>
+          {% if evt.ticker_guess %}
+          <div style="font-size:11px;color:{{ C.sec }};margin-top:3px;">
+            Ticker-Hinweis: {{ evt.ticker_guess | join(', ') }}
+          </div>
+          {% endif %}
+          {% if evt.url %}
+          <div style="margin-top:4px;">
+            <a href="{{ evt.url }}" style="font-size:11px;color:{{ C.accent }};text-decoration:none;">Quelle →</a>
+          </div>
+          {% endif %}
+        </td></tr>
+      </table>
+      {% endfor %}
+    </div>
+  </td></tr>
+  {% endif %}
+
   <!-- ══ FOOTER ══ -->
   <tr><td style="padding:20px 32px 26px 32px;">
     <div style="border-top:1px solid {{ C.line }};padding-top:14px;font-size:12px;color:{{ C.ter }};line-height:1.6;">
