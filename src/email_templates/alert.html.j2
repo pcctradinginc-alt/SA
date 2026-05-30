@@ -164,6 +164,11 @@
           {{ evt.signal_type|upper|replace('_',' ') }} · VERIFIZIERT
         </div>
         <div style="font-size:14px;font-weight:500;margin-top:4px;">{{ evt.summary }}</div>
+        <div style="font-size:11px;color:{{ C.ter }};margin-top:6px;">
+          {% if evt.source_date %}Filed: {{ evt.source_date }}{% endif %}
+          {% if evt.detected_at %} · Detected: {{ evt.detected_at[:16] }}Z{% endif %}
+          {% if evt.latency_str %} · <span style="font-weight:600;">{{ evt.latency_str }}</span>{% endif %}
+        </div>
         {% if evt.sources and evt.sources[0].accession %}
         <div style="margin-top:6px;">
           <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK={{ evt.entity_cik }}&type=13F"

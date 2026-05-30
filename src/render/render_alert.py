@@ -1,6 +1,7 @@
 """Render the actionable alert email."""
 from __future__ import annotations
 
+from datetime import datetime, timezone
 from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
@@ -23,16 +24,39 @@ def _env() -> Environment:
     return env
 
 
+def _latency_str(detected_at: str | None, source_date: str | None) -> str:
+    """Return human-readable latency between source_date and detected_at."""
+    if not detected_at:
+        return ""
+    try:
+        det = datetime.fromisoformat(detected_at.replace("Z", "+00:00"))
+        now = datetime.now(timezone.utc)
+        minutes = int((now - det).total_seconds() / 60)
+        if minutes < 60:
+            return f"~{minutes} min ago"
+        hours = minutes // 60
+        return f"~{hours}h ago"
+    except Exception:
+        return ""
+
+
+def _enrich_events(events: list[dict]) -> list[dict]:
+    """Add latency_str to each event for display in the template."""
+    for e in events:
+        e["latency_str"] = _latency_str(e.get("detected_at"), e.get("source_date"))
+    return events
+
+
 def render(cfg: Config, new_events: list[dict], model: dict | None = None, tldr: dict | None = None) -> str:
     meta = {
         "person": cfg.person,
         "manager": cfg.primary_name,
         "subject_prefix": cfg.raw.get("alert", {}).get("subject_prefix", "SA Alert"),
     }
-    sec_events = [e for e in new_events if e.get("signal_type") in (
+    sec_events = _enrich_events([e for e in new_events if e.get("signal_type") in (
         "13f_position", "ownership_13dg", "ownership_13dg_amendment",
-    )]
-    news_events = [e for e in new_events if e.get("signal_type") == "public_statement"]
+    )])
+    news_events = _enrich_events([e for e in new_events if e.get("signal_type") == "public_statement"])
     # Sort: alpha_signal first, then position_update, then others — then by confidence desc
     _tier_order = {"alpha_signal": 0, "position_update": 1}
     news_events.sort(key=lambda e: (
