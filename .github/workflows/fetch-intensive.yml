@@ -79,6 +79,8 @@ jobs:
 
       - name: Fetch new SEC filings
         if: steps.window.outputs.hot == 'true'
+        env:
+          SEC_CONTACT_EMAIL: ${{ secrets.SEC_CONTACT_EMAIL }}
         run: python -m src.pipeline fetch
 
       # Fix [K1]: rebuild position model after fetch so alert uses current data,
@@ -87,6 +89,7 @@ jobs:
         if: steps.window.outputs.hot == 'true'
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SEC_CONTACT_EMAIL: ${{ secrets.SEC_CONTACT_EMAIL }}
         run: python -m src.pipeline analyze
 
       - name: Send alert if new events

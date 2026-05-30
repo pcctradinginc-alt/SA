@@ -36,6 +36,7 @@ jobs:
           BLOG_FEEDS: ${{ secrets.BLOG_FEEDS }}
           X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
           SCRAPE_CREATORS_API_KEY: ${{ secrets.SCRAPE_CREATORS_API_KEY }}
+          SEC_CONTACT_EMAIL: ${{ secrets.SEC_CONTACT_EMAIL }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python -m src.pipeline discover
 

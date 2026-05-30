@@ -29,6 +29,7 @@ jobs:
       - name: Fetch + parse + analyze
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SEC_CONTACT_EMAIL: ${{ secrets.SEC_CONTACT_EMAIL }}
         run: |
           python -m src.pipeline fetch
           python -m src.pipeline analyze

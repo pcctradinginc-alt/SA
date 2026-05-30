@@ -76,7 +76,9 @@ class Config:
 
     @property
     def sec_user_agent(self) -> str:
-        return self.raw["sec"]["user_agent"]
+        import os
+        ua = self.raw["sec"]["user_agent"]
+        return ua.replace("${SEC_CONTACT_EMAIL}", os.environ.get("SEC_CONTACT_EMAIL", "contact@example.com"))
 
     @property
     def sec_request_delay(self) -> float:
