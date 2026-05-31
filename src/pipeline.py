@@ -74,6 +74,15 @@ def latest_tickers(cfg: Config, model: dict) -> set[str]:
     return out
 
 
+def exited_tickers(model: dict) -> set[str]:
+    """Return tickers that were fully exited in the latest 13F quarter."""
+    out: set[str] = set()
+    for r in model.get("exits", []):
+        if r.get("ticker"):
+            out.add(r["ticker"])
+    return out
+
+
 # ── steps ───────────────────────────────────────────────────────────────────--
 def step_fetch(cfg: Config) -> None:
     new_filings = sec.collect_new_filings(cfg)
@@ -151,11 +160,15 @@ def step_discover(cfg: Config) -> None:
     try:
         _model = read_json(cfg.paths.derived / "position_table.json") or {}
         _active_tickers = latest_tickers(cfg, _model)
+        _exited_tickers = exited_tickers(_model)
     except Exception:
         _active_tickers = set()
+        _exited_tickers = set()
     if _active_tickers:
         log.info("Discover: passing %d active 13F tickers as whitelist context.", len(_active_tickers))
-    else:
+    if _exited_tickers:
+        log.info("Discover: passing %d exited 13F tickers to suppress echo-alerts.", len(_exited_tickers))
+    if not _active_tickers and not _exited_tickers:
         log.info("Discover: no position model found — all signals treated as potential alpha.")
 
     use_llm = cfg.llm_validate_statements
@@ -164,6 +177,7 @@ def step_discover(cfg: Config) -> None:
         extractor = (
             lambda item: parse_public_statement.extract_statement_with_llm(
                 item, model=cfg.llm_model, active_tickers=_active_tickers,
+                exited_tickers=_exited_tickers,
                 cache_path=cfg.paths.state / "llm_classification_cache.json",
             )
         )
@@ -293,16 +307,18 @@ def step_backfill_tiers(cfg: Config) -> None:
         log.warning("anthropic package not installed — cannot backfill tiers.")
         return
 
-    # Load active 13F tickers for whitelist context (same as step_discover).
+    # Load active + exited 13F tickers for whitelist context (same as step_discover).
     try:
         _model = read_json(cfg.paths.derived / "position_table.json") or {}
         _active_tickers = latest_tickers(cfg, _model)
+        _exited_tickers_bf = exited_tickers(_model)
     except Exception:
         _active_tickers = set()
+        _exited_tickers_bf = set()
 
     from .parsers.parse_public_statement import _build_system_prompt
 
-    system_prompt = _build_system_prompt(_active_tickers)
+    system_prompt = _build_system_prompt(_active_tickers, _exited_tickers_bf)
     client = anthropic.Anthropic()
 
     all_events = events.load_events(cfg)

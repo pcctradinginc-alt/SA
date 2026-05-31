@@ -101,7 +101,10 @@ Rules:
 """
 
 
-def _build_system_prompt(active_tickers: set[str] | None = None) -> str:
+def _build_system_prompt(
+    active_tickers: set[str] | None = None,
+    exited_tickers: set[str] | None = None,
+) -> str:
     """Build the LLM system prompt, injecting current 13F positions as context."""
     prompt = _LLM_SYSTEM_PROMPT_BASE
     if active_tickers:
@@ -111,6 +114,13 @@ def _build_system_prompt(active_tickers: set[str] | None = None) -> str:
         prompt += (
             "\n\nHinweis: Keine 13F-Positionsliste verfügbar. Klassifiziere konservativ — "
             "im Zweifel 'context' statt 'alpha_signal'."
+        )
+    if exited_tickers:
+        exits_str = ", ".join(sorted(exited_tickers))
+        prompt += (
+            f"\n\nTickers already confirmed as EXITED in the latest 13F (position fully sold): {exits_str}"
+            "\nIf a news article merely confirms or echoes an exit already shown in the 13F for one of "
+            "these tickers, classify it as 'context' (no new information), NOT 'position_update'."
         )
     return prompt
 
@@ -208,6 +218,7 @@ def extract_statement_with_llm(
     item: DiscoveryItem,
     model: str = "claude-haiku-4-5-20251001",
     active_tickers: set[str] | None = None,
+    exited_tickers: set[str] | None = None,
     cache_path: Path | None = None,
 ) -> dict | None:
     """Keyword pre-filter → Claude Haiku semantic validation with 3-tier classification.
@@ -215,6 +226,9 @@ def extract_statement_with_llm(
     active_tickers: set of ticker symbols currently in the 13F (passed from step_discover).
     Used to distinguish alpha_signal (new) from position_update (known, new info)
     from context (known, no new info).
+
+    exited_tickers: tickers confirmed as fully exited in the latest 13F.
+    News that merely echoes an already-confirmed exit is classified as 'context'.
 
     cache_path: if given, LLM results are persisted by content_hash so the same
     URL is never re-classified within or across runs (RSS items stay in feeds for days).
@@ -259,7 +273,7 @@ def extract_statement_with_llm(
     try:
         import anthropic
         client = anthropic.Anthropic()
-        system_prompt = _build_system_prompt(active_tickers)
+        system_prompt = _build_system_prompt(active_tickers, exited_tickers)
         response = client.messages.create(
             model=model,
             max_tokens=384,
