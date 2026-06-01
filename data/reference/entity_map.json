@@ -5,7 +5,7 @@
     {
       "name": "Situational Awareness LP",
       "cik": "0002045724",
-      "sec_file_number": "028-24925",
+      "sec_file_number": "",
       "state_of_inc": "DE",
       "former_names": [],
       "addresses": [
@@ -17,6 +17,6 @@
   "reporting_persons": [
     "Leopold Aschenbrenner"
   ],
-  "last_resolved": "2026-05-27T17:09:09Z",
+  "last_resolved": "2026-06-01T12:08:54Z",
   "note": "Run with extra_ciks populated in config.yaml to expand the graph."
 }
