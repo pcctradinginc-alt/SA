@@ -17,54 +17,54 @@ _Last updated: 2026-06-03 · prices via yfinance · Not investment advice._
 | **Options notional exposure** | **$9.8B** _(direction unknown)_ |
 | New / Increased / Reduced / Exited (common) | 10 / 7 / 2 / 18 |
 | Best post-quarter performer | BITF +210.1% |
-| Worst post-quarter performer | PSIX -39.0% |
+| Worst post-quarter performer | PSIX -38.9% |
 > Common stock long exposure and options notional are shown separately on purpose — combining them would let the options book dominate the picture.
 
 ## Common stock longs — last 6 quarters
 
 | Ticker | Issuer | Q4 2024 | Q1 2025 | Q2 2025 | Q3 2025 | Q4 2025 | Q1 2026 | QoQ | 3Q | Wt | Px since Q-end | Est. value | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| BE | BLOOM ENERGY CORP | 0 | 0 | 0 | 0 | 10.1M | 6.5M | -35.6% | Mixed | 22.8% | +115.8% | $1.9B | 🔴 Trim |
-| SNDK | SANDISK CORP | 0 | 0 | 0 | 115k | 1.1M | 1.1M | +8.2% | ↑↑↑ | 18.8% | +159.5% | $2.0B | 🟢 Strong Add |
-| CRWV | CoreWeave Inc | 0 | 1.2M | 0 | 4.1M | 6.1M | 7.2M | +17.7% | ↑↑↑ | 14.4% | +42.2% | $800.6M | 🟢 Strong Add |
-| IREN | IREN Limited | 0 | 3.4M | 6.4M | 7.2M | 8.7M | 11.7M | +34.5% | ↑↑↑ | 10.4% | +90.5% | $759.7M | 🟢 Strong Add |
-| CORZ | Core Scientific Inc New | 0 | 4.5M | 8.0M | 20.2M | 28.8M | 26.0M | -9.6% | Mixed | 10.1% | +88.2% | $748.8M | 🟡 Hold |
-| APLD | Applied Digital Corp | 0 | 4.0M | 6.6M | 6.1M | 11.3M | 13.5M | +18.9% | ↑↑↑ | 8.3% | +87.1% | $617.7M | 🟢 Strong Add |
-| RIOT | RIOT PLATFORMS INC | 0 | 0 | 0 | 3.6M | 6.2M | 11.5M | +86.5% | ↑↑↑ | 3.7% | +119.1% | $316.3M | 🟢 Strong Add |
-| CLSK | CLEANSPARK INC | 0 | 0 | 0 | 0 | 1.6M | 12.3M | +648.4% | New + Add | 2.7% | +102.1% | $213.9M | 🟢 New + Add |
-| SEI | SOLARIS ENERGY INFRAS INC | 0 | 0 | 0 | 1.2M | 1.9M | 1.1M | -40.8% | Mixed | 1.6% | +31.7% | $80.8M | 🔴 Trim |
-| TE | T1 ENERGY INC | 0 | 0 | 0 | 0 | 0 | 10.0M | New | New | 1.1% | +164.7% | $116.2M | 🟡 New Buy |
+| BE | BLOOM ENERGY CORP | 0 | 0 | 0 | 0 | 10.1M | 6.5M | -35.6% | Mixed | 22.8% | +116.9% | $1.9B | 🔴 Trim |
+| SNDK | SANDISK CORP | 0 | 0 | 0 | 115k | 1.1M | 1.1M | +8.2% | ↑↑↑ | 18.8% | +164.4% | $2.1B | 🟢 Strong Add |
+| CRWV | CoreWeave Inc | 0 | 1.2M | 0 | 4.1M | 6.1M | 7.2M | +17.7% | ↑↑↑ | 14.4% | +41.4% | $796.2M | 🟢 Strong Add |
+| IREN | IREN Limited | 0 | 3.4M | 6.4M | 7.2M | 8.7M | 11.7M | +34.5% | ↑↑↑ | 10.4% | +92.1% | $766.0M | 🟢 Strong Add |
+| CORZ | Core Scientific Inc New | 0 | 4.5M | 8.0M | 20.2M | 28.8M | 26.0M | -9.6% | Mixed | 10.1% | +89.1% | $752.4M | 🟡 Hold |
+| APLD | Applied Digital Corp | 0 | 4.0M | 6.6M | 6.1M | 11.3M | 13.5M | +18.9% | ↑↑↑ | 8.3% | +82.6% | $602.6M | 🟢 Strong Add |
+| RIOT | RIOT PLATFORMS INC | 0 | 0 | 0 | 3.6M | 6.2M | 11.5M | +86.5% | ↑↑↑ | 3.7% | +120.3% | $318.0M | 🟢 Strong Add |
+| CLSK | CLEANSPARK INC | 0 | 0 | 0 | 0 | 1.6M | 12.3M | +648.4% | New + Add | 2.7% | +104.3% | $216.2M | 🟢 New + Add |
+| SEI | SOLARIS ENERGY INFRAS INC | 0 | 0 | 0 | 1.2M | 1.9M | 1.1M | -40.8% | Mixed | 1.6% | +33.8% | $82.0M | 🔴 Trim |
+| TE | T1 ENERGY INC | 0 | 0 | 0 | 0 | 0 | 10.0M | New | New | 1.1% | +162.0% | $115.0M | 🟡 New Buy |
 | BITF | BITFARMS LTD | 0 | 0 | 0 | 0 | 6.9M | 19.9M | +188.2% | New + Add | 1.0% | +210.1% | $122.0M | 🟢 New + Add |
-| BTDR | BITDEER TECHNOLOGIES GROUP | 0 | 0 | 0 | 930k | 1.8M | 3.4M | +92.4% | ↑↑↑ | 0.8% | +107.6% | $66.7M | 🟢 Strong Add |
-| PSIX | POWER SOLUTIONS INTL INC | 0 | 0 | 0 | 0 | 432k | 432k | +0.0% | Mixed | 0.7% | -39.0% | $17.5M | 🟡 Hold |
+| BTDR | BITDEER TECHNOLOGIES GROUP | 0 | 0 | 0 | 930k | 1.8M | 3.4M | +92.4% | ↑↑↑ | 0.8% | +111.0% | $67.8M | 🟢 Strong Add |
+| PSIX | POWER SOLUTIONS INTL INC | 0 | 0 | 0 | 0 | 432k | 432k | +0.0% | Mixed | 0.7% | -38.9% | $17.5M | 🟡 Hold |
 | WHITEFIB | WHITEFIBER INC | 0 | 0 | 0 | 0 | 1.8M | 1.8M | +0.0% | Mixed | 0.5% | — | — | 🟡 Hold |
-| AMD | ADVANCED MICRO DEVICES INC | 0 | 0 | 0 | 0 | 0 | 99k | New | New | 0.5% | +152.9% | $52.7M | 🟡 New Buy |
-| BW | BABCOCK & WILCOX ENTERPRISES | 0 | 0 | 0 | 0 | 1.4M | 1.4M | +0.0% | Mixed | 0.5% | +14.6% | $23.2M | 🟡 Hold |
-| SHAZ | SHARONAI HOLDINGS INC | 0 | 0 | 0 | 0 | 0 | 796k | New | New | 0.5% | +237.7% | $61.1M | 🟡 New Buy |
-| PUMP | PROPETRO HLDG CORP | 0 | 0 | 0 | 0 | 910k | 910k | +0.0% | Mixed | 0.3% | +21.6% | $14.9M | 🟡 Hold |
-| SMH | VANECK ETF TRUST | 0 | 0 | 0 | 0 | 0 | 27k | New | New | 0.3% | +61.8% | $17.1M | 🟡 New Buy |
-| INTC | INTEL CORP | 0 | 0 | 0 | 0 | 1 | 202k | New | New + Add | 0.2% | +131.6% | $22.5M | 🟢 New + Add |
-| TSM | TAIWAN SEMICONDUCTOR MANUFAC | 0 | 0 | 0 | 0 | 0 | 22k | New | New | 0.2% | +28.5% | $9.8M | 🟡 New Buy |
+| AMD | ADVANCED MICRO DEVICES INC | 0 | 0 | 0 | 0 | 0 | 99k | New | New | 0.5% | +158.1% | $53.8M | 🟡 New Buy |
+| BW | BABCOCK & WILCOX ENTERPRISES | 0 | 0 | 0 | 0 | 1.4M | 1.4M | +0.0% | Mixed | 0.5% | +18.1% | $23.9M | 🟡 Hold |
+| SHAZ | SHARONAI HOLDINGS INC | 0 | 0 | 0 | 0 | 0 | 796k | New | New | 0.5% | +252.3% | $63.8M | 🟡 New Buy |
+| PUMP | PROPETRO HLDG CORP | 0 | 0 | 0 | 0 | 910k | 910k | +0.0% | Mixed | 0.3% | +21.0% | $14.9M | 🟡 Hold |
+| SMH | VANECK ETF TRUST | 0 | 0 | 0 | 0 | 0 | 27k | New | New | 0.3% | +62.7% | $17.2M | 🟡 New Buy |
+| INTC | INTEL CORP | 0 | 0 | 0 | 0 | 1 | 202k | New | New + Add | 0.2% | +134.7% | $22.8M | 🟢 New + Add |
+| TSM | TAIWAN SEMICONDUCTOR MANUFAC | 0 | 0 | 0 | 0 | 0 | 22k | New | New | 0.2% | +27.9% | $9.8M | 🟡 New Buy |
 | HIVE | HIVE DIGITAL TECHNOLOGIES LT | 0 | 0 | 0 | 0 | 0 | 3.4M | New | New | 0.2% | +131.8% | $14.9M | 🟡 New Buy |
-| ASML | ASML HLDG NV N Y REGISTRY | 0 | 0 | 0 | 0 | 0 | 5k | New | New | 0.2% | +26.7% | $8.0M | 🟡 New Buy |
-| MU | MICRON TECHNOLOGY INC | 0 | 0 | 0 | 0 | 0 | 17k | New | New | 0.1% | +187.5% | $18.4M | 🟡 New Buy |
-| GLW | CORNING INC | 0 | 0 | 0 | 0 | 0 | 5k | New | New | 0.0% | +40.2% | $1.1M | 🟡 New Buy |
-| NVDA | NVIDIA CORPORATION | 0 | 0 | 0 | 0 | 0 | 3k | New | New | 0.0% | +22.4% | $614.3K | 🟡 New Buy |
+| ASML | ASML HLDG NV N Y REGISTRY | 0 | 0 | 0 | 0 | 0 | 5k | New | New | 0.2% | +27.2% | $8.0M | 🟡 New Buy |
+| MU | MICRON TECHNOLOGY INC | 0 | 0 | 0 | 0 | 0 | 17k | New | New | 0.1% | +193.5% | $18.7M | 🟡 New Buy |
+| GLW | CORNING INC | 0 | 0 | 0 | 0 | 0 | 5k | New | New | 0.0% | +41.0% | $1.1M | 🟡 New Buy |
+| NVDA | NVIDIA CORPORATION | 0 | 0 | 0 | 0 | 0 | 3k | New | New | 0.0% | +22.2% | $613.1K | 🟡 New Buy |
 
 ## New common stock positions in latest 13F
 
 | Ticker | Issuer | Sector | Q1 2026 shares | Value | Wt | Px since Q-end |
 | --- | --- | --- | --- | --- | --- | --- |
-| ASML | ASML HLDG NV N Y REGISTRY | Semiconductors | 5k | $6.1M | 0.2% | +26.7% |
-| AMD | ADVANCED MICRO DEVICES INC | Semiconductors | 99k | $20.2M | 0.5% | +152.9% |
-| GLW | CORNING INC | Technology | 5k | $718.3K | 0.0% | +40.2% |
+| ASML | ASML HLDG NV N Y REGISTRY | Semiconductors | 5k | $6.1M | 0.2% | +27.2% |
+| AMD | ADVANCED MICRO DEVICES INC | Semiconductors | 99k | $20.2M | 0.5% | +158.1% |
+| GLW | CORNING INC | Technology | 5k | $718.3K | 0.0% | +41.0% |
 | HIVE | HIVE DIGITAL TECHNOLOGIES LT | Bitcoin Mining | 3.4M | $6.4M | 0.2% | +131.8% |
-| MU | MICRON TECHNOLOGY INC | Semiconductors | 17k | $5.9M | 0.1% | +187.5% |
-| NVDA | NVIDIA CORPORATION | Semiconductors | 3k | $497.9K | 0.0% | +22.4% |
-| SHAZ | SHARONAI HOLDINGS INC | Technology | 796k | $18.1M | 0.5% | +237.7% |
-| TE | T1 ENERGY INC | Energy Infrastructure | 10.0M | $43.9M | 1.1% | +164.7% |
-| TSM | TAIWAN SEMICONDUCTOR MANUFAC | Semiconductors | 22k | $7.6M | 0.2% | +28.5% |
-| SMH | VANECK ETF TRUST | ETF | 27k | $10.3M | 0.3% | +61.8% |
+| MU | MICRON TECHNOLOGY INC | Semiconductors | 17k | $5.9M | 0.1% | +193.5% |
+| NVDA | NVIDIA CORPORATION | Semiconductors | 3k | $497.9K | 0.0% | +22.2% |
+| SHAZ | SHARONAI HOLDINGS INC | Technology | 796k | $18.1M | 0.5% | +252.3% |
+| TE | T1 ENERGY INC | Energy Infrastructure | 10.0M | $43.9M | 1.1% | +162.0% |
+| TSM | TAIWAN SEMICONDUCTOR MANUFAC | Semiconductors | 22k | $7.6M | 0.2% | +27.9% |
+| SMH | VANECK ETF TRUST | ETF | 27k | $10.3M | 0.3% | +62.7% |
 
 ## Exited common stock positions
 
@@ -93,27 +93,27 @@ _Last updated: 2026-06-03 · prices via yfinance · Not investment advice._
 
 | Underlying | Type | Q4 2024 | Q1 2025 | Q2 2025 | Q3 2025 | Q4 2025 | Q1 2026 | QoQ | Underlying px move | Interpretation risk |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| SMH | PUT | $0 | $0 | $570.1M | $0 | $0 | $2.0B | New | +61.8% | Notional, not premium; long/short direction unknown |
-| NVDA | PUT | $0 | $0 | $0 | $298.5M | $0 | $1.6B | New | +22.4% | Notional, not premium; long/short direction unknown |
-| ORCL | PUT | $0 | $0 | $0 | $0 | $0 | $1.1B | New | +57.8% | Notional, not premium; long/short direction unknown |
-| AVGO | PUT | $0 | $0 | $0 | $75.9M | $0 | $1.0B | New | +54.2% | Notional, not premium; long/short direction unknown |
-| AMD | PUT | $0 | $0 | $0 | $0 | $0 | $969.2M | New | +152.9% | Notional, not premium; long/short direction unknown |
-| MU | PUT | $0 | $0 | $0 | $50.2M | $0 | $583.7M | New | +187.5% | Notional, not premium; long/short direction unknown |
-| TSM | PUT | $0 | $0 | $0 | $75.4M | $0 | $535.1M | New | +28.5% | Notional, not premium; long/short direction unknown |
-| ASML | PUT | $0 | $0 | $0 | $0 | $0 | $494.1M | New | +26.7% | Notional, not premium; long/short direction unknown |
-| MU | CALL | $0 | $0 | $0 | $0 | $0 | $422.3M | New | +187.5% | Notional, not premium; long/short direction unknown |
-| SNDK | CALL | $0 | $0 | $0 | $0 | $0 | $388.8M | New | +159.5% | Notional, not premium; long/short direction unknown |
-| TSM | CALL | $0 | $0 | $0 | $0 | $0 | $354.8M | New | +28.5% | Notional, not premium; long/short direction unknown |
-| INTC | PUT | $0 | $0 | $0 | $0 | $0 | $159.1M | New | +131.6% | Notional, not premium; long/short direction unknown |
-| CRWV | CALL | $0 | $0 | $0 | $316.7M | $774.4M | $140.6M | -81.8% | +42.2% | Notional, not premium; long/short direction unknown |
-| BE | CALL | $0 | $0 | $0 | $0 | $35.5M | $55.3M | +55.9% | +115.8% | Notional, not premium; long/short direction unknown |
-| GLW | PUT | $0 | $0 | $0 | $0 | $0 | $21.0M | New | +40.2% | Notional, not premium; long/short direction unknown |
-| INFY | PUT | $0 | $0 | $0 | $0 | $8.9M | $6.8M | -24.2% | -6.9% | Notional, not premium; long/short direction unknown |
-| INTC | CALL | $0 | $459.6M | $453.3M | $679.0M | $746.8M | $0 | Exit | +131.6% | Notional, not premium; long/short direction unknown |
+| SMH | PUT | $0 | $0 | $570.1M | $0 | $0 | $2.0B | New | +62.7% | Notional, not premium; long/short direction unknown |
+| NVDA | PUT | $0 | $0 | $0 | $298.5M | $0 | $1.6B | New | +22.2% | Notional, not premium; long/short direction unknown |
+| ORCL | PUT | $0 | $0 | $0 | $0 | $0 | $1.1B | New | +59.2% | Notional, not premium; long/short direction unknown |
+| AVGO | PUT | $0 | $0 | $0 | $75.9M | $0 | $1.0B | New | +52.9% | Notional, not premium; long/short direction unknown |
+| AMD | PUT | $0 | $0 | $0 | $0 | $0 | $969.2M | New | +158.1% | Notional, not premium; long/short direction unknown |
+| MU | PUT | $0 | $0 | $0 | $50.2M | $0 | $583.7M | New | +193.5% | Notional, not premium; long/short direction unknown |
+| TSM | PUT | $0 | $0 | $0 | $75.4M | $0 | $535.1M | New | +27.9% | Notional, not premium; long/short direction unknown |
+| ASML | PUT | $0 | $0 | $0 | $0 | $0 | $494.1M | New | +27.2% | Notional, not premium; long/short direction unknown |
+| MU | CALL | $0 | $0 | $0 | $0 | $0 | $422.3M | New | +193.5% | Notional, not premium; long/short direction unknown |
+| SNDK | CALL | $0 | $0 | $0 | $0 | $0 | $388.8M | New | +164.4% | Notional, not premium; long/short direction unknown |
+| TSM | CALL | $0 | $0 | $0 | $0 | $0 | $354.8M | New | +27.9% | Notional, not premium; long/short direction unknown |
+| INTC | PUT | $0 | $0 | $0 | $0 | $0 | $159.1M | New | +134.7% | Notional, not premium; long/short direction unknown |
+| CRWV | CALL | $0 | $0 | $0 | $316.7M | $774.4M | $140.6M | -81.8% | +41.4% | Notional, not premium; long/short direction unknown |
+| BE | CALL | $0 | $0 | $0 | $0 | $35.5M | $55.3M | +55.9% | +116.9% | Notional, not premium; long/short direction unknown |
+| GLW | PUT | $0 | $0 | $0 | $0 | $0 | $21.0M | New | +41.0% | Notional, not premium; long/short direction unknown |
+| INFY | PUT | $0 | $0 | $0 | $0 | $8.9M | $6.8M | -24.2% | -6.3% | Notional, not premium; long/short direction unknown |
+| INTC | CALL | $0 | $459.6M | $453.3M | $679.0M | $746.8M | $0 | Exit | +134.7% | Notional, not premium; long/short direction unknown |
 | BLOOM ENERGY CORP | CALL | $0 | $0 | $0 | $12.3M | $0 | $0 | +0.0% | — | Notional, not premium; long/short direction unknown |
-| CRWV | PUT | $0 | $0 | $0 | $191.6M | $0 | $0 | +0.0% | +42.2% | Notional, not premium; long/short direction unknown |
-| GDX | PUT | $0 | $0 | $0 | $195.8M | $0 | $0 | +0.0% | -11.2% | Notional, not premium; long/short direction unknown |
-| EQT | CALL | $0 | $0 | $0 | $0 | $37.5M | $0 | Exit | -9.8% | Notional, not premium; long/short direction unknown |
+| CRWV | PUT | $0 | $0 | $0 | $191.6M | $0 | $0 | +0.0% | +41.4% | Notional, not premium; long/short direction unknown |
+| GDX | PUT | $0 | $0 | $0 | $195.8M | $0 | $0 | +0.0% | -11.5% | Notional, not premium; long/short direction unknown |
+| EQT | CALL | $0 | $0 | $0 | $0 | $37.5M | $0 | Exit | -10.6% | Notional, not premium; long/short direction unknown |
 
 > Options are shown as reported notional exposure. Direction, premium, strike, expiry and true economic exposure are unknown.
 
