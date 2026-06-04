@@ -4,7 +4,7 @@ Automated, EDGAR-first archive and monitor for the public activity of
 **Leopold Aschenbrenner** / **Situational Awareness LP**. Not a trading signal — a
 reproducible archive with instrument-separated 13F analysis.
 
-_Last updated: 2026-06-03 · prices via yfinance · Not investment advice._
+_Last updated: 2026-06-04 · prices via yfinance · Not investment advice._
 
 ## Latest 13F summary
 
@@ -16,7 +16,7 @@ _Last updated: 2026-06-03 · prices via yfinance · Not investment advice._
 | **Common stock long exposure** | **$3.9B** |
 | **Options notional exposure** | **$9.8B** _(direction unknown)_ |
 | New / Increased / Reduced / Exited (common) | 10 / 7 / 2 / 18 |
-| Best post-quarter performer | BITF +210.1% |
+| Best post-quarter performer | BITF +210.6% |
 | Worst post-quarter performer | PSIX -38.9% |
 > Common stock long exposure and options notional are shown separately on purpose — combining them would let the options book dominate the picture.
 
@@ -34,7 +34,7 @@ _Last updated: 2026-06-03 · prices via yfinance · Not investment advice._
 | CLSK | CLEANSPARK INC | 0 | 0 | 0 | 0 | 1.6M | 12.3M | +648.4% | New + Add | 2.7% | +104.3% | $216.2M | 🟢 New + Add |
 | SEI | SOLARIS ENERGY INFRAS INC | 0 | 0 | 0 | 1.2M | 1.9M | 1.1M | -40.8% | Mixed | 1.6% | +33.8% | $82.0M | 🔴 Trim |
 | TE | T1 ENERGY INC | 0 | 0 | 0 | 0 | 0 | 10.0M | New | New | 1.1% | +162.0% | $115.0M | 🟡 New Buy |
-| BITF | BITFARMS LTD | 0 | 0 | 0 | 0 | 6.9M | 19.9M | +188.2% | New + Add | 1.0% | +210.1% | $122.0M | 🟢 New + Add |
+| BITF | BITFARMS LTD | 0 | 0 | 0 | 0 | 6.9M | 19.9M | +188.2% | New + Add | 1.0% | +210.6% | $122.2M | 🟢 New + Add |
 | BTDR | BITDEER TECHNOLOGIES GROUP | 0 | 0 | 0 | 930k | 1.8M | 3.4M | +92.4% | ↑↑↑ | 0.8% | +111.0% | $67.8M | 🟢 Strong Add |
 | PSIX | POWER SOLUTIONS INTL INC | 0 | 0 | 0 | 0 | 432k | 432k | +0.0% | Mixed | 0.7% | -38.9% | $17.5M | 🟡 Hold |
 | WHITEFIB | WHITEFIBER INC | 0 | 0 | 0 | 0 | 1.8M | 1.8M | +0.0% | Mixed | 0.5% | — | — | 🟡 Hold |

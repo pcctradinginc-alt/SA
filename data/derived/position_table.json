@@ -1,6 +1,6 @@
 {
   "available": true,
-  "generated": "2026-06-03",
+  "generated": "2026-06-04",
   "manager": "Situational Awareness LP",
   "quarter_labels": [
     "Q4 2024",
@@ -32,7 +32,7 @@
     },
     "best_performer": {
       "ticker": "BITF",
-      "move": 2.101
+      "move": 2.1061
     },
     "worst_performer": {
       "ticker": "PSIX",
@@ -595,10 +595,10 @@
       "price_at_quarter_end": 1.98,
       "price_at_prev_quarter_end": 2.35,
       "intra_quarter_return_pct": -0.1574,
-      "current_price": 6.14,
-      "price_change_since_quarter_end_pct": 2.101,
-      "estimated_current_value": 122037658,
-      "estimated_value_change_since_quarter_end": 82683494,
+      "current_price": 6.15,
+      "price_change_since_quarter_end_pct": 2.1061,
+      "estimated_current_value": 122236416,
+      "estimated_value_change_since_quarter_end": 82882253,
       "shares_prev": 6897100,
       "shares_delta": 12978740,
       "shares_delta_label": "+13.0M",
