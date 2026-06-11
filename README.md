@@ -4,7 +4,7 @@ Automated, EDGAR-first archive and monitor for the public activity of
 **Leopold Aschenbrenner** / **Situational Awareness LP**. Not a trading signal — a
 reproducible archive with instrument-separated 13F analysis.
 
-_Last updated: 2026-06-10 · prices via yfinance · Not investment advice._
+_Last updated: 2026-06-11 · prices via yfinance · Not investment advice._
 
 ## Latest 13F summary
 
