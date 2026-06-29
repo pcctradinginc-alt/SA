@@ -4,7 +4,7 @@ Automated, EDGAR-first archive and monitor for the public activity of
 **Leopold Aschenbrenner** / **Situational Awareness LP**. Not a trading signal — a
 reproducible archive with instrument-separated 13F analysis.
 
-_Last updated: 2026-06-26 · prices via yfinance · Not investment advice._
+_Last updated: 2026-06-29 · prices via yfinance · Not investment advice._
 
 ## Latest 13F summary
 
@@ -24,7 +24,7 @@ _Last updated: 2026-06-26 · prices via yfinance · Not investment advice._
 
 | Ticker | Issuer | Q4 2024 | Q1 2025 | Q2 2025 | Q3 2025 | Q4 2025 | Q1 2026 | QoQ | 3Q | Wt | Px since Q-end | Est. value | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| BE | BLOOM ENERGY CORP | 0 | 0 | 0 | 0 | 10.1M | 6.5M | -35.6% | Mixed | 22.8% | +91.1% | $1.6B | 🔴 Trim |
+| BE | BLOOM ENERGY CORP | 0 | 0 | 0 | 0 | 10.1M | 6.5M | -35.6% | Mixed | 22.8% | +90.3% | $1.6B | 🔴 Trim |
 | SNDK | SANDISK CORP | 0 | 0 | 0 | 115k | 1.1M | 1.1M | +8.2% | ↑↑↑ | 18.8% | +201.8% | $2.4B | 🟢 Strong Add |
 | CRWV | CoreWeave Inc | 0 | 1.2M | 0 | 4.1M | 6.1M | 7.2M | +17.7% | ↑↑↑ | 14.4% | +23.1% | $693.2M | 🟢 Strong Add |
 | IREN | IREN Limited | 0 | 3.4M | 6.4M | 7.2M | 8.7M | 11.7M | +34.5% | ↑↑↑ | 10.4% | +38.5% | $552.3M | 🟢 Strong Add |
@@ -32,23 +32,23 @@ _Last updated: 2026-06-26 · prices via yfinance · Not investment advice._
 | APLD | Applied Digital Corp | 0 | 4.0M | 6.6M | 6.1M | 11.3M | 13.5M | +18.9% | ↑↑↑ | 8.3% | +59.9% | $527.8M | 🟢 Strong Add |
 | RIOT | RIOT PLATFORMS INC | 0 | 0 | 0 | 3.6M | 6.2M | 11.5M | +86.5% | ↑↑↑ | 3.7% | +127.6% | $328.6M | 🟢 Strong Add |
 | CLSK | CLEANSPARK INC | 0 | 0 | 0 | 0 | 1.6M | 12.3M | +648.4% | New + Add | 2.7% | +89.4% | $200.5M | 🟢 New + Add |
-| SEI | SOLARIS ENERGY INFRAS INC | 0 | 0 | 0 | 1.2M | 1.9M | 1.1M | -40.8% | Mixed | 1.6% | +38.3% | $84.8M | 🔴 Trim |
-| TE | T1 ENERGY INC | 0 | 0 | 0 | 0 | 0 | 10.0M | New | New | 1.1% | +86.8% | $82.0M | 🟡 New Buy |
+| SEI | SOLARIS ENERGY INFRAS INC | 0 | 0 | 0 | 1.2M | 1.9M | 1.1M | -40.8% | Mixed | 1.6% | +38.5% | $84.9M | 🔴 Trim |
+| TE | T1 ENERGY INC | 0 | 0 | 0 | 0 | 0 | 10.0M | New | New | 1.1% | +87.0% | $82.1M | 🟡 New Buy |
 | BITF | BITFARMS LTD | 0 | 0 | 0 | 0 | 6.9M | 19.9M | +188.2% | New + Add | 1.0% | — | — | 🟢 New + Add |
 | BTDR | BITDEER TECHNOLOGIES GROUP | 0 | 0 | 0 | 930k | 1.8M | 3.4M | +92.4% | ↑↑↑ | 0.8% | +83.6% | $59.0M | 🟢 Strong Add |
 | PSIX | POWER SOLUTIONS INTL INC | 0 | 0 | 0 | 0 | 432k | 432k | +0.0% | Mixed | 0.7% | -42.6% | $16.4M | 🟡 Hold |
 | WHITEFIB | WHITEFIBER INC | 0 | 0 | 0 | 0 | 1.8M | 1.8M | +0.0% | Mixed | 0.5% | — | — | 🟡 Hold |
 | AMD | ADVANCED MICRO DEVICES INC | 0 | 0 | 0 | 0 | 0 | 99k | New | New | 0.5% | +148.1% | $51.7M | 🟡 New Buy |
-| BW | BABCOCK & WILCOX ENTERPRISES | 0 | 0 | 0 | 0 | 1.4M | 1.4M | +0.0% | Mixed | 0.5% | -3.7% | $19.5M | 🟡 Hold |
+| BW | BABCOCK & WILCOX ENTERPRISES | 0 | 0 | 0 | 0 | 1.4M | 1.4M | +0.0% | Mixed | 0.5% | -3.5% | $19.6M | 🟡 Hold |
 | SHAZ | SHARONAI HOLDINGS INC | 0 | 0 | 0 | 0 | 0 | 796k | New | New | 0.5% | +261.0% | $65.3M | 🟡 New Buy |
 | PUMP | PROPETRO HLDG CORP | 0 | 0 | 0 | 0 | 910k | 910k | +0.0% | Mixed | 0.3% | +9.6% | $13.5M | 🟡 Hold |
 | SMH | VANECK ETF TRUST | 0 | 0 | 0 | 0 | 0 | 27k | New | New | 0.3% | +56.0% | $16.5M | 🟡 New Buy |
 | INTC | INTEL CORP | 0 | 0 | 0 | 0 | 1 | 202k | New | New + Add | 0.2% | +167.2% | $26.0M | 🟢 New + Add |
-| TSM | TAIWAN SEMICONDUCTOR MANUFAC | 0 | 0 | 0 | 0 | 0 | 22k | New | New | 0.2% | +26.5% | $9.7M | 🟡 New Buy |
+| TSM | TAIWAN SEMICONDUCTOR MANUFAC | 0 | 0 | 0 | 0 | 0 | 22k | New | New | 0.2% | +26.6% | $9.7M | 🟡 New Buy |
 | HIVE | HIVE DIGITAL TECHNOLOGIES LT | 0 | 0 | 0 | 0 | 0 | 3.4M | New | New | 0.2% | +113.2% | $13.7M | 🟡 New Buy |
 | ASML | ASML HLDG NV N Y REGISTRY | 0 | 0 | 0 | 0 | 0 | 5k | New | New | 0.2% | +32.3% | $8.3M | 🟡 New Buy |
 | MU | MICRON TECHNOLOGY INC | 0 | 0 | 0 | 0 | 0 | 17k | New | New | 0.1% | +207.8% | $19.7M | 🟡 New Buy |
-| GLW | CORNING INC | 0 | 0 | 0 | 0 | 0 | 5k | New | New | 0.0% | +56.6% | $1.2M | 🟡 New Buy |
+| GLW | CORNING INC | 0 | 0 | 0 | 0 | 0 | 5k | New | New | 0.0% | +55.2% | $1.2M | 🟡 New Buy |
 | NVDA | NVIDIA CORPORATION | 0 | 0 | 0 | 0 | 0 | 3k | New | New | 0.0% | +9.6% | $549.7K | 🟡 New Buy |
 
 ## New common stock positions in latest 13F
@@ -57,13 +57,13 @@ _Last updated: 2026-06-26 · prices via yfinance · Not investment advice._
 | --- | --- | --- | --- | --- | --- | --- |
 | ASML | ASML HLDG NV N Y REGISTRY | Semiconductors | 5k | $6.1M | 0.2% | +32.3% |
 | AMD | ADVANCED MICRO DEVICES INC | Semiconductors | 99k | $20.2M | 0.5% | +148.1% |
-| GLW | CORNING INC | Technology | 5k | $718.3K | 0.0% | +56.6% |
+| GLW | CORNING INC | Technology | 5k | $718.3K | 0.0% | +55.2% |
 | HIVE | HIVE DIGITAL TECHNOLOGIES LT | Bitcoin Mining | 3.4M | $6.4M | 0.2% | +113.2% |
 | MU | MICRON TECHNOLOGY INC | Semiconductors | 17k | $5.9M | 0.1% | +207.8% |
 | NVDA | NVIDIA CORPORATION | Semiconductors | 3k | $497.9K | 0.0% | +9.6% |
 | SHAZ | SHARONAI HOLDINGS INC | Technology | 796k | $18.1M | 0.5% | +261.0% |
-| TE | T1 ENERGY INC | Energy Infrastructure | 10.0M | $43.9M | 1.1% | +86.8% |
-| TSM | TAIWAN SEMICONDUCTOR MANUFAC | Semiconductors | 22k | $7.6M | 0.2% | +26.5% |
+| TE | T1 ENERGY INC | Energy Infrastructure | 10.0M | $43.9M | 1.1% | +87.0% |
+| TSM | TAIWAN SEMICONDUCTOR MANUFAC | Semiconductors | 22k | $7.6M | 0.2% | +26.6% |
 | SMH | VANECK ETF TRUST | ETF | 27k | $10.3M | 0.3% | +56.0% |
 
 ## Exited common stock positions
@@ -95,19 +95,19 @@ _Last updated: 2026-06-26 · prices via yfinance · Not investment advice._
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | SMH | PUT | $0 | $0 | $570.1M | $0 | $0 | $2.0B | New | +56.0% | Notional, not premium; long/short direction unknown |
 | NVDA | PUT | $0 | $0 | $0 | $298.5M | $0 | $1.6B | New | +9.6% | Notional, not premium; long/short direction unknown |
-| ORCL | PUT | $0 | $0 | $0 | $0 | $0 | $1.1B | New | +2.7% | Notional, not premium; long/short direction unknown |
+| ORCL | PUT | $0 | $0 | $0 | $0 | $0 | $1.1B | New | +2.6% | Notional, not premium; long/short direction unknown |
 | AVGO | PUT | $0 | $0 | $0 | $75.9M | $0 | $1.0B | New | +16.4% | Notional, not premium; long/short direction unknown |
 | AMD | PUT | $0 | $0 | $0 | $0 | $0 | $969.2M | New | +148.1% | Notional, not premium; long/short direction unknown |
 | MU | PUT | $0 | $0 | $0 | $50.2M | $0 | $583.7M | New | +207.8% | Notional, not premium; long/short direction unknown |
-| TSM | PUT | $0 | $0 | $0 | $75.4M | $0 | $535.1M | New | +26.5% | Notional, not premium; long/short direction unknown |
+| TSM | PUT | $0 | $0 | $0 | $75.4M | $0 | $535.1M | New | +26.6% | Notional, not premium; long/short direction unknown |
 | ASML | PUT | $0 | $0 | $0 | $0 | $0 | $494.1M | New | +32.3% | Notional, not premium; long/short direction unknown |
 | MU | CALL | $0 | $0 | $0 | $0 | $0 | $422.3M | New | +207.8% | Notional, not premium; long/short direction unknown |
 | SNDK | CALL | $0 | $0 | $0 | $0 | $0 | $388.8M | New | +201.8% | Notional, not premium; long/short direction unknown |
-| TSM | CALL | $0 | $0 | $0 | $0 | $0 | $354.8M | New | +26.5% | Notional, not premium; long/short direction unknown |
+| TSM | CALL | $0 | $0 | $0 | $0 | $0 | $354.8M | New | +26.6% | Notional, not premium; long/short direction unknown |
 | INTC | PUT | $0 | $0 | $0 | $0 | $0 | $159.1M | New | +167.2% | Notional, not premium; long/short direction unknown |
 | CRWV | CALL | $0 | $0 | $0 | $316.7M | $774.4M | $140.6M | -81.8% | +23.1% | Notional, not premium; long/short direction unknown |
-| BE | CALL | $0 | $0 | $0 | $0 | $35.5M | $55.3M | +55.9% | +91.1% | Notional, not premium; long/short direction unknown |
-| GLW | PUT | $0 | $0 | $0 | $0 | $0 | $21.0M | New | +56.6% | Notional, not premium; long/short direction unknown |
+| BE | CALL | $0 | $0 | $0 | $0 | $35.5M | $55.3M | +55.9% | +90.3% | Notional, not premium; long/short direction unknown |
+| GLW | PUT | $0 | $0 | $0 | $0 | $0 | $21.0M | New | +55.2% | Notional, not premium; long/short direction unknown |
 | INFY | PUT | $0 | $0 | $0 | $0 | $8.9M | $6.8M | -24.2% | -18.9% | Notional, not premium; long/short direction unknown |
 | INTC | CALL | $0 | $459.6M | $453.3M | $679.0M | $746.8M | $0 | Exit | +167.2% | Notional, not premium; long/short direction unknown |
 | BLOOM ENERGY CORP | CALL | $0 | $0 | $0 | $12.3M | $0 | $0 | +0.0% | — | Notional, not premium; long/short direction unknown |
