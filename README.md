@@ -4,7 +4,7 @@ Automated, EDGAR-first archive and monitor for the public activity of
 **Leopold Aschenbrenner** / **Situational Awareness LP**. Not a trading signal — a
 reproducible archive with instrument-separated 13F analysis.
 
-_Last updated: 2026-06-29 · prices via yfinance · Not investment advice._
+_Last updated: 2026-06-30 · prices via yfinance · Not investment advice._
 
 ## Latest 13F summary
 
@@ -48,7 +48,7 @@ _Last updated: 2026-06-29 · prices via yfinance · Not investment advice._
 | HIVE | HIVE DIGITAL TECHNOLOGIES LT | 0 | 0 | 0 | 0 | 0 | 3.4M | New | New | 0.2% | +98.9% | $12.8M | 🟡 New Buy |
 | ASML | ASML HLDG NV N Y REGISTRY | 0 | 0 | 0 | 0 | 0 | 5k | New | New | 0.2% | +38.8% | $8.7M | 🟡 New Buy |
 | MU | MICRON TECHNOLOGY INC | 0 | 0 | 0 | 0 | 0 | 17k | New | New | 0.1% | +211.3% | $19.9M | 🟡 New Buy |
-| GLW | CORNING INC | 0 | 0 | 0 | 0 | 0 | 5k | New | New | 0.0% | +79.7% | $1.4M | 🟡 New Buy |
+| GLW | CORNING INC | 0 | 0 | 0 | 0 | 0 | 5k | New | New | 0.0% | +79.6% | $1.4M | 🟡 New Buy |
 | NVDA | NVIDIA CORPORATION | 0 | 0 | 0 | 0 | 0 | 3k | New | New | 0.0% | +10.9% | $556.6K | 🟡 New Buy |
 
 ## New common stock positions in latest 13F
@@ -57,7 +57,7 @@ _Last updated: 2026-06-29 · prices via yfinance · Not investment advice._
 | --- | --- | --- | --- | --- | --- | --- |
 | ASML | ASML HLDG NV N Y REGISTRY | Semiconductors | 5k | $6.1M | 0.2% | +38.8% |
 | AMD | ADVANCED MICRO DEVICES INC | Semiconductors | 99k | $20.2M | 0.5% | +156.6% |
-| GLW | CORNING INC | Technology | 5k | $718.3K | 0.0% | +79.7% |
+| GLW | CORNING INC | Technology | 5k | $718.3K | 0.0% | +79.6% |
 | HIVE | HIVE DIGITAL TECHNOLOGIES LT | Bitcoin Mining | 3.4M | $6.4M | 0.2% | +98.9% |
 | MU | MICRON TECHNOLOGY INC | Semiconductors | 17k | $5.9M | 0.1% | +211.3% |
 | NVDA | NVIDIA CORPORATION | Semiconductors | 3k | $497.9K | 0.0% | +10.9% |
@@ -107,7 +107,7 @@ _Last updated: 2026-06-29 · prices via yfinance · Not investment advice._
 | INTC | PUT | $0 | $0 | $0 | $0 | $0 | $159.1M | New | +174.2% | Notional, not premium; long/short direction unknown |
 | CRWV | CALL | $0 | $0 | $0 | $316.7M | $774.4M | $140.6M | -81.8% | +21.8% | Notional, not premium; long/short direction unknown |
 | BE | CALL | $0 | $0 | $0 | $0 | $35.5M | $55.3M | +55.9% | +107.6% | Notional, not premium; long/short direction unknown |
-| GLW | PUT | $0 | $0 | $0 | $0 | $0 | $21.0M | New | +79.7% | Notional, not premium; long/short direction unknown |
+| GLW | PUT | $0 | $0 | $0 | $0 | $0 | $21.0M | New | +79.6% | Notional, not premium; long/short direction unknown |
 | INFY | PUT | $0 | $0 | $0 | $0 | $8.9M | $6.8M | -24.2% | -19.6% | Notional, not premium; long/short direction unknown |
 | INTC | CALL | $0 | $459.6M | $453.3M | $679.0M | $746.8M | $0 | Exit | +174.2% | Notional, not premium; long/short direction unknown |
 | BLOOM ENERGY CORP | CALL | $0 | $0 | $0 | $12.3M | $0 | $0 | +0.0% | — | Notional, not premium; long/short direction unknown |

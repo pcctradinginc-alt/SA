@@ -1,6 +1,6 @@
 {
   "available": true,
-  "generated": "2026-06-29",
+  "generated": "2026-06-30",
   "manager": "Situational Awareness LP",
   "quarter_labels": [
     "Q4 2024",
@@ -1337,10 +1337,10 @@
       "price_at_quarter_end": 142.38,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 255.79,
-      "price_change_since_quarter_end_pct": 0.7965,
-      "estimated_current_value": 1351339,
-      "estimated_value_change_since_quarter_end": 599145,
+      "current_price": 255.69,
+      "price_change_since_quarter_end_pct": 0.7958,
+      "estimated_current_value": 1350810,
+      "estimated_value_change_since_quarter_end": 598617,
       "shares_prev": 0,
       "shares_delta": 5283,
       "shares_delta_label": "NEU",
@@ -1567,10 +1567,10 @@
       "price_at_quarter_end": 142.38,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 255.79,
-      "price_change_since_quarter_end_pct": 0.7965,
-      "estimated_current_value": 1351339,
-      "estimated_value_change_since_quarter_end": 599145,
+      "current_price": 255.69,
+      "price_change_since_quarter_end_pct": 0.7958,
+      "estimated_current_value": 1350810,
+      "estimated_value_change_since_quarter_end": 598617,
       "shares_prev": 0,
       "shares_delta": 5283,
       "shares_delta_label": "NEU",
@@ -2905,7 +2905,7 @@
       "notional_latest_usd": 1072873230,
       "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 0.0212,
+      "underlying_price_move": 0.021,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -3121,7 +3121,7 @@
       "notional_latest_usd": 21020962,
       "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 0.7965,
+      "underlying_price_move": 0.7958,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
