@@ -4,7 +4,7 @@ Automated, EDGAR-first archive and monitor for the public activity of
 **Leopold Aschenbrenner** / **Situational Awareness LP**. Not a trading signal — a
 reproducible archive with instrument-separated 13F analysis.
 
-_Last updated: 2026-06-30 · prices via yfinance · Not investment advice._
+_Last updated: 2026-07-01 · prices via yfinance · Not investment advice._
 
 ## Latest 13F summary
 
@@ -95,7 +95,7 @@ _Last updated: 2026-06-30 · prices via yfinance · Not investment advice._
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | SMH | PUT | $0 | $0 | $570.1M | $0 | $0 | $2.0B | New | +67.3% | Notional, not premium; long/short direction unknown |
 | NVDA | PUT | $0 | $0 | $0 | $298.5M | $0 | $1.6B | New | +13.9% | Notional, not premium; long/short direction unknown |
-| ORCL | PUT | $0 | $0 | $0 | $0 | $0 | $1.1B | New | +1.4% | Notional, not premium; long/short direction unknown |
+| ORCL | PUT | $0 | $0 | $0 | $0 | $0 | $1.1B | New | +1.3% | Notional, not premium; long/short direction unknown |
 | AVGO | PUT | $0 | $0 | $0 | $75.9M | $0 | $1.0B | New | +20.5% | Notional, not premium; long/short direction unknown |
 | AMD | PUT | $0 | $0 | $0 | $0 | $0 | $969.2M | New | +176.3% | Notional, not premium; long/short direction unknown |
 | MU | PUT | $0 | $0 | $0 | $50.2M | $0 | $583.7M | New | +213.8% | Notional, not premium; long/short direction unknown |

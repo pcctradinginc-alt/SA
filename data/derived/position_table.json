@@ -1,6 +1,6 @@
 {
   "available": true,
-  "generated": "2026-06-30",
+  "generated": "2026-07-01",
   "manager": "Situational Awareness LP",
   "quarter_labels": [
     "Q4 2024",
@@ -2905,7 +2905,7 @@
       "notional_latest_usd": 1072873230,
       "notional_prev_usd": 0,
       "qoq_notional_change_pct": null,
-      "underlying_price_move": 0.0137,
+      "underlying_price_move": 0.0126,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
