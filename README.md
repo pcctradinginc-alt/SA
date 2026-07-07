@@ -4,7 +4,7 @@ Automated, EDGAR-first archive and monitor for the public activity of
 **Leopold Aschenbrenner** / **Situational Awareness LP**. Not a trading signal — a
 reproducible archive with instrument-separated 13F analysis.
 
-_Last updated: 2026-07-06 · prices via yfinance · Not investment advice._
+_Last updated: 2026-07-07 · prices via yfinance · Not investment advice._
 
 ## Latest 13F summary
 
@@ -24,7 +24,7 @@ _Last updated: 2026-07-06 · prices via yfinance · Not investment advice._
 
 | Ticker | Issuer | Q4 2024 | Q1 2025 | Q2 2025 | Q3 2025 | Q4 2025 | Q1 2026 | QoQ | 3Q | Wt | Px since Q-end | Est. value | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| BE | BLOOM ENERGY CORP | 0 | 0 | 0 | 0 | 10.1M | 6.5M | -35.6% | Mixed | 22.8% | +122.9% | $1.9B | 🔴 Trim |
+| BE | BLOOM ENERGY CORP | 0 | 0 | 0 | 0 | 10.1M | 6.5M | -35.6% | Mixed | 22.8% | +122.8% | $1.9B | 🔴 Trim |
 | SNDK | SANDISK CORP | 0 | 0 | 0 | 115k | 1.1M | 1.1M | +8.2% | ↑↑↑ | 18.8% | +151.8% | $2.0B | 🟢 Strong Add |
 | CRWV | CoreWeave Inc | 0 | 1.2M | 0 | 4.1M | 6.1M | 7.2M | +17.7% | ↑↑↑ | 14.4% | +10.2% | $620.6M | 🟢 Strong Add |
 | IREN | IREN Limited | 0 | 3.4M | 6.4M | 7.2M | 8.7M | 11.7M | +34.5% | ↑↑↑ | 10.4% | +28.8% | $513.7M | 🟢 Strong Add |
@@ -95,7 +95,7 @@ _Last updated: 2026-07-06 · prices via yfinance · Not investment advice._
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | SMH | PUT | $0 | $0 | $570.1M | $0 | $0 | $2.0B | New | +54.2% | Notional, not premium; long/short direction unknown |
 | NVDA | PUT | $0 | $0 | $0 | $298.5M | $0 | $1.6B | New | +11.3% | Notional, not premium; long/short direction unknown |
-| ORCL | PUT | $0 | $0 | $0 | $0 | $0 | $1.1B | New | -0.6% | Notional, not premium; long/short direction unknown |
+| ORCL | PUT | $0 | $0 | $0 | $0 | $0 | $1.1B | New | -0.7% | Notional, not premium; long/short direction unknown |
 | AVGO | PUT | $0 | $0 | $0 | $75.9M | $0 | $1.0B | New | +19.3% | Notional, not premium; long/short direction unknown |
 | AMD | PUT | $0 | $0 | $0 | $0 | $0 | $969.2M | New | +162.6% | Notional, not premium; long/short direction unknown |
 | MU | PUT | $0 | $0 | $0 | $50.2M | $0 | $583.7M | New | +167.7% | Notional, not premium; long/short direction unknown |
@@ -106,9 +106,9 @@ _Last updated: 2026-07-06 · prices via yfinance · Not investment advice._
 | TSM | CALL | $0 | $0 | $0 | $0 | $0 | $354.8M | New | +32.3% | Notional, not premium; long/short direction unknown |
 | INTC | PUT | $0 | $0 | $0 | $0 | $0 | $159.1M | New | +154.4% | Notional, not premium; long/short direction unknown |
 | CRWV | CALL | $0 | $0 | $0 | $316.7M | $774.4M | $140.6M | -81.8% | +10.2% | Notional, not premium; long/short direction unknown |
-| BE | CALL | $0 | $0 | $0 | $0 | $35.5M | $55.3M | +55.9% | +122.9% | Notional, not premium; long/short direction unknown |
+| BE | CALL | $0 | $0 | $0 | $0 | $35.5M | $55.3M | +55.9% | +122.8% | Notional, not premium; long/short direction unknown |
 | GLW | PUT | $0 | $0 | $0 | $0 | $0 | $21.0M | New | +36.8% | Notional, not premium; long/short direction unknown |
-| INFY | PUT | $0 | $0 | $0 | $0 | $8.9M | $6.8M | -24.2% | -18.3% | Notional, not premium; long/short direction unknown |
+| INFY | PUT | $0 | $0 | $0 | $0 | $8.9M | $6.8M | -24.2% | -18.2% | Notional, not premium; long/short direction unknown |
 | INTC | CALL | $0 | $459.6M | $453.3M | $679.0M | $746.8M | $0 | Exit | +154.4% | Notional, not premium; long/short direction unknown |
 | BLOOM ENERGY CORP | CALL | $0 | $0 | $0 | $12.3M | $0 | $0 | +0.0% | — | Notional, not premium; long/short direction unknown |
 | CRWV | PUT | $0 | $0 | $0 | $191.6M | $0 | $0 | +0.0% | +10.2% | Notional, not premium; long/short direction unknown |
