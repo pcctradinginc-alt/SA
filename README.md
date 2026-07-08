@@ -4,7 +4,7 @@ Automated, EDGAR-first archive and monitor for the public activity of
 **Leopold Aschenbrenner** / **Situational Awareness LP**. Not a trading signal — a
 reproducible archive with instrument-separated 13F analysis.
 
-_Last updated: 2026-07-07 · prices via yfinance · Not investment advice._
+_Last updated: 2026-07-08 · prices via yfinance · Not investment advice._
 
 ## Latest 13F summary
 
@@ -28,8 +28,8 @@ _Last updated: 2026-07-07 · prices via yfinance · Not investment advice._
 | SNDK | SANDISK CORP | 0 | 0 | 0 | 115k | 1.1M | 1.1M | +8.2% | ↑↑↑ | 18.8% | +133.5% | $1.8B | 🟢 Strong Add |
 | CRWV | CoreWeave Inc | 0 | 1.2M | 0 | 4.1M | 6.1M | 7.2M | +17.7% | ↑↑↑ | 14.4% | +6.5% | $599.6M | 🟢 Strong Add |
 | IREN | IREN Limited | 0 | 3.4M | 6.4M | 7.2M | 8.7M | 11.7M | +34.5% | ↑↑↑ | 10.4% | +16.8% | $465.7M | 🟢 Strong Add |
-| CORZ | Core Scientific Inc New | 0 | 4.5M | 8.0M | 20.2M | 28.8M | 26.0M | -9.6% | Mixed | 10.1% | +40.8% | $560.2M | 🟡 Hold |
-| APLD | Applied Digital Corp | 0 | 4.0M | 6.6M | 6.1M | 11.3M | 13.5M | +18.9% | ↑↑↑ | 8.3% | +25.4% | $413.9M | 🟢 Strong Add |
+| CORZ | Core Scientific Inc New | 0 | 4.5M | 8.0M | 20.2M | 28.8M | 26.0M | -9.6% | Mixed | 10.1% | — | — | 🟡 Hold |
+| APLD | Applied Digital Corp | 0 | 4.0M | 6.6M | 6.1M | 11.3M | 13.5M | +18.9% | ↑↑↑ | 8.3% | — | — | 🟢 Strong Add |
 | RIOT | RIOT PLATFORMS INC | 0 | 0 | 0 | 3.6M | 6.2M | 11.5M | +86.5% | ↑↑↑ | 3.7% | +68.7% | $243.5M | 🟢 Strong Add |
 | CLSK | CLEANSPARK INC | 0 | 0 | 0 | 0 | 1.6M | 12.3M | +648.4% | New + Add | 2.7% | +44.8% | $153.2M | 🟢 New + Add |
 | SEI | SOLARIS ENERGY INFRAS INC | 0 | 0 | 0 | 1.2M | 1.9M | 1.1M | -40.8% | Mixed | 1.6% | +17.8% | $72.2M | 🔴 Trim |
