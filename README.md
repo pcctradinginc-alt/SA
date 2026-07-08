@@ -28,8 +28,8 @@ _Last updated: 2026-07-08 · prices via yfinance · Not investment advice._
 | SNDK | SANDISK CORP | 0 | 0 | 0 | 115k | 1.1M | 1.1M | +8.2% | ↑↑↑ | 18.8% | +145.9% | $1.9B | 🟢 Strong Add |
 | CRWV | CoreWeave Inc | 0 | 1.2M | 0 | 4.1M | 6.1M | 7.2M | +17.7% | ↑↑↑ | 14.4% | +14.8% | $646.4M | 🟢 Strong Add |
 | IREN | IREN Limited | 0 | 3.4M | 6.4M | 7.2M | 8.7M | 11.7M | +34.5% | ↑↑↑ | 10.4% | +25.6% | $501.1M | 🟢 Strong Add |
-| CORZ | Core Scientific Inc New | 0 | 4.5M | 8.0M | 20.2M | 28.8M | 26.0M | -9.6% | Mixed | 10.1% | +43.0% | $569.1M | 🟡 Hold |
-| APLD | Applied Digital Corp | 0 | 4.0M | 6.6M | 6.1M | 11.3M | 13.5M | +18.9% | ↑↑↑ | 8.3% | +24.2% | $410.1M | 🟢 Strong Add |
+| CORZ | Core Scientific Inc New | 0 | 4.5M | 8.0M | 20.2M | 28.8M | 26.0M | -9.6% | Mixed | 10.1% | +53.6% | $611.2M | 🟡 Hold |
+| APLD | Applied Digital Corp | 0 | 4.0M | 6.6M | 6.1M | 11.3M | 13.5M | +18.9% | ↑↑↑ | 8.3% | +28.4% | $423.8M | 🟢 Strong Add |
 | RIOT | RIOT PLATFORMS INC | 0 | 0 | 0 | 3.6M | 6.2M | 11.5M | +86.5% | ↑↑↑ | 3.7% | +69.3% | $244.4M | 🟢 Strong Add |
 | CLSK | CLEANSPARK INC | 0 | 0 | 0 | 0 | 1.6M | 12.3M | +648.4% | New + Add | 2.7% | +44.0% | $152.3M | 🟢 New + Add |
 | SEI | SOLARIS ENERGY INFRAS INC | 0 | 0 | 0 | 1.2M | 1.9M | 1.1M | -40.8% | Mixed | 1.6% | +18.3% | $72.5M | 🔴 Trim |
