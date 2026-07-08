@@ -295,10 +295,10 @@
       "price_at_quarter_end": 15.3,
       "price_at_prev_quarter_end": 14.56,
       "intra_quarter_return_pct": 0.0508,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "current_price": 21.54,
+      "price_change_since_quarter_end_pct": 0.4078,
+      "estimated_current_value": 560222508,
+      "estimated_value_change_since_quarter_end": 162292872,
       "shares_prev": 28756478,
       "shares_delta": -2748005,
       "shares_delta_label": "-2.7M",
@@ -307,7 +307,7 @@
       "status_label": "Hold",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
-        "price_source": "unavailable"
+        "price_source": "yfinance"
       },
       "options_context": {}
     },
@@ -345,10 +345,10 @@
       "price_at_quarter_end": 24.49,
       "price_at_prev_quarter_end": 24.52,
       "intra_quarter_return_pct": -0.0012,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "current_price": 30.71,
+      "price_change_since_quarter_end_pct": 0.254,
+      "estimated_current_value": 413922831,
+      "estimated_value_change_since_quarter_end": 83835884,
       "shares_prev": 11339060,
       "shares_delta": 2139378,
       "shares_delta_label": "+2.1M",
@@ -357,7 +357,7 @@
       "status_label": "Strong Add",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
-        "price_source": "unavailable"
+        "price_source": "yfinance"
       },
       "options_context": {}
     },
@@ -2004,10 +2004,10 @@
       "price_at_quarter_end": 278.82,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "current_price": 239.71,
+      "price_change_since_quarter_end_pct": -0.1403,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
       "shares_prev": 0,
       "shares_delta": 0,
       "shares_delta_label": "±0",
@@ -2016,7 +2016,7 @@
       "status_label": "Exit",
       "data_quality": {
         "cusip_ticker_mapping": "openfigi",
-        "price_source": "unavailable"
+        "price_source": "yfinance"
       }
     },
     {
@@ -2053,10 +2053,10 @@
       "price_at_quarter_end": 216.71,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "current_price": 230.41,
+      "price_change_since_quarter_end_pct": 0.0632,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
       "shares_prev": 0,
       "shares_delta": 0,
       "shares_delta_label": "±0",
@@ -2065,7 +2065,7 @@
       "status_label": "Exit",
       "data_quality": {
         "cusip_ticker_mapping": "openfigi",
-        "price_source": "unavailable"
+        "price_source": "yfinance"
       }
     },
     {
@@ -2102,10 +2102,10 @@
       "price_at_quarter_end": 99.0,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "current_price": 230.7,
+      "price_change_since_quarter_end_pct": 1.3303,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
       "shares_prev": 0,
       "shares_delta": 0,
       "shares_delta_label": "±0",
@@ -2114,7 +2114,7 @@
       "status_label": "Exit",
       "data_quality": {
         "cusip_ticker_mapping": "openfigi",
-        "price_source": "unavailable"
+        "price_source": "yfinance"
       }
     },
     {
@@ -2151,10 +2151,10 @@
       "price_at_quarter_end": 319.23,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "current_price": 366.66,
+      "price_change_since_quarter_end_pct": 0.1486,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
       "shares_prev": 0,
       "shares_delta": 0,
       "shares_delta_label": "±0",
@@ -2163,7 +2163,7 @@
       "status_label": "Exit",
       "data_quality": {
         "cusip_ticker_mapping": "openfigi",
-        "price_source": "unavailable"
+        "price_source": "yfinance"
       }
     },
     {
@@ -2200,10 +2200,10 @@
       "price_at_quarter_end": 250.58,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "current_price": 305.58,
+      "price_change_since_quarter_end_pct": 0.2195,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
       "shares_prev": 0,
       "shares_delta": 0,
       "shares_delta_label": "±0",
@@ -2212,7 +2212,7 @@
       "status_label": "Exit",
       "data_quality": {
         "cusip_ticker_mapping": "openfigi",
-        "price_source": "unavailable"
+        "price_source": "yfinance"
       }
     },
     {
@@ -2249,10 +2249,10 @@
       "price_at_quarter_end": 153.96,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "current_price": 155.73,
+      "price_change_since_quarter_end_pct": 0.0115,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
       "shares_prev": 0,
       "shares_delta": 0,
       "shares_delta_label": "±0",
@@ -2261,7 +2261,7 @@
       "status_label": "Exit",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
-        "price_source": "unavailable"
+        "price_source": "yfinance"
       }
     },
     {
@@ -2298,10 +2298,10 @@
       "price_at_quarter_end": 313.49,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": null,
-      "price_change_since_quarter_end_pct": null,
-      "estimated_current_value": null,
-      "estimated_value_change_since_quarter_end": null,
+      "current_price": 370.78,
+      "price_change_since_quarter_end_pct": 0.1827,
+      "estimated_current_value": 0,
+      "estimated_value_change_since_quarter_end": 0,
       "shares_prev": 0,
       "shares_delta": 0,
       "shares_delta_label": "±0",
@@ -2310,7 +2310,7 @@
       "status_label": "Exit",
       "data_quality": {
         "cusip_ticker_mapping": "manual",
-        "price_source": "unavailable"
+        "price_source": "yfinance"
       }
     },
     {
@@ -3413,9 +3413,9 @@
       "qoq_dollar_delta": 50788834,
       "qoq_share_change_pct": 0.1886733115443432,
       "three_quarter_trend": "up_up_up",
-      "price_change_since_quarter_end_pct": null,
+      "price_change_since_quarter_end_pct": 0.254,
       "conviction_score": 6.6,
-      "entry_score": 5,
+      "entry_score": 3,
       "recommendation": "Watch / bei Schwäche",
       "options_context": {}
     },
