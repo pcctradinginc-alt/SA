@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?><edgarSubmission xmlns="http://www.sec.gov/edgar/schedule13D" xmlns:com="http://www.sec.gov/edgar/common">
+  <schemaVersion>X0202</schemaVersion>
+<headerData>
+    <submissionType>SCHEDULE 13D/A</submissionType>
+    <previousAccessionNumber>0000935836-25-000543</previousAccessionNumber>
+    <filerInfo>
+      <filer>
+        <filerCredentials>
+          <!-- Field: Pseudo-Tag; ID: Name; Data: Situational Awareness LP -->
+          <cik>0002045724</cik>
+          <ccc>XXXXXXXX</ccc>
+        </filerCredentials>
+      </filer>
+      <liveTestFlag>LIVE</liveTestFlag>
+
+
+
+    </filerInfo>
+  </headerData>
+  <formData>
+    <coverPageHeader>
+      <amendmentNo>2</amendmentNo>
+      <securitiesClassTitle>Common Stock, par value $0.00001 per share</securitiesClassTitle>
+      <dateOfEvent>07/15/2026</dateOfEvent>
+      <previouslyFiledFlag>false</previouslyFiledFlag>
+      <issuerInfo>
+        <issuerCIK>0001839341</issuerCIK>
+        <issuerCusips>
+          <issuerCusipNumber>21874A106</issuerCusipNumber>
+        </issuerCusips>
+        <issuerName>Core Scientific, Inc.</issuerName>
+        <address>
+          <com:street1>838 WALKER ROAD</com:street1>
+          <com:street2>SUITE 21-2105</com:street2>
+          <com:city>DOVER</com:city>
+          <com:stateOrCountry>DE</com:stateOrCountry>
+          <com:zipCode>19904</com:zipCode>
+        </address>
+      </issuerInfo>
+      <authorizedPersons>
+        <notificationInfo>
+          <personName>Adriana Schwartz</personName>
+          <personPhoneNum>212-574-1200</personPhoneNum>
+          <personAddress>
+            <com:street1>Seward &amp; Kissel LLP</com:street1>
+            <com:street2>One Battery Park Plaza</com:street2>
+            <com:city>New York</com:city>
+            <com:stateOrCountry>NY</com:stateOrCountry>
+            <com:zipCode>10004</com:zipCode>
+          </personAddress>
+        </notificationInfo>
+      </authorizedPersons>
+    </coverPageHeader>
+    <reportingPersons>
+      <reportingPersonInfo>
+        <reportingPersonCIK>0002045724</reportingPersonCIK>
+        <reportingPersonNoCIK>N</reportingPersonNoCIK>
+        <reportingPersonName>Situational Awareness LP</reportingPersonName>
+        <memberOfGroup>b</memberOfGroup>
+        <fundType>AF</fundType>
+        <legalProceedings>N</legalProceedings>
+        <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>14089395.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>14089395.00</sharedDispositivePower>
+        <aggregateAmountOwned>14089395.00</aggregateAmountOwned>
+        <isAggregateExcludeShares>N</isAggregateExcludeShares>
+        <percentOfClass>4.4</percentOfClass>
+        <typeOfReportingPerson>IA</typeOfReportingPerson>
+        <typeOfReportingPerson>PN</typeOfReportingPerson>
+        <commentContent>The information set forth on this cover page reflects information as of the close of business on August 4, 2026. As of July 15, 2026, the Reporting Person may have been deemed to beneficially own 25,608,473 shares of Common Stock, representing 8.1% of the shares of Common Stock outstanding as of such time.</commentContent>
+      </reportingPersonInfo>
+      <reportingPersonInfo>
+        <reportingPersonNoCIK>Y</reportingPersonNoCIK>
+        <reportingPersonName>SAF AI GP LP</reportingPersonName>
+        <memberOfGroup>b</memberOfGroup>
+        <fundType>AF</fundType>
+        <legalProceedings>N</legalProceedings>
+        <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>14089395.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>14089395.00</sharedDispositivePower>
+        <aggregateAmountOwned>14089395.00</aggregateAmountOwned>
+        <isAggregateExcludeShares>N</isAggregateExcludeShares>
+        <percentOfClass>4.4</percentOfClass>
+        <typeOfReportingPerson>PN</typeOfReportingPerson>
+        <commentContent>The information set forth on this cover page reflects information as of the close of business on August 4, 2026. As of July 15, 2026, the Reporting Person may have been deemed to beneficially own 25,608,473 shares of Common Stock, representing 8.1% of the shares of Common Stock outstanding as of such time.</commentContent>
+      </reportingPersonInfo>
+      <reportingPersonInfo>
+        <reportingPersonNoCIK>Y</reportingPersonNoCIK>
+        <reportingPersonName>Situational Awareness LLC</reportingPersonName>
+        <memberOfGroup>b</memberOfGroup>
+        <fundType>AF</fundType>
+        <legalProceedings>N</legalProceedings>
+        <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>14089395.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>14089395.00</sharedDispositivePower>
+        <aggregateAmountOwned>14089395.00</aggregateAmountOwned>
+        <isAggregateExcludeShares>N</isAggregateExcludeShares>
+        <percentOfClass>4.4</percentOfClass>
+        <typeOfReportingPerson>HC</typeOfReportingPerson>
+        <typeOfReportingPerson>OO</typeOfReportingPerson>
+        <commentContent>The information set forth on this cover page reflects information as of the close of business on August 4, 2026. As of July 15, 2026, the Reporting Person may have been deemed to beneficially own 25,608,473 shares of Common Stock, representing 8.1% of the shares of Common Stock outstanding as of such time.</commentContent>
+      </reportingPersonInfo>
+      <reportingPersonInfo>
+        <reportingPersonCIK>0002038540</reportingPersonCIK>
+        <reportingPersonNoCIK>N</reportingPersonNoCIK>
+        <reportingPersonName>Situational Awareness Partners LP</reportingPersonName>
+        <memberOfGroup>b</memberOfGroup>
+        <fundType>WC</fundType>
+        <legalProceedings>N</legalProceedings>
+        <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>14089395.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>14089395.00</sharedDispositivePower>
+        <aggregateAmountOwned>14089395.00</aggregateAmountOwned>
+        <isAggregateExcludeShares>N</isAggregateExcludeShares>
+        <percentOfClass>4.4</percentOfClass>
+        <typeOfReportingPerson>PN</typeOfReportingPerson>
+        <commentContent>The information set forth on this cover page reflects information as of the close of business on August 4, 2026. As of July 15, 2026, the Reporting Person may have been deemed to beneficially own 25,608,473 shares of Common Stock, representing 8.1% of the shares of Common Stock outstanding as of such time.</commentContent>
+      </reportingPersonInfo>
+      <reportingPersonInfo>
+        <reportingPersonNoCIK>Y</reportingPersonNoCIK>
+        <reportingPersonName>Leopold Aschenbrenner</reportingPersonName>
+        <memberOfGroup>b</memberOfGroup>
+        <fundType>AF</fundType>
+        <legalProceedings>N</legalProceedings>
+        <citizenshipOrOrganization>2M</citizenshipOrOrganization>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>14089395.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>14089395.00</sharedDispositivePower>
+        <aggregateAmountOwned>14089395.00</aggregateAmountOwned>
+        <isAggregateExcludeShares>N</isAggregateExcludeShares>
+        <percentOfClass>4.4</percentOfClass>
+        <typeOfReportingPerson>IN</typeOfReportingPerson>
+        <typeOfReportingPerson>HC</typeOfReportingPerson>
+        <commentContent>The information set forth on this cover page reflects information as of the close of business on August 4, 2026. As of July 15, 2026, the Reporting Person may have been deemed to beneficially own 25,608,473 shares of Common Stock, representing 8.1% of the shares of Common Stock outstanding as of such time.</commentContent>
+      </reportingPersonInfo>
+      <reportingPersonInfo>
+        <reportingPersonNoCIK>Y</reportingPersonNoCIK>
+        <reportingPersonName>Carl Shulman</reportingPersonName>
+        <memberOfGroup>b</memberOfGroup>
+        <fundType>AF</fundType>
+        <legalProceedings>N</legalProceedings>
+        <citizenshipOrOrganization>Z4</citizenshipOrOrganization>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>14089395.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>14089395.00</sharedDispositivePower>
+        <aggregateAmountOwned>14089395.00</aggregateAmountOwned>
+        <isAggregateExcludeShares>N</isAggregateExcludeShares>
+        <percentOfClass>4.4</percentOfClass>
+        <typeOfReportingPerson>IN</typeOfReportingPerson>
+        <typeOfReportingPerson>HC</typeOfReportingPerson>
+        <commentContent>The information set forth on this cover page reflects information as of the close of business on August 4, 2026. As of July 15, 2026, the Reporting Person may have been deemed to beneficially own 25,608,473 shares of Common Stock, representing 8.1% of the shares of Common Stock outstanding as of such time.</commentContent>
+      </reportingPersonInfo>
+    </reportingPersons>
+    <items1To7>
+      <item1>
+        <securityTitle>Common Stock, par value $0.00001 per share</securityTitle>
+        <issuerName>Core Scientific, Inc.</issuerName>
+        <issuerPrincipalAddress>
+          <com:street1>838 WALKER ROAD</com:street1>
+          <com:street2>SUITE 21-2105</com:street2>
+          <com:city>DOVER</com:city>
+          <com:stateOrCountry>DE</com:stateOrCountry>
+          <com:zipCode>19904</com:zipCode>
+        </issuerPrincipalAddress>
+        <commentText>This Amendment No. 2 ("Amendment No. 2") amends the statement on Schedule 13D filed with the Securities and Exchange Commission on August 19, 2025 (the "Original Schedule 13D", and the Original Schedule 13D as amended, the "Schedule 13D"). This Amendment No. 2 amends and restates Item 2(b) and Items 5(a)-(c) and (e) as set forth below. Capitalized terms used herein and not otherwise defined in this Amendment No. 2 have the meanings set forth in the Schedule 13D.</commentText>
+      </item1>
+      <item2>
+        <principalBusinessAddress>77 Federal Street, Floor 4, San Francisco, CA 94107</principalBusinessAddress>
+      </item2>
+      <item5>
+        <percentageOfClassSecurities>See rows (11) and (13) of the cover pages to this Schedule 13D for the aggregate number of shares of Common Stock and percentages of the Common Stock beneficially owned by each of the Reporting Persons.
+
+The percentages used in this Schedule 13D as of the close of business on August 4, 2026, are calculated based upon 321,340,441 shares of Common Stock outstanding as of July 23, 2026, as reported in the Issuer's Quarterly Report on Form 10-Q for the quarterly period ended June 30, 2026, filed with the Securities and Exchange Commission (the "SEC") on July 28, 2026.
+
+The percentages used in this Schedule 13D as of the close of business on July 15, 2026, are calculated based upon 317,885,292 shares of Common Stock outstanding as of May 1, 2026, as reported in the Issuer's Quarterly Report on Form 10-Q for the quarterly period ended March 31, 2026, filed with the SEC on May 6, 2026.</percentageOfClassSecurities>
+        <numberOfShares>See rows (7) through (10) of the cover pages to this Schedule 13D for the number of shares of Common Stock as to which each Reporting Person has the sole or shared power to vote or direct the vote and sole or shared power to dispose or to direct the disposition.</numberOfShares>
+        <transactionDesc>Information concerning transactions in the shares of Common Stock effected by the Reporting Persons during the sixty (60) days preceding each of July 15, 2026 and August 4, 2026 is set forth in Exhibit 99.2 hereto and is incorporated by reference herein.</transactionDesc>
+        <date5PercentOwnership>August 3, 2026.</date5PercentOwnership>
+      </item5>
+    </items1To7>
+    <signatureInfo>
+      <signaturePerson>
+        <signatureReportingPerson>Situational Awareness LP</signatureReportingPerson>
+        <signatureDetails>
+          <signature>/s/ Leopold Aschenbrenner</signature>
+          <title>Leopold Aschenbrenner, Managing Partner</title>
+          <date>08/04/2026</date>
+        </signatureDetails>
+      </signaturePerson>
+      <signaturePerson>
+        <signatureReportingPerson>SAF AI GP LP</signatureReportingPerson>
+        <signatureDetails>
+          <signature>/s/ Leopold Aschenbrenner</signature>
+          <title>Leopold Aschenbrenner, Managing Partner</title>
+          <date>08/04/2026</date>
+        </signatureDetails>
+      </signaturePerson>
+      <signaturePerson>
+        <signatureReportingPerson>Situational Awareness LLC</signatureReportingPerson>
+        <signatureDetails>
+          <signature>/s/ Leopold Aschenbrenner</signature>
+          <title>Leopold Aschenbrenner, Manager</title>
+          <date>08/04/2026</date>
+        </signatureDetails>
+      </signaturePerson>
+      <signaturePerson>
+        <signatureReportingPerson>Situational Awareness Partners LP</signatureReportingPerson>
+        <signatureDetails>
+          <signature>/s/ Leopold Aschenbrenner</signature>
+          <title>Leopold Aschenbrenner, Managing Partner of SAF AI GP LP, general partner of Situational Awareness Partners LP</title>
+          <date>08/04/2026</date>
+        </signatureDetails>
+      </signaturePerson>
+      <signaturePerson>
+        <signatureReportingPerson>Leopold Aschenbrenner</signatureReportingPerson>
+        <signatureDetails>
+          <signature>/s/ Leopold Aschenbrenner</signature>
+          <title>Leopold Aschenbrenner, Individually</title>
+          <date>08/04/2026</date>
+        </signatureDetails>
+      </signaturePerson>
+      <signaturePerson>
+        <signatureReportingPerson>Carl Shulman</signatureReportingPerson>
+        <signatureDetails>
+          <signature>/s/ Carl Shulman</signature>
+          <title>Carl Shulman, Individually</title>
+          <date>08/04/2026</date>
+        </signatureDetails>
+      </signaturePerson>
+    </signatureInfo>
+  </formData>
+
+</edgarSubmission>
