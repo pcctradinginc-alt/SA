@@ -4,7 +4,7 @@ Automated, EDGAR-first archive and monitor for the public activity of
 **Leopold Aschenbrenner** / **Situational Awareness LP**. Not a trading signal — a
 reproducible archive with instrument-separated 13F analysis.
 
-_Last updated: 2026-09-04 · prices via yfinance · Not investment advice._
+_Last updated: 2026-09-05 · prices via yfinance · Not investment advice._
 
 ## Latest 13F summary
 
@@ -97,7 +97,7 @@ _Last updated: 2026-09-04 · prices via yfinance · Not investment advice._
 | INTC | CALL | $459.6M | $453.3M | $679.0M | $746.8M | $0 | $0 | +0.0% | -31.4% | Notional, not premium; long/short direction unknown |
 | SMH | PUT | $0 | $570.1M | $0 | $0 | $2.0B | $0 | Exit | -13.6% | Notional, not premium; long/short direction unknown |
 | BLOOM ENERGY CORP | CALL | $0 | $0 | $12.3M | $0 | $0 | $0 | +0.0% | — | Notional, not premium; long/short direction unknown |
-| AVGO | PUT | $0 | $0 | $75.9M | $0 | $1.0B | $0 | Exit | -5.3% | Notional, not premium; long/short direction unknown |
+| AVGO | PUT | $0 | $0 | $75.9M | $0 | $1.0B | $0 | Exit | -5.2% | Notional, not premium; long/short direction unknown |
 | CRWV | PUT | $0 | $0 | $191.6M | $0 | $0 | $0 | +0.0% | -10.2% | Notional, not premium; long/short direction unknown |
 | CRWV | CALL | $0 | $0 | $316.7M | $774.4M | $140.6M | $0 | Exit | -10.2% | Notional, not premium; long/short direction unknown |
 | MU | PUT | $0 | $0 | $50.2M | $0 | $583.7M | $0 | Exit | -11.9% | Notional, not premium; long/short direction unknown |

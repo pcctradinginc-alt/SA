@@ -1,6 +1,6 @@
 {
   "available": true,
-  "generated": "2026-09-04",
+  "generated": "2026-09-05",
   "manager": "Situational Awareness LP",
   "quarter_labels": [
     "Q1 2025",
@@ -1513,8 +1513,8 @@
       "price_at_quarter_end": 377.75,
       "price_at_prev_quarter_end": null,
       "intra_quarter_return_pct": null,
-      "current_price": 357.89,
-      "price_change_since_quarter_end_pct": -0.0526,
+      "current_price": 357.9,
+      "price_change_since_quarter_end_pct": -0.0525,
       "estimated_current_value": 0,
       "estimated_value_change_since_quarter_end": 0,
       "shares_prev": 0,
@@ -2780,7 +2780,7 @@
       "notional_latest_usd": 0,
       "notional_prev_usd": 1006247961,
       "qoq_notional_change_pct": -1.0,
-      "underlying_price_move": -0.0526,
+      "underlying_price_move": -0.0525,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
