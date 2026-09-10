@@ -1,6 +1,6 @@
 {
   "available": true,
-  "generated": "2026-09-09",
+  "generated": "2026-09-10",
   "manager": "Situational Awareness LP",
   "quarter_labels": [
     "Q1 2025",
@@ -2493,7 +2493,7 @@
       "price_at_quarter_end": 580.91,
       "price_at_prev_quarter_end": 210.21,
       "intra_quarter_return_pct": 1.7635,
-      "current_price": 521.09,
+      "current_price": 521.1,
       "price_change_since_quarter_end_pct": -0.103,
       "estimated_current_value": 0,
       "estimated_value_change_since_quarter_end": 0,
