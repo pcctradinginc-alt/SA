@@ -4,7 +4,7 @@ Automated, EDGAR-first archive and monitor for the public activity of
 **Leopold Aschenbrenner** / **Situational Awareness LP**. Not a trading signal — a
 reproducible archive with instrument-separated 13F analysis.
 
-_Last updated: 2026-09-30 · prices via yfinance · Not investment advice._
+_Last updated: 2026-10-01 · prices via yfinance · Not investment advice._
 
 ## Latest 13F summary
 
@@ -38,12 +38,12 @@ _Last updated: 2026-09-30 · prices via yfinance · Not investment advice._
 | IREN | IREN Limited | 3.4M | 6.4M | 7.2M | 8.7M | 11.7M | 9.5M | -19.0% | Mixed | 2.1% | -10.6% | $387.3M | 🔴 Trim |
 | CLSK | CLEANSPARK INC | 0 | 0 | 0 | 1.6M | 12.3M | 12.3M | +0.0% | Mixed | 0.9% | -11.5% | $158.1M | 🟡 Hold |
 | KEEL INF | KEEL INFRASTRUCTURE CORP | 0 | 0 | 0 | 0 | 0 | 26.5M | New | New | 0.8% | — | — | 🟡 New Buy |
-| SEI | SOLARIS ENERGY INFRAS INC | 0 | 0 | 1.2M | 1.9M | 1.1M | 1.1M | +2.2% | Mixed | 0.4% | -11.6% | $80.3M | 🟡 Hold |
+| SEI | SOLARIS ENERGY INFRAS INC | 0 | 0 | 1.2M | 1.9M | 1.1M | 1.1M | +2.2% | Mixed | 0.4% | -11.5% | $80.4M | 🟡 Hold |
 | WHITEFIB | WHITEFIBER INC | 0 | 0 | 0 | 1.8M | 1.8M | 1.8M | +0.0% | Flat | 0.3% | — | — | 🟡 Hold |
 | BTDR | BITDEER TECHNOLOGIES GROUP | 0 | 0 | 930k | 1.8M | 3.4M | 3.4M | +0.0% | Mixed | 0.3% | -33.9% | $36.1M | 🟡 Hold |
 | TE | T1 ENERGY INC | 0 | 0 | 0 | 0 | 10.0M | 4.9M | -51.0% | Mixed | 0.2% | -59.3% | $18.9M | 🔴 Trim |
 | HIVE | HIVE DIGITAL TECHNOLOGIES LT | 0 | 0 | 0 | 0 | 3.4M | 9.1M | +169.3% | New + Add | 0.2% | -19.0% | $26.9M | 🟢 New + Add |
-| BW | BABCOCK & WILCOX ENTERPRISES | 0 | 0 | 0 | 1.4M | 1.4M | 2.0M | +49.7% | Mixed | 0.1% | -58.5% | $11.9M | 🟢 Strong Add |
+| BW | BABCOCK & WILCOX ENTERPRISES | 0 | 0 | 0 | 1.4M | 1.4M | 2.0M | +49.7% | Mixed | 0.1% | -58.6% | $11.8M | 🟢 Strong Add |
 | PUMP | PROPETRO HLDG CORP | 0 | 0 | 0 | 910k | 910k | 2.0M | +115.4% | Mixed | 0.1% | -38.4% | $17.3M | 🟢 Strong Add |
 | VISHAY I | VISHAY INTERTECHNOLOGY INC | 0 | 0 | 0 | 0 | 0 | 375k | New | New | 0.1% | — | — | 🟡 New Buy |
 | CEREBRAS | CEREBRAS SYSTEMS INC | 0 | 0 | 0 | 0 | 0 | 10k | New | New | 0.0% | — | — | 🟡 New Buy |
@@ -93,7 +93,7 @@ _Last updated: 2026-09-30 · prices via yfinance · Not investment advice._
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | BE | CALL | $0 | $0 | $0 | $35.5M | $55.3M | $44.1M | -20.3% | -8.5% | Notional, not premium; long/short direction unknown |
 | TSM | CALL | $0 | $0 | $0 | $0 | $354.8M | $23.9M | -93.3% | -4.5% | Notional, not premium; long/short direction unknown |
-| INFY | PUT | $0 | $0 | $0 | $8.9M | $6.8M | $5.2M | -22.4% | +2.3% | Notional, not premium; long/short direction unknown |
+| INFY | PUT | $0 | $0 | $0 | $8.9M | $6.8M | $5.2M | -22.4% | +2.6% | Notional, not premium; long/short direction unknown |
 | INTC | CALL | $459.6M | $453.3M | $679.0M | $746.8M | $0 | $0 | +0.0% | -13.9% | Notional, not premium; long/short direction unknown |
 | SMH | PUT | $0 | $570.1M | $0 | $0 | $2.0B | $0 | Exit | -7.1% | Notional, not premium; long/short direction unknown |
 | BLOOM ENERGY CORP | CALL | $0 | $0 | $12.3M | $0 | $0 | $0 | +0.0% | — | Notional, not premium; long/short direction unknown |
