@@ -4,7 +4,7 @@ Automated, EDGAR-first archive and monitor for the public activity of
 **Leopold Aschenbrenner** / **Situational Awareness LP**. Not a trading signal — a
 reproducible archive with instrument-separated 13F analysis.
 
-_Last updated: 2026-10-09 · prices via yfinance · Not investment advice._
+_Last updated: 2026-10-10 · prices via yfinance · Not investment advice._
 
 ## Latest 13F summary
 
@@ -26,7 +26,7 @@ _Last updated: 2026-10-09 · prices via yfinance · Not investment advice._
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | SNDK | SANDISK CORP | 0 | 0 | 115k | 1.1M | 1.1M | 2.5M | +118.9% | ↑↑↑ | 28.1% | -30.4% | $3.9B | 🟢 Strong Add |
 | MU | MICRON TECHNOLOGY INC | 0 | 0 | 0 | 0 | 17k | 4.8M | +27712.4% | New + Add | 27.6% | -10.8% | $5.0B | 🟢 New + Add |
-| BE | BLOOM ENERGY CORP | 0 | 0 | 0 | 10.1M | 6.5M | 6.3M | -3.3% | ↓↓ | 9.4% | -7.4% | $1.8B | 🟡 Hold |
+| BE | BLOOM ENERGY CORP | 0 | 0 | 0 | 10.1M | 6.5M | 6.3M | -3.3% | ↓↓ | 9.4% | -7.3% | $1.8B | 🟡 Hold |
 | TSM | TAIWAN SEMICONDUCTOR MANUFAC | 0 | 0 | 0 | 0 | 22k | 2.6M | +11713.9% | New + Add | 6.3% | -5.1% | $1.2B | 🟢 New + Add |
 | NEBIUS G | NEBIUS GROUP N.V. | 0 | 0 | 0 | 0 | 0 | 4.5M | New | New | 6.1% | — | — | 🟡 New Buy |
 | CRWV | CoreWeave Inc | 1.2M | 0 | 4.1M | 6.1M | 7.2M | 7.5M | +4.2% | ↑↑↑ | 3.7% | -17.5% | $613.9M | 🟢 Strong Add |
@@ -38,13 +38,13 @@ _Last updated: 2026-10-09 · prices via yfinance · Not investment advice._
 | IREN | IREN Limited | 3.4M | 6.4M | 7.2M | 8.7M | 11.7M | 9.5M | -19.0% | Mixed | 2.1% | -23.1% | $333.4M | 🔴 Trim |
 | CLSK | CLEANSPARK INC | 0 | 0 | 0 | 1.6M | 12.3M | 12.3M | +0.0% | Mixed | 0.9% | -27.9% | $128.8M | 🟡 Hold |
 | KEEL INF | KEEL INFRASTRUCTURE CORP | 0 | 0 | 0 | 0 | 0 | 26.5M | New | New | 0.8% | — | — | 🟡 New Buy |
-| SEI | SOLARIS ENERGY INFRAS INC | 0 | 0 | 1.2M | 1.9M | 1.1M | 1.1M | +2.2% | Mixed | 0.4% | -5.0% | $86.3M | 🟡 Hold |
+| SEI | SOLARIS ENERGY INFRAS INC | 0 | 0 | 1.2M | 1.9M | 1.1M | 1.1M | +2.2% | Mixed | 0.4% | -5.1% | $86.3M | 🟡 Hold |
 | WHITEFIB | WHITEFIBER INC | 0 | 0 | 0 | 1.8M | 1.8M | 1.8M | +0.0% | Flat | 0.3% | — | — | 🟡 Hold |
 | BTDR | BITDEER TECHNOLOGIES GROUP | 0 | 0 | 930k | 1.8M | 3.4M | 3.4M | +0.0% | Mixed | 0.3% | -39.3% | $33.1M | 🟡 Hold |
-| TE | T1 ENERGY INC | 0 | 0 | 0 | 0 | 10.0M | 4.9M | -51.0% | Mixed | 0.2% | -64.3% | $16.6M | 🔴 Trim |
+| TE | T1 ENERGY INC | 0 | 0 | 0 | 0 | 10.0M | 4.9M | -51.0% | Mixed | 0.2% | -64.2% | $16.6M | 🔴 Trim |
 | HIVE | HIVE DIGITAL TECHNOLOGIES LT | 0 | 0 | 0 | 0 | 3.4M | 9.1M | +169.3% | New + Add | 0.2% | -31.3% | $22.8M | 🟢 New + Add |
 | BW | BABCOCK & WILCOX ENTERPRISES | 0 | 0 | 0 | 1.4M | 1.4M | 2.0M | +49.7% | Mixed | 0.1% | -61.3% | $11.1M | 🟢 Strong Add |
-| PUMP | PROPETRO HLDG CORP | 0 | 0 | 0 | 910k | 910k | 2.0M | +115.4% | Mixed | 0.1% | -36.7% | $17.8M | 🟢 Strong Add |
+| PUMP | PROPETRO HLDG CORP | 0 | 0 | 0 | 910k | 910k | 2.0M | +115.4% | Mixed | 0.1% | -36.6% | $17.8M | 🟢 Strong Add |
 | VISHAY I | VISHAY INTERTECHNOLOGY INC | 0 | 0 | 0 | 0 | 0 | 375k | New | New | 0.1% | — | — | 🟡 New Buy |
 | CEREBRAS | CEREBRAS SYSTEMS INC | 0 | 0 | 0 | 0 | 0 | 10k | New | New | 0.0% | — | — | 🟡 New Buy |
 
@@ -91,7 +91,7 @@ _Last updated: 2026-10-09 · prices via yfinance · Not investment advice._
 
 | Underlying | Type | Q1 2025 | Q2 2025 | Q3 2025 | Q4 2025 | Q1 2026 | Q2 2026 | QoQ | Underlying px move | Interpretation risk |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| BE | CALL | $0 | $0 | $0 | $35.5M | $55.3M | $44.1M | -20.3% | -7.4% | Notional, not premium; long/short direction unknown |
+| BE | CALL | $0 | $0 | $0 | $35.5M | $55.3M | $44.1M | -20.3% | -7.3% | Notional, not premium; long/short direction unknown |
 | TSM | CALL | $0 | $0 | $0 | $0 | $354.8M | $23.9M | -93.3% | -5.1% | Notional, not premium; long/short direction unknown |
 | INFY | PUT | $0 | $0 | $0 | $8.9M | $6.8M | $5.2M | -22.4% | +2.3% | Notional, not premium; long/short direction unknown |
 | INTC | CALL | $459.6M | $453.3M | $679.0M | $746.8M | $0 | $0 | +0.0% | -25.0% | Notional, not premium; long/short direction unknown |
@@ -110,7 +110,7 @@ _Last updated: 2026-10-09 · prices via yfinance · Not investment advice._
 | GLW | PUT | $0 | $0 | $0 | $0 | $21.0M | $0 | Exit | -38.7% | Notional, not premium; long/short direction unknown |
 | INTC | PUT | $0 | $0 | $0 | $0 | $159.1M | $0 | Exit | -25.0% | Notional, not premium; long/short direction unknown |
 | MU | CALL | $0 | $0 | $0 | $0 | $422.3M | $0 | Exit | -10.8% | Notional, not premium; long/short direction unknown |
-| ORCL | PUT | $0 | $0 | $0 | $0 | $1.1B | $0 | Exit | -3.1% | Notional, not premium; long/short direction unknown |
+| ORCL | PUT | $0 | $0 | $0 | $0 | $1.1B | $0 | Exit | -3.2% | Notional, not premium; long/short direction unknown |
 | SNDK | CALL | $0 | $0 | $0 | $0 | $388.8M | $0 | Exit | -30.4% | Notional, not premium; long/short direction unknown |
 
 > Options are shown as reported notional exposure. Direction, premium, strike, expiry and true economic exposure are unknown.
