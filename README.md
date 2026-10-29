@@ -4,7 +4,7 @@ Automated, EDGAR-first archive and monitor for the public activity of
 **Leopold Aschenbrenner** / **Situational Awareness LP**. Not a trading signal — a
 reproducible archive with instrument-separated 13F analysis.
 
-_Last updated: 2026-10-28 · prices via yfinance · Not investment advice._
+_Last updated: 2026-10-29 · prices via yfinance · Not investment advice._
 
 ## Latest 13F summary
 
@@ -26,7 +26,7 @@ _Last updated: 2026-10-28 · prices via yfinance · Not investment advice._
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | SNDK | SANDISK CORP | 0 | 0 | 115k | 1.1M | 1.1M | 2.5M | +118.9% | ↑↑↑ | 28.1% | -38.2% | $3.5B | 🟢 Strong Add |
 | MU | MICRON TECHNOLOGY INC | 0 | 0 | 0 | 0 | 17k | 4.8M | +27712.4% | New + Add | 27.6% | -14.8% | $4.7B | 🟢 New + Add |
-| BE | BLOOM ENERGY CORP | 0 | 0 | 0 | 10.1M | 6.5M | 6.3M | -3.3% | ↓↓ | 9.4% | -24.7% | $1.4B | 🟡 Hold |
+| BE | BLOOM ENERGY CORP | 0 | 0 | 0 | 10.1M | 6.5M | 6.3M | -3.3% | ↓↓ | 9.4% | -24.6% | $1.4B | 🟡 Hold |
 | TSM | TAIWAN SEMICONDUCTOR MANUFAC | 0 | 0 | 0 | 0 | 22k | 2.6M | +11713.9% | New + Add | 6.3% | -8.0% | $1.2B | 🟢 New + Add |
 | NEBIUS G | NEBIUS GROUP N.V. | 0 | 0 | 0 | 0 | 0 | 4.5M | New | New | 6.1% | — | — | 🟡 New Buy |
 | CRWV | CoreWeave Inc | 1.2M | 0 | 4.1M | 6.1M | 7.2M | 7.5M | +4.2% | ↑↑↑ | 3.7% | -35.8% | $478.2M | 🟢 Strong Add |
@@ -91,7 +91,7 @@ _Last updated: 2026-10-28 · prices via yfinance · Not investment advice._
 
 | Underlying | Type | Q1 2025 | Q2 2025 | Q3 2025 | Q4 2025 | Q1 2026 | Q2 2026 | QoQ | Underlying px move | Interpretation risk |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| BE | CALL | $0 | $0 | $0 | $35.5M | $55.3M | $44.1M | -20.3% | -24.7% | Notional, not premium; long/short direction unknown |
+| BE | CALL | $0 | $0 | $0 | $35.5M | $55.3M | $44.1M | -20.3% | -24.6% | Notional, not premium; long/short direction unknown |
 | TSM | CALL | $0 | $0 | $0 | $0 | $354.8M | $23.9M | -93.3% | -8.0% | Notional, not premium; long/short direction unknown |
 | INFY | PUT | $0 | $0 | $0 | $8.9M | $6.8M | $5.2M | -22.4% | +15.2% | Notional, not premium; long/short direction unknown |
 | INTC | CALL | $459.6M | $453.3M | $679.0M | $746.8M | $0 | $0 | +0.0% | -31.6% | Notional, not premium; long/short direction unknown |
@@ -103,14 +103,14 @@ _Last updated: 2026-10-28 · prices via yfinance · Not investment advice._
 | MU | PUT | $0 | $0 | $50.2M | $0 | $583.7M | $0 | Exit | -14.8% | Notional, not premium; long/short direction unknown |
 | NVDA | PUT | $0 | $0 | $298.5M | $0 | $1.6B | $0 | Exit | +7.6% | Notional, not premium; long/short direction unknown |
 | TSM | PUT | $0 | $0 | $75.4M | $0 | $535.1M | $0 | Exit | -8.0% | Notional, not premium; long/short direction unknown |
-| GDX | PUT | $0 | $0 | $195.8M | $0 | $0 | $0 | +0.0% | +11.2% | Notional, not premium; long/short direction unknown |
+| GDX | PUT | $0 | $0 | $195.8M | $0 | $0 | $0 | +0.0% | +11.3% | Notional, not premium; long/short direction unknown |
 | EQT | CALL | $0 | $0 | $0 | $37.5M | $0 | $0 | +0.0% | +6.1% | Notional, not premium; long/short direction unknown |
 | ASML | PUT | $0 | $0 | $0 | $0 | $494.1M | $0 | Exit | -16.3% | Notional, not premium; long/short direction unknown |
 | AMD | PUT | $0 | $0 | $0 | $0 | $969.2M | $0 | Exit | -0.4% | Notional, not premium; long/short direction unknown |
-| GLW | PUT | $0 | $0 | $0 | $0 | $21.0M | $0 | Exit | -48.5% | Notional, not premium; long/short direction unknown |
+| GLW | PUT | $0 | $0 | $0 | $0 | $21.0M | $0 | Exit | -48.6% | Notional, not premium; long/short direction unknown |
 | INTC | PUT | $0 | $0 | $0 | $0 | $159.1M | $0 | Exit | -31.6% | Notional, not premium; long/short direction unknown |
 | MU | CALL | $0 | $0 | $0 | $0 | $422.3M | $0 | Exit | -14.8% | Notional, not premium; long/short direction unknown |
-| ORCL | PUT | $0 | $0 | $0 | $0 | $1.1B | $0 | Exit | -1.2% | Notional, not premium; long/short direction unknown |
+| ORCL | PUT | $0 | $0 | $0 | $0 | $1.1B | $0 | Exit | -1.0% | Notional, not premium; long/short direction unknown |
 | SNDK | CALL | $0 | $0 | $0 | $0 | $388.8M | $0 | Exit | -38.2% | Notional, not premium; long/short direction unknown |
 
 > Options are shown as reported notional exposure. Direction, premium, strike, expiry and true economic exposure are unknown.

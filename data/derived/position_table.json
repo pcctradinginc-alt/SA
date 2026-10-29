@@ -1,6 +1,6 @@
 {
   "available": true,
-  "generated": "2026-10-28",
+  "generated": "2026-10-29",
   "manager": "Situational Awareness LP",
   "quarter_labels": [
     "Q1 2025",
@@ -188,10 +188,10 @@
       "price_at_quarter_end": 302.7,
       "price_at_prev_quarter_end": 132.45,
       "intra_quarter_return_pct": 1.2854,
-      "current_price": 227.99,
-      "price_change_since_quarter_end_pct": -0.2468,
-      "estimated_current_value": 1430137496,
-      "estimated_value_change_since_quarter_end": -468641486,
+      "current_price": 228.08,
+      "price_change_since_quarter_end_pct": -0.2465,
+      "estimated_current_value": 1430702049,
+      "estimated_value_change_since_quarter_end": -468076933,
       "shares_prev": 6485408,
       "shares_delta": -212600,
       "shares_delta_label": "-213k",
@@ -2542,8 +2542,8 @@
       "price_at_quarter_end": 255.43,
       "price_at_prev_quarter_end": 142.38,
       "intra_quarter_return_pct": 0.794,
-      "current_price": 131.61,
-      "price_change_since_quarter_end_pct": -0.4848,
+      "current_price": 131.2,
+      "price_change_since_quarter_end_pct": -0.4864,
       "estimated_current_value": 0,
       "estimated_value_change_since_quarter_end": 0,
       "shares_prev": 5283,
@@ -2672,7 +2672,7 @@
       "notional_latest_usd": 44133660,
       "notional_prev_usd": 55347665,
       "qoq_notional_change_pct": -0.20261026368501725,
-      "underlying_price_move": -0.2468,
+      "underlying_price_move": -0.2465,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2888,7 +2888,7 @@
       "notional_latest_usd": 0,
       "notional_prev_usd": 0,
       "qoq_notional_change_pct": 0.0,
-      "underlying_price_move": 0.1125,
+      "underlying_price_move": 0.1127,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -2960,7 +2960,7 @@
       "notional_latest_usd": 0,
       "notional_prev_usd": 21020962,
       "qoq_notional_change_pct": -1.0,
-      "underlying_price_move": -0.4848,
+      "underlying_price_move": -0.4864,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
@@ -3014,7 +3014,7 @@
       "notional_latest_usd": 0,
       "notional_prev_usd": 1072873230,
       "qoq_notional_change_pct": -1.0,
-      "underlying_price_move": -0.0116,
+      "underlying_price_move": -0.0103,
       "interpretation_risk": "Notional, not premium; long/short direction unknown"
     },
     {
