@@ -4,7 +4,7 @@ Automated, EDGAR-first archive and monitor for the public activity of
 **Leopold Aschenbrenner** / **Situational Awareness LP**. Not a trading signal — a
 reproducible archive with instrument-separated 13F analysis.
 
-_Last updated: 2026-10-29 · prices via yfinance · Not investment advice._
+_Last updated: 2026-10-30 · prices via yfinance · Not investment advice._
 
 ## Latest 13F summary
 
@@ -107,7 +107,7 @@ _Last updated: 2026-10-29 · prices via yfinance · Not investment advice._
 | EQT | CALL | $0 | $0 | $0 | $37.5M | $0 | $0 | +0.0% | +2.9% | Notional, not premium; long/short direction unknown |
 | ASML | PUT | $0 | $0 | $0 | $0 | $494.1M | $0 | Exit | -15.7% | Notional, not premium; long/short direction unknown |
 | AMD | PUT | $0 | $0 | $0 | $0 | $969.2M | $0 | Exit | -2.5% | Notional, not premium; long/short direction unknown |
-| GLW | PUT | $0 | $0 | $0 | $0 | $21.0M | $0 | Exit | -49.6% | Notional, not premium; long/short direction unknown |
+| GLW | PUT | $0 | $0 | $0 | $0 | $21.0M | $0 | Exit | -49.5% | Notional, not premium; long/short direction unknown |
 | INTC | PUT | $0 | $0 | $0 | $0 | $159.1M | $0 | Exit | -34.1% | Notional, not premium; long/short direction unknown |
 | MU | CALL | $0 | $0 | $0 | $0 | $422.3M | $0 | Exit | -19.1% | Notional, not premium; long/short direction unknown |
 | ORCL | PUT | $0 | $0 | $0 | $0 | $1.1B | $0 | Exit | -4.4% | Notional, not premium; long/short direction unknown |
