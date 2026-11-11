@@ -4,7 +4,7 @@ Automated, EDGAR-first archive and monitor for the public activity of
 **Leopold Aschenbrenner** / **Situational Awareness LP**. Not a trading signal — a
 reproducible archive with instrument-separated 13F analysis.
 
-_Last updated: 2026-11-10 · prices via yfinance · Not investment advice._
+_Last updated: 2026-11-11 · prices via yfinance · Not investment advice._
 
 ## Latest 13F summary
 
@@ -103,7 +103,7 @@ _Last updated: 2026-11-10 · prices via yfinance · Not investment advice._
 | MU | PUT | $0 | $0 | $50.2M | $0 | $583.7M | $0 | Exit | -37.2% | Notional, not premium; long/short direction unknown |
 | NVDA | PUT | $0 | $0 | $298.5M | $0 | $1.6B | $0 | Exit | -15.6% | Notional, not premium; long/short direction unknown |
 | TSM | PUT | $0 | $0 | $75.4M | $0 | $535.1M | $0 | Exit | -17.0% | Notional, not premium; long/short direction unknown |
-| GDX | PUT | $0 | $0 | $195.8M | $0 | $0 | $0 | +0.0% | +14.7% | Notional, not premium; long/short direction unknown |
+| GDX | PUT | $0 | $0 | $195.8M | $0 | $0 | $0 | +0.0% | +14.6% | Notional, not premium; long/short direction unknown |
 | EQT | CALL | $0 | $0 | $0 | $37.5M | $0 | $0 | +0.0% | -1.9% | Notional, not premium; long/short direction unknown |
 | ASML | PUT | $0 | $0 | $0 | $0 | $494.1M | $0 | Exit | -24.1% | Notional, not premium; long/short direction unknown |
 | AMD | PUT | $0 | $0 | $0 | $0 | $969.2M | $0 | Exit | -11.3% | Notional, not premium; long/short direction unknown |
