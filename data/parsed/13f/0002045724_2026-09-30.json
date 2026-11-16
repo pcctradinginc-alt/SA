@@ -1,0 +1,239 @@
+{
+  "cik": "0002045724",
+  "accession": "0000935836-26-000610",
+  "report_date": "2026-09-30",
+  "quarter": "Q3 2026",
+  "holding_count": 23,
+  "holdings": [
+    {
+      "name_of_issuer": "BITDEER TECHNOLOGIES GROUP",
+      "title_of_class": "CL A ORD SHS",
+      "cusip": "G11448100",
+      "value_usd": 20294143,
+      "amount": 1934618,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "BLOOM ENERGY CORP",
+      "title_of_class": "COM CL A",
+      "cusip": "093712107",
+      "value_usd": 49856400,
+      "amount": 180000,
+      "amount_type": "SH",
+      "put_call": "Call",
+      "instrument_type": "OPTION_CALL"
+    },
+    {
+      "name_of_issuer": "BLOOM ENERGY CORP",
+      "title_of_class": "COM CL A",
+      "cusip": "093712107",
+      "value_usd": 33237600,
+      "amount": 120000,
+      "amount_type": "SH",
+      "put_call": "Call",
+      "instrument_type": "OPTION_CALL"
+    },
+    {
+      "name_of_issuer": "BLOOM ENERGY CORP",
+      "title_of_class": "COM CL A",
+      "cusip": "093712107",
+      "value_usd": 65090300,
+      "amount": 235000,
+      "amount_type": "SH",
+      "put_call": "Call",
+      "instrument_type": "OPTION_CALL"
+    },
+    {
+      "name_of_issuer": "BLOOM ENERGY CORP",
+      "title_of_class": "COM CL A",
+      "cusip": "093712107",
+      "value_usd": 90018500,
+      "amount": 325000,
+      "amount_type": "SH",
+      "put_call": "Call",
+      "instrument_type": "OPTION_CALL"
+    },
+    {
+      "name_of_issuer": "BLOOM ENERGY CORP",
+      "title_of_class": "COM CL A",
+      "cusip": "093712107",
+      "value_usd": 110792000,
+      "amount": 400000,
+      "amount_type": "SH",
+      "put_call": "Call",
+      "instrument_type": "OPTION_CALL"
+    },
+    {
+      "name_of_issuer": "BLOOM ENERGY CORP",
+      "title_of_class": "COM CL A",
+      "cusip": "093712107",
+      "value_usd": 40162100,
+      "amount": 145000,
+      "amount_type": "SH",
+      "put_call": "Call",
+      "instrument_type": "OPTION_CALL"
+    },
+    {
+      "name_of_issuer": "CLEANSPARK INC",
+      "title_of_class": "COM NEW",
+      "cusip": "18452B209",
+      "value_usd": 38885094,
+      "amount": 3019029,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "FERMI INC",
+      "title_of_class": "COM",
+      "cusip": "314911108",
+      "value_usd": 11248691,
+      "amount": 2671898,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "IREN LIMITED",
+      "title_of_class": "ORDINARY SHARES",
+      "cusip": "Q4982L109",
+      "value_usd": 21579080,
+      "amount": 527864,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    },
+    {
+      "name_of_issuer": "NEBIUS GROUP N.V.",
+      "title_of_class": "CLASS ASHS",
+      "cusip": "N97284108",
+      "value_usd": 51893600,
+      "amount": 220000,
+      "amount_type": "SH",
+      "put_call": "Call",
+      "instrument_type": "OPTION_CALL"
+    },
+    {
+      "name_of_issuer": "NEBIUS GROUP N.V.",
+      "title_of_class": "CLASS ASHS",
+      "cusip": "N97284108",
+      "value_usd": 47176000,
+      "amount": 200000,
+      "amount_type": "SH",
+      "put_call": "Call",
+      "instrument_type": "OPTION_CALL"
+    },
+    {
+      "name_of_issuer": "NEBIUS GROUP N.V.",
+      "title_of_class": "CLASS ASHS",
+      "cusip": "N97284108",
+      "value_usd": 44817200,
+      "amount": 190000,
+      "amount_type": "SH",
+      "put_call": "Call",
+      "instrument_type": "OPTION_CALL"
+    },
+    {
+      "name_of_issuer": "NEBIUS GROUP N.V.",
+      "title_of_class": "CLASS ASHS",
+      "cusip": "N97284108",
+      "value_usd": 70764000,
+      "amount": 300000,
+      "amount_type": "SH",
+      "put_call": "Call",
+      "instrument_type": "OPTION_CALL"
+    },
+    {
+      "name_of_issuer": "NEBIUS GROUP N.V.",
+      "title_of_class": "CLASS ASHS",
+      "cusip": "N97284108",
+      "value_usd": 51893600,
+      "amount": 220000,
+      "amount_type": "SH",
+      "put_call": "Call",
+      "instrument_type": "OPTION_CALL"
+    },
+    {
+      "name_of_issuer": "NEBIUS GROUP N.V.",
+      "title_of_class": "CLASS ASHS",
+      "cusip": "N97284108",
+      "value_usd": 66046400,
+      "amount": 280000,
+      "amount_type": "SH",
+      "put_call": "Call",
+      "instrument_type": "OPTION_CALL"
+    },
+    {
+      "name_of_issuer": "ROUNDHILL ETF TRUST",
+      "title_of_class": "MEMORY ETF",
+      "cusip": "77926X320",
+      "value_usd": 33198000,
+      "amount": 550000,
+      "amount_type": "SH",
+      "put_call": "Call",
+      "instrument_type": "OPTION_CALL"
+    },
+    {
+      "name_of_issuer": "ROUNDHILL ETF TRUST",
+      "title_of_class": "MEMORY ETF",
+      "cusip": "77926X320",
+      "value_usd": 45270000,
+      "amount": 750000,
+      "amount_type": "SH",
+      "put_call": "Call",
+      "instrument_type": "OPTION_CALL"
+    },
+    {
+      "name_of_issuer": "ROUNDHILL ETF TRUST",
+      "title_of_class": "MEMORY ETF",
+      "cusip": "77926X320",
+      "value_usd": 25954800,
+      "amount": 430000,
+      "amount_type": "SH",
+      "put_call": "Call",
+      "instrument_type": "OPTION_CALL"
+    },
+    {
+      "name_of_issuer": "ROUNDHILL ETF TRUST",
+      "title_of_class": "MEMORY ETF",
+      "cusip": "77926X320",
+      "value_usd": 35914200,
+      "amount": 595000,
+      "amount_type": "SH",
+      "put_call": "Call",
+      "instrument_type": "OPTION_CALL"
+    },
+    {
+      "name_of_issuer": "SANDISK CORP",
+      "title_of_class": "COM",
+      "cusip": "80004C200",
+      "value_usd": 104393400,
+      "amount": 60000,
+      "amount_type": "SH",
+      "put_call": "Call",
+      "instrument_type": "OPTION_CALL"
+    },
+    {
+      "name_of_issuer": "SANDISK CORP",
+      "title_of_class": "COM",
+      "cusip": "80004C200",
+      "value_usd": 78295050,
+      "amount": 45000,
+      "amount_type": "SH",
+      "put_call": "Call",
+      "instrument_type": "OPTION_CALL"
+    },
+    {
+      "name_of_issuer": "SHARONAI HOLDINGS INC",
+      "title_of_class": "COM CL A",
+      "cusip": "778920306",
+      "value_usd": 440673870,
+      "amount": 8070950,
+      "amount_type": "SH",
+      "put_call": "",
+      "instrument_type": "COMMON_STOCK"
+    }
+  ]
+}

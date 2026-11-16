@@ -119,7 +119,23 @@
       "filing_date": "2026-09-17",
       "report_date": "",
       "primary_document": "xslSCHEDULE_13D_X02/primary_doc.xml"
+    },
+    {
+      "cik": "0002045724",
+      "accession": "0000935836-26-000610",
+      "form": "13F-HR",
+      "filing_date": "2026-11-16",
+      "report_date": "2026-09-30",
+      "primary_document": "xslForm13F_X02/primary_doc.xml"
+    },
+    {
+      "cik": "0002045724",
+      "accession": "0000935836-26-000604",
+      "form": "SC 13G/A",
+      "filing_date": "2026-11-16",
+      "report_date": "",
+      "primary_document": "xslSCHEDULE_13G_X02/primary_doc.xml"
     }
   ],
-  "updated": "2026-11-16T15:49:00Z"
+  "updated": "2026-11-16T22:51:55Z"
 }
