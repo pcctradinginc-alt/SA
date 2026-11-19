@@ -16,18 +16,18 @@ _Last updated: 2026-11-19 · prices via yfinance · Not investment advice._
 | **Common stock long exposure** | **$532.7M** |
 | **Options notional exposure** | **$1.0B** _(direction unknown)_ |
 | New / Increased / Reduced / Exited (common) | 1 / 1 / 3 / 40 |
-| Best post-quarter performer | CLSK -51.9% |
-| Worst post-quarter performer | IREN -62.9% |
+| Best post-quarter performer | CLSK -53.3% |
+| Worst post-quarter performer | BTDR -65.9% |
 > Common stock long exposure and options notional are shown separately on purpose — combining them would let the options book dominate the picture.
 
 ## Common stock longs — last 6 quarters
 
 | Ticker | Issuer | Q2 2025 | Q3 2025 | Q4 2025 | Q1 2026 | Q2 2026 | Q3 2026 | QoQ | 3Q | Wt | Px since Q-end | Est. value | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| SHAZ | SHARONAI HOLDINGS INC | 0 | 0 | 0 | 796k | 5.4M | 8.1M | +49.6% | ↑↑↑ | 82.7% | -59.5% | $178.5M | 🟢 Strong Add |
-| CLSK | CLEANSPARK INC | 0 | 0 | 1.6M | 12.3M | 12.3M | 3.0M | -75.4% | Mixed | 7.3% | -51.9% | $18.7M | 🔴 Trim |
-| IREN | IREN LIMITED | 6.4M | 7.2M | 8.7M | 11.7M | 9.5M | 528k | -94.4% | ↓↓ | 4.0% | -62.9% | $8.0M | 🔴 Trim |
-| BTDR | BITDEER TECHNOLOGIES GROUP | 0 | 930k | 1.8M | 3.4M | 3.4M | 1.9M | -43.8% | Mixed | 3.8% | -62.7% | $7.6M | 🔴 Trim |
+| SHAZ | SHARONAI HOLDINGS INC | 0 | 0 | 0 | 796k | 5.4M | 8.1M | +49.6% | ↑↑↑ | 82.7% | -59.7% | $177.4M | 🟢 Strong Add |
+| CLSK | CLEANSPARK INC | 0 | 0 | 1.6M | 12.3M | 12.3M | 3.0M | -75.4% | Mixed | 7.3% | -53.3% | $18.1M | 🔴 Trim |
+| IREN | IREN LIMITED | 6.4M | 7.2M | 8.7M | 11.7M | 9.5M | 528k | -94.4% | ↓↓ | 4.0% | -63.0% | $8.0M | 🔴 Trim |
+| BTDR | BITDEER TECHNOLOGIES GROUP | 0 | 930k | 1.8M | 3.4M | 3.4M | 1.9M | -43.8% | Mixed | 3.8% | -65.9% | $6.9M | 🔴 Trim |
 | FERMI IN | FERMI INC | 0 | 0 | 0 | 0 | 0 | 2.7M | New | New | 2.1% | — | — | 🟡 New Buy |
 
 ## New common stock positions in latest 13F
@@ -85,29 +85,29 @@ _Last updated: 2026-11-19 · prices via yfinance · Not investment advice._
 
 | Underlying | Type | Q2 2025 | Q3 2025 | Q4 2025 | Q1 2026 | Q2 2026 | Q3 2026 | QoQ | Underlying px move | Interpretation risk |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| BE | CALL | $0 | $0 | $35.5M | $55.3M | $44.1M | $389.2M | +781.8% | -38.5% | Notional, not premium; long/short direction unknown |
+| BE | CALL | $0 | $0 | $35.5M | $55.3M | $44.1M | $389.2M | +781.8% | -36.4% | Notional, not premium; long/short direction unknown |
 | NEBIUS GROUP N.V. | CALL | $0 | $0 | $0 | $0 | $0 | $332.6M | New | — | Notional, not premium; long/short direction unknown |
-| SNDK | CALL | $0 | $0 | $0 | $388.8M | $0 | $182.7M | New | -55.6% | Notional, not premium; long/short direction unknown |
+| SNDK | CALL | $0 | $0 | $0 | $388.8M | $0 | $182.7M | New | -54.6% | Notional, not premium; long/short direction unknown |
 | ROUNDHILL ETF TRUST | CALL | $0 | $0 | $0 | $0 | $0 | $140.3M | New | — | Notional, not premium; long/short direction unknown |
-| INTC | CALL | $453.3M | $679.0M | $746.8M | $0 | $0 | $0 | +0.0% | -54.9% | Notional, not premium; long/short direction unknown |
-| SMH | PUT | $570.1M | $0 | $0 | $2.0B | $0 | $0 | +0.0% | -24.9% | Notional, not premium; long/short direction unknown |
+| INTC | CALL | $453.3M | $679.0M | $746.8M | $0 | $0 | $0 | +0.0% | -53.0% | Notional, not premium; long/short direction unknown |
+| SMH | PUT | $570.1M | $0 | $0 | $2.0B | $0 | $0 | +0.0% | -24.4% | Notional, not premium; long/short direction unknown |
 | BLOOM ENERGY CORP | CALL | $0 | $12.3M | $0 | $0 | $0 | $0 | +0.0% | — | Notional, not premium; long/short direction unknown |
-| AVGO | PUT | $0 | $75.9M | $0 | $1.0B | $0 | $0 | +0.0% | +0.8% | Notional, not premium; long/short direction unknown |
-| CRWV | PUT | $0 | $191.6M | $0 | $0 | $0 | $0 | +0.0% | -45.2% | Notional, not premium; long/short direction unknown |
-| CRWV | CALL | $0 | $316.7M | $774.4M | $140.6M | $0 | $0 | +0.0% | -45.2% | Notional, not premium; long/short direction unknown |
-| MU | PUT | $0 | $50.2M | $0 | $583.7M | $0 | $0 | +0.0% | -34.4% | Notional, not premium; long/short direction unknown |
-| NVDA | PUT | $0 | $298.5M | $0 | $1.6B | $0 | $0 | +0.0% | -34.0% | Notional, not premium; long/short direction unknown |
-| TSM | PUT | $0 | $75.4M | $0 | $535.1M | $0 | $0 | +0.0% | -21.0% | Notional, not premium; long/short direction unknown |
-| GDX | PUT | $0 | $195.8M | $0 | $0 | $0 | $0 | +0.0% | -14.6% | Notional, not premium; long/short direction unknown |
-| EQT | CALL | $0 | $0 | $37.5M | $0 | $0 | $0 | +0.0% | +4.4% | Notional, not premium; long/short direction unknown |
-| INFY | PUT | $0 | $0 | $8.9M | $6.8M | $5.2M | $0 | Exit | +10.2% | Notional, not premium; long/short direction unknown |
-| ASML | PUT | $0 | $0 | $0 | $494.1M | $0 | $0 | +0.0% | -23.2% | Notional, not premium; long/short direction unknown |
-| AMD | PUT | $0 | $0 | $0 | $969.2M | $0 | $0 | +0.0% | -14.5% | Notional, not premium; long/short direction unknown |
-| GLW | PUT | $0 | $0 | $0 | $21.0M | $0 | $0 | +0.0% | -29.6% | Notional, not premium; long/short direction unknown |
-| INTC | PUT | $0 | $0 | $0 | $159.1M | $0 | $0 | +0.0% | -54.9% | Notional, not premium; long/short direction unknown |
-| MU | CALL | $0 | $0 | $0 | $422.3M | $0 | $0 | +0.0% | -34.4% | Notional, not premium; long/short direction unknown |
-| ORCL | PUT | $0 | $0 | $0 | $1.1B | $0 | $0 | +0.0% | -16.4% | Notional, not premium; long/short direction unknown |
-| TSM | CALL | $0 | $0 | $0 | $354.8M | $23.9M | $0 | Exit | -21.0% | Notional, not premium; long/short direction unknown |
+| AVGO | PUT | $0 | $75.9M | $0 | $1.0B | $0 | $0 | +0.0% | +1.6% | Notional, not premium; long/short direction unknown |
+| CRWV | PUT | $0 | $191.6M | $0 | $0 | $0 | $0 | +0.0% | -44.4% | Notional, not premium; long/short direction unknown |
+| CRWV | CALL | $0 | $316.7M | $774.4M | $140.6M | $0 | $0 | +0.0% | -44.4% | Notional, not premium; long/short direction unknown |
+| MU | PUT | $0 | $50.2M | $0 | $583.7M | $0 | $0 | +0.0% | -32.8% | Notional, not premium; long/short direction unknown |
+| NVDA | PUT | $0 | $298.5M | $0 | $1.6B | $0 | $0 | +0.0% | -33.4% | Notional, not premium; long/short direction unknown |
+| TSM | PUT | $0 | $75.4M | $0 | $535.1M | $0 | $0 | +0.0% | -20.6% | Notional, not premium; long/short direction unknown |
+| GDX | PUT | $0 | $195.8M | $0 | $0 | $0 | $0 | +0.0% | -16.7% | Notional, not premium; long/short direction unknown |
+| EQT | CALL | $0 | $0 | $37.5M | $0 | $0 | $0 | +0.0% | +3.6% | Notional, not premium; long/short direction unknown |
+| INFY | PUT | $0 | $0 | $8.9M | $6.8M | $5.2M | $0 | Exit | +8.6% | Notional, not premium; long/short direction unknown |
+| ASML | PUT | $0 | $0 | $0 | $494.1M | $0 | $0 | +0.0% | -22.2% | Notional, not premium; long/short direction unknown |
+| AMD | PUT | $0 | $0 | $0 | $969.2M | $0 | $0 | +0.0% | -20.9% | Notional, not premium; long/short direction unknown |
+| GLW | PUT | $0 | $0 | $0 | $21.0M | $0 | $0 | +0.0% | -28.6% | Notional, not premium; long/short direction unknown |
+| INTC | PUT | $0 | $0 | $0 | $159.1M | $0 | $0 | +0.0% | -53.0% | Notional, not premium; long/short direction unknown |
+| MU | CALL | $0 | $0 | $0 | $422.3M | $0 | $0 | +0.0% | -32.8% | Notional, not premium; long/short direction unknown |
+| ORCL | PUT | $0 | $0 | $0 | $1.1B | $0 | $0 | +0.0% | -16.6% | Notional, not premium; long/short direction unknown |
+| TSM | CALL | $0 | $0 | $0 | $354.8M | $23.9M | $0 | Exit | -20.6% | Notional, not premium; long/short direction unknown |
 
 > Options are shown as reported notional exposure. Direction, premium, strike, expiry and true economic exposure are unknown.
 
